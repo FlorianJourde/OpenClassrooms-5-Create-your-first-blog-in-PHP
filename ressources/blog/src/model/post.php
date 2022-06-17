@@ -1,5 +1,7 @@
 <?php
 
+require_once('src/lib/database.php');
+
 class Post
 {
   public string $title;
@@ -10,11 +12,10 @@ class Post
 
 class PostRepository
 {
-  public ?PDO $database = null;
+  public DatabaseConnection $connection;
 
-  public function getPost(/*PostRepository $this, */ string $identifier): Post {
-    $this->dbConnect();
-    $statement = $this->database->prepare(
+  public function getPost(string $identifier): Post {
+    $statement = $this->connection->getConnection()->prepare(
       "SELECT id, title, content, DATE_FORMAT(creation_date, '%d/%m/%Y à %Hh%imin%ss') AS french_creation_date FROM posts WHERE id = ?"
     );
     $statement->execute([$identifier]);
@@ -30,8 +31,7 @@ class PostRepository
   }
 
   public function getPosts(): array {
-    $this->dbConnect();
-    $statement = $this->database->query(
+    $statement = $this->connection->getConnection()->query(
       "SELECT id, title, content, DATE_FORMAT(creation_date, '%d/%m/%Y à %Hh%imin%ss') AS french_creation_date FROM posts ORDER BY creation_date DESC LIMIT 0, 5"
     );
 
@@ -47,12 +47,4 @@ class PostRepository
 
     return $posts;
   }
-
-  public function dbConnect()
-  {
-    if ($this->database === null) {
-      $this->database = new PDO('mysql:host=localhost;dbname=blog;charset=utf8', 'root', '');
-    }
-  }
-
 }

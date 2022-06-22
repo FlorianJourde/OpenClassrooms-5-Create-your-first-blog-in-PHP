@@ -1,5 +1,4 @@
 <?php
-// index.php
 
 require_once('src/controllers/add_comment.php');
 require_once('src/controllers/homepage.php');
@@ -30,7 +29,6 @@ try {
     homepage();
   }
 } catch (Exception $e) { // S'il y a eu une erreur, alors...
-//  echo 'Erreur : '.$e->getMessage();
 
   $errorMessage = $e->getMessage();
 

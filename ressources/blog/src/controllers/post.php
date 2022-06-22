@@ -9,7 +9,10 @@ function post(string $identifier)
   $postRepository = new PostRepository();
   $postRepository->connection = new DatabaseConnection();
   $post = $postRepository->getPost($identifier);
-  $comments = getComments($identifier);
+
+  $commentRepository = new CommentsRepository();
+  $commentRepository->connection = new DatabaseConnection();
+  $comments = $commentRepository->getComments($identifier);
 
   require('templates/post.php');
 }

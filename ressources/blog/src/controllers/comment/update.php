@@ -14,10 +14,10 @@ class UpdateComment
     {
         // It handles the form submission when there is an input.
         if ($input !== null) {
-            $author = null;
+//            $author = null;
             $comment = null;
-            if (!empty($input['author']) && !empty($input['comment'])) {
-                $author = $input['author'];
+            if (!empty($input['comment'])) {
+//                $author = $input['author'];
                 $comment = $input['comment'];
             } else {
                 throw new \Exception('Les données du formulaire sont invalides.');
@@ -25,7 +25,7 @@ class UpdateComment
 
             $commentRepository = new CommentRepository();
             $commentRepository->connection = new DatabaseConnection();
-            $success = $commentRepository->updateComment($identifier, $author, $comment);
+            $success = $commentRepository->updateComment($identifier, $comment);
             if (!$success) {
                 throw new \Exception('Impossible de modifier le commentaire !');
             } else {

@@ -73,12 +73,12 @@ class CommentRepository
         return ($affectedLines > 0);
     }
 
-    public function updateComment(string $identifier, string $author, string $comment): bool
+    public function updateComment(string $identifier, string $comment): bool
     {
         $statement = $this->connection->getConnection()->prepare(
-            'UPDATE comments SET author = ?, comment = ? WHERE id = ?'
+            'UPDATE comments SET comment = ? WHERE id = ?'
         );
-        $affectedLines = $statement->execute([$author, $comment, $identifier]);
+        $affectedLines = $statement->execute([$comment, $identifier]);
 
         return ($affectedLines > 0);
     }

@@ -7,11 +7,11 @@
 <h2>Modification du commentaire</h2>
 
 <form action="index.php?action=updateComment&id=<?= $comment->identifier ?>" method="post">
-   <p><?php /*echo $comment->author;*/ ?></p>
-   <div>
+   <p><?php echo $comment->author; ?></p>
+   <!--<div>
       <label for="author">Auteur</label><br />
-      <input type="text" id="author" name="author" value="<?php echo htmlspecialchars($comment->author) ?>"/>
-   </div>
+      <input type="text" id="author" name="author" value="<?php /*echo htmlspecialchars($comment->author) */?>"/>
+   </div>-->
    <div>
       <label for="comment">Commentaire</label><br />
       <textarea id="comment" name="comment"><?= htmlspecialchars($comment->comment) ?></textarea>

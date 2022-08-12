@@ -8,5 +8,3 @@ use \Michelf\Markdown;
 echo App\Helper\Form::input();
 
 echo Markdown::defaultTransform('Bonjour, j\'essaie le **markdown**');
-
-?>

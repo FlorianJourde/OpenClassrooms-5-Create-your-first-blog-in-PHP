@@ -1,0 +1,21 @@
+{% extends 'layout.twig' %}
+
+{% block head %}
+    <title>Accueil</title>
+{% endblock %}
+
+{% block content %}
+
+    <p>Salut les gens</p>
+    <p>{{ person.name }} a {{ person.age }} ans</p>
+
+    <h2>Les derniers tutoriels</h2>
+
+    {% for post in posts %}
+        <h3>Titre {{ loop.index }}</h3>
+        <li>{{ post.title | markdown_filter }}</li>
+        <h3>Contenu</h3>
+        <li>{{ markdown_function(post.content) }}</li>
+    {% endfor %}
+
+{% endblock %}

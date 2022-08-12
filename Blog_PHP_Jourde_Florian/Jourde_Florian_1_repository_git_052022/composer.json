@@ -1,0 +1,17 @@
+{
+    "name": "jourd/jourde_florian_1_repository_git_052022",
+    "require": {
+        "michelf/php-markdown": "@dev"
+    },
+    "autoload": {
+        "psr-4": {
+            "Jourd\\JourdeFlorian1RepositoryGit052022\\": "src/",
+            "App\\": "App"
+        }
+    },
+    "authors": [
+        {
+            "name": "Florian Jourde"
+        }
+    ]
+}

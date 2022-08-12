@@ -1,11 +1,6 @@
-#/ressources/blog/.idea/
-#/ressources/MatchMaker/.idea/
-#/ressources/MatchMaker/
-#/ressources/MatchMaker/correction/
-#/ressources/tests/
 .idea
 ressources/1-Cours-MVC
 ressources/2-Cours-POO
-ressources/images
+ressources/documents
 ressources/db.sql
 ressources/tests

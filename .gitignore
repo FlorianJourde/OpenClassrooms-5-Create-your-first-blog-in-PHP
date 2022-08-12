@@ -3,3 +3,9 @@
 #/ressources/MatchMaker/
 #/ressources/MatchMaker/correction/
 #/ressources/tests/
+.idea
+ressources/1-Cours-MVC
+ressources/2-Cours-POO
+ressources/images
+ressources/db.sql
+ressources/tests

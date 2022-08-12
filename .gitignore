@@ -4,4 +4,5 @@
 #ressources/documents
 #ressources/db.sql
 #ressources/tests
-/Blog_PHP_Jourde_Florian/Jourde_Florian_1_repository_git_052022/vendor
+#/Blog_PHP_Jourde_Florian/Jourde_Florian_1_repository_git_052022/vendor
+/vendor

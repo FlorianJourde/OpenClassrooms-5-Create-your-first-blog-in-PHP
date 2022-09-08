@@ -13,9 +13,8 @@
 
     {% for post in posts %}
         <h3>Titre {{ loop.index }}</h3>
-        <li>{{ post.title | markdown_filter }}</li>
+        <li>{{ post.title }}</li>
         <h3>Contenu</h3>
-        <li>{{ markdown_function(post.content) }}</li>
     {% endfor %}
 
 {% endblock %}

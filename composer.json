@@ -1,7 +1,8 @@
 {
     "name": "jourd/jourde_florian_1_repository_git_052022",
     "require": {
-        "michelf/php-markdown": "@dev"
+        "michelf/php-markdown": "@dev",
+        "twig/twig": "@dev"
     },
     "autoload": {
         "psr-4": {

@@ -27,6 +27,7 @@ class Post
 
         $commentRepository = new CommentRepository();
         $commentRepository->connection = $connection;
+
 //        var_dump($commentRepository->getComments($identifier));
 //        $comments = $commentRepository->getComments($identifier);
 

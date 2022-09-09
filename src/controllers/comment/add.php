@@ -10,7 +10,7 @@ use Application\Model\CommentRepository\CommentRepository;
 
 class AddComment
 {
-    public function execute(string $post, array $input)
+    public function execute(string $post, array $input, string $user_id, bool $status)
     {
         $author = null;
         $comment = null;
@@ -24,13 +24,7 @@ class AddComment
 
         $commentRepository = new CommentRepository();
         $commentRepository->connection = new DatabaseConnection();
-        $success = $commentRepository->createComment($post, $author, $comment);
-
-
-//        var_dump($post);
-//        var_dump($comment);
-//        var_dump($input);
-//        die();
+        $success = $commentRepository->createComment($post, $author, $comment, $user_id, $status);
 
         if (!$success) {
             throw new \Exception('Impossible d\'ajouter le commentaire !');

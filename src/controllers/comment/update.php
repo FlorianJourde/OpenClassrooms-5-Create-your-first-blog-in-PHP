@@ -16,6 +16,9 @@ class UpdateComment
         if ($input !== null) {
 //            $author = null;
             $comment = null;
+//            var_dump($identifier, $input);
+//            die();
+
             if (!empty($input['comment'])) {
 //                $author = $input['author'];
                 $comment = $input['comment'];

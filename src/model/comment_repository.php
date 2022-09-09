@@ -64,12 +64,14 @@ class CommentRepository
         return $comment;
     }
 
-    public function createComment(string $post, string $author, string $comment): bool
+    public function createComment(string $post, string $author, string $comment, string $user_id, bool $status): bool
     {
         $statement = $this->connection->getConnection()->prepare(
-            'INSERT INTO comments(post_id, author, content, comment_date) VALUES(?, ?, ?, NOW())'
+            'INSERT INTO comments(post_id, author, content, user_id, status, comment_date) VALUES(?, ?, ?, ?, ?, NOW())'
         );
-        $affectedLines = $statement->execute([$post, $author, $comment]);
+//        var_dump($statement);
+//        die();
+        $affectedLines = $statement->execute([$post, $author, $comment, $user_id, $status]);
 
         return ($affectedLines > 0);
     }

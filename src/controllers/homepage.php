@@ -8,7 +8,7 @@ require_once('src/model/post_repository.php');
 require_once('vendor/autoload.php');
 
 use Application\Lib\Database\DatabaseConnection;
-use Application\Model\PostRepository\PostRepository;
+use Application\Model\PostRepository;
 
 class Homepage
 {

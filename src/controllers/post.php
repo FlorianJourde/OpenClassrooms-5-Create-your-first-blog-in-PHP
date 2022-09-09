@@ -9,8 +9,8 @@ require_once('src/model/post.php');
 
 use Application\Lib\Database\DatabaseConnection;
 use Application\Model\Comment\Comment;
-use Application\Model\CommentRepository\CommentRepository;
-use Application\Model\PostRepository\PostRepository;
+use Application\Model\CommentRepository;
+use Application\Model\PostRepository;
 
 class Post
 {

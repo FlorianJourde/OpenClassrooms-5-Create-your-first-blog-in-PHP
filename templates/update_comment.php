@@ -3,7 +3,6 @@
 <?php ob_start(); ?>
 <h1>Le super blog de l'AVBN !</h1>
 <p><a href="index.php?action=post&id=<?= $comment->post ?>">Retour au billet</a></p>
-
 <h2>Modification du commentaire</h2>
 
 <form action="index.php?action=updateComment&id=<?= $comment->identifier ?>" method="post">

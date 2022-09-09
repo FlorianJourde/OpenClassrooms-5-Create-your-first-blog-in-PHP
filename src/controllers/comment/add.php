@@ -6,7 +6,7 @@ require_once('src/lib/database.php');
 require_once('src/model/comment_repository.php');
 
 use Application\Lib\Database\DatabaseConnection;
-use Application\Model\CommentRepository\CommentRepository;
+use Application\Model\CommentRepository;
 
 class AddComment
 {

@@ -1,4 +1,4 @@
 .idea
 /tmp
 /vendor
-/cache
+/cache/*

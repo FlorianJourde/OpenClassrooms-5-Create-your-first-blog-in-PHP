@@ -1,5 +1,10 @@
 {
   "require": {
     "twig/twig": "2.*"
+  },
+  "autoload": {
+    "psr-4": {
+      "Application\\": "Jourd/JourdeFlorian1RepositoryGit052022/src"
+    }
   }
 }

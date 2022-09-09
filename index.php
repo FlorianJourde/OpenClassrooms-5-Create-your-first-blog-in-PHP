@@ -50,7 +50,19 @@ try {
         (new Homepage())->execute();
     }
 } catch (Exception $e) {
+//    var_dump('error');
     $errorMessage = $e->getMessage();
 
-    require('templates/error.php');
+//    require('templates/error.php');
+
+    $loader = new \Twig\Loader\FilesystemLoader('templates');
+    $twig = new \Twig\Environment($loader, [
+        'cache' => 'cache',
+        'debug' => true
+    ]);
+
+    $twig->addExtension(new \Twig\Extension\DebugExtension());
+
+    echo $twig->render('error.twig', ['errorMessage' => $errorMessage]);
+//    die();
 }

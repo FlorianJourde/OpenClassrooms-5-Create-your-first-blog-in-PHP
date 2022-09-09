@@ -5,17 +5,17 @@
 {% endblock %}
 
 {% block content %}
-
-    <p>Salut les gens</p>
-    <p>{{ person.name }} a {{ person.age }} ans</p>
-
-    <h2>Les derniers tutoriels</h2>
+    <h1>Le super blog de l'AVBN !</h1>
+    <p>Derniers billets du blog :</p>
 
     {% for post in posts %}
-        <h3>Titre {{ loop.index }}</h3>
-        <li>{{ post.title | markdown_filter }}</li>
-        <h3>Contenu</h3>
-        <li>{{ markdown_function(post.content) }}</li>
+    <div class="news">
+        <h3>{{ post.title }} le {{ post.frenchCreationDate }}</h3>
+        <p>
+            {{ post.content }}
+            <br />
+            <em><a href="index.php?action=post&id={{ post.identifier }}">Commentaires</a></em>
+        </p>
+    </div>
     {% endfor %}
-
 {% endblock %}

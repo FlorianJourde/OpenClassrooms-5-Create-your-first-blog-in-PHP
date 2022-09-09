@@ -1,0 +1,24 @@
+{% extends 'layout.twig' %}
+
+{% block head %}
+   <title>Accueil</title>
+{% endblock %}
+
+{% block content %}
+
+   <h1>Le super blog de l'AVBN !</h1>
+   <p><a href="index.php?action=post&id={{ post.identifier }}">Retour au billet</a></p>
+   <h2>Modification du commentaire</h2>
+
+   <form action="index.php?action=updateComment&id={{ comment.identifier }}" method="post">
+      <p>{{ comment.author }}</p>
+      <div>
+         <label for="comment">Commentaire</label><br />
+         <textarea id="comment" name="comment">{{ comment.comment }}</textarea>
+      </div>
+      <div>
+         <input type="submit" />
+      </div>
+   </form>
+
+{% endblock %}

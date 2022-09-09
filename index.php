@@ -1,52 +1,68 @@
 <?php
 
-require 'vendor/autoload.php';
-require 'MyExtension.php';
+require_once('src/controllers/comment/add.php');
+require_once('src/controllers/comment/update.php');
+require_once('src/controllers/homepage.php');
+require_once('src/controllers/post.php');
 
-//use \Michelf\Markdown;
-//
-//echo App\Helper\Form::input();
-//
-//echo Markdown::defaultTransform('Bonjour, j\'essaie le **markdown**');
+use Application\Controllers\Comment\Add\AddComment;
+use Application\Controllers\Comment\Update\UpdateComment;
+use Application\Controllers\Homepage\Homepage;
+use Application\Controllers\Post\Post;
 
-$page = 'home';
-if (isset($_GET['p'])) {
-    $page = $_GET['p'];
-}
+try {
+    if (isset($_GET['action']) && $_GET['action'] !== '') {
+        if ($_GET['action'] === 'post') {
+            if (isset($_GET['id']) && $_GET['id'] > 0) {
+                $identifier = $_GET['id'];
 
-//Get last tutorials
-function getPosts() {
-    $pdo = new PDO('mysql:dbname=blog;charset=utf8;host=localhost', 'root', '');
-    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    $pdo->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_OBJ);
-    $posts = $pdo->query('SELECT * FROM posts');
-    return $posts;
-}
+                (new Post())->execute($identifier);
+            } else {
+                throw new Exception('Aucun identifiant de billet envoyé');
+            }
+        } elseif ($_GET['action'] === 'addComment') {
+            if (isset($_GET['id']) && $_GET['id'] > 0) {
+                $identifier = $_GET['id'];
+                $user_id = '1';
+                $status = true;
 
-//Render template
-$loader = new \Twig\Loader\FilesystemLoader(__DIR__ . '/templates');
-$twig = new Twig\Environment($loader, [
-    'cache' => false, // __DIR__ . '/tmp'
-    'debug' => true
-]);
+                (new AddComment())->execute($identifier, $_POST, $user_id, $status);
+            } else {
+                throw new Exception('Aucun identifiant de billet envoyé');
+            }
+        } elseif ($_GET['action'] === 'updateComment') {
+            if (isset($_GET['id']) && $_GET['id'] > 0) {
+                $identifier = $_GET['id'];
+                // It sets the input only when the HTTP method is POST (ie. the form is submitted).
+                $input = null;
+                if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+                    $input = $_POST;
+                }
 
-$twig->addFunction(new \Twig\TwigFunction('markdown_function', function ($value) {
-    return \Michelf\MarkdownExtra::defaultTransform($value);
-}, ['is_safe' => ['html']]));
+                (new UpdateComment())->execute($identifier, $input);
+            } else {
+                throw new Exception('Aucun identifiant de commentaire envoyé');
+            }
+        } else {
+            throw new Exception("La page que vous recherchez n'existe pas.");
+        }
+    } else {
+        (new Homepage())->execute();
+    }
+} catch (Exception $e) {
+//    var_dump('error');
+    $errorMessage = $e->getMessage();
 
-$twig->addExtension(new MyExtension());
-$twig->addExtension(new \Twig\Extension\DebugExtension());
-$twig->addGlobal('current_page', $page);
+//    require('templates/error.php');
 
-switch ($page) {
-    case 'contact':
-        echo $twig->render('contact.twig', ['name' => 'Marc', 'email' => 'demo@demo.fr']);
-        break;
-    case 'home':
-        echo $twig->render('home.twig', ['posts' => getPosts()]);
-        break;
-    default:
-        header('HTTP/1.0 404 Not found');
-        echo $twig->render('404.twig');
-        break;
+    $loader = new \Twig\Loader\FilesystemLoader('templates');
+    $twig = new \Twig\Environment($loader, [
+        'cache' => 'cache',
+        'debug' => true
+    ]);
+
+    $twig->addExtension(new \Twig\Extension\DebugExtension());
+
+    echo $twig->render('error.twig', ['errorMessage' => $errorMessage]);
+//    die();
 }

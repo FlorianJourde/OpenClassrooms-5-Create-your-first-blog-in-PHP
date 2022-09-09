@@ -7,15 +7,6 @@ require_once('src/lib/database.php');
 use Application\Lib\Database\DatabaseConnection;
 use Application\Model\Comment\Comment;
 
-/*class Comment
-{
-    public string $identifier;
-    public string $author;
-    public string $frenchCreationDate;
-    public string $comment;
-    public string $post;
-}*/
-
 class CommentRepository
 {
     public DatabaseConnection $connection;
@@ -69,8 +60,7 @@ class CommentRepository
         $statement = $this->connection->getConnection()->prepare(
             'INSERT INTO comments(post_id, author, content, user_id, status, comment_date) VALUES(?, ?, ?, ?, ?, NOW())'
         );
-//        var_dump($statement);
-//        die();
+
         $affectedLines = $statement->execute([$post, $author, $comment, $user_id, $status]);
 
         return ($affectedLines > 0);

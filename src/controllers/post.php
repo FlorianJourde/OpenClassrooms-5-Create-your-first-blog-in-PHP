@@ -3,9 +3,9 @@
 namespace Application\Controllers\Post;
 
 require_once('src/lib/database.php');
-require_once('src/model/comment.php');
-require_once('src/model/comment_repository.php');
-require_once('src/model/post.php');
+require_once('src/model/Comment.php');
+require_once('src/model/CommentRepository.php');
+require_once('src/model/Post.php');
 
 use Application\Lib\Database\DatabaseConnection;
 use Application\Model\Comment\Comment;
@@ -20,18 +20,10 @@ class Post
 
         $postRepository = new PostRepository();
         $postRepository->connection = $connection;
-//        $post = $postRepository->getPost($identifier);
-
-//        $comment = new Comment();
-//        $comment->connection = $connection;
 
         $commentRepository = new CommentRepository();
         $commentRepository->connection = $connection;
 
-//        var_dump($commentRepository->getComments($identifier));
-//        $comments = $commentRepository->getComments($identifier);
-
-//        require('templates/post.php');
 
         $loader = new \Twig\Loader\FilesystemLoader('templates');
         $twig = new \Twig\Environment($loader, [

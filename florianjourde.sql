@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : ven. 09 sep. 2022 à 14:18
+-- Généré le : ven. 09 sep. 2022 à 16:13
 -- Version du serveur : 5.7.36
 -- Version de PHP : 7.4.26
 
@@ -37,7 +37,7 @@ CREATE TABLE IF NOT EXISTS `comments` (
   `status` tinyint(1) NOT NULL,
   `comment_date` datetime NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=41 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=44 DEFAULT CHARSET=utf8;
 
 --
 -- Déchargement des données de la table `comments`
@@ -57,28 +57,31 @@ INSERT INTO `comments` (`id`, `user_id`, `author`, `post_id`, `content`, `status
 (12, 0, 'Sam', 1, 'Oui voila', 0, '2022-06-22 23:10:09'),
 (13, 0, 'John', 2, 'Je suis createComment', 0, '2022-06-22 23:10:29'),
 (14, 0, 'Sam', 2, 'Namespace', 0, '2022-06-22 23:36:18'),
-(15, 0, 'John', 1, 'Use', 0, '2022-06-22 23:36:30'),
+(15, 0, 'John', 1, 'Used', 0, '2022-06-22 23:36:30'),
 (16, 0, 'Sam', 2, 'Use', 0, '2022-06-22 23:43:29'),
 (17, 0, 'Sam', 1, 'Code refactorisé', 0, '2022-06-22 23:52:15'),
-(18, 0, 'John', 1, 'Au revoir', 0, '2022-06-27 20:20:39'),
+(18, 0, 'John', 1, 'Au revoirdd', 0, '2022-06-27 20:20:39'),
 (19, 0, 'Tom', 2, 'Okokokokok', 0, '2022-06-27 20:47:23'),
 (20, 0, 'Tom', 2, 'Test', 0, '2022-06-27 20:48:01'),
 (21, 0, 'Tom', 2, 'Hello', 0, '2022-06-27 20:49:12'),
 (22, 0, 'Tom', 2, 'Hiqsxs', 0, '2022-06-27 20:49:51'),
-(23, 0, 'Tom', 1, 'Hello!', 0, '2022-06-27 21:04:38'),
-(24, 0, 'Tom', 1, 'COUC', 0, '2022-06-27 21:05:58'),
+(23, 0, 'Tom', 1, 'Hello!!', 0, '2022-06-27 21:04:38'),
+(24, 0, 'Tom', 1, 'COUCdddss', 0, '2022-06-27 21:05:58'),
 (25, 0, 'Tom', 2, 'Salutttssss', 0, '2022-06-27 21:10:42'),
 (26, 0, 'Sam', 2, 'dfvdfvdfv', 0, '2022-06-27 21:51:17'),
 (27, 0, 'Diane', 2, 'dfvdfv', 0, '2022-06-27 22:09:33'),
 (28, 0, 'Tom', 2, 'dfvdfv', 0, '2022-06-27 22:11:09'),
-(29, 0, 'Diane', 1, 'COUCOU', 0, '2022-06-27 22:12:32'),
+(29, 0, 'Diane', 1, 'COUCOUdcdfv', 0, '2022-06-27 22:12:32'),
 (30, 0, 'Diane', 2, 'loul', 0, '2022-06-27 22:34:24'),
 (35, 0, 'Diane', 1, 'Preum\'s', 0, '2022-03-03 13:00:42'),
 (36, 0, 'Diane', 2, 'blablavdfv\r\ndfvdfdfsddd', 0, '2022-06-30 17:28:42'),
 (37, 1, 'aut', 2, 'comd', 1, '2022-09-09 15:51:37'),
 (38, 1, 'aut', 2, 'com', 1, '2022-09-09 15:51:45'),
-(39, 1, 'aut', 2, 'com', 1, '2022-09-09 15:51:49'),
-(40, 1, 'aut', 2, 'com', 1, '2022-09-09 15:52:00');
+(39, 1, 'aut', 2, 'comeeed', 1, '2022-09-09 15:51:49'),
+(40, 1, 'aut', 2, 'com', 1, '2022-09-09 15:52:00'),
+(41, 1, 'dfv', 2, '333333', 1, '2022-09-09 17:18:44'),
+(42, 1, 'dfvf', 2, 'fdvdfvvvvdddddvv', 1, '2022-09-09 17:21:22'),
+(43, 1, 'TEST', 2, 'TEST5', 1, '2022-09-09 18:03:35');
 
 -- --------------------------------------------------------
 

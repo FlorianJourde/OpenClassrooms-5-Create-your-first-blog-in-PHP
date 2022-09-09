@@ -3,7 +3,7 @@
 namespace Application\Controllers\Comment\Update;
 
 require_once('src/lib/database.php');
-require_once('src/model/comment_repository.php');
+require_once('src/model/CommentRepository.php');
 
 use Application\Lib\Database\DatabaseConnection;
 use Application\Model\CommentRepository;
@@ -13,15 +13,12 @@ class UpdateComment
 {
     public function execute(string $identifier, ?array $input)
     {
-        // It handles the form submission when there is an input.
         if ($input !== null) {
-//            $author = null;
+            $author = null;
             $comment = null;
-//            var_dump($identifier, $input);
-//            die();
 
             if (!empty($input['comment'])) {
-//                $author = $input['author'];
+                $author = $input['author'];
                 $comment = $input['comment'];
             } else {
                 throw new \Exception('Les données du formulaire sont invalides.');
@@ -38,22 +35,16 @@ class UpdateComment
             if ($comment->post === null) {
                 throw new \Exception('L\'article concérné n\'existe pas !');
             }
-//            sprintf('Location: index.php?action=post&id=%d', $comment->post);
-//            var_dump(sprintf('Location: index.php?action=post&id=%d', $comment->post));
-//            die();
-//            header('Location: index.php?action=post&id=' . $comment->post);
+
             header(sprintf('Location: index.php?action=post&id=%d', $comment->post));
         }
 
-        // Otherwise, it displays the form.
         $commentRepository = new CommentRepository();
         $commentRepository->connection = new DatabaseConnection();
         $comment = $commentRepository->getComment($identifier);
         if ($comment === null) {
             throw new \Exception("Le commentaire $identifier n'existe pas.");
         }
-
-//        require('templates/update_comment.php');
 
         $postRepository = new PostRepository();
         $postRepository->connection = new DatabaseConnection();

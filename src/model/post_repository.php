@@ -1,20 +1,22 @@
 <?php
 
-namespace Application\Model\Post;
+namespace Application\Model\PostRepository;
 
 require_once('src/lib/database.php');
+require_once('src/controllers/post.php');
 
-//use Application\Lib\Database\DatabaseConnection;
+use Application\Lib\Database\DatabaseConnection;
+use Application\Model\Post\Post;
 
-class Post
+/*class Post
 {
     public string $title;
     public string $frenchCreationDate;
     public string $content;
     public string $identifier;
-}
+}*/
 
-/*class PostRepository
+class PostRepository
 {
     public DatabaseConnection $connection;
 
@@ -53,4 +55,4 @@ class Post
 
         return $posts;
     }
-}*/
+}

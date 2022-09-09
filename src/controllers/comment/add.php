@@ -3,10 +3,10 @@
 namespace Application\Controllers\Comment\Add;
 
 require_once('src/lib/database.php');
-require_once('src/model/comment.php');
+require_once('src/model/comment_repository.php');
 
 use Application\Lib\Database\DatabaseConnection;
-use Application\Model\Comment\CommentRepository;
+use Application\Model\CommentRepository\CommentRepository;
 
 class AddComment
 {
@@ -14,6 +14,7 @@ class AddComment
     {
         $author = null;
         $comment = null;
+
         if (!empty($input['author']) && !empty($input['comment'])) {
             $author = $input['author'];
             $comment = $input['comment'];
@@ -24,6 +25,13 @@ class AddComment
         $commentRepository = new CommentRepository();
         $commentRepository->connection = new DatabaseConnection();
         $success = $commentRepository->createComment($post, $author, $comment);
+
+
+//        var_dump($post);
+//        var_dump($comment);
+//        var_dump($input);
+//        die();
+
         if (!$success) {
             throw new \Exception('Impossible d\'ajouter le commentaire !');
         } else {

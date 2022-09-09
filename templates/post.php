@@ -32,6 +32,7 @@
 </form>
 
 <?php
+var_dump($comments);
 foreach ($comments as $comment) {
 ?>
     <p><strong><?= htmlspecialchars($comment->author) ?></strong> le <?= $comment->frenchCreationDate ?> (<a href="index.php?action=updateComment&id=<?= $comment->identifier ?>">modifier</a>)</p>

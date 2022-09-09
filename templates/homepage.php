@@ -5,6 +5,7 @@
 <p>Derniers billets du blog :</p>
 
 <?php
+//var_dump($posts);
 foreach ($posts as $post) {
 ?>
     <div class="news">

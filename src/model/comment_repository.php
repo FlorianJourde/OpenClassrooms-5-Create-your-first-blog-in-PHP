@@ -1,28 +1,29 @@
 <?php
 
-namespace Application\Model\Comment;
+namespace Application\Model\CommentRepository;
 
 require_once('src/lib/database.php');
 
-//use Application\Lib\Database\DatabaseConnection;
+use Application\Lib\Database\DatabaseConnection;
+use Application\Model\Comment\Comment;
 
-class Comment
+/*class Comment
 {
     public string $identifier;
     public string $author;
     public string $frenchCreationDate;
     public string $comment;
     public string $post;
-}
+}*/
 
-/*class CommentRepository
+class CommentRepository
 {
     public DatabaseConnection $connection;
 
     public function getComments(string $post): array
     {
         $statement = $this->connection->getConnection()->prepare(
-            "SELECT id, author, comment, DATE_FORMAT(comment_date, '%d/%m/%Y à %Hh%imin%ss') AS french_creation_date, post_id FROM comments WHERE post_id = ? ORDER BY comment_date DESC"
+            "SELECT id, author, content, DATE_FORMAT(comment_date, '%d/%m/%Y à %Hh%imin%ss') AS french_creation_date, post_id FROM comments WHERE post_id = ? ORDER BY comment_date DESC"
         );
         $statement->execute([$post]);
 
@@ -32,7 +33,7 @@ class Comment
             $comment->identifier = $row['id'];
             $comment->author = $row['author'];
             $comment->frenchCreationDate = $row['french_creation_date'];
-            $comment->comment = $row['comment'];
+            $comment->comment = $row['content'];
             $comment->post = $row['post_id'];
 
             $comments[] = $comment;
@@ -44,7 +45,7 @@ class Comment
     public function getComment(string $identifier): ?Comment
     {
         $statement = $this->connection->getConnection()->prepare(
-            "SELECT id, author, comment, DATE_FORMAT(comment_date, '%d/%m/%Y à %Hh%imin%ss') AS french_creation_date, post_id FROM comments WHERE id = ?"
+            "SELECT id, author, content, DATE_FORMAT(comment_date, '%d/%m/%Y à %Hh%imin%ss') AS french_creation_date, post_id FROM comments WHERE id = ?"
         );
         $statement->execute([$identifier]);
 
@@ -57,7 +58,7 @@ class Comment
         $comment->identifier = $row['id'];
         $comment->author = $row['author'];
         $comment->frenchCreationDate = $row['french_creation_date'];
-        $comment->comment = $row['comment'];
+        $comment->comment = $row['content'];
         $comment->post = $row['post_id'];
 
         return $comment;
@@ -66,7 +67,7 @@ class Comment
     public function createComment(string $post, string $author, string $comment): bool
     {
         $statement = $this->connection->getConnection()->prepare(
-            'INSERT INTO comments(post_id, author, comment, comment_date) VALUES(?, ?, ?, NOW())'
+            'INSERT INTO comments(post_id, author, content, comment_date) VALUES(?, ?, ?, NOW())'
         );
         $affectedLines = $statement->execute([$post, $author, $comment]);
 
@@ -76,10 +77,10 @@ class Comment
     public function updateComment(string $identifier, string $comment): bool
     {
         $statement = $this->connection->getConnection()->prepare(
-            'UPDATE comments SET comment = ? WHERE id = ?'
+            'UPDATE comments SET content = ? WHERE id = ?'
         );
         $affectedLines = $statement->execute([$comment, $identifier]);
 
         return ($affectedLines > 0);
     }
-}*/
+}

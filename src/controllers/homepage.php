@@ -4,10 +4,11 @@ namespace Application\Controllers\Homepage;
 
 require_once('src/lib/database.php');
 require_once('src/model/post.php');
+require_once('src/model/post_repository.php');
 require_once('vendor/autoload.php');
 
 use Application\Lib\Database\DatabaseConnection;
-use Application\Model\Post\PostRepository;
+use Application\Model\PostRepository\PostRepository;
 
 class Homepage
 {
@@ -15,9 +16,9 @@ class Homepage
     {
         $postRepository = new PostRepository();
         $postRepository->connection = new DatabaseConnection();
-        $posts = $postRepository->getPosts();
+//        $posts = $postRepository->getPosts();
 
-        require('templates/homepage.php');
+//        require('templates/homepage.php');
 
         // Twig templating
         /*$loader = new \Twig\Loader\ArrayLoader([
@@ -38,9 +39,12 @@ class Homepage
 
         $loader = new \Twig\Loader\FilesystemLoader('templates');
         $twig = new \Twig\Environment($loader, [
-            'cache' => 'cache',
+//            'cache' => 'cache',
+            'debug' => true
         ]);
 
-        echo $twig->render('home.twig');
+        $twig->addExtension(new \Twig\Extension\DebugExtension());
+
+        echo $twig->render('home.twig', ['posts' => $postRepository->getPosts()]);
     }
 }

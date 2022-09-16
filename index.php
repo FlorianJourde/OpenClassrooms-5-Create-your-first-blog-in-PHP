@@ -2,13 +2,21 @@
 
 require_once('src/controllers/comment/add.php');
 require_once('src/controllers/comment/update.php');
+require_once('src/controllers/user/add.php');
+require_once('src/controllers/user/authentication.php');
 require_once('src/controllers/homepage.php');
 require_once('src/controllers/post.php');
+require_once('src/controllers/register.php');
+require_once('src/controllers/login.php');
 
-use Application\Controllers\Comment\Add\AddComment;
-use Application\Controllers\Comment\Update\UpdateComment;
-use Application\Controllers\Homepage\Homepage;
-use Application\Controllers\Post\Post;
+use Application\Controllers\Comment\AddComment;
+use Application\Controllers\Comment\UpdateComment;
+use Application\Controllers\Homepage;
+use Application\Controllers\Login;
+use Application\Controllers\Post;
+use Application\Controllers\Register;
+use Application\Controllers\User\AddUser;
+use Application\Controllers\User\UserAuthentication;
 
 try {
     if (isset($_GET['action']) && $_GET['action'] !== '') {
@@ -20,6 +28,22 @@ try {
             } else {
                 throw new Exception('Aucun identifiant de billet envoyé');
             }
+        } elseif ($_GET['action'] === 'register') {
+            (new Register())->execute();
+        } elseif ($_GET['action'] === 'login') {
+            (new Login())->execute();
+        } elseif ($_GET['action'] === 'addUser') {
+            $username = $_POST['username'];
+            $email = $_POST['email'];
+            $role = 'User';
+            $password = $_POST['password'];
+
+            (new AddUser())->execute($username, $email , $role, $password);
+        } elseif ($_GET['action'] === 'userAuthentication') {
+            $email = $_POST['email'];
+            $password = $_POST['password'];
+
+            (new UserAuthentication())->execute($email, $password);
         } elseif ($_GET['action'] === 'addComment') {
             if (isset($_GET['id']) && $_GET['id'] > 0) {
                 $identifier = $_GET['id'];
@@ -50,19 +74,15 @@ try {
         (new Homepage())->execute();
     }
 } catch (Exception $e) {
-//    var_dump('error');
     $errorMessage = $e->getMessage();
-
-//    require('templates/error.php');
 
     $loader = new \Twig\Loader\FilesystemLoader('templates');
     $twig = new \Twig\Environment($loader, [
-        'cache' => 'cache',
+//        'cache' => 'cache',
         'debug' => true
     ]);
 
     $twig->addExtension(new \Twig\Extension\DebugExtension());
 
     echo $twig->render('error.twig', ['errorMessage' => $errorMessage]);
-//    die();
 }

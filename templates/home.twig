@@ -4,7 +4,15 @@
     <title>Accueil</title>
 {% endblock %}
 
+{% block session %}
+{#    {{ dump(session) }}#}
+    <h1>SESSION</h1>
+{% endblock %}
+
 {% block content %}
+    <a href="index.php?action=register">S'enregistrer</a>
+    <a href="index.php?action=login">Se connecter</a>
+
     <h1>Le super blog de l'AVBN !</h1>
     <p>Derniers billets du blog :</p>
 

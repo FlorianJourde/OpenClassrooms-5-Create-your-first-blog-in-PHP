@@ -1,6 +1,6 @@
 <?php
 
-namespace Application\Controllers\Post;
+namespace Application\Controllers;
 
 require_once('src/lib/database.php');
 require_once('src/model/Comment.php');
@@ -8,7 +8,7 @@ require_once('src/model/CommentRepository.php');
 require_once('src/model/Post.php');
 
 use Application\Lib\Database\DatabaseConnection;
-use Application\Model\Comment\Comment;
+use Application\Model\Comment;
 use Application\Model\CommentRepository;
 use Application\Model\PostRepository;
 
@@ -24,7 +24,6 @@ class Post
         $commentRepository = new CommentRepository();
         $commentRepository->connection = $connection;
 
-
         $loader = new \Twig\Loader\FilesystemLoader('templates');
         $twig = new \Twig\Environment($loader, [
 //            'cache' => 'cache',
@@ -33,6 +32,9 @@ class Post
 
         $twig->addExtension(new \Twig\Extension\DebugExtension());
 
-        echo $twig->render('post.twig', ['post' => $postRepository->getPost($identifier), 'comments' => $commentRepository->getComments($identifier)]);
+        session_start();
+        var_dump($_SESSION);
+
+        echo $twig->render('post.twig', ['post' => $postRepository->getPost($identifier), 'comments' => $commentRepository->getComments($identifier), 'session' => $_SESSION]);
     }
 }

@@ -1,6 +1,6 @@
 <?php
 
-namespace Application\Controllers\Homepage;
+namespace Application\Controllers;
 
 require_once('src/lib/database.php');
 require_once('src/model/Post.php');
@@ -19,12 +19,16 @@ class Homepage
 
         $loader = new \Twig\Loader\FilesystemLoader('templates');
         $twig = new \Twig\Environment($loader, [
-            'cache' => 'cache',
+//            'cache' => 'cache',
             'debug' => true
         ]);
 
         $twig->addExtension(new \Twig\Extension\DebugExtension());
 
-        echo $twig->render('home.twig', ['posts' => $postRepository->getPosts()]);
+        session_start();
+        $_SESSION['allow_access'] = true;
+        var_dump($_SESSION);
+
+        echo $twig->render('home.twig', ['posts' => $postRepository->getPosts(), 'session' => $_SESSION]);
     }
 }

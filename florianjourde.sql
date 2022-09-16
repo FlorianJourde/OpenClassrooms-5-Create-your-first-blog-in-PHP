@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : ven. 09 sep. 2022 à 16:13
+-- Généré le : ven. 16 sep. 2022 à 14:13
 -- Version du serveur : 5.7.36
 -- Version de PHP : 7.4.26
 
@@ -81,7 +81,7 @@ INSERT INTO `comments` (`id`, `user_id`, `author`, `post_id`, `content`, `status
 (40, 1, 'aut', 2, 'com', 1, '2022-09-09 15:52:00'),
 (41, 1, 'dfv', 2, '333333', 1, '2022-09-09 17:18:44'),
 (42, 1, 'dfvf', 2, 'fdvdfvvvvdddddvv', 1, '2022-09-09 17:21:22'),
-(43, 1, 'TEST', 2, 'TEST5', 1, '2022-09-09 18:03:35');
+(43, 1, 'TEST', 2, 'TEST5ft', 1, '2022-09-09 18:03:35');
 
 -- --------------------------------------------------------
 
@@ -122,7 +122,15 @@ CREATE TABLE IF NOT EXISTS `users` (
   `role` varchar(100) NOT NULL,
   `password` varchar(100) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4;
+
+--
+-- Déchargement des données de la table `users`
+--
+
+INSERT INTO `users` (`id`, `username`, `email`, `role`, `password`) VALUES
+(1, 'Test', 'test@test.com', 'Admin', '123456'),
+(2, 'nom', 'email@gmail.com', 'User', '1');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

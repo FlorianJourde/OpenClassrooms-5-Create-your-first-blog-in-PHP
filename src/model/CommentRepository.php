@@ -5,7 +5,7 @@ namespace Application\Model;
 require_once('src/lib/database.php');
 
 use Application\Lib\Database\DatabaseConnection;
-use Application\Model\Comment\Comment;
+use Application\Model\Comment;
 
 class CommentRepository
 {

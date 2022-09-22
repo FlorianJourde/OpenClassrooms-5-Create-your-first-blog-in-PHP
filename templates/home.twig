@@ -10,8 +10,13 @@
 {% endblock %}
 
 {% block content %}
-    <a href="index.php?action=register">S'enregistrer</a>
-    <a href="index.php?action=login">Se connecter</a>
+    {% if session.is_authenticated != true %}
+        <a href="index.php?action=register">S'enregistrer</a>
+        <a href="index.php?action=login">Se connecter</a>
+    {% else %}
+        <h2>Bonjour {{ session.username }} !</h2>
+        <a href="index.php?action=logoutUser">Se déconnecter</a>
+    {% endif %}
 
     <h1>Le super blog de l'AVBN !</h1>
     <p>Derniers billets du blog :</p>

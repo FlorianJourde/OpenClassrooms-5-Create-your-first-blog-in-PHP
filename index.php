@@ -4,6 +4,7 @@ require_once('src/controllers/comment/add.php');
 require_once('src/controllers/comment/update.php');
 require_once('src/controllers/user/add.php');
 require_once('src/controllers/user/authentication.php');
+require_once('src/controllers/user/logout.php');
 require_once('src/controllers/homepage.php');
 require_once('src/controllers/post.php');
 require_once('src/controllers/register.php');
@@ -16,7 +17,8 @@ use Application\Controllers\Login;
 use Application\Controllers\Post;
 use Application\Controllers\Register;
 use Application\Controllers\User\AddUser;
-use Application\Controllers\User\UserAuthentication;
+use Application\Controllers\User\AuthenticationUser;
+use Application\Controllers\User\LogoutUser;
 
 try {
     if (isset($_GET['action']) && $_GET['action'] !== '') {
@@ -32,6 +34,8 @@ try {
             (new Register())->execute();
         } elseif ($_GET['action'] === 'login') {
             (new Login())->execute();
+        } elseif ($_GET['action'] === 'logoutUser') {
+            (new LogoutUser())->execute();
         } elseif ($_GET['action'] === 'addUser') {
             $username = $_POST['username'];
             $email = $_POST['email'];
@@ -43,7 +47,7 @@ try {
             $email = $_POST['email'];
             $password = $_POST['password'];
 
-            (new UserAuthentication())->execute($email, $password);
+            (new AuthenticationUser())->execute($email, $password);
         } elseif ($_GET['action'] === 'addComment') {
             if (isset($_GET['id']) && $_GET['id'] > 0) {
                 $identifier = $_GET['id'];

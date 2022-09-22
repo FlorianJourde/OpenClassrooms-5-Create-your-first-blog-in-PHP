@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : ven. 16 sep. 2022 à 14:13
+-- Généré le : jeu. 22 sep. 2022 à 19:41
 -- Version du serveur : 5.7.36
 -- Version de PHP : 7.4.26
 
@@ -122,15 +122,16 @@ CREATE TABLE IF NOT EXISTS `users` (
   `role` varchar(100) NOT NULL,
   `password` varchar(100) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4;
 
 --
 -- Déchargement des données de la table `users`
 --
 
 INSERT INTO `users` (`id`, `username`, `email`, `role`, `password`) VALUES
-(1, 'Test', 'test@test.com', 'Admin', '123456'),
-(2, 'nom', 'email@gmail.com', 'User', '1');
+(1, 'Thierry', 'test@test.com', 'Admin', '123456'),
+(2, 'Robert', 'email@email.com', 'User', '1'),
+(3, 'Christophe', 'a@a.com', 'User', '1');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

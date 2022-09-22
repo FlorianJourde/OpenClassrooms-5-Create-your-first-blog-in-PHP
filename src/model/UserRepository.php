@@ -70,26 +70,15 @@ class UserRepository
 
         $statement->execute([$email, $password]);
 
-//        var_dump($statement->fetch());
-
         $row = $statement->fetch();
         if ($row === false) {
             return null;
         }
 
-//        $row = $statement->fetch();
         $user = new User();
         $user->email = $row['email'];
         $user->password = $row['password'];
 
-//        var_dump($user);
-//        die();
-
         return $user;
-
-//        var_dump($affectedLines);
-//        die();
-
-//        return ($affectedLines > 0);
     }
 }

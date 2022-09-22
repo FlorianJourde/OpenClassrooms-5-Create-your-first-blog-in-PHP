@@ -16,6 +16,9 @@ class Post
 {
     public function execute(string $identifier)
     {
+        session_start();
+        var_dump($_SESSION);
+
         $connection = new DatabaseConnection();
 
         $postRepository = new PostRepository();
@@ -31,9 +34,6 @@ class Post
         ]);
 
         $twig->addExtension(new \Twig\Extension\DebugExtension());
-
-        session_start();
-        var_dump($_SESSION);
 
         echo $twig->render('post.twig', ['post' => $postRepository->getPost($identifier), 'comments' => $commentRepository->getComments($identifier), 'session' => $_SESSION]);
     }

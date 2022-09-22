@@ -13,6 +13,9 @@ class Login
 {
     public function execute()
     {
+        session_start();
+        var_dump($_SESSION);
+
         $userRepository = new UserRepository();
         $userRepository->connection = new DatabaseConnection();
 

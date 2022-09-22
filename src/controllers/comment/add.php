@@ -12,6 +12,8 @@ class AddComment
 {
     public function execute(string $post, array $input, string $user_id, bool $status)
     {
+        session_start();
+
         $author = null;
         $comment = null;
 

@@ -13,6 +13,8 @@ class UpdateComment
 {
     public function execute(string $identifier, ?array $input)
     {
+        session_start();
+
         if ($input !== null) {
             $author = null;
             $comment = null;

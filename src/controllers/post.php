@@ -17,7 +17,6 @@ class Post
     public function execute(string $identifier)
     {
         session_start();
-        var_dump($_SESSION);
 
         $connection = new DatabaseConnection();
 

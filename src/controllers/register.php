@@ -2,7 +2,6 @@
 
 namespace Application\Controllers;
 
-//require_once('src/lib/database.php');
 require_once('src/model/User.php');
 require_once('src/model/UserRepository.php');
 
@@ -14,7 +13,6 @@ class Register
     public function execute()
     {
         session_start();
-        var_dump($_SESSION);
 
         $userRepository = new UserRepository();
         $userRepository->connection = new DatabaseConnection();

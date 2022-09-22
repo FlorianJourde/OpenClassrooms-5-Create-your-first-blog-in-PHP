@@ -15,7 +15,6 @@ class Homepage
     public function execute()
     {
         session_start();
-        var_dump($_SESSION);
 
         $postRepository = new PostRepository();
         $postRepository->connection = new DatabaseConnection();
@@ -27,8 +26,6 @@ class Homepage
         ]);
 
         $twig->addExtension(new \Twig\Extension\DebugExtension());
-
-        $_SESSION['allow_access'] = true;
 
         echo $twig->render('home.twig', ['posts' => $postRepository->getPosts(), 'session' => $_SESSION]);
     }

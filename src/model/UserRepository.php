@@ -3,7 +3,6 @@
 namespace Application\Model;
 
 use Application\Lib\Database\DatabaseConnection;
-//use Application\Model\User;
 
 require_once ('src/lib/database.php');
 require_once ('src/controllers/post.php');
@@ -12,14 +11,8 @@ class UserRepository
 {
     public  DatabaseConnection $connection;
 
-    public function getUser(string $identifier): User
+    public function fetchUser($row): User
     {
-        $statement = $this->connection->getConnection()->prepare(
-            "SELECT id, username, email, role, password FROM users WHERE id = ?"
-        );
-        $statement->execute([$identifier]);
-
-        $row = $statement->fetch();
         $user = new User();
         $user->identifier = $row['id'];
         $user->username = $row['username'];
@@ -30,22 +23,40 @@ class UserRepository
         return $user;
     }
 
+    public function getUserFromId(string $identifier): User
+    {
+        $statement = $this->connection->getConnection()->prepare(
+            "SELECT id, username, email, role, password FROM users WHERE id = ?"
+        );
+
+        $statement->execute([$identifier]);
+        $row = $statement->fetch();
+        return $this->fetchUser($row);
+    }
+
+    public function getUserFromEmail(string $email): User
+    {
+        $statement = $this->connection->getConnection()->prepare(
+            "SELECT id, username, email, role, password FROM users WHERE email = ?"
+        );
+
+        $statement->execute([$email]);
+        $row = $statement->fetch();
+
+        return $this->fetchUser($row);
+    }
+
     public function getUsers(): array
     {
         $statement = $this->connection->getConnection()->query(
             "SELECT id, username, email, role, password FROM users"
         );
+
         $users = [];
 
         while (($row = $statement->fetch())) {
-            $user = new User();
-            $user->identifier = $row['id'];
-            $user->username = $row['username'];
-            $user->email = $row['email'];
-            $user->role = $row['role'];
-            $user->password = $row['password'];
-
-            $users[] = $user;
+            $this->fetchUser($row);
+            $users[] = $this->fetchUser($row);
         }
 
         return $users;
@@ -65,7 +76,7 @@ class UserRepository
     public function login(string $email, string $password): ?User
     {
         $statement = $this->connection->getConnection()->prepare(
-            "SELECT email, password FROM users WHERE email = ? AND password = ?"
+            "SELECT id, email, password, username FROM users WHERE email = ? AND password = ?"
         );
 
         $statement->execute([$email, $password]);

@@ -2,8 +2,8 @@
 
 namespace Application\Controllers\User;
 
-require_once('src/lib/database.php');
-require_once('src/model/UserRepository.php');
+require_once __ROOT__ . '/src/lib/database.php';
+require_once __ROOT__ . '/src/model/UserRepository.php';
 
 use Application\Lib\Database\DatabaseConnection;
 use Application\Model\UserRepository;
@@ -13,6 +13,7 @@ class AuthenticationUser
     public function execute(string $email, string $password)
     {
         session_start();
+//        session_set_cookie_params(0);
 
         $userRepository = new UserRepository();
         $userRepository->connection = new DatabaseConnection();

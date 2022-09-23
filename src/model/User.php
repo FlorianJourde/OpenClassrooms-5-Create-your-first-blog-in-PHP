@@ -2,7 +2,7 @@
 
 namespace Application\Model;
 
-require_once ('src/lib/database.php');
+require_once __ROOT__ . '/src/lib/database.php';
 
 class User
 {

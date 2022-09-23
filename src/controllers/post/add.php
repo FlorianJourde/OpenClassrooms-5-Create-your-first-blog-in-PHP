@@ -5,18 +5,15 @@ namespace Application\Controllers\Post;
 use Application\Lib\Database\DatabaseConnection;
 use Application\Model\PostRepository;
 
-require_once('src/lib/database.php');
-require_once('src/model/PostRepository.php');
-require_once('src/model/Post.php');
+require_once __ROOT__ . '/src/lib/database.php';
+require_once __ROOT__ . '/src/model/PostRepository.php';
+require_once __ROOT__ . '/src/model/Post.php';
 
 class AddPost
 {
     public function execute(?array $input)
     {
         session_start();
-
-//        var_dump($input);
-//        var_dump($_SESSION);
 
         if ($_SESSION['role'] != 'Admin') {
             throw new \Exception('Vous n\'avez pas accès à cette page !');
@@ -75,7 +72,7 @@ class AddPost
 ////        }
 //        $postRepository = new PostRepository();
 //        $postRepository->connection = new DatabaseConnection();
-        $loader = new \Twig\Loader\FilesystemLoader('templates');
+        $loader = new \Twig\Loader\FilesystemLoader(__ROOT__ . 'templates');
         $twig = new \Twig\Environment($loader, [
             //            'cache' => 'cache',
             'debug' => true

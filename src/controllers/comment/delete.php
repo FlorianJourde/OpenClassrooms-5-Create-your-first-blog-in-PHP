@@ -2,8 +2,8 @@
 
 namespace Application\Controllers\Comment;
 
-require_once('src/lib/database.php');
-require_once('src/model/CommentRepository.php');
+require_once __ROOT__ . '/src/lib/database.php';
+require_once __ROOT__ . '/src/model/CommentRepository.php';
 
 use Application\Lib\Database\DatabaseConnection;
 use Application\Model\CommentRepository;
@@ -36,7 +36,7 @@ class DeleteComment
             }
         }
 
-            $loader = new \Twig\Loader\FilesystemLoader('templates');
+            $loader = new \Twig\Loader\FilesystemLoader(__ROOT__ . 'templates');
             $twig = new \Twig\Environment($loader, [
     //            'cache' => 'cache',
                 'debug' => true

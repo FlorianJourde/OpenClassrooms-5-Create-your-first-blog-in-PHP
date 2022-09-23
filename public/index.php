@@ -1,17 +1,19 @@
 <?php
 
-require_once('src/controllers/comment/add.php');
-require_once('src/controllers/comment/update.php');
-require_once('src/controllers/comment/delete.php');
-require_once('src/controllers/post/add.php');
-require_once('src/controllers/user/add.php');
-require_once('src/controllers/user/authentication.php');
-require_once('src/controllers/user/logout.php');
-require_once('src/controllers/homepage.php');
-require_once('src/controllers/archive.php');
-require_once('src/controllers/post.php');
-require_once('src/controllers/register.php');
-require_once('src/controllers/login.php');
+define('__ROOT__', dirname(dirname(__FILE__)));
+
+require_once __ROOT__ . '/src/controllers/comment/add.php';
+require_once __ROOT__ . '/src/controllers/comment/update.php';
+require_once __ROOT__ . '/src/controllers/comment/delete.php';
+require_once __ROOT__ . '/src/controllers/post/add.php';
+require_once __ROOT__ . '/src/controllers/user/add.php';
+require_once __ROOT__ . '/src/controllers/user/authentication.php';
+require_once __ROOT__ . '/src/controllers/user/logout.php';
+require_once __ROOT__ . '/src/controllers/homepage.php';
+require_once __ROOT__ . '/src/controllers/archive.php';
+require_once __ROOT__ . '/src/controllers/post.php';
+require_once __ROOT__ . '/src/controllers/register.php';
+require_once __ROOT__ . '/src/controllers/login.php';
 
 use Application\Controllers\Comment\AddComment;
 use Application\Controllers\Comment\DeleteComment;
@@ -108,7 +110,7 @@ try {
 } catch (Exception $e) {
     $errorMessage = $e->getMessage();
 
-    $loader = new \Twig\Loader\FilesystemLoader('templates');
+    $loader = new \Twig\Loader\FilesystemLoader(__ROOT__ . '/templates');
     $twig = new \Twig\Environment($loader, [
 //        'cache' => 'cache',
         'debug' => true

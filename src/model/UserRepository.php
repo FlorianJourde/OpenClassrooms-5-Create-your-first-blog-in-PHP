@@ -4,8 +4,8 @@ namespace Application\Model;
 
 use Application\Lib\Database\DatabaseConnection;
 
-require_once ('src/lib/database.php');
-require_once ('src/controllers/post.php');
+require_once __ROOT__ . '/src/lib/database.php';
+require_once __ROOT__ . '/src/controllers/post.php';
 
 class UserRepository
 {
@@ -88,7 +88,7 @@ class UserRepository
 
         $user = new User();
         $user->email = $row['email'];
-        $user->password = $row['password'];
+//        $user->password = $row['password'];
 
         return $user;
     }

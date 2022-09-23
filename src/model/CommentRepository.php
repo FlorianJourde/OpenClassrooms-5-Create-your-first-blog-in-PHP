@@ -2,7 +2,7 @@
 
 namespace Application\Model;
 
-require_once('src/lib/database.php');
+require_once __ROOT__ . '/src/lib/database.php';
 
 use Application\Lib\Database\DatabaseConnection;
 use Application\Model\Comment;
@@ -32,12 +32,6 @@ class CommentRepository
 
         $comments = [];
         while (($row = $statement->fetch())) {
-//            $comment = new Comment();
-//            $comment->identifier = $row['id'];
-//            $comment->author = $row['author'];
-//            $comment->frenchCreationDate = $row['french_creation_date'];
-//            $comment->comment = $row['content'];
-//            $comment->post = $row['post_id'];
             $comment = $this->fetchComment($row);
 
             $comments[] = $comment;
@@ -58,12 +52,6 @@ class CommentRepository
             return null;
         }
 //
-//        $comment = new Comment();
-//        $comment->identifier = $row['id'];
-//        $comment->author = $row['author'];
-//        $comment->frenchCreationDate = $row['french_creation_date'];
-//        $comment->comment = $row['content'];
-//        $comment->post = $row['post_id'];
         return $this->fetchComment($row);
     }
 
@@ -80,6 +68,8 @@ class CommentRepository
 
     public function updateComment(string $identifier, string $comment): bool
     {
+//        if (!is_int($identifier)) { return false; }
+
         $statement = $this->connection->getConnection()->prepare(
             'UPDATE comments SET content = ? WHERE id = ?'
         );

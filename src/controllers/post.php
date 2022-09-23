@@ -2,10 +2,10 @@
 
 namespace Application\Controllers;
 
-require_once('src/lib/database.php');
-require_once('src/model/Comment.php');
-require_once('src/model/CommentRepository.php');
-require_once('src/model/Post.php');
+require_once __ROOT__ . '/src/lib/database.php';
+require_once __ROOT__ . '/src/model/Comment.php';
+require_once __ROOT__ . '/src/model/CommentRepository.php';
+require_once __ROOT__ . '/src/model/Post.php';
 
 use Application\Lib\Database\DatabaseConnection;
 use Application\Model\Comment;
@@ -26,7 +26,7 @@ class Post
         $commentRepository = new CommentRepository();
         $commentRepository->connection = $connection;
 
-        $loader = new \Twig\Loader\FilesystemLoader('templates');
+        $loader = new \Twig\Loader\FilesystemLoader(__ROOT__ . '/templates');
         $twig = new \Twig\Environment($loader, [
 //            'cache' => 'cache',
             'debug' => true,

@@ -2,8 +2,8 @@
 
 namespace Application\Controllers;
 
-require_once('src/model/User.php');
-require_once('src/model/UserRepository.php');
+require_once __ROOT__ . '/src/model/User.php';
+require_once __ROOT__ . '/src/model/UserRepository.php';
 
 use Application\Lib\Database\DatabaseConnection;
 use Application\Model\UserRepository;
@@ -17,7 +17,7 @@ class Login
         $userRepository = new UserRepository();
         $userRepository->connection = new DatabaseConnection();
 
-        $loader = new \Twig\Loader\FilesystemLoader('templates');
+        $loader = new \Twig\Loader\FilesystemLoader(__ROOT__ . '/templates');
         $twig = new \Twig\Environment($loader, [
 //            'cache' => 'cache',
             'debug' => true

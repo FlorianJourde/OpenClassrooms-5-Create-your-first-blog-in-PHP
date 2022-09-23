@@ -2,8 +2,8 @@
 
 namespace Application\Model;
 
-require_once('src/lib/database.php');
-require_once('src/controllers/post.php');
+require_once __ROOT__ . '/src/lib/database.php';
+require_once __ROOT__ . '/src/controllers/post.php';
 
 use Application\Lib\Database\DatabaseConnection;
 

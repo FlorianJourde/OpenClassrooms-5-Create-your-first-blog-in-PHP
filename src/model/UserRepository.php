@@ -11,7 +11,7 @@ class UserRepository
 {
     public  DatabaseConnection $connection;
 
-    public function fetchUser($row): User
+    private function fetchUser($row): User
     {
         $user = new User();
         $user->identifier = $row['id'];

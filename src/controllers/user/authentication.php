@@ -25,6 +25,7 @@ class AuthenticationUser
             $_SESSION['is_authenticated'] = true;
             $user = $userRepository->getUserFromEmail($email);
             $_SESSION['username'] = $user->username;
+            $_SESSION['role'] = $user->role;
             header('Location: index.php');
         }
     }

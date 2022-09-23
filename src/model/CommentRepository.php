@@ -11,6 +11,18 @@ class CommentRepository
 {
     public DatabaseConnection $connection;
 
+    private function fetchComment($row): ?Comment
+    {
+        $comment = new Comment();
+        $comment->identifier = $row['id'];
+        $comment->author = $row['author'];
+        $comment->frenchCreationDate = $row['french_creation_date'];
+        $comment->comment = $row['content'];
+        $comment->post = $row['post_id'];
+
+        return $comment;
+    }
+
     public function getComments(string $post): array
     {
         $statement = $this->connection->getConnection()->prepare(
@@ -20,12 +32,13 @@ class CommentRepository
 
         $comments = [];
         while (($row = $statement->fetch())) {
-            $comment = new Comment();
-            $comment->identifier = $row['id'];
-            $comment->author = $row['author'];
-            $comment->frenchCreationDate = $row['french_creation_date'];
-            $comment->comment = $row['content'];
-            $comment->post = $row['post_id'];
+//            $comment = new Comment();
+//            $comment->identifier = $row['id'];
+//            $comment->author = $row['author'];
+//            $comment->frenchCreationDate = $row['french_creation_date'];
+//            $comment->comment = $row['content'];
+//            $comment->post = $row['post_id'];
+            $comment = $this->fetchComment($row);
 
             $comments[] = $comment;
         }
@@ -44,15 +57,14 @@ class CommentRepository
         if ($row === false) {
             return null;
         }
-
-        $comment = new Comment();
-        $comment->identifier = $row['id'];
-        $comment->author = $row['author'];
-        $comment->frenchCreationDate = $row['french_creation_date'];
-        $comment->comment = $row['content'];
-        $comment->post = $row['post_id'];
-
-        return $comment;
+//
+//        $comment = new Comment();
+//        $comment->identifier = $row['id'];
+//        $comment->author = $row['author'];
+//        $comment->frenchCreationDate = $row['french_creation_date'];
+//        $comment->comment = $row['content'];
+//        $comment->post = $row['post_id'];
+        return $this->fetchComment($row);
     }
 
     public function createComment(string $post, string $author, string $comment, string $user_id, bool $status): bool
@@ -72,6 +84,16 @@ class CommentRepository
             'UPDATE comments SET content = ? WHERE id = ?'
         );
         $affectedLines = $statement->execute([$comment, $identifier]);
+
+        return ($affectedLines > 0);
+    }
+
+    public function deleteComment(string $identifier): bool
+    {
+        $statement = $this->connection->getConnection()->prepare(
+            'DELETE FROM comments WHERE id = ?'
+        );
+        $affectedLines = $statement->execute([$identifier]);
 
         return ($affectedLines > 0);
     }

@@ -3,6 +3,7 @@
 require_once('src/controllers/comment/add.php');
 require_once('src/controllers/comment/update.php');
 require_once('src/controllers/comment/delete.php');
+require_once('src/controllers/post/add.php');
 require_once('src/controllers/user/add.php');
 require_once('src/controllers/user/authentication.php');
 require_once('src/controllers/user/logout.php');
@@ -19,6 +20,7 @@ use Application\Controllers\Homepage;
 use Application\Controllers\Archive;
 use Application\Controllers\Login;
 use Application\Controllers\Post;
+use Application\Controllers\Post\AddPost;
 use Application\Controllers\Register;
 use Application\Controllers\User\AddUser;
 use Application\Controllers\User\AuthenticationUser;
@@ -36,9 +38,14 @@ try {
             }
         } elseif ($_GET['action'] === 'archive') {
             (new Archive())->execute();
-        } /*elseif ($_GET['action'] === 'error') {
-            (new Error())->execute();
-        } */elseif ($_GET['action'] === 'register') {
+        } elseif ($_GET['action'] === 'addPost') {
+            $input = null;
+            if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+                $input = $_POST;
+            }
+
+            (new AddPost())->execute($_POST);
+        } elseif ($_GET['action'] === 'register') {
             (new Register())->execute();
         } elseif ($_GET['action'] === 'login') {
             (new Login())->execute();

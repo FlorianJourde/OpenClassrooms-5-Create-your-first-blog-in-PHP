@@ -22,9 +22,11 @@ class AuthenticationUser
             throw new \Exception('Authentification impossible !');
             header('Location: index.php?action=login');
         } else {
-            $_SESSION['is_authenticated'] = true;
             $user = $userRepository->getUserFromEmail($email);
+            $_SESSION['is_authenticated'] = true;
+            $_SESSION['id'] = $user->identifier;
             $_SESSION['username'] = $user->username;
+            $_SESSION['email'] = $user->email;
             $_SESSION['role'] = $user->role;
             header('Location: index.php');
         }

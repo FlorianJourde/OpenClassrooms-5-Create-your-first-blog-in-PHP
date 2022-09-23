@@ -46,4 +46,25 @@ class PostRepository
 
         return $posts;
     }
+
+    public function createPost(string $user_id, string $title, string $content, bool $status): bool
+    {
+        $statement = $this->connection->getConnection()->prepare(
+            "INSERT INTO posts(user_id, title, content, creation_date, update_date, status) VALUES (?, ?, ?, NOW(), NOW(), ?)"
+        );
+
+        $affectedLines = $statement->execute([$user_id,  $title, $content, $status]);
+
+//        var_dump($statement);
+//        die();
+
+//        $row = $statement->fetch();
+//        $post = new Post();
+//        $post->title = $row['title'];
+//        $post->frenchCreationDate = $row['french_creation_date'];
+//        $post->content = $row['content'];
+//        $post->identifier = $row['id'];
+
+        return ($affectedLines > 0);
+    }
 }

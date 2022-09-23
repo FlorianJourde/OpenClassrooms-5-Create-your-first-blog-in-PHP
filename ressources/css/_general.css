@@ -63,6 +63,7 @@ form {
 }
 
 body {
+    padding: 2rem 0;
     min-height: 100vh;
     position: relative;
     width: 100%;
@@ -86,18 +87,27 @@ h1, h2, h3
     font-family: var(--ff-secondary);
     text-align:center;
 }
+.posts {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
 
-.news .title, .comment .title {
+.posts .header {
+    margin-bottom: 1rem;
+}
+
+.post .title, .comment .title {
     color: var(--clr-white);
     font-size:0.9em;
     margin-bottom:0;
 }
 
-.news .title, .comment .title {
+.post .title, .comment .title {
     padding: 1rem;
 }
 
-.news .title {
+.post .title {
     background-color: var(--clr-dark-blue);
 }
 
@@ -109,24 +119,36 @@ h1, h2, h3
     color: var(--clr-very-dark-green);
 }
 
-.news .content, .comment .content {
+.post .content, .comment .content {
     margin-top:0;
     padding: 1rem;
 }
 
-.news .content {
+.post .content {
     background-color: var(--clr-light-blue);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.post .content .description {
+    width: 100%;
 }
 
 .comment .content {
     background-color: var(--clr-light-green);
 }
 
-.news, .comment {
+.post, .comment {
     margin-bottom: 2rem;
     border-radius: 1rem;
     overflow: hidden;
     box-shadow: 0 10px 20px #bfb6ab40;
+    width: 100%;
+}
+
+.post .button-secondary {
+    margin-top: 1rem;
 }
 
 .wrapper {
@@ -150,6 +172,7 @@ h1, h2, h3
     color: var(--clr-white);
     border-radius: 10px;
     border: 3px solid var(--clr-dark-purple);
+    /*margin-bottom: 1rem;*/
 }
 
 .button-primary {
@@ -158,4 +181,14 @@ h1, h2, h3
 
 .button-secondary {
     color: var(--clr-dark-purple);
+}
+
+.button-primary.button-blue {
+    background-color: var(--clr-dark-blue);
+    border: 3px solid var(--clr-dark-blue);
+}
+
+.button-secondary.button-blue {
+    color: var(--clr-dark-blue);
+    border: 3px solid var(--clr-dark-blue);
 }

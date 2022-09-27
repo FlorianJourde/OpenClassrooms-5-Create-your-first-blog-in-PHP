@@ -6,7 +6,7 @@ require_once __ROOT__ . '/src/lib/database.php';
 
 class User
 {
-    public string $identifier;
+    public int $identifier;
     public string $username;
     public string $email;
     public string $role;

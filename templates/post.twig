@@ -11,9 +11,15 @@
 
 <div class="posts">
     <div class="post">
-        <h3 class="title">
-            {{ post.title }} le <em>{{ post.frenchCreationDate }}</em>
-        </h3>
+        <div class="title">
+            <h3>{{ post.title }} le {{ post.frenchCreationDate }}</h3>
+            {% if session.role == 'Admin' %}
+                <div class="actions">
+                    <a href="index.php?action=updatePost&id={{ post.identifier }}">modifier</a>
+                    <a href="index.php?action=deletePost&id={{ post.identifier }}">supprimer</a>
+                </div>
+            {% endif %}
+        </div>
         <p class="content">
             <span class="description">{{ post.content }}</span>
         </p>
@@ -44,12 +50,13 @@
     {% for comment in comments %}
         <div class="comment">
             <div class="title">
-                <p><strong>{{ comment.author }}</strong> le {{ comment.frenchCreationDate }}
+                <p><strong>{{ comment.author }}</strong> le {{ comment.frenchCreationDate }}</p>
                     {% if session.role == 'Admin' %}
-                    (<a href="index.php?action=updateComment&id={{ comment.identifier }}">modifier</a>)
-                    (<a href="index.php?action=deleteComment&id={{ comment.identifier }}">supprimer</a>)
+                    <div class="actions">
+                        <a href="index.php?action=updateComment&id={{ comment.identifier }}">modifier</a>
+                        <a href="index.php?action=deleteComment&id={{ comment.identifier }}">supprimer</a>
+                    </div>
                     {% endif %}
-                </p>
             </div>
             <div class="content">
                 <p>{{ comment.comment }}</p>

@@ -6,6 +6,8 @@ require_once __ROOT__ . '/src/controllers/comment/add.php';
 require_once __ROOT__ . '/src/controllers/comment/update.php';
 require_once __ROOT__ . '/src/controllers/comment/delete.php';
 require_once __ROOT__ . '/src/controllers/post/add.php';
+require_once __ROOT__ . '/src/controllers/post/delete.php';
+require_once __ROOT__ . '/src/controllers/post/update.php';
 require_once __ROOT__ . '/src/controllers/user/add.php';
 require_once __ROOT__ . '/src/controllers/user/authentication.php';
 require_once __ROOT__ . '/src/controllers/user/logout.php';
@@ -23,6 +25,8 @@ use Application\Controllers\Archive;
 use Application\Controllers\Login;
 use Application\Controllers\Post;
 use Application\Controllers\Post\AddPost;
+use Application\Controllers\Post\DeletePost;
+use Application\Controllers\Post\UpdatePost;
 use Application\Controllers\Register;
 use Application\Controllers\User\AddUser;
 use Application\Controllers\User\AuthenticationUser;
@@ -88,6 +92,20 @@ try {
             } else {
                 throw new Exception('Aucun identifiant de commentaire envoyé');
             }
+        } elseif ($_GET['action'] === 'updatePost') {
+            if (isset($_GET['id']) && $_GET['id'] > 0) {
+                $identifier = $_GET['id'];
+                // It sets the input only when the HTTP method is POST (ie. the form is submitted).
+                $input = null;
+
+                if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+                    $input = $_POST;
+                }
+
+                (new UpdatePost())->execute($identifier, $input);
+            } else {
+                throw new Exception('Aucun identifiant de commentaire envoyé');
+            }
         } elseif ($_GET['action'] === 'deleteComment') {
             if (isset($_GET['id']) && $_GET['id'] > 0) {
                 $identifier = $_GET['id'];
@@ -100,6 +118,19 @@ try {
                 (new DeleteComment())->execute($identifier);
             } else {
                 throw new Exception('Aucun identifiant de commentaire envoyé');
+            }
+        } elseif ($_GET['action'] === 'deletePost') {
+            if (isset($_GET['id']) && $_GET['id'] > 0) {
+                $identifier = $_GET['id'];
+                $input = null;
+
+                if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+                    $input = $_POST;
+                }
+
+                (new DeletePost())->execute($identifier);
+            } else {
+                throw new Exception('Aucun identifiant d\'article envoyé');
             }
         } else {
             throw new Exception("La page que vous recherchez n'existe pas.");

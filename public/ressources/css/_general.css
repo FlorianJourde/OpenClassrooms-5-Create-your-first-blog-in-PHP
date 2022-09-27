@@ -101,10 +101,17 @@ h1, h2, h3
     color: var(--clr-white);
     font-size:0.9em;
     margin-bottom:0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .post .title, .comment .title {
     padding: 1rem;
+}
+
+.post .title h3 {
+    display: inline-block;
 }
 
 .post .title {
@@ -115,8 +122,8 @@ h1, h2, h3
     background-color: var(--clr-dark-green);
 }
 
-.comment .title a {
-    color: var(--clr-very-dark-green);
+.title a {
+    color: var(--clr-white);
 }
 
 .post .content, .comment .content {
@@ -149,6 +156,16 @@ h1, h2, h3
 
 .post .button-secondary {
     margin-top: 1rem;
+}
+
+.actions a:not(:last-child) {
+    margin-right: 1rem;
+}
+
+.actions {
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 0.8rem;
 }
 
 .wrapper {

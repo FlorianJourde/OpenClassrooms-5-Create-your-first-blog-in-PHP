@@ -8,6 +8,7 @@ require_once __ROOT__ . '/src/model/PostRepository.php';
 //require_once('vendor/autoload.php');
 
 use Application\Lib\Database\DatabaseConnection;
+use Application\Lib\Render;
 use Application\Model\PostRepository;
 
 class Archive
@@ -19,14 +20,9 @@ class Archive
         $postRepository = new PostRepository();
         $postRepository->connection = new DatabaseConnection();
 
-        $loader = new \Twig\Loader\FilesystemLoader(__ROOT__ . '/templates');
-        $twig = new \Twig\Environment($loader, [
-//            'cache' => 'cache',
-            'debug' => true
-        ]);
-
-        $twig->addExtension(new \Twig\Extension\DebugExtension());
-
+        $twig = new Render();
         echo $twig->render('archive.twig', ['posts' => $postRepository->getPosts(), 'session' => $_SESSION]);
+
+//        echo $twig->render('archive.twig', ['posts' => $postRepository->getPosts(), 'session' => $_SESSION]);
     }
 }

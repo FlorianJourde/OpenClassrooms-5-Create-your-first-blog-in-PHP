@@ -40,7 +40,7 @@ class CommentRepository
         return $comments;
     }
 
-    public function getComment(string $identifier): ?Comment
+    public function getComment(int $identifier): ?Comment
     {
         $statement = $this->connection->getConnection()->prepare(
             "SELECT id, author, content, DATE_FORMAT(comment_date, '%d/%m/%Y à %Hh%imin%ss') AS french_creation_date, post_id FROM comments WHERE id = ?"
@@ -66,7 +66,7 @@ class CommentRepository
         return ($affectedLines > 0);
     }
 
-    public function updateComment(string $identifier, string $comment): bool
+    public function updateComment(int $identifier, string $comment): bool
     {
 //        if (!is_int($identifier)) { return false; }
 
@@ -78,7 +78,7 @@ class CommentRepository
         return ($affectedLines > 0);
     }
 
-    public function deleteComment(string $identifier): bool
+    public function deleteComment(int $identifier): bool
     {
         $statement = $this->connection->getConnection()->prepare(
             'DELETE FROM comments WHERE id = ?'

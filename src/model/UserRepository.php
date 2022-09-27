@@ -23,14 +23,17 @@ class UserRepository
         return $user;
     }
 
-    public function getUserFromId(string $identifier): User
+    public function getUserFromId(int $identifier): ?User
     {
+        if (!is_int($identifier)) { return false; }
+
         $statement = $this->connection->getConnection()->prepare(
             "SELECT id, username, email, role, password FROM users WHERE id = ?"
         );
 
         $statement->execute([$identifier]);
         $row = $statement->fetch();
+
         return $this->fetchUser($row);
     }
 
@@ -88,7 +91,6 @@ class UserRepository
 
         $user = new User();
         $user->email = $row['email'];
-//        $user->password = $row['password'];
 
         return $user;
     }

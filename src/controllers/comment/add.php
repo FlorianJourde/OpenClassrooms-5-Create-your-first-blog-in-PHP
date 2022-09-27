@@ -4,8 +4,8 @@ namespace Application\Controllers\Comment;
 
 //define('__ROOT__', dirname(dirname(__FILE__)));
 
-require_once __ROOT__ . '/src/lib/database.php';
-require_once __ROOT__ . '/src/model/CommentRepository.php';
+//require_once __ROOT__ . '/src/lib/database.php';
+//require_once __ROOT__ . '/src/model/CommentRepository.php';
 
 use Application\Lib\Database\DatabaseConnection;
 use Application\Model\CommentRepository;

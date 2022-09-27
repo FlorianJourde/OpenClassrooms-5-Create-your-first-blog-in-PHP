@@ -2,16 +2,17 @@
 
 namespace Application\Controllers\Comment;
 
-require_once __ROOT__ . '/src/lib/database.php';
-require_once __ROOT__ . '/src/model/CommentRepository.php';
+//require_once __ROOT__ . '/src/lib/database.php';
+//require_once __ROOT__ . '/src/model/CommentRepository.php';
 
 use Application\Lib\Database\DatabaseConnection;
+use Application\Lib\Render;
 use Application\Model\CommentRepository;
 use Application\Model\PostRepository;
 
 class DeleteComment
 {
-    public function execute(string $identifier)
+    public function execute(int $identifier)
     {
         session_start();
 
@@ -36,14 +37,7 @@ class DeleteComment
             }
         }
 
-            $loader = new \Twig\Loader\FilesystemLoader(__ROOT__ . 'templates');
-            $twig = new \Twig\Environment($loader, [
-    //            'cache' => 'cache',
-                'debug' => true
-            ]);
-
-            $twig->addExtension(new \Twig\Extension\DebugExtension());
-
-            echo $twig->render('delete_comment.twig', ['comment' => $commentRepository->getComment($identifier), 'post' => $postRepository->getPost($comment->post), 'session' => $_SESSION]);
+        $twig = new Render();
+        echo $twig->render('delete_comment.twig', ['comment' => $commentRepository->getComment($identifier), 'post' => $postRepository->getPost($comment->post), 'session' => $_SESSION]);
     }
 }

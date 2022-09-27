@@ -2,16 +2,17 @@
 
 namespace Application\Controllers\Comment;
 
-require_once __ROOT__ . '/src/lib/database.php';
-require_once __ROOT__ . '/src/model/CommentRepository.php';
+//require_once __ROOT__ . '/src/lib/database.php';
+//require_once __ROOT__ . '/src/model/CommentRepository.php';
 
 use Application\Lib\Database\DatabaseConnection;
+use Application\Lib\Render;
 use Application\Model\CommentRepository;
 use Application\Model\PostRepository;
 
 class UpdateComment
 {
-    public function execute(string $identifier, ?array $input)
+    public function execute(int $identifier, ?array $input)
     {
         session_start();
 
@@ -38,7 +39,7 @@ class UpdateComment
                     throw new \Exception('Impossible de modifier le commentaire !');
                 }
                 if ($comment->post === null) {
-                    throw new \Exception('L\'article concérné n\'existe pas !');
+                    throw new \Exception('L\'article concerné n\'existe pas !');
                 }
 
                 header(sprintf('Location: index.php?action=post&id=%d', $comment->post));
@@ -53,14 +54,8 @@ class UpdateComment
 
             $postRepository = new PostRepository();
             $postRepository->connection = new DatabaseConnection();
-            $loader = new \Twig\Loader\FilesystemLoader(__ROOT__ . 'templates');
-            $twig = new \Twig\Environment($loader, [
-    //            'cache' => 'cache',
-                'debug' => true
-            ]);
 
-            $twig->addExtension(new \Twig\Extension\DebugExtension());
-
+            $twig = new Render();
             echo $twig->render('update_comment.twig', ['comment' => $commentRepository->getComment($identifier), 'post' => $postRepository->getPost($comment->post), 'session' => $_SESSION]);
         }
     }

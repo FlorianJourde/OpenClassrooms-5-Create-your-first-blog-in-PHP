@@ -5,16 +5,17 @@ namespace Application\Controllers;
 require_once __ROOT__ . '/src/lib/database.php';
 require_once __ROOT__ . '/src/model/Comment.php';
 require_once __ROOT__ . '/src/model/CommentRepository.php';
-require_once __ROOT__ . '/src/model/Post.php';
+//require_once __ROOT__ . '/src/model/Post.php';
 
 use Application\Lib\Database\DatabaseConnection;
+use Application\Lib\Render;
 use Application\Model\Comment;
 use Application\Model\CommentRepository;
 use Application\Model\PostRepository;
 
 class Post
 {
-    public function execute(string $identifier)
+    public function execute(int $identifier)
     {
         session_start();
 
@@ -26,14 +27,7 @@ class Post
         $commentRepository = new CommentRepository();
         $commentRepository->connection = $connection;
 
-        $loader = new \Twig\Loader\FilesystemLoader(__ROOT__ . '/templates');
-        $twig = new \Twig\Environment($loader, [
-//            'cache' => 'cache',
-            'debug' => true,
-        ]);
-
-        $twig->addExtension(new \Twig\Extension\DebugExtension());
-
+        $twig = new Render();
         echo $twig->render('post.twig', ['post' => $postRepository->getPost($identifier), 'comments' => $commentRepository->getComments($identifier), 'session' => $_SESSION]);
     }
 }

@@ -1,0 +1,27 @@
+{% extends 'layout.twig' %}
+
+{% block head %}
+    <title>Supprimer un article</title>
+{% endblock %}
+
+{% block content %}
+
+    <h1>Suppression de l'article</h1>
+    <p><a href="index.php?action=post&id={{ post.identifier }}">Retour à l'article</a></p>
+    <h2>Souhaitez-vous vraiment supprimer l'article ?</h2>
+
+    <form action="index.php?action=deletePost&id={{ post.identifier }}" method="post">
+        <div class="post">
+            <div class="title">
+                <p><strong>{{ post.title }}</strong> le {{ post.frenchCreationDate }}</p>
+            </div>
+            <div class="content">
+                <p class="description">{{ post.content }}</p>
+            </div>
+        </div>
+        <div>
+            <input type="submit" value="Supprimer" />
+        </div>
+    </form>
+
+{% endblock %}

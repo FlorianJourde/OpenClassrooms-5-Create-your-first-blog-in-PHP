@@ -1,0 +1,34 @@
+{% extends 'layout.twig' %}
+
+{% block content %}
+    <a class="button-secondary" href="index.php">Accueil</a>
+
+    <h1>Le super blog de l'AVBN !!</h1>
+    <h2>Derniers billets du blog</h2>
+
+    <div class="posts">
+        {% if session.role == 'Admin' %}
+            <div class="header">
+                <a class="button-primary button-blue" href="index.php?action=addPost">Ajouter un article</a>
+            </div>
+        {% endif %}
+
+        {% for post in posts %}
+                <div class="post">
+                    <div class="title">
+                    <h3>{{ post.title }} le {{ post.frenchCreationDate }}</h3>
+                    {% if session.role == 'Admin' %}
+                        <div class="actions">
+                            <a href="index.php?action=updatePost&id={{ post.identifier }}">modifier</a>
+                            <a href="index.php?action=deletePost&id={{ post.identifier }}">supprimer</a>
+                        </div>
+                    {% endif %}
+                    </div>
+                    <p class="content">
+                        <span class="description">{{ post.content }}</span>
+                        <a class="button-secondary button-blue" href="index.php?action=post&id={{ post.identifier }}">Voir l'article</a>
+                    </p>
+                </div>
+        {% endfor %}
+    </div>
+{% endblock %}

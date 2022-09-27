@@ -2,8 +2,8 @@
 
 namespace Application\Model;
 
-require_once('src/lib/database.php');
-require_once('src/controllers/post.php');
+require_once __ROOT__ . '/src/lib/database.php';
+require_once __ROOT__ . '/src/controllers/post.php';
 
 use Application\Lib\Database\DatabaseConnection;
 
@@ -11,21 +11,47 @@ class PostRepository
 {
     public DatabaseConnection $connection;
 
-    public function getPost(string $identifier): Post
+    public function getPost(int $identifier): Post
     {
         $statement = $this->connection->getConnection()->prepare(
-            "SELECT id, title, content, DATE_FORMAT(creation_date, '%d/%m/%Y à %Hh%imin%ss') AS french_creation_date FROM posts WHERE id = ?"
+            "SELECT id, user_id, title, content, DATE_FORMAT(creation_date, '%d/%m/%Y à %Hh%imin%ss') AS french_creation_date FROM posts WHERE id = ?"
         );
         $statement->execute([$identifier]);
 
         $row = $statement->fetch();
         $post = new Post();
         $post->title = $row['title'];
+        $post->author = $row['user_id'];
         $post->frenchCreationDate = $row['french_creation_date'];
         $post->content = $row['content'];
         $post->identifier = $row['id'];
 
         return $post;
+    }
+
+    public function deletePost(int $identifier): bool
+    {
+        if (!is_int($identifier)) { return false; }
+
+        $statement = $this->connection->getConnection()->prepare(
+            "DELETE FROM posts WHERE posts . id = ?"
+        );
+
+        $affectedLines = $statement->execute([$identifier]);
+
+        return ($affectedLines > 0);
+    }
+
+    public function updatePost(int $identifier, string $content, string $title): bool
+    {
+        if (!is_int($identifier)) { return false; }
+
+        $statement = $this->connection->getConnection()->prepare(
+            'UPDATE posts SET content = ?, title = ? WHERE id = ?'
+        );
+        $affectedLines = $statement->execute([$content, $title, $identifier]);
+
+        return ($affectedLines > 0);
     }
 
     public function getPosts(): array
@@ -45,5 +71,16 @@ class PostRepository
         }
 
         return $posts;
+    }
+
+    public function createPost(string $user_id, string $title, string $content, bool $status): bool
+    {
+        $statement = $this->connection->getConnection()->prepare(
+            "INSERT INTO posts(user_id, title, content, creation_date, update_date, status) VALUES (?, ?, ?, NOW(), NOW(), ?)"
+        );
+
+        $affectedLines = $statement->execute([$user_id,  $title, $content, $status]);
+
+        return ($affectedLines > 0);
     }
 }

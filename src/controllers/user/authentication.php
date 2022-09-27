@@ -2,8 +2,8 @@
 
 namespace Application\Controllers\User;
 
-require_once('src/lib/database.php');
-require_once('src/model/UserRepository.php');
+//require_once __ROOT__ . '/src/lib/database.php';
+//require_once __ROOT__ . '/src/model/UserRepository.php';
 
 use Application\Lib\Database\DatabaseConnection;
 use Application\Model\UserRepository;
@@ -13,6 +13,7 @@ class AuthenticationUser
     public function execute(string $email, string $password)
     {
         session_start();
+//        session_set_cookie_params(0);
 
         $userRepository = new UserRepository();
         $userRepository->connection = new DatabaseConnection();
@@ -22,9 +23,12 @@ class AuthenticationUser
             throw new \Exception('Authentification impossible !');
             header('Location: index.php?action=login');
         } else {
-            $_SESSION['is_authenticated'] = true;
             $user = $userRepository->getUserFromEmail($email);
+            $_SESSION['is_authenticated'] = true;
+            $_SESSION['id'] = $user->identifier;
             $_SESSION['username'] = $user->username;
+            $_SESSION['email'] = $user->email;
+            $_SESSION['role'] = $user->role;
             header('Location: index.php');
         }
     }

@@ -2,10 +2,11 @@
 
 namespace Application\Controllers;
 
-require_once('src/model/User.php');
-require_once('src/model/UserRepository.php');
+require_once __ROOT__ . '/src/model/User.php';
+require_once __ROOT__ . '/src/model/UserRepository.php';
 
 use Application\Lib\Database\DatabaseConnection;
+use Application\Lib\Render;
 use Application\Model\UserRepository;
 
 class Login
@@ -17,15 +18,7 @@ class Login
         $userRepository = new UserRepository();
         $userRepository->connection = new DatabaseConnection();
 
-        $loader = new \Twig\Loader\FilesystemLoader('templates');
-        $twig = new \Twig\Environment($loader, [
-//            'cache' => 'cache',
-            'debug' => true
-        ]);
-
-        $twig->addExtension(new \Twig\Extension\DebugExtension());
-
-        echo $twig->render('login.twig'/*, ['users' => $userRepository->getUsers()]*/);
-//        echo $twig->render('login.twig');
+        $twig = new Render();
+        echo $twig->render('login.twig');
     }
 }

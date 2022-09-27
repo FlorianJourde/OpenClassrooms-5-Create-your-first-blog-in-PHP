@@ -1,0 +1,27 @@
+{% extends 'layout.twig' %}
+
+{% block head %}
+    <title>Accueil</title>
+{% endblock %}
+
+{% block content %}
+
+    <h1>Suppression du commentaire</h1>
+    <p><a href="index.php?action=post&id={{ post.identifier }}">Retour à l'article</a></p>
+    <h2>Souhaitez-vous vraiment supprimer le commentaire ?</h2>
+
+    <form action="index.php?action=deleteComment&id={{ comment.identifier }}" method="post">
+        <div class="comment">
+            <div class="title">
+                <p><strong>{{ comment.author }}</strong> le {{ comment.frenchCreationDate }}</p>
+            </div>
+            <div class="content">
+                <p>{{ comment.comment }}</p>
+            </div>
+        </div>
+        <div>
+            <input type="submit" value="Supprimer" />
+        </div>
+    </form>
+
+{% endblock %}

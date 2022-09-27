@@ -2,11 +2,11 @@
 
 namespace Application\Model;
 
-require_once('src/lib/database.php');
+require_once __ROOT__ . '/src/lib/database.php';
 
 class Comment
 {
-    public string $identifier;
+    public int $identifier;
     public string $author;
     public string $frenchCreationDate;
     public string $comment;

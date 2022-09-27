@@ -2,8 +2,8 @@
 
 namespace Application\Controllers\User;
 
-require_once('src/lib/database.php');
-require_once('src/model/UserRepository.php');
+//require_once __ROOT__ . '/src/lib/database.php';
+//require_once __ROOT__ . '/src/model/UserRepository.php';
 
 use Application\Lib\Database\DatabaseConnection;
 //use Application\Model\CommentRepository;

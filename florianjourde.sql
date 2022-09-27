@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : jeu. 22 sep. 2022 à 19:41
+-- Généré le : ven. 23 sep. 2022 à 14:07
 -- Version du serveur : 5.7.36
 -- Version de PHP : 7.4.26
 
@@ -37,7 +37,7 @@ CREATE TABLE IF NOT EXISTS `comments` (
   `status` tinyint(1) NOT NULL,
   `comment_date` datetime NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=44 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=51 DEFAULT CHARSET=utf8;
 
 --
 -- Déchargement des données de la table `comments`
@@ -48,40 +48,17 @@ INSERT INTO `comments` (`id`, `user_id`, `author`, `post_id`, `content`, `status
 (3, 0, 'Sam', 2, 'Commentaire', 0, '2022-05-26 18:52:27'),
 (4, 0, 'Sam', 1, 'J\'écris un nouveau commentaire', 0, '2022-05-26 18:52:38'),
 (5, 0, 'Sam', 1, 'Sympa ce blog !', 0, '2022-05-26 18:53:56'),
-(6, 0, 'Sam', 2, 'Je suis passé hier', 0, '2022-05-26 18:55:36'),
-(7, 0, 'Sam', 2, 'Tu joues toujours à Geogussr ?', 0, '2022-05-26 19:01:25'),
-(8, 0, 'Sam', 2, 'dc', 0, '2022-06-03 15:33:45'),
-(9, 0, 'Sam', 2, 'Bonjour, mon nom est Joseph', 0, '2022-06-12 00:41:34'),
 (10, 0, 'Sam', 1, 'Test de commentaire\r\n', 0, '2022-06-17 15:29:54'),
 (11, 0, 'Diane', 1, '\r\n  $commentRepository->connection = new DatabaseConnection();', 0, '2022-06-22 23:08:46'),
-(12, 0, 'Sam', 1, 'Oui voila', 0, '2022-06-22 23:10:09'),
-(13, 0, 'John', 2, 'Je suis createComment', 0, '2022-06-22 23:10:29'),
-(14, 0, 'Sam', 2, 'Namespace', 0, '2022-06-22 23:36:18'),
-(15, 0, 'John', 1, 'Used', 0, '2022-06-22 23:36:30'),
-(16, 0, 'Sam', 2, 'Use', 0, '2022-06-22 23:43:29'),
 (17, 0, 'Sam', 1, 'Code refactorisé', 0, '2022-06-22 23:52:15'),
-(18, 0, 'John', 1, 'Au revoirdd', 0, '2022-06-27 20:20:39'),
-(19, 0, 'Tom', 2, 'Okokokokok', 0, '2022-06-27 20:47:23'),
-(20, 0, 'Tom', 2, 'Test', 0, '2022-06-27 20:48:01'),
-(21, 0, 'Tom', 2, 'Hello', 0, '2022-06-27 20:49:12'),
-(22, 0, 'Tom', 2, 'Hiqsxs', 0, '2022-06-27 20:49:51'),
-(23, 0, 'Tom', 1, 'Hello!!', 0, '2022-06-27 21:04:38'),
-(24, 0, 'Tom', 1, 'COUCdddss', 0, '2022-06-27 21:05:58'),
-(25, 0, 'Tom', 2, 'Salutttssss', 0, '2022-06-27 21:10:42'),
-(26, 0, 'Sam', 2, 'dfvdfvdfv', 0, '2022-06-27 21:51:17'),
-(27, 0, 'Diane', 2, 'dfvdfv', 0, '2022-06-27 22:09:33'),
-(28, 0, 'Tom', 2, 'dfvdfv', 0, '2022-06-27 22:11:09'),
-(29, 0, 'Diane', 1, 'COUCOUdcdfv', 0, '2022-06-27 22:12:32'),
-(30, 0, 'Diane', 2, 'loul', 0, '2022-06-27 22:34:24'),
 (35, 0, 'Diane', 1, 'Preum\'s', 0, '2022-03-03 13:00:42'),
-(36, 0, 'Diane', 2, 'blablavdfv\r\ndfvdfdfsddd', 0, '2022-06-30 17:28:42'),
-(37, 1, 'aut', 2, 'comd', 1, '2022-09-09 15:51:37'),
-(38, 1, 'aut', 2, 'com', 1, '2022-09-09 15:51:45'),
-(39, 1, 'aut', 2, 'comeeed', 1, '2022-09-09 15:51:49'),
-(40, 1, 'aut', 2, 'com', 1, '2022-09-09 15:52:00'),
-(41, 1, 'dfv', 2, '333333', 1, '2022-09-09 17:18:44'),
-(42, 1, 'dfvf', 2, 'fdvdfvvvvdddddvv', 1, '2022-09-09 17:21:22'),
-(43, 1, 'TEST', 2, 'TEST5ft', 1, '2022-09-09 18:03:35');
+(44, 1, 'Tom', 2, 'Bonjour', 1, '2022-09-23 13:46:24'),
+(45, 1, 'Admin', 2, 'Ceci est un test\r\n', 1, '2022-09-23 13:46:34'),
+(46, 1, 'Administrateur', 2, 'Je suis l\'admin', 1, '2022-09-23 13:46:41'),
+(47, 1, 'Qui ?', 2, 'Bla bla bla', 1, '2022-09-23 13:46:51'),
+(48, 1, 'Thierry', 2, 'Comment allez-vous ?', 1, '2022-09-23 13:47:06'),
+(49, 1, 'Frédéric', 2, 'Je suis Frédéric', 1, '2022-09-23 13:47:15'),
+(50, 1, 'Auteur', 2, 'Commentaire', 1, '2022-09-23 14:07:28');
 
 -- --------------------------------------------------------
 
@@ -97,16 +74,20 @@ CREATE TABLE IF NOT EXISTS `posts` (
   `content` text NOT NULL,
   `creation_date` datetime NOT NULL,
   `update_date` datetime NOT NULL,
+  `status` tinyint(1) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
 
 --
 -- Déchargement des données de la table `posts`
 --
 
-INSERT INTO `posts` (`id`, `user_id`, `title`, `content`, `creation_date`, `update_date`) VALUES
-(1, 0, 'Bienvenue sur le blog de l\'AVBN !', 'Je vous souhaite à toutes et à tous la bienvenue sur le blog qui parlera de... l\'Association de VolleyBall de Nuelly !', '2022-02-17 16:28:41', '2022-09-08 14:31:41'),
-(2, 0, 'L\'AVBN à la conquête du monde !', 'C\'est officiel, le club a annoncé à la radio hier soir \"J\'ai l\'intention de conquérir le monde !\".\r\nIl a en outre précisé que le monde serait à sa botte en moins de temps qu\'il n\'en fallait pour dire \"Association de VolleyBall de Nuelly\". Pas dur, ceci dit entre nous...', '2022-02-17 16:28:42', '2022-09-08 14:31:41');
+INSERT INTO `posts` (`id`, `user_id`, `title`, `content`, `creation_date`, `update_date`, `status`) VALUES
+(1, 0, 'Bienvenue sur le blog de l\'AVBN !', 'Je vous souhaite à toutes et à tous la bienvenue sur le blog qui parlera de... l\'Association de VolleyBall de Nuelly !', '2022-02-17 16:28:41', '2022-09-08 14:31:41', 0),
+(2, 0, 'L\'AVBN à la conquête du monde !', 'C\'est officiel, le club a annoncé à la radio hier soir \"J\'ai l\'intention de conquérir le monde !\".\r\nIl a en outre précisé que le monde serait à sa botte en moins de temps qu\'il n\'en fallait pour dire \"Association de VolleyBall de Nuelly\". Pas dur, ceci dit entre nous...', '2022-02-17 16:28:42', '2022-09-08 14:31:41', 0),
+(3, 1, 'Mon nouvel article', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc sapien leo, feugiat ut imperdiet in, tempus sit amet libero. Fusce sed nibh nec lorem hendrerit volutpat. Etiam tempor auctor tristique. Nunc tristique viverra porta. Fusce tortor orci, pretium eu eros quis, tempus varius eros. Mauris tristique, magna ac venenatis ornare, leo nunc fringilla risus, a ultricies eros risus ut est. Cras eleifend aliquam libero, in sodales lacus cursus vel. Quisque vehicula odio ut risus vehicula hendrerit. Integer massa est, volutpat eu leo in, bibendum porttitor mauris. Sed ullamcorper, nulla nec eleifend tincidunt, elit libero imperdiet arcu, vitae aliquet dui felis id nibh. Sed aliquet, elit id bibendum consequat, turpis urna lacinia nibh, quis suscipit risus nibh sed ligula.', '2022-09-23 13:14:12', '2022-09-23 13:14:12', 0),
+(7, 1, 'Ceci est un nouvel article', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc sapien leo, feugiat ut imperdiet in, tempus sit amet libero. Fusce sed nibh nec lorem hendrerit volutpat. Etiam tempor auctor tristique. Nunc tristique viverra porta. Fusce tortor orci, pretium eu eros quis, tempus varius eros. Mauris tristique, magna ac venenatis ornare, leo nunc fringilla risus, a ultricies eros risus ut est.', '2022-09-23 15:35:00', '2022-09-23 15:35:00', 1),
+(8, 1, 'Titre de l\'article', 'string $user_id, string $title, string $content, bool $status string $user_id, string $title, string $content, bool $status string $user_id, string $title, string $content, bool $status string $user_id, string $title, string $content, bool $status string $user_id, string $title, string $content, bool $status ', '2022-09-23 15:35:55', '2022-09-23 15:35:55', 1);
 
 -- --------------------------------------------------------
 
@@ -131,7 +112,7 @@ CREATE TABLE IF NOT EXISTS `users` (
 INSERT INTO `users` (`id`, `username`, `email`, `role`, `password`) VALUES
 (1, 'Thierry', 'test@test.com', 'Admin', '123456'),
 (2, 'Robert', 'email@email.com', 'User', '1'),
-(3, 'Christophe', 'a@a.com', 'User', '1');
+(3, 'Christophe', 'email@email.fr', 'User', '1');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

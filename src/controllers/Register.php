@@ -2,14 +2,11 @@
 
 namespace Application\Controllers;
 
-require_once __ROOT__ . '/src/model/User.php';
-require_once __ROOT__ . '/src/model/UserRepository.php';
-
 use Application\Lib\Database\DatabaseConnection;
 use Application\Lib\Render;
 use Application\Model\UserRepository;
 
-class Login
+class Register
 {
     public function execute()
     {
@@ -19,6 +16,6 @@ class Login
         $userRepository->connection = new DatabaseConnection();
 
         $twig = new Render();
-        echo $twig->render('login.twig');
+        echo $twig->render('register.twig', ['users' => $userRepository->getUsers()]);
     }
 }

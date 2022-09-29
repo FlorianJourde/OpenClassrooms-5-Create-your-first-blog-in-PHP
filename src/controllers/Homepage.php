@@ -2,13 +2,15 @@
 
 namespace Application\Controllers;
 
-require_once __ROOT__ . '/src/lib/database.php';
+require_once __ROOT__ . '/src/lib/Database.php';
+require_once __ROOT__ . '/src/lib/Render.php';
 require_once __ROOT__ . '/src/model/Post.php';
 require_once __ROOT__ . '/src/model/PostRepository.php';
+require_once __ROOT__ . '/src/model/Comment.php';
+require_once __ROOT__ . '/src/model/CommentRepository.php';
+require_once __ROOT__ . '/src/model/User.php';
+require_once __ROOT__ . '/src/model/UserRepository.php';
 require_once __ROOT__ . '/vendor/autoload.php';
-require_once __ROOT__ . '/src/lib/render.php';
-
-//require_once __ROOT__ . '/ressources/css/main.css';
 
 use Application\Lib\Database\DatabaseConnection;
 use Application\Lib\Render;

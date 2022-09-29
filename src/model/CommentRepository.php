@@ -2,10 +2,7 @@
 
 namespace Application\Model;
 
-require_once __ROOT__ . '/src/lib/database.php';
-
 use Application\Lib\Database\DatabaseConnection;
-use Application\Model\Comment;
 
 class CommentRepository
 {

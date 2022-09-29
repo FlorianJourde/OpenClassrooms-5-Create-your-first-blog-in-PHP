@@ -2,11 +2,6 @@
 
 namespace Application\Controllers;
 
-require_once __ROOT__ . '/src/lib/database.php';
-require_once __ROOT__ . '/src/model/Post.php';
-require_once __ROOT__ . '/src/model/PostRepository.php';
-//require_once('vendor/autoload.php');
-
 use Application\Lib\Database\DatabaseConnection;
 use Application\Lib\Render;
 use Application\Model\PostRepository;

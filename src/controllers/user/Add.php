@@ -2,11 +2,7 @@
 
 namespace Application\Controllers\User;
 
-//require_once __ROOT__ . '/src/lib/database.php';
-//require_once __ROOT__ . '/src/model/UserRepository.php';
-
 use Application\Lib\Database\DatabaseConnection;
-//use Application\Model\CommentRepository;
 use Application\Model\UserRepository;
 
 class AddUser

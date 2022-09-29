@@ -2,9 +2,6 @@
 
 namespace Application\Controllers\Comment;
 
-//require_once __ROOT__ . '/src/lib/database.php';
-//require_once __ROOT__ . '/src/model/CommentRepository.php';
-
 use Application\Lib\Database\DatabaseConnection;
 use Application\Lib\Render;
 use Application\Model\CommentRepository;

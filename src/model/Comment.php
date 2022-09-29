@@ -2,8 +2,6 @@
 
 namespace Application\Model;
 
-require_once __ROOT__ . '/src/lib/database.php';
-
 class Comment
 {
     public int $identifier;

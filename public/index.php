@@ -2,20 +2,20 @@
 
 define('__ROOT__', dirname(dirname(__FILE__)));
 
-require_once __ROOT__ . '/src/controllers/comment/add.php';
-require_once __ROOT__ . '/src/controllers/comment/update.php';
-require_once __ROOT__ . '/src/controllers/comment/delete.php';
-require_once __ROOT__ . '/src/controllers/post/add.php';
-require_once __ROOT__ . '/src/controllers/post/delete.php';
-require_once __ROOT__ . '/src/controllers/post/update.php';
-require_once __ROOT__ . '/src/controllers/user/add.php';
-require_once __ROOT__ . '/src/controllers/user/authentication.php';
-require_once __ROOT__ . '/src/controllers/user/logout.php';
-require_once __ROOT__ . '/src/controllers/homepage.php';
-require_once __ROOT__ . '/src/controllers/archive.php';
-require_once __ROOT__ . '/src/controllers/post.php';
-require_once __ROOT__ . '/src/controllers/register.php';
-require_once __ROOT__ . '/src/controllers/login.php';
+require_once __ROOT__ . '/src/controllers/comment/Add.php';
+require_once __ROOT__ . '/src/controllers/comment/Update.php';
+require_once __ROOT__ . '/src/controllers/comment/Delete.php';
+require_once __ROOT__ . '/src/controllers/post/Add.php';
+require_once __ROOT__ . '/src/controllers/post/Delete.php';
+require_once __ROOT__ . '/src/controllers/post/Update.php';
+require_once __ROOT__ . '/src/controllers/user/Add.php';
+require_once __ROOT__ . '/src/controllers/user/Authentication.php';
+require_once __ROOT__ . '/src/controllers/user/Logout.php';
+require_once __ROOT__ . '/src/controllers/Homepage.php';
+require_once __ROOT__ . '/src/controllers/Archive.php';
+require_once __ROOT__ . '/src/controllers/Post.php';
+require_once __ROOT__ . '/src/controllers/Register.php';
+require_once __ROOT__ . '/src/controllers/Login.php';
 
 use Application\Controllers\Comment\AddComment;
 use Application\Controllers\Comment\DeleteComment;
@@ -136,6 +136,9 @@ try {
             throw new Exception("La page que vous recherchez n'existe pas.");
         }
     } else {
+//        var_dump($_GET);
+//        die();
+
         (new Homepage())->execute();
     }
 } catch (Exception $e) {

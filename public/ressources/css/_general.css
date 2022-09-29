@@ -68,7 +68,7 @@ body {
     position: relative;
     width: 100%;
     font-family: var(--ff-primary);
-    background-color: var(--clr-light-cream);
+    background-color: var(--clr-white);
 }
 
 a {

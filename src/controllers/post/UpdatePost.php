@@ -19,7 +19,7 @@ class UpdatePost
 
         $userRepository = new UserRepository();
         $userRepository->connection = new DatabaseConnection();
-        $user = $userRepository->getUserFromId($postRepository->getPost($identifier)->author)->username;
+        $user = $userRepository->getUserFromId($postRepository->getPost($identifier)->user_id)->username;
 
         if ($_SESSION['role'] !== 'Admin') {
             throw new \Exception('Vous n\'avez pas accès à cette page !');

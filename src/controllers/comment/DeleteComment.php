@@ -18,11 +18,11 @@ class DeleteComment
 
         $commentRepository = new CommentRepository();
         $commentRepository->connection = new DatabaseConnection();
-        $comment = $commentRepository->getComment($identifier);
 
-        if ($_SESSION['role'] != 'Admin') {
-            throw new \Exception('Vous n\'avez pas accès à cette page !');
-        } else {
+        $comment = $commentRepository->getComment($identifier);
+        $post = $postRepository->getPost($comment->post);
+
+        if ($_SESSION['role'] === 'Admin' || $_SESSION['id'] === $comment->user_id) {
             if($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $success = $commentRepository->deleteComment($identifier);
 
@@ -32,9 +32,11 @@ class DeleteComment
                     header(sprintf('Location: index.php?action=post&id=%d', $comment->post));
                 }
             }
+        } else {
+            throw new \Exception('Vous n\'avez pas accès à cette page !');
         }
 
         $twig = new Render();
-        echo $twig->render('delete_comment.twig', ['comment' => $commentRepository->getComment($identifier), 'post' => $postRepository->getPost($comment->post), 'session' => $_SESSION]);
+        echo $twig->render('delete_comment.twig', ['comment' => $comment, 'post' => $post, 'session' => $_SESSION]);
     }
 }

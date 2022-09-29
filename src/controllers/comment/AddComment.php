@@ -14,8 +14,9 @@ class AddComment
         $author = null;
         $comment = null;
 
-        if (!empty($input['author']) && !empty($input['comment'])) {
-            $author = $input['author'];
+        if (!empty($input['comment'])) {
+            $user_id = $_SESSION['id'];
+//            $author = $input['author'];
             $comment = $input['comment'];
         } else {
             throw new \Exception('Les données du formulaire sont invalides.');
@@ -23,7 +24,7 @@ class AddComment
 
         $commentRepository = new CommentRepository();
         $commentRepository->connection = new DatabaseConnection();
-        $success = $commentRepository->createComment($post, $author, $comment, $user_id, $status);
+        $success = $commentRepository->createComment($post, $comment, $user_id, $status);
 
         if (!$success) {
             throw new \Exception('Impossible d\'ajouter le commentaire !');

@@ -31,7 +31,7 @@ class PostRepository
         if (!is_int($identifier)) { return false; }
 
         $statement = $this->connection->getConnection()->prepare(
-            "DELETE FROM posts WHERE posts . id = ?"
+            "DELETE posts, comments FROM posts INNER JOIN comments ON posts.id = comments.post_id WHERE posts . id = ?"
         );
 
         $affectedLines = $statement->execute([$identifier]);

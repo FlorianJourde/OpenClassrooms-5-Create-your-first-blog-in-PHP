@@ -2,7 +2,7 @@
 
 namespace Application\Model;
 
-use Application\Lib\Database\DatabaseConnection;
+use Application\Lib\DatabaseConnection;
 
 class UserRepository
 {

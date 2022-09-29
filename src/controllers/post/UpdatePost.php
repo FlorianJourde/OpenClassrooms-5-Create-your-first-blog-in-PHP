@@ -2,7 +2,7 @@
 
 namespace Application\Controllers\Post;
 
-use Application\Lib\Database\DatabaseConnection;
+use Application\Lib\DatabaseConnection;
 use Application\Lib\Render;
 use Application\Model\PostRepository;
 use Application\Model\UserRepository;

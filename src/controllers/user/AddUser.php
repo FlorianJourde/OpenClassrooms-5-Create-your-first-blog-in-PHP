@@ -2,7 +2,7 @@
 
 namespace Application\Controllers\User;
 
-use Application\Lib\Database\DatabaseConnection;
+use Application\Lib\DatabaseConnection;
 use Application\Model\UserRepository;
 
 class AddUser

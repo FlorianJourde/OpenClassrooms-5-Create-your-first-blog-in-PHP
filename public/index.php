@@ -2,15 +2,15 @@
 
 define('__ROOT__', dirname(dirname(__FILE__)));
 
-require_once __ROOT__ . '/src/controllers/comment/Add.php';
-require_once __ROOT__ . '/src/controllers/comment/Update.php';
-require_once __ROOT__ . '/src/controllers/comment/Delete.php';
-require_once __ROOT__ . '/src/controllers/post/Add.php';
-require_once __ROOT__ . '/src/controllers/post/Delete.php';
-require_once __ROOT__ . '/src/controllers/post/Update.php';
-require_once __ROOT__ . '/src/controllers/user/Add.php';
-require_once __ROOT__ . '/src/controllers/user/Authentication.php';
-require_once __ROOT__ . '/src/controllers/user/Logout.php';
+require_once __ROOT__ . '/src/controllers/comment/AddComment.php';
+require_once __ROOT__ . '/src/controllers/comment/UpdateComment.php';
+require_once __ROOT__ . '/src/controllers/comment/DeleteComment.php';
+require_once __ROOT__ . '/src/controllers/post/AddPost.php';
+require_once __ROOT__ . '/src/controllers/post/DeletePost.php';
+require_once __ROOT__ . '/src/controllers/post/UpdatePost.php';
+require_once __ROOT__ . '/src/controllers/user/AddUser.php';
+require_once __ROOT__ . '/src/controllers/user/AuthenticationUser.php';
+require_once __ROOT__ . '/src/controllers/user/LogoutUser.php';
 require_once __ROOT__ . '/src/controllers/Homepage.php';
 require_once __ROOT__ . '/src/controllers/Archive.php';
 require_once __ROOT__ . '/src/controllers/Post.php';

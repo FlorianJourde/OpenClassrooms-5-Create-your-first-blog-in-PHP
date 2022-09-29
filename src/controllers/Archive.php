@@ -2,7 +2,7 @@
 
 namespace Application\Controllers;
 
-use Application\Lib\Database\DatabaseConnection;
+use Application\Lib\DatabaseConnection;
 use Application\Lib\Render;
 use Application\Model\PostRepository;
 
@@ -17,7 +17,5 @@ class Archive
 
         $twig = new Render();
         echo $twig->render('archive.twig', ['posts' => $postRepository->getPosts(), 'session' => $_SESSION]);
-
-//        echo $twig->render('archive.twig', ['posts' => $postRepository->getPosts(), 'session' => $_SESSION]);
     }
 }

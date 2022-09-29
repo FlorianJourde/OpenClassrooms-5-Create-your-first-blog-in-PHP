@@ -2,7 +2,7 @@
 
 namespace Application\Controllers\Comment;
 
-use Application\Lib\Database\DatabaseConnection;
+use Application\Lib\DatabaseConnection;
 use Application\Model\CommentRepository;
 
 class AddComment

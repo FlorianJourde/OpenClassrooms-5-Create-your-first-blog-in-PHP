@@ -2,7 +2,7 @@
 
 namespace Application\Controllers;
 
-require_once __ROOT__ . '/src/lib/Database.php';
+require_once __ROOT__ . '/src/lib/DatabaseConnection.php';
 require_once __ROOT__ . '/src/lib/Render.php';
 require_once __ROOT__ . '/src/model/Post.php';
 require_once __ROOT__ . '/src/model/PostRepository.php';
@@ -12,7 +12,7 @@ require_once __ROOT__ . '/src/model/User.php';
 require_once __ROOT__ . '/src/model/UserRepository.php';
 require_once __ROOT__ . '/vendor/autoload.php';
 
-use Application\Lib\Database\DatabaseConnection;
+use Application\Lib\DatabaseConnection;
 use Application\Lib\Render;
 use Application\Model\PostRepository;
 

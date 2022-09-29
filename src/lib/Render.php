@@ -18,4 +18,3 @@ class Render
         return $twig->render($string, $array);
     }
 }
-

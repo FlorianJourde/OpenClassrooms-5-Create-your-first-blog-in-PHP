@@ -11,15 +11,15 @@ class PostRepository
     public function getPost(int $identifier): Post
     {
         $statement = $this->connection->getConnection()->prepare(
-            "SELECT id, user_id, title, content, DATE_FORMAT(creation_date, '%d/%m/%Y à %Hh%imin%ss') AS french_creation_date FROM posts WHERE id = ?"
+            "SELECT id, user_id, title, content, DATE_FORMAT(creation_date, '%d/%m/%Y à %H:%i:%s') AS creation_date FROM posts WHERE id = ?"
         );
         $statement->execute([$identifier]);
 
         $row = $statement->fetch();
         $post = new Post();
         $post->title = $row['title'];
-        $post->author = $row['user_id'];
-        $post->frenchCreationDate = $row['french_creation_date'];
+        $post->user_id = $row['user_id'];
+        $post->creationDate = $row['creation_date'];
         $post->content = $row['content'];
         $post->identifier = $row['id'];
 
@@ -54,13 +54,14 @@ class PostRepository
     public function getPosts(): array
     {
         $statement = $this->connection->getConnection()->query(
-            "SELECT id, title, content, DATE_FORMAT(creation_date, '%d/%m/%Y à %Hh%imin%ss') AS french_creation_date FROM posts ORDER BY creation_date DESC LIMIT 0, 5"
+            "SELECT id, title, content, user_id, DATE_FORMAT(creation_date, '%d/%m/%Y à %H:%i:%s') AS creation_date FROM posts ORDER BY creation_date DESC LIMIT 0, 5"
         );
         $posts = [];
         while (($row = $statement->fetch())) {
             $post = new Post();
             $post->title = $row['title'];
-            $post->frenchCreationDate = $row['french_creation_date'];
+            $post->creationDate = $row['creation_date'];
+            $post->user_id = $row['user_id'];
             $post->content = $row['content'];
             $post->identifier = $row['id'];
 

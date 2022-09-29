@@ -12,8 +12,8 @@ class CommentRepository
     {
         $comment = new Comment();
         $comment->identifier = $row['id'];
-        $comment->author = $row['author'];
-        $comment->frenchCreationDate = $row['french_creation_date'];
+        $comment->user_id = $row['user_id'];
+        $comment->creationDate = $row['creation_date'];
         $comment->comment = $row['content'];
         $comment->post = $row['post_id'];
 
@@ -23,7 +23,7 @@ class CommentRepository
     public function getComments(string $post): array
     {
         $statement = $this->connection->getConnection()->prepare(
-            "SELECT id, author, content, DATE_FORMAT(comment_date, '%d/%m/%Y à %Hh%imin%ss') AS french_creation_date, post_id FROM comments WHERE post_id = ? ORDER BY comment_date DESC"
+            "SELECT id, user_id, content, DATE_FORMAT(comment_date, '%d/%m/%Y à %d/%m/%Y') AS creation_date, post_id FROM comments WHERE post_id = ? ORDER BY comment_date DESC"
         );
         $statement->execute([$post]);
 
@@ -40,7 +40,7 @@ class CommentRepository
     public function getComment(int $identifier): ?Comment
     {
         $statement = $this->connection->getConnection()->prepare(
-            "SELECT id, author, content, DATE_FORMAT(comment_date, '%d/%m/%Y à %Hh%imin%ss') AS french_creation_date, post_id FROM comments WHERE id = ?"
+            "SELECT id, user_id, content, DATE_FORMAT(comment_date, '%d/%m/%Y à %d/%m/%Y') AS creation_date, post_id FROM comments WHERE id = ?"
         );
         $statement->execute([$identifier]);
 
@@ -52,13 +52,13 @@ class CommentRepository
         return $this->fetchComment($row);
     }
 
-    public function createComment(string $post, string $author, string $comment, string $user_id, bool $status): bool
+    public function createComment(string $post, string $comment, string $user_id, bool $status): bool
     {
         $statement = $this->connection->getConnection()->prepare(
-            'INSERT INTO comments(post_id, author, content, user_id, status, comment_date) VALUES(?, ?, ?, ?, ?, NOW())'
+            'INSERT INTO comments(post_id, content, user_id, status, comment_date) VALUES(?, ?, ?, ?, NOW())'
         );
 
-        $affectedLines = $statement->execute([$post, $author, $comment, $user_id, $status]);
+        $affectedLines = $statement->execute([$post, $comment, $user_id, $status]);
 
         return ($affectedLines > 0);
     }

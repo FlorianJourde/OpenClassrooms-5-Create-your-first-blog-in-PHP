@@ -3,6 +3,9 @@
 {% block content %}
     <a class="button-secondary" href="index.php">Accueil</a>
 
+{#    {{ dump(posts) }}#}
+{#    {{ dump(authors) }}#}
+
     <h1>Le super blog de l'AVBN !!</h1>
     <h2>Derniers billets du blog</h2>
 
@@ -14,21 +17,23 @@
         {% endif %}
 
         {% for post in posts %}
-                <div class="post">
-                    <div class="title">
-                    <h3>{{ post.title }} le {{ post.frenchCreationDate }}</h3>
+            <div class="post">
+                <div class="title">
+                    <h3>{{ post.title }}</h3>
                     {% if session.role == 'Admin' %}
                         <div class="actions">
                             <a href="index.php?action=updatePost&id={{ post.identifier }}">modifier</a>
                             <a href="index.php?action=deletePost&id={{ post.identifier }}">supprimer</a>
                         </div>
                     {% endif %}
-                    </div>
-                    <p class="content">
-                        <span class="description">{{ post.content }}</span>
-                        <a class="button-secondary button-blue" href="index.php?action=post&id={{ post.identifier }}">Voir l'article</a>
-                    </p>
                 </div>
+                <div class="content">
+                    <p class="description">{{ post.content }}</p>
+                    <p><span class="author">{{ post.username }}</span> le <span class="date">{{ post.creationDate }}</span></p>
+                    <a class="button-secondary button-blue" href="index.php?action=post&id={{ post.identifier }}">Lire l'article</a>
+                </div>
+            </div>
+
         {% endfor %}
     </div>
 {% endblock %}

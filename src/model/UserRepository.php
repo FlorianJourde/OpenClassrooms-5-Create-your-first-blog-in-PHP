@@ -15,7 +15,7 @@ class UserRepository
         $user->username = $row['username'];
         $user->email = $row['email'];
         $user->role = $row['role'];
-        $user->password = $row['password'];
+//        $user->password = $row['password'];
 
         return $user;
     }
@@ -25,7 +25,7 @@ class UserRepository
         if (!is_int($identifier)) { return false; }
 
         $statement = $this->connection->getConnection()->prepare(
-            "SELECT id, username, email, role, password FROM users WHERE id = ?"
+            "SELECT id, username, email, role/*, password*/ FROM users WHERE id = ?"
         );
 
         $statement->execute([$identifier]);

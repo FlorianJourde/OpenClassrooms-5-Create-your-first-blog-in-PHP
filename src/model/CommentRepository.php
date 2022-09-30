@@ -23,7 +23,7 @@ class CommentRepository
     public function getComments(string $post): array
     {
         $statement = $this->connection->getConnection()->prepare(
-            "SELECT id, user_id, content, DATE_FORMAT(comment_date, '%d/%m/%Y à %d/%m/%Y') AS creation_date, post_id FROM comments WHERE post_id = ? ORDER BY comment_date DESC"
+            "SELECT id, user_id, content, DATE_FORMAT(comment_date, '%d/%m/%Y à %H:%i:%s') AS creation_date, post_id FROM comments WHERE post_id = ? ORDER BY comment_date DESC"
         );
         $statement->execute([$post]);
 
@@ -42,7 +42,7 @@ class CommentRepository
         if (!is_int($identifier)) { return null; }
 
         $statement = $this->connection->getConnection()->prepare(
-            "SELECT id, user_id, content, DATE_FORMAT(comment_date, '%d/%m/%Y à %d/%m/%Y') AS creation_date, post_id FROM comments WHERE id = ?"
+            "SELECT id, user_id, content, DATE_FORMAT(comment_date, '%d/%m/%Y à %H:%i:%s') AS creation_date, post_id FROM comments WHERE id = ?"
         );
         $statement->execute([$identifier]);
 

@@ -18,6 +18,7 @@ use Application\Lib\DatabaseConnection;
 use Application\Lib\ManageSession;
 use Application\Lib\RenderFront;
 use Application\Model\PostRepository;
+use Application\Model\UserRepository;
 
 class Homepage
 {
@@ -28,6 +29,11 @@ class Homepage
 
         $postRepository = new PostRepository();
         $postRepository->connection = new DatabaseConnection();
+
+//        var_dump($_SESSION);
+//        $userRepository = new UserRepository();
+//        $userRepository->checkToken($_SESSION['token'] ?? []);
+//        var_dump($userRepository->checkToken($_SESSION['token']));
 
         $twig = new RenderFront();
         echo $twig->render('home.twig', ['posts' => $postRepository->getPosts(), 'session' => $_SESSION]);

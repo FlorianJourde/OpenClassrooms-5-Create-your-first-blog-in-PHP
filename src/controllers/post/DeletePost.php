@@ -20,20 +20,16 @@ class DeletePost
 
         $userRole = new CheckUserRole();
 
-        if (empty($_SESSION['role'])) {
-            $user_role = 'Guest';
-        } else {
-            $user_role = $_SESSION['role'];
-        }
+        if ($userRole->isAuthenticated($_SESSION['token'] ?? '')) {
+            if ($userRole->isAdmin($_SESSION['role'] ?? 'Guest')) {
+                if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+                    $success = $postRepository->deletePost($identifier);
 
-        if ($userRole->isAdmin($user_role)) {
-            if($_SERVER['REQUEST_METHOD'] === 'POST') {
-                $success = $postRepository->deletePost($identifier);
-
-                if ($success) {
-                    header(sprintf('Location: index.php?action=archive'));
-                } else {
-                    header(sprintf('Location: index.php?action=post&id=%d', $identifier));
+                    if ($success) {
+                        header(sprintf('Location: index.php?action=archive'));
+                    } else {
+                        header(sprintf('Location: index.php?action=post&id=%d', $identifier));
+                    }
                 }
             }
         } else {

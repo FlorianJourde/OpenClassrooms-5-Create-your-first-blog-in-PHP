@@ -76,7 +76,7 @@ class UserRepository
     public function login(string $email, string $password): ?User
     {
         $statement = $this->connection->getConnection()->prepare(
-            "SELECT id, email, password, username FROM users WHERE email = ? AND password = ?"
+            "SELECT id, email, password, username, token FROM users WHERE email = ? AND password = ?"
         );
 
         $statement->execute([$email, MD5($password)]);
@@ -90,5 +90,43 @@ class UserRepository
         $user->email = $row['email'];
 
         return $user;
+    }
+
+    public function generateToken(string $token, $identifer): string
+    {
+        $statement = $this->connection->getConnection()->prepare(
+            "UPDATE users set token = ? WHERE id = ?"
+        );
+
+        $affectedLines = $statement->execute([$token, $identifer]);
+
+        return ($affectedLines > 0);
+    }
+
+    public function checkToken($token): ?User
+    {
+        $statement = $this->connection->getConnection()->prepare(
+            "SELECT id FROM users WHERE token = ?"
+        );
+
+        $affectedLines = $statement->execute([$token]);
+
+        $row = $statement->fetch();
+        if ($row === false) {
+            return null;
+        }
+
+        return new User();
+    }
+
+    public function deleteToken(string $identifer): string
+    {
+        $statement = $this->connection->getConnection()->prepare(
+            "UPDATE users set token = null WHERE id = ?"
+        );
+
+        $affectedLines = $statement->execute([$identifer]);
+
+        return ($affectedLines > 0);
     }
 }

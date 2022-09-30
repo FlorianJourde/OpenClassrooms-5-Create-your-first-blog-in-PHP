@@ -13,7 +13,6 @@ class RenderFront
         ]);
 
         $twig->addExtension(new \Twig\Extension\DebugExtension());
-//        $render = echo($string, $array);
 
         return $twig->render($string, $array);
     }

@@ -22,7 +22,7 @@ class UserRepository
 
     public function getUserFromId(int $identifier): ?User
     {
-        if (!is_int($identifier)) { return false; }
+        if (!is_int($identifier)) { return null; }
 
         $statement = $this->connection->getConnection()->prepare(
             "SELECT id, username, email, role/*, password*/ FROM users WHERE id = ?"

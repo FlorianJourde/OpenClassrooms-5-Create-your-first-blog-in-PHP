@@ -54,7 +54,7 @@ class PostRepository
     public function getPosts(): array
     {
         $statement = $this->connection->getConnection()->query(
-            "SELECT id, title, content, user_id, DATE_FORMAT(creation_date, '%d/%m/%Y à %H:%i:%s') AS creation_date FROM posts ORDER BY creation_date DESC LIMIT 0, 5"
+            "SELECT id, title, content, user_id, DATE_FORMAT(creation_date, '%d/%m/%Y à %H:%i:%s') AS creation_date FROM posts ORDER BY creation_date DESC"
         );
         $posts = [];
         while (($row = $statement->fetch())) {
@@ -71,8 +71,10 @@ class PostRepository
         return $posts;
     }
 
-    public function createPost(string $user_id, string $title, string $content, bool $status): bool
+    public function createPost(int $user_id, string $title, string $content, bool $status): bool
     {
+        if (!is_int($user_id)) { return false; }
+
         $statement = $this->connection->getConnection()->prepare(
             "INSERT INTO posts(user_id, title, content, creation_date, update_date, status) VALUES (?, ?, ?, NOW(), NOW(), ?)"
         );

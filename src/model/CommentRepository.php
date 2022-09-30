@@ -39,6 +39,8 @@ class CommentRepository
 
     public function getComment(int $identifier): ?Comment
     {
+        if (!is_int($identifier)) { return null; }
+
         $statement = $this->connection->getConnection()->prepare(
             "SELECT id, user_id, content, DATE_FORMAT(comment_date, '%d/%m/%Y à %d/%m/%Y') AS creation_date, post_id FROM comments WHERE id = ?"
         );
@@ -52,8 +54,10 @@ class CommentRepository
         return $this->fetchComment($row);
     }
 
-    public function createComment(string $post, string $comment, string $user_id, bool $status): bool
+    public function createComment(string $post, string $comment, int $user_id, bool $status): bool
     {
+        if (!is_int($user_id)) { return false; }
+
         $statement = $this->connection->getConnection()->prepare(
             'INSERT INTO comments(post_id, content, user_id, status, comment_date) VALUES(?, ?, ?, ?, NOW())'
         );
@@ -65,7 +69,7 @@ class CommentRepository
 
     public function updateComment(int $identifier, string $comment): bool
     {
-//        if (!is_int($identifier)) { return false; }
+        if (!is_int($identifier)) { return false; }
 
         $statement = $this->connection->getConnection()->prepare(
             'UPDATE comments SET content = ? WHERE id = ?'
@@ -77,6 +81,9 @@ class CommentRepository
 
     public function deleteComment(int $identifier): bool
     {
+
+        if (!is_int($identifier)) { return false; }
+
         $statement = $this->connection->getConnection()->prepare(
             'DELETE FROM comments WHERE id = ?'
         );

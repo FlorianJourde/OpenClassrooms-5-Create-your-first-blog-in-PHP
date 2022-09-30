@@ -2,9 +2,10 @@
 
 namespace Application\Controllers\Post;
 
+use Application\Lib\CheckUserRole;
 use Application\Lib\DatabaseConnection;
 use Application\Lib\ManageSession;
-use Application\Lib\Render;
+use Application\Lib\RenderFront;
 use Application\Model\PostRepository;
 
 class DeletePost
@@ -17,9 +18,15 @@ class DeletePost
         $postRepository = new PostRepository();
         $postRepository->connection = new DatabaseConnection();
 
-        if ($_SESSION['role'] != 'Admin') {
-            throw new \Exception('Vous n\'avez pas accès à cette page !');
+        $userRole = new CheckUserRole();
+
+        if (empty($_SESSION['role'])) {
+            $user_role = 'Guest';
         } else {
+            $user_role = $_SESSION['role'];
+        }
+
+        if ($userRole->isAdmin($user_role)) {
             if($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $success = $postRepository->deletePost($identifier);
 
@@ -29,9 +36,11 @@ class DeletePost
                     header(sprintf('Location: index.php?action=post&id=%d', $identifier));
                 }
             }
+        } else {
+            throw new \Exception('Vous n\'avez pas accès à cette page !');
         }
 
-        $twig = new Render();
+        $twig = new RenderFront();
         echo $twig->render('delete_post.twig', ['post' => $postRepository->getPost($identifier), 'session' => $_SESSION]);
     }
 }

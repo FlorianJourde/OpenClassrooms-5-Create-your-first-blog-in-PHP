@@ -4,7 +4,7 @@ namespace Application\Controllers;
 
 use Application\Lib\DatabaseConnection;
 use Application\Lib\ManageSession;
-use Application\Lib\Render;
+use Application\Lib\RenderFront;
 use Application\Model\CommentRepository;
 use Application\Model\PostRepository;
 use Application\Model\UserRepository;
@@ -35,7 +35,7 @@ class Post
             $comment->username = $user->username;
         }
 
-        $twig = new Render();
+        $twig = new RenderFront();
         echo $twig->render('post.twig', ['post' => $post, 'comments' => $comments, 'session' => $_SESSION]);
     }
 }

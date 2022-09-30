@@ -4,7 +4,7 @@ namespace Application\Controllers;
 
 use Application\Lib\DatabaseConnection;
 use Application\Lib\ManageSession;
-use Application\Lib\Render;
+use Application\Lib\RenderFront;
 use Application\Model\PostRepository;
 use Application\Model\UserRepository;
 
@@ -28,7 +28,7 @@ class Archive
             $post->username = $user->username;
         }
 
-        $twig = new Render();
+        $twig = new RenderFront();
         echo $twig->render('archive.twig', ['posts' => $posts, 'session' => $_SESSION/*, 'authors' => $userRepository->getUsers()*/]);
     }
 }

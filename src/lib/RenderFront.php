@@ -2,7 +2,7 @@
 
 namespace Application\Lib;
 
-class Render
+class RenderFront
 {
     public function render(string $string, array $array = [])
     {

@@ -2,9 +2,10 @@
 
 namespace Application\Controllers\Post;
 
+use Application\Lib\CheckUserRole;
 use Application\Lib\DatabaseConnection;
 use Application\Lib\ManageSession;
-use Application\Lib\Render;
+use Application\Lib\RenderFront;
 use Application\Model\PostRepository;
 use Application\Model\UserRepository;
 
@@ -23,9 +24,15 @@ class UpdatePost
         $userRepository->connection = new DatabaseConnection();
         $user = $userRepository->getUserFromId($postRepository->getPost($identifier)->user_id)->username;
 
-        if ($_SESSION['role'] !== 'Admin') {
-            throw new \Exception('Vous n\'avez pas accès à cette page !');
+        $userRole = new CheckUserRole();
+
+        if (empty($_SESSION['role'])) {
+            $user_role = 'Guest';
         } else {
+            $user_role = $_SESSION['role'];
+        }
+
+        if ($userRole->isAdmin($user_role)) {
             if ($input !== null) {
                 $content = null;
                 $title = null;
@@ -48,9 +55,11 @@ class UpdatePost
 
                 header(sprintf('Location: index.php?action=post&id=%d', $identifier));
             }
+        } else {
+            throw new \Exception('Vous n\'avez pas accès à cette page !');
         }
 
-        $twig = new Render();
+        $twig = new RenderFront();
         echo $twig->render('update_post.twig', ['post' => $post, 'user' => $user,'session' => $_SESSION]);
     }
 }

@@ -68,7 +68,7 @@ class UserRepository
             "INSERT INTO users(username, email, role, password) VALUES(?, ?, ?, ?)"
         );
 
-        $affectedLines = $statement->execute([$username, $email, $role, $password]);
+        $affectedLines = $statement->execute([$username, $email, $role, MD5($password)]);
 
         return ($affectedLines > 0);
     }
@@ -79,7 +79,7 @@ class UserRepository
             "SELECT id, email, password, username FROM users WHERE email = ? AND password = ?"
         );
 
-        $statement->execute([$email, $password]);
+        $statement->execute([$email, MD5($password)]);
 
         $row = $statement->fetch();
         if ($row === false) {

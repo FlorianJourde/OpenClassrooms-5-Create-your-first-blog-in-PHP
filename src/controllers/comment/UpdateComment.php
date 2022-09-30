@@ -3,6 +3,7 @@
 namespace Application\Controllers\Comment;
 
 use Application\Lib\DatabaseConnection;
+use Application\Lib\ManageSession;
 use Application\Lib\Render;
 use Application\Model\CommentRepository;
 use Application\Model\PostRepository;
@@ -11,7 +12,8 @@ class UpdateComment
 {
     public function execute(int $identifier, ?array $input)
     {
-        session_start();
+        $manageSession = new ManageSession();
+        $manageSession->execute();
 
         $postRepository = new PostRepository();
         $postRepository->connection = new DatabaseConnection();

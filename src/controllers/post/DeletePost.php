@@ -3,6 +3,7 @@
 namespace Application\Controllers\Post;
 
 use Application\Lib\DatabaseConnection;
+use Application\Lib\ManageSession;
 use Application\Lib\Render;
 use Application\Model\PostRepository;
 
@@ -10,7 +11,8 @@ class DeletePost
 {
     public function execute(int $identifier)
     {
-        session_start();
+        $manageSession = new ManageSession();
+        $manageSession->execute();
 
         $postRepository = new PostRepository();
         $postRepository->connection = new DatabaseConnection();

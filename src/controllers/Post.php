@@ -3,6 +3,7 @@
 namespace Application\Controllers;
 
 use Application\Lib\DatabaseConnection;
+use Application\Lib\ManageSession;
 use Application\Lib\Render;
 use Application\Model\CommentRepository;
 use Application\Model\PostRepository;
@@ -12,7 +13,8 @@ class Post
 {
     public function execute(int $identifier)
     {
-        session_start();
+        $manageSession = new ManageSession();
+        $manageSession->execute();
 
         $postRepository = new PostRepository();
         $postRepository->connection = new DatabaseConnection();
@@ -32,8 +34,6 @@ class Post
             $user = $userRepository->getUserFromId($comment->user_id);
             $comment->username = $user->username;
         }
-
-//        var_dump($comments);
 
         $twig = new Render();
         echo $twig->render('post.twig', ['post' => $post, 'comments' => $comments, 'session' => $_SESSION]);

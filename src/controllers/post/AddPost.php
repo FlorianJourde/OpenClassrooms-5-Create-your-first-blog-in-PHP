@@ -3,6 +3,7 @@
 namespace Application\Controllers\Post;
 
 use Application\Lib\DatabaseConnection;
+use Application\Lib\ManageSession;
 use Application\Lib\Render;
 use Application\Model\PostRepository;
 
@@ -10,7 +11,8 @@ class AddPost
 {
     public function execute(?array $input)
     {
-        session_start();
+        $manageSession = new ManageSession();
+        $manageSession->execute();
 
         if ($_SESSION['role'] != 'Admin') {
             throw new \Exception('Vous n\'avez pas accès à cette page !');

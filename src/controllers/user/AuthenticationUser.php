@@ -10,7 +10,6 @@ class AuthenticationUser
     public function execute(string $email, string $password)
     {
         session_start();
-//        session_set_cookie_params(0);
 
         $userRepository = new UserRepository();
         $userRepository->connection = new DatabaseConnection();
@@ -26,6 +25,7 @@ class AuthenticationUser
             $_SESSION['username'] = $user->username;
             $_SESSION['email'] = $user->email;
             $_SESSION['role'] = $user->role;
+            $_SESSION['timeout'] = time();
             header('Location: index.php');
         }
     }

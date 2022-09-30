@@ -3,13 +3,15 @@
 namespace Application\Controllers\Comment;
 
 use Application\Lib\DatabaseConnection;
+use Application\Lib\ManageSession;
 use Application\Model\CommentRepository;
 
 class AddComment
 {
     public function execute(string $post, array $input, string $user_id, bool $status)
     {
-        session_start();
+        $manageSession = new ManageSession();
+        $manageSession->execute();
 
         $author = null;
         $comment = null;

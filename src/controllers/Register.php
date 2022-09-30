@@ -3,6 +3,7 @@
 namespace Application\Controllers;
 
 use Application\Lib\DatabaseConnection;
+use Application\Lib\ManageSession;
 use Application\Lib\Render;
 use Application\Model\UserRepository;
 
@@ -10,7 +11,8 @@ class Register
 {
     public function execute()
     {
-        session_start();
+        $manageSession = new ManageSession();
+        $manageSession->execute();
 
         $userRepository = new UserRepository();
         $userRepository->connection = new DatabaseConnection();

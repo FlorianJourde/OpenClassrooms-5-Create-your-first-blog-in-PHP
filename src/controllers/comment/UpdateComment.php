@@ -2,11 +2,13 @@
 
 namespace Application\Controllers\Comment;
 
+use Application\Lib\CheckUserRole;
 use Application\Lib\DatabaseConnection;
 use Application\Lib\ManageSession;
-use Application\Lib\Render;
+use Application\Lib\RenderFront;
 use Application\Model\CommentRepository;
 use Application\Model\PostRepository;
+use Application\Model\UserRepository;
 
 class UpdateComment
 {
@@ -24,8 +26,14 @@ class UpdateComment
         $comment = $commentRepository->getComment($identifier);
         $post = $postRepository->getPost($comment->post);
 
-        if ($_SESSION['role'] === 'Admin' || $_SESSION['id'] === $comment->user_id) {
-            if ($input !== null) {
+        $userRole = new CheckUserRole();
+
+        $userRepository = new UserRepository();
+        $userRepository->connection = new DatabaseConnection();
+
+        if ($userRole->isAuthenticated($_SESSION['token'] ?? '')) {
+            if ($userRole->isAdmin($_SESSION['role'] ?? 'Guest') || $userRole->isCurrentUser($comment->user_id, $_SESSION['id'] ?? 0)) {
+                if ($input !== null) {
                 $comment = null;
 
                 if (!empty($input['comment'])) {
@@ -50,12 +58,12 @@ class UpdateComment
             if ($comment === null) {
                 throw new \Exception("Le commentaire $identifier n'existe pas.");
             }
-
+        }
         } else {
             throw new \Exception('Vous n\'avez pas accès à cette page !');
         }
 
-        $twig = new Render();
+        $twig = new RenderFront();
         echo $twig->render('update_comment.twig', ['comment' => $comment, 'post' => $post, 'session' => $_SESSION]);
     }
 }

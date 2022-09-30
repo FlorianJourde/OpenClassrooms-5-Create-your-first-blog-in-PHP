@@ -2,7 +2,7 @@
 
 namespace Application\Lib;
 
-class Render
+class RenderFront
 {
     public function render(string $string, array $array = [])
     {
@@ -13,7 +13,6 @@ class Render
         ]);
 
         $twig->addExtension(new \Twig\Extension\DebugExtension());
-//        $render = echo($string, $array);
 
         return $twig->render($string, $array);
     }

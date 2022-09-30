@@ -2,11 +2,13 @@
 
 namespace Application\Controllers\Comment;
 
+use Application\Lib\CheckUserRole;
 use Application\Lib\DatabaseConnection;
 use Application\Lib\ManageSession;
-use Application\Lib\Render;
+use Application\Lib\RenderFront;
 use Application\Model\CommentRepository;
 use Application\Model\PostRepository;
+use Application\Model\UserRepository;
 
 class DeleteComment
 {
@@ -24,21 +26,28 @@ class DeleteComment
         $comment = $commentRepository->getComment($identifier);
         $post = $postRepository->getPost($comment->post);
 
-        if ($_SESSION['role'] === 'Admin' || $_SESSION['id'] === $comment->user_id) {
-            if($_SERVER['REQUEST_METHOD'] === 'POST') {
-                $success = $commentRepository->deleteComment($identifier);
+        $userRole = new CheckUserRole();
 
-                header(sprintf('Location: index.php?action=post&id=%d', $comment->post));
-                if (!$success) {
+        $userRepository = new UserRepository();
+        $userRepository->connection = new DatabaseConnection();
+
+        if ($userRole->isAuthenticated($_SESSION['token'] ?? '')) {
+            if ($userRole->isAdmin(empty($_SESSION['role']) ?? 'Guest') || $userRole->isCurrentUser($comment->user_id, $_SESSION['id'] ?? 0)) {
+                if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+                    $success = $commentRepository->deleteComment($identifier);
 
                     header(sprintf('Location: index.php?action=post&id=%d', $comment->post));
+                    if (!$success) {
+
+                        header(sprintf('Location: index.php?action=post&id=%d', $comment->post));
+                    }
                 }
             }
         } else {
             throw new \Exception('Vous n\'avez pas accès à cette page !');
         }
 
-        $twig = new Render();
+        $twig = new RenderFront();
         echo $twig->render('delete_comment.twig', ['comment' => $comment, 'post' => $post, 'session' => $_SESSION]);
     }
 }

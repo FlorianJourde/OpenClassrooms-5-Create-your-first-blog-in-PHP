@@ -4,7 +4,7 @@ namespace Application\Controllers;
 
 use Application\Lib\DatabaseConnection;
 use Application\Lib\ManageSession;
-use Application\Lib\Render;
+use Application\Lib\RenderFront;
 use Application\Model\UserRepository;
 
 class Login
@@ -17,7 +17,7 @@ class Login
         $userRepository = new UserRepository();
         $userRepository->connection = new DatabaseConnection();
 
-        $twig = new Render();
+        $twig = new RenderFront();
         echo $twig->render('login.twig');
     }
 }

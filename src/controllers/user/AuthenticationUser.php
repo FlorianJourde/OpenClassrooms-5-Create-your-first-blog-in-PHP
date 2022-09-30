@@ -13,6 +13,7 @@ class AuthenticationUser
 
         $userRepository = new UserRepository();
         $userRepository->connection = new DatabaseConnection();
+
         $success = $userRepository->login($email, $password);
 
         if ($success === null) {
@@ -26,6 +27,9 @@ class AuthenticationUser
             $_SESSION['email'] = $user->email;
             $_SESSION['role'] = $user->role;
             $_SESSION['timeout'] = time();
+            $_SESSION['token'] = bin2hex(random_bytes(16));
+            $userRepository->generateToken($_SESSION['token'], $user->identifier);
+
             header('Location: index.php');
         }
     }

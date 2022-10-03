@@ -6,8 +6,8 @@ class Comment
 {
     public int $identifier;
     public int $user_id;
-    public string $creationDate;
+    public int $post_id;
     public string $comment;
-    public string $post;
+    public string $creationDate;
     public string $username;
 }

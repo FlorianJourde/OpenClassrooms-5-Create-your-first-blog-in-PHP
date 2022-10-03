@@ -15,7 +15,7 @@ class CommentRepository
         $comment->user_id = $row['user_id'];
         $comment->creationDate = $row['creation_date'];
         $comment->comment = $row['content'];
-        $comment->post = $row['post_id'];
+        $comment->post_id = $row['post_id'];
 
         return $comment;
     }
@@ -26,6 +26,23 @@ class CommentRepository
             "SELECT id, user_id, content, DATE_FORMAT(comment_date, '%d/%m/%Y à %H:%i:%s') AS creation_date, post_id FROM comments WHERE post_id = ? ORDER BY comment_date DESC"
         );
         $statement->execute([$post]);
+
+        $comments = [];
+        while (($row = $statement->fetch())) {
+            $comment = $this->fetchComment($row);
+
+            $comments[] = $comment;
+        }
+
+        return $comments;
+    }
+
+    public function getHiddenComments(): array
+    {
+        $statement = $this->connection->getConnection()->prepare(
+            "SELECT id, user_id, post_id, content, status, DATE_FORMAT(comment_date, '%d/%m/%Y à %H:%i:%s') AS creation_date FROM comments WHERE status = 0 ORDER BY comment_date DESC"
+        );
+        $statement->execute();
 
         $comments = [];
         while (($row = $statement->fetch())) {

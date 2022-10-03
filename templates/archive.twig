@@ -9,6 +9,7 @@
     <div class="posts">
         {% if session.role == 'Admin' %}
             <div class="header">
+                <a class="button-secondary button-blue" href="index.php?action=manageComments">Gestion des commentaires</a>
                 <a class="button-primary button-blue" href="index.php?action=addPost">Ajouter un article</a>
             </div>
         {% endif %}

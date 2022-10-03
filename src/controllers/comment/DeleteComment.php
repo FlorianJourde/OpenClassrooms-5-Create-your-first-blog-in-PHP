@@ -24,7 +24,7 @@ class DeleteComment
         $commentRepository->connection = new DatabaseConnection();
 
         $comment = $commentRepository->getComment($identifier);
-        $post = $postRepository->getPost($comment->post);
+        $post = $postRepository->getPost($comment->post_id);
 
         $userRole = new CheckUserRole();
 
@@ -36,10 +36,10 @@ class DeleteComment
                 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     $success = $commentRepository->deleteComment($identifier);
 
-                    header(sprintf('Location: index.php?action=post&id=%d', $comment->post));
+                    header(sprintf('Location: index.php?action=post&id=%d', $comment->post_id));
                     if (!$success) {
 
-                        header(sprintf('Location: index.php?action=post&id=%d', $comment->post));
+                        header(sprintf('Location: index.php?action=post&id=%d', $comment->post_id));
                     }
                 }
             }

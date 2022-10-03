@@ -32,30 +32,50 @@ class ManageComments
         //     $array[] = $value; 
         // }
 
-        foreach ($comments as $comment) {
-            // var_dump($comment->post_id);
-            $comment->post = $postRepository->getPost($comment->post_id);
-            // var_dump($comment->post->identifier);
+        // var_dump($comment->post_id);
+        
+        // if (!in_array($comment->post, $comments)) {
+        //     $post[] = $comment->post; 
+        // }
 
-            if (!in_array($comment->post, $comments)) {
-                $post[] = $comment->post; 
+        $posts = [];
+
+        foreach ($comments as $comment) {
+            // var_dump('$comment->post_id : ', $comment->post_id);
+            $comment->post = $postRepository->getPost($comment->post_id);
+            // var_dump('$comment->post->identifier : ', $comment->post->identifier);
+            // var_dump('$comment : ', $comment);
+
+            if (!in_array($comment->post, $posts)) {
+                $posts[] = $comment->post;
             }
             
+            // $posts['hiddenComment'] = $comment;
             
             // $comment[] = $comment;
             // var_dump($comment);
             // $user = $userRepository->getUserFromId($comment->user_id);
             // $comment->username = $user->username;
         }
-        
-        var_dump($post);
+
+        // var_dump($posts);
+
+        foreach ($posts as $post) {
+            // var_dump($post->identifier);
+            // var_dump($post);
+            $post->hiddenComments = $commentRepository->getHiddenCommentsFromId($post->identifier);
+            // $hiddenComments[] = $commentRepository->getHiddenCommentsFromId($post->identifier);
+            // var_dump($hiddenComments);
+            
+            // $posts[] = $comment->post;
+        }
         
         // $comment = $commentRepository->getComment();
         // $post = $postRepository->getPost($comment->post);
 
-        $userRole = new CheckUserRole();
+        // $userRole = new CheckUserRole();
 
-        // var_dump($comments);
+        // var_dump($posts);
 
         // $userRepository = new UserRepository();
         // $userRepository->connection = new DatabaseConnection();
@@ -77,6 +97,6 @@ class ManageComments
         // }
 
         $twig = new RenderFront();
-        echo $twig->render('manage_comments.twig', ['comments' => $comment, 'posts' => $post, 'session' => $_SESSION]);
+        echo $twig->render('manage_comments.twig', [/* 'comments' => $comments,  */'posts' => $posts, 'session' => $_SESSION]);
     }
 }

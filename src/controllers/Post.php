@@ -29,13 +29,17 @@ class Post
         $user = $userRepository->getUserFromId($post->user_id);
         $post->username = $user->username;
         $comments = $commentRepository->getComments($identifier);
+        $visibleComments = [];
 
         foreach ($comments as $comment) {
-            $user = $userRepository->getUserFromId($comment->user_id);
-            $comment->username = $user->username;
+            if($comment->status === true) {
+                $user = $userRepository->getUserFromId($comment->user_id);
+                $comment->username = $user->username;
+                $visibleComments[] = $comment;
+            }
         }
 
         $twig = new RenderFront();
-        echo $twig->render('post.twig', ['post' => $post, 'comments' => $comments, 'session' => $_SESSION]);
+        echo $twig->render('post.twig', ['post' => $post, 'comments' => $visibleComments, 'session' => $_SESSION]);
     }
 }

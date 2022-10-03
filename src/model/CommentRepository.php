@@ -13,9 +13,10 @@ class CommentRepository
         $comment = new Comment();
         $comment->identifier = $row['id'];
         $comment->user_id = $row['user_id'];
-        $comment->creationDate = $row['creation_date'];
-        $comment->comment = $row['content'];
         $comment->post_id = $row['post_id'];
+        $comment->comment = $row['content'];
+        $comment->creationDate = $row['creation_date'];
+        $comment->status = $row['status'];
 
         return $comment;
     }
@@ -76,7 +77,7 @@ class CommentRepository
         if (!is_int($identifier)) { return null; }
 
         $statement = $this->connection->getConnection()->prepare(
-            "SELECT id, user_id, content, DATE_FORMAT(comment_date, '%d/%m/%Y à %H:%i:%s') AS creation_date, post_id FROM comments WHERE id = ?"
+            "SELECT id, user_id, content, status, DATE_FORMAT(comment_date, '%d/%m/%Y à %H:%i:%s') AS creation_date, post_id FROM comments WHERE id = ?"
         );
         $statement->execute([$identifier]);
 
@@ -120,6 +121,30 @@ class CommentRepository
 
         $statement = $this->connection->getConnection()->prepare(
             'DELETE FROM comments WHERE id = ?'
+        );
+        $affectedLines = $statement->execute([$identifier]);
+
+        return ($affectedLines > 0);
+    }
+
+    public function hideComment(int $identifier): bool
+    {
+        if (!is_int($identifier)) { return false; }
+
+        $statement = $this->connection->getConnection()->prepare(
+            'UPDATE comments SET status = false WHERE id = ?'
+        );
+        $affectedLines = $statement->execute([$identifier]);
+
+        return ($affectedLines > 0);
+    }
+
+    public function showComment(int $identifier): bool
+    {
+        if (!is_int($identifier)) { return false; }
+
+        $statement = $this->connection->getConnection()->prepare(
+            'UPDATE comments SET status = true WHERE id = ?'
         );
         $affectedLines = $statement->execute([$identifier]);
 

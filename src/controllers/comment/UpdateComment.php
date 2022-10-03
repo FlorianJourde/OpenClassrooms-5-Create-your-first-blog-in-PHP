@@ -24,7 +24,6 @@ class UpdateComment
         $commentRepository->connection = new DatabaseConnection();
 
         $comment = $commentRepository->getComment($identifier);
-
         $post = $postRepository->getPost($comment->post_id);
 
         $userRole = new CheckUserRole();

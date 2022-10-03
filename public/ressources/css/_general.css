@@ -87,6 +87,11 @@ h1, h2, h3
     font-family: var(--ff-secondary);
     text-align:center;
 }
+
+.management .post:not(:first-child) {
+    margin-top: 4rem;
+}
+
 .posts {
     display: flex;
     flex-direction: column;

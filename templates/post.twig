@@ -1,68 +1,72 @@
 {% extends 'layout.twig' %}
 
 {% block head %}
-    <title>Article</title>
+    {{ post.title }}
 {% endblock %}
 
 {% block content %}
-    <a class="button-secondary" href="index.php">Accueil</a>
-
-    <h1>Le super blog de l'AVBN !</h1>
-
-    <div class="posts">
-        <div class="post">
-            <div class="title">
-                <h3>{{ post.title }}</h3>
-                {% if session.role == 'Admin' %}
-                    <div class="actions">
-                        <a href="index.php?action=updatePost&id={{ post.identifier }}">modifier</a>
-                        <a href="index.php?action=deletePost&id={{ post.identifier }}">supprimer</a>
-                    </div>
-                {% endif %}
-            </div>
-            <div class="content">
-                <p class="description">{{ post.content }}</p>
-                <p><span class="author">{{ post.username }}</span> le <span class="date">{{ post.creationDate }}</span></p>
-            </div>
+    <section class="post-banner padding-100" style="background-image: url('./ressources/images/{{ post.image }}');">
+        <div class="wrapper">
+            <h1 class="post-title">{{ post.title }}</h1>
         </div>
-    </div>
+    </section>
 
-    {% if session.role is defined %}
-        <h2>Ajouter un commentaire</h2>
-        <form action="index.php?action=addComment&id={{ post.identifier }}" method="post">
-            <div class="user"></div>
-            <div>
-                <label for="comment">Commentaire</label><br />
-                <textarea id="comment" name="comment"></textarea>
-            </div>
-            <div>
-                <input type="submit" />
-            </div>
-        </form>
-    {% endif %}
-
-{#    {{ dump(comments) }}#}
-
-    {% if comments is not empty %}
-        <h2>Commentaires</h2>
-        <div class="comments">
-        {% for comment in comments %}
-            <div class="comment">
-                <div class="title">
-                    <p><strong>{{ comment.username }}</strong> le {{ comment.creationDate }}</p>
-                        {% if (session.role == 'Admin') or (session.id == comment.user_id) %}
-                        <div class="actions">
-                            <a href="index.php?action=hideComment&id={{ comment.identifier }}">Masquer</a>
-                            <a href="index.php?action=updateComment&id={{ comment.identifier }}">Modifier</a>
-                            <a href="index.php?action=deleteComment&id={{ comment.identifier }}">Supprimer</a>
-                        </div>
+    <section class="padding-100">
+        <div class="wrapper">
+            <div class="posts">
+                <div class="post">
+                    <div class="title">
+                        {% if session.role == 'Admin' %}
+                            <div class="actions">
+                                <a href="index.php?action=updatePost&id={{ post.identifier }}">modifier</a>
+                                <a href="index.php?action=deletePost&id={{ post.identifier }}">supprimer</a>
+                            </div>
                         {% endif %}
-                </div>
-                <div class="content">
-                    <p>{{ comment.comment }}</p>
+                    </div>
+                    <div class="content">
+                        <p class="description">{{ post.content }}</p>
+                        <p><span class="author">{{ post.username }}</span> le <span class="date">{{ post.creationDate }}</span></p>
+                    </div>
                 </div>
             </div>
-        {% endfor %}
+
+            {% if session.role is defined %}
+                <h2>Ajouter un commentaire</h2>
+                <form action="index.php?action=addComment&id={{ post.identifier }}" method="post">
+                    <div class="user"></div>
+                    <div>
+                        <label for="comment">Commentaire</label><br />
+                        <textarea id="comment" name="comment"></textarea>
+                    </div>
+                    <div>
+                        <input type="submit" />
+                    </div>
+                </form>
+            {% endif %}
+
+
+            {% if comments is not empty %}
+                <h2>Commentaires</h2>
+                <div class="comments">
+                {% for comment in comments %}
+                    <div class="comment">
+                        <div class="title">
+                            <p><strong>{{ comment.username }}</strong> le {{ comment.creationDate }}</p>
+                                {% if (session.role == 'Admin') or (session.id == comment.user_id) %}
+                                <div class="actions">
+                                    <a href="index.php?action=hideComment&id={{ comment.identifier }}">Masquer</a>
+                                    <a href="index.php?action=updateComment&id={{ comment.identifier }}">Modifier</a>
+                                    <a href="index.php?action=deleteComment&id={{ comment.identifier }}">Supprimer</a>
+                                </div>
+                                {% endif %}
+                        </div>
+                        <div class="content">
+                            <p>{{ comment.comment }}</p>
+                        </div>
+                    </div>
+                {% endfor %}
+                </div>
+            {% endif %}
         </div>
-    {% endif %}
+    </section>
 {% endblock %}

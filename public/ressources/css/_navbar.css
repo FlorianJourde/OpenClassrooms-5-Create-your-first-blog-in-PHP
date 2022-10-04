@@ -1,0 +1,26 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  position: sticky;
+  top: 0;
+  left: 0;
+  background-color: var(--clr-white);
+  /* background-color: rgba(255,255,255,0.8); */
+  /* backdrop-filter: saturate(180%) blur(20px); */
+  z-index: 10;
+  width: 100%;
+}
+
+.navbar .logo {
+  flex-grow: 1;
+}
+
+.navigation {
+  display: flex;
+  align-items: center;
+}
+
+.navigation li:not(:last-child) {
+  margin-right: 10px;
+}

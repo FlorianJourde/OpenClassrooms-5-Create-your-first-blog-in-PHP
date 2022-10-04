@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : mar. 04 oct. 2022 à 10:04
+-- Généré le : mar. 04 oct. 2022 à 15:23
 -- Version du serveur :  5.7.31
 -- Version de PHP : 7.4.9
 
@@ -88,8 +88,8 @@ INSERT INTO `comments` (`id`, `user_id`, `post_id`, `content`, `status`, `creati
 (99, 1, 21, '88888', 1, '2022-10-04 11:32:20'),
 (100, 1, 21, '88888', 1, '2022-10-04 11:32:49'),
 (102, 1, 21, '5555', 0, '2022-10-04 11:33:56'),
-(107, 1, 21, 'test', 0, '2022-10-04 11:42:20'),
-(109, 1, 21, 'Bonjout', 0, '2022-10-04 11:42:41'),
+(107, 1, 21, 'test', 1, '2022-10-04 11:42:20'),
+(109, 1, 21, 'Bonjout', 1, '2022-10-04 11:42:41'),
 (111, 4, 21, 'Je suis Gérard', 1, '2022-10-04 11:44:20'),
 (112, 1, 22, 'Bonjour', 1, '2022-10-04 11:53:48'),
 (113, 1, 22, 'Essai ?', 1, '2022-10-04 12:01:58'),
@@ -110,25 +110,28 @@ CREATE TABLE IF NOT EXISTS `posts` (
   `creation_date` datetime NOT NULL,
   `update_date` datetime NOT NULL,
   `status` tinyint(1) NOT NULL,
+  `image` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=utf8;
 
 --
 -- Déchargement des données de la table `posts`
 --
 
-INSERT INTO `posts` (`id`, `user_id`, `title`, `content`, `creation_date`, `update_date`, `status`) VALUES
-(1, 2, 'Bienvenue sur le blog de l\'AVBN !', 'Je vous souhaite à toutes et à tous la bienvenue sur le blog qui parlera de... l\'Association de VolleyBall de Nuelly !', '2022-02-17 16:28:41', '2022-09-08 14:31:41', 0),
-(2, 2, 'L\'AVBN à la conquête du monde !', 'C\'est officiel, le club a annoncé à la radio hier soir \"J\'ai l\'intention de conquérir le monde !\".\r\nIl a en outre précisé que le monde serait à sa botte en moins de temps qu\'il n\'en fallait pour dire \"Association de VolleyBall de Nuelly\". Pas dur, ceci dit entre nous...', '2022-02-17 16:28:42', '2022-09-08 14:31:41', 0),
-(7, 1, 'Ceci est un nouvel article', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc sapien leo, feugiat ut imperdiet in, tempus sit amet libero. Fusce sed nibh nec lorem hendrerit volutpat. Etiam tempor auctor tristique. Nunc tristique viverra porta. Fusce tortor orci, pretium eu eros quis, tempus varius eros. Mauris tristique, magna ac venenatis ornare, leo nunc fringilla risus, a ultricies eros risus ut est.', '2022-09-23 15:35:00', '2022-09-23 15:35:00', 1),
-(8, 1, 'Titre de l\'articlessssssssSS', 'string $user_id, string $title, string $content, bool $status string $user_id, string $title, string $content, bool $status string $user_id, string $title, string $content, bool $status string $user_id, string $title, string $content, bool $status string $user_id, string $title, string $content, bool $status ', '2022-09-23 15:35:55', '2022-09-23 15:35:55', 1),
-(11, 1, 'Article ajouté', 'Contenu', '2022-09-29 13:03:25', '2022-09-29 13:03:25', 1),
-(14, 1, 'Titre', 'Contenu222', '2022-09-30 01:19:26', '2022-09-30 01:19:26', 1),
-(15, 1, 'Titresdcsdc', 'Contenuss', '2022-09-30 01:29:53', '2022-09-30 01:29:53', 1),
-(16, 1, 'Add post', 'Post content ', '2022-09-30 13:15:34', '2022-09-30 13:15:34', 1),
-(19, 1, 'sdcdscsdcsdc sdcsdcsd', 'sdcdscsdcsdc sdcsdcsd sdcdscsdcsdc sdcsdcsd sdcdscsdcsdc sdcsdcsd sdcdscsdcsdc sdcsdcsd sdcdscsdcsdc sdcsdcsd sdcdscsdcsdc sdcsdcsd sdcdscsdcsdc sdcsdcsd sdcdscsdcsdc sdcsdcsd sdcdscsdcsdc sdcsdcsd sdcdscsdcsdc sdcsdcsd sdcdscsdcsdc sdcsdcsd ', '2022-09-30 13:20:53', '2022-09-30 13:20:53', 1),
-(21, 1, 'I am the adminssddfdcds', 'I am the admindxsdc', '2022-09-30 15:14:03', '2022-09-30 15:14:03', 1),
-(22, 1, 'Titre', 'Contenu', '2022-10-04 11:46:00', '2022-10-04 11:46:00', 1);
+INSERT INTO `posts` (`id`, `user_id`, `title`, `content`, `creation_date`, `update_date`, `status`, `image`) VALUES
+(1, 2, 'Bienvenue sur le blog de l\'AVBN !', 'Je vous souhaite à toutes et à tous la bienvenue sur le blog qui parlera de... l\'Association de VolleyBall de Nuelly !', '2022-02-17 16:28:41', '2022-09-08 14:31:41', 0, NULL),
+(2, 2, 'L\'AVBN à la conquête du monde !', 'C\'est officiel, le club a annoncé à la radio hier soir \"J\'ai l\'intention de conquérir le monde !\".\r\nIl a en outre précisé que le monde serait à sa botte en moins de temps qu\'il n\'en fallait pour dire \"Association de VolleyBall de Nuelly\". Pas dur, ceci dit entre nous...', '2022-02-17 16:28:42', '2022-09-08 14:31:41', 0, NULL),
+(7, 1, 'Ceci est un nouvel article', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc sapien leo, feugiat ut imperdiet in, tempus sit amet libero. Fusce sed nibh nec lorem hendrerit volutpat. Etiam tempor auctor tristique. Nunc tristique viverra porta. Fusce tortor orci, pretium eu eros quis, tempus varius eros. Mauris tristique, magna ac venenatis ornare, leo nunc fringilla risus, a ultricies eros risus ut est.', '2022-09-23 15:35:00', '2022-09-23 15:35:00', 1, NULL),
+(8, 1, 'Titre de l\'articlessssssssSS', 'string $user_id, string $title, string $content, bool $status string $user_id, string $title, string $content, bool $status string $user_id, string $title, string $content, bool $status string $user_id, string $title, string $content, bool $status string $user_id, string $title, string $content, bool $status ', '2022-09-23 15:35:55', '2022-09-23 15:35:55', 1, NULL),
+(11, 1, 'Article ajouté', 'Contenu', '2022-09-29 13:03:25', '2022-09-29 13:03:25', 1, NULL),
+(14, 1, 'Titre', 'Contenu222', '2022-09-30 01:19:26', '2022-09-30 01:19:26', 1, NULL),
+(15, 1, 'Titresdcsdc', 'Contenuss', '2022-09-30 01:29:53', '2022-09-30 01:29:53', 1, NULL),
+(16, 1, 'Add post', 'Post content ', '2022-09-30 13:15:34', '2022-09-30 13:15:34', 1, NULL),
+(19, 1, 'sdcdscsdcsdc sdcsdcsd', 'sdcdscsdcsdc sdcsdcsd sdcdscsdcsdc sdcsdcsd sdcdscsdcsdc sdcsdcsd sdcdscsdcsdc sdcsdcsd sdcdscsdcsdc sdcsdcsd sdcdscsdcsdc sdcsdcsd sdcdscsdcsdc sdcsdcsd sdcdscsdcsdc sdcsdcsd sdcdscsdcsdc sdcsdcsd sdcdscsdcsdc sdcsdcsd sdcdscsdcsdc sdcsdcsd ', '2022-09-30 13:20:53', '2022-09-30 13:20:53', 1, NULL),
+(21, 1, 'I am the adminssddfdcds', 'I am the admindxsdc', '2022-09-30 15:14:03', '2022-09-30 15:14:03', 1, NULL),
+(22, 1, 'Titre', 'Contenu', '2022-10-04 11:46:00', '2022-10-04 11:46:00', 1, NULL),
+(25, 1, 'test', 'test', '2022-10-04 12:38:05', '2022-10-04 12:38:05', 1, NULL),
+(26, 1, 'Titre article image', 'Contenu article image', '2022-10-04 15:01:19', '2022-10-04 15:01:19', 1, '633c2e9f5685d9.26974915.jpg');
 
 -- --------------------------------------------------------
 
@@ -152,7 +155,7 @@ CREATE TABLE IF NOT EXISTS `users` (
 --
 
 INSERT INTO `users` (`id`, `username`, `email`, `role`, `password`, `token`) VALUES
-(1, 'Thierry', 'email@email.com', 'Admin', 'e10adc3949ba59abbe56e057f20f883e', '49f30100fa26d63cbfe5f3a2904af9c6'),
+(1, 'Thierry', 'email@email.com', 'Admin', 'e10adc3949ba59abbe56e057f20f883e', NULL),
 (2, 'Robert', 'test@test.com', 'User', 'e10adc3949ba59abbe56e057f20f883e', NULL),
 (3, 'Christophe', 'email@email.fr', 'User', 'e10adc3949ba59abbe56e057f20f883e', NULL),
 (4, 'Gérard', 'test@test.fr', 'User', 'e10adc3949ba59abbe56e057f20f883e', NULL);

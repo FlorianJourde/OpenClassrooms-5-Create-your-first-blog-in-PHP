@@ -30,6 +30,7 @@ class Post
         $post->username = $user->username;
         $comments = $commentRepository->getComments($identifier);
         $visibleComments = [];
+        $post->image === null ? $post->image = 'placeholder-min.jpg' : $post->image;
 
         foreach ($comments as $comment) {
             if($comment->status === true) {

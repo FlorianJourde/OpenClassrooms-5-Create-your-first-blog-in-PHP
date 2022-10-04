@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 5.0.2
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : ven. 30 sep. 2022 à 16:30
--- Version du serveur : 5.7.36
--- Version de PHP : 7.4.26
+-- Généré le : mar. 04 oct. 2022 à 10:04
+-- Version du serveur :  5.7.31
+-- Version de PHP : 7.4.9
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -34,27 +34,27 @@ CREATE TABLE IF NOT EXISTS `comments` (
   `post_id` int(11) NOT NULL,
   `content` text NOT NULL,
   `status` tinyint(1) NOT NULL,
-  `comment_date` datetime NOT NULL,
+  `creation_date` datetime NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=97 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=115 DEFAULT CHARSET=utf8;
 
 --
 -- Déchargement des données de la table `comments`
 --
 
-INSERT INTO `comments` (`id`, `user_id`, `post_id`, `content`, `status`, `comment_date`) VALUES
+INSERT INTO `comments` (`id`, `user_id`, `post_id`, `content`, `status`, `creation_date`) VALUES
 (3, 3, 2, 'Commentaires', 0, '2022-05-26 18:52:27'),
 (4, 2, 1, 'J\'écris un nouveau commentaire', 0, '2022-05-26 18:52:38'),
-(5, 2, 1, 'Sympa ce blog !', 0, '2022-05-26 18:53:56'),
-(10, 2, 1, 'Contenu de l\'articleee', 0, '2022-06-17 15:29:54'),
-(11, 2, 1, '\r\n  $commentRepository->connection = new DatabaseConnection();', 0, '2022-06-22 23:08:46'),
-(17, 2, 1, 'Code refactoriséddcdc', 0, '2022-06-22 23:52:15'),
-(35, 2, 1, 'Preum\'s', 0, '2022-03-03 13:00:42'),
+(5, 2, 1, 'Sympa ce blog !', 1, '2022-05-26 18:53:56'),
+(10, 2, 1, 'Contenu de l\'articleee', 1, '2022-06-17 15:29:54'),
+(11, 2, 1, '\r\n  $commentRepository->connection = new DatabaseConnection();', 1, '2022-06-22 23:08:46'),
+(17, 2, 1, 'Code refactoriséddcdc', 1, '2022-06-22 23:52:15'),
+(35, 2, 7, 'Preum\'s', 0, '2022-03-03 13:00:42'),
 (44, 1, 2, 'Bonjour', 1, '2022-09-23 13:46:24'),
-(45, 1, 2, 'Ceci est un test\r\n', 1, '2022-09-23 13:46:34'),
+(45, 1, 7, 'Ceci est un test\r\n', 1, '2022-09-23 13:46:34'),
 (47, 1, 2, 'Bla bla bla', 1, '2022-09-23 13:46:51'),
 (48, 1, 2, 'Comment allez-vous ?', 1, '2022-09-23 13:47:06'),
-(49, 1, 2, 'Je suis Frédéric', 1, '2022-09-23 13:47:15'),
+(49, 1, 2, 'Je suis Frédéricc', 1, '2022-09-23 13:47:15'),
 (50, 1, 2, 'Commentaire', 1, '2022-09-23 14:07:28'),
 (51, 1, 8, 'Commentaires', 1, '2022-09-23 16:16:55'),
 (52, 1, 8, 'Qui suis-je ?', 1, '2022-09-26 22:49:14'),
@@ -70,18 +70,30 @@ INSERT INTO `comments` (`id`, `user_id`, `post_id`, `content`, `status`, `commen
 (72, 2, 15, 'Commentaire de Robertss', 1, '2022-09-30 01:43:35'),
 (75, 1, 15, 'sdcdsc', 1, '2022-09-30 01:55:55'),
 (77, 2, 15, 'sdccdssdc', 1, '2022-09-30 02:28:41'),
-(78, 1, 15, 'dfvdfvfv', 1, '2022-09-30 12:21:17'),
+(78, 1, 15, 'dfvdfvfv', 0, '2022-09-30 12:21:17'),
 (79, 1, 16, 'Commentaire', 1, '2022-09-30 13:17:00'),
 (80, 1, 16, 'comm', 1, '2022-09-30 13:17:07'),
-(81, 1, 16, 'com', 1, '2022-09-30 13:17:58'),
+(81, 1, 16, 'comsdcsdcdsc', 1, '2022-09-30 13:17:58'),
 (82, 1, 16, 'dsdvdvfd', 1, '2022-09-30 13:18:00'),
-(83, 1, 16, 'dfvdf', 1, '2022-09-30 13:18:20'),
-(87, 1, 7, 'DSSDCDSC', 1, '2022-09-30 13:32:25'),
+(83, 1, 16, 'dfvdfdsdcdfv', 1, '2022-09-30 13:18:20'),
+(87, 1, 7, 'DSSDCDSC', 0, '2022-09-30 13:32:25'),
 (88, 1, 7, 'Bonjour je m\'appelle Thierry', 1, '2022-09-30 13:32:31'),
 (91, 1, 19, 'Ajouter un commentaire', 1, '2022-09-30 14:38:25'),
 (92, 1, 19, 'Commentaire', 1, '2022-09-30 14:52:14'),
-(94, 1, 21, 'ds', 1, '2022-09-30 18:22:56'),
-(95, 4, 19, 'testdvdfv', 1, '2022-09-30 18:29:37');
+(94, 1, 21, 'ds', 0, '2022-09-30 18:22:56'),
+(95, 4, 19, 'testdvdfv', 1, '2022-09-30 18:29:37'),
+(96, 1, 21, 'Ajout de commentaire', 1, '2022-10-04 11:16:08'),
+(97, 1, 21, 'dfdffd', 1, '2022-10-04 11:29:08'),
+(98, 1, 21, '1235465132', 1, '2022-10-04 11:29:39'),
+(99, 1, 21, '88888', 1, '2022-10-04 11:32:20'),
+(100, 1, 21, '88888', 1, '2022-10-04 11:32:49'),
+(102, 1, 21, '5555', 0, '2022-10-04 11:33:56'),
+(107, 1, 21, 'test', 0, '2022-10-04 11:42:20'),
+(109, 1, 21, 'Bonjout', 0, '2022-10-04 11:42:41'),
+(111, 4, 21, 'Je suis Gérard', 1, '2022-10-04 11:44:20'),
+(112, 1, 22, 'Bonjour', 1, '2022-10-04 11:53:48'),
+(113, 1, 22, 'Essai ?', 1, '2022-10-04 12:01:58'),
+(114, 1, 22, 'Bonjour', 1, '2022-10-04 12:03:31');
 
 -- --------------------------------------------------------
 
@@ -99,7 +111,7 @@ CREATE TABLE IF NOT EXISTS `posts` (
   `update_date` datetime NOT NULL,
   `status` tinyint(1) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8;
 
 --
 -- Déchargement des données de la table `posts`
@@ -115,7 +127,8 @@ INSERT INTO `posts` (`id`, `user_id`, `title`, `content`, `creation_date`, `upda
 (15, 1, 'Titresdcsdc', 'Contenuss', '2022-09-30 01:29:53', '2022-09-30 01:29:53', 1),
 (16, 1, 'Add post', 'Post content ', '2022-09-30 13:15:34', '2022-09-30 13:15:34', 1),
 (19, 1, 'sdcdscsdcsdc sdcsdcsd', 'sdcdscsdcsdc sdcsdcsd sdcdscsdcsdc sdcsdcsd sdcdscsdcsdc sdcsdcsd sdcdscsdcsdc sdcsdcsd sdcdscsdcsdc sdcsdcsd sdcdscsdcsdc sdcsdcsd sdcdscsdcsdc sdcsdcsd sdcdscsdcsdc sdcsdcsd sdcdscsdcsdc sdcsdcsd sdcdscsdcsdc sdcsdcsd sdcdscsdcsdc sdcsdcsd ', '2022-09-30 13:20:53', '2022-09-30 13:20:53', 1),
-(21, 1, 'I am the adminssddfdc', 'I am the admindx', '2022-09-30 15:14:03', '2022-09-30 15:14:03', 1);
+(21, 1, 'I am the adminssddfdcds', 'I am the admindxsdc', '2022-09-30 15:14:03', '2022-09-30 15:14:03', 1),
+(22, 1, 'Titre', 'Contenu', '2022-10-04 11:46:00', '2022-10-04 11:46:00', 1);
 
 -- --------------------------------------------------------
 
@@ -139,10 +152,10 @@ CREATE TABLE IF NOT EXISTS `users` (
 --
 
 INSERT INTO `users` (`id`, `username`, `email`, `role`, `password`, `token`) VALUES
-(1, 'Thierry', 'email@email.com', 'Admin', 'e10adc3949ba59abbe56e057f20f883e', NULL),
+(1, 'Thierry', 'email@email.com', 'Admin', 'e10adc3949ba59abbe56e057f20f883e', '49f30100fa26d63cbfe5f3a2904af9c6'),
 (2, 'Robert', 'test@test.com', 'User', 'e10adc3949ba59abbe56e057f20f883e', NULL),
 (3, 'Christophe', 'email@email.fr', 'User', 'e10adc3949ba59abbe56e057f20f883e', NULL),
-(4, 'Gérard', 'test@test.fr', 'User', 'e10adc3949ba59abbe56e057f20f883e', '5e82d5440939f0d58511f62fd22ce752');
+(4, 'Gérard', 'test@test.fr', 'User', 'e10adc3949ba59abbe56e057f20f883e', NULL);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

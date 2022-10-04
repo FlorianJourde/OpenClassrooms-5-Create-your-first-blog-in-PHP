@@ -106,8 +106,8 @@ try {
         } elseif ($_GET['action'] === 'addComment') {
             if (isset($_GET['id']) && $_GET['id'] > 0) {
                 $identifier = $_GET['id'];
-                $userId = '1';
-                $status = true;
+                $userId = 0;
+                $status = false;
 
                 (new AddComment())->execute($identifier, $_POST, $userId, $status);
             } else {

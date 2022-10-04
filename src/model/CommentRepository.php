@@ -24,14 +24,14 @@ class CommentRepository
     public function getComments(string $post): array
     {
         $statement = $this->connection->getConnection()->prepare(
-            "SELECT id, user_id, content, status, DATE_FORMAT(comment_date, '%d/%m/%Y à %H:%i:%s') AS creation_date, post_id FROM comments WHERE post_id = ? ORDER BY comment_date DESC"
+            "SELECT id, user_id, content, status, DATE_FORMAT(creation_date, '%d/%m/%Y à %H:%i:%s') AS creation_date, post_id FROM comments WHERE post_id = ? ORDER BY creation_date DESC"
         );
-        $statement->execute([$post]);
 
+        $statement->execute([$post]);
         $comments = [];
+
         while (($row = $statement->fetch())) {
             $comment = $this->fetchComment($row);
-
             $comments[] = $comment;
         }
 
@@ -41,14 +41,14 @@ class CommentRepository
     public function getHiddenComments(): array
     {
         $statement = $this->connection->getConnection()->prepare(
-            "SELECT id, user_id, post_id, content, status, DATE_FORMAT(comment_date, '%d/%m/%Y à %H:%i:%s') AS creation_date FROM comments WHERE status = 0 ORDER BY comment_date DESC"
+            "SELECT id, user_id, post_id, content, status, DATE_FORMAT(creation_date, '%d/%m/%Y à %H:%i:%s') AS creation_date FROM comments WHERE status = 0 ORDER BY creation_date DESC"
         );
-        $statement->execute();
 
+        $statement->execute();
         $comments = [];
+
         while (($row = $statement->fetch())) {
             $comment = $this->fetchComment($row);
-
             $comments[] = $comment;
         }
 
@@ -58,14 +58,14 @@ class CommentRepository
     public function getHiddenCommentsFromId(int $identifier): array
     {
         $statement = $this->connection->getConnection()->prepare(
-            "SELECT id, user_id, post_id, content, status, DATE_FORMAT(comment_date, '%d/%m/%Y à %H:%i:%s') AS creation_date FROM comments WHERE status = 0 AND post_id = ? ORDER BY comment_date DESC"
+            "SELECT id, user_id, post_id, content, status, DATE_FORMAT(creation_date, '%d/%m/%Y à %H:%i:%s') AS creation_date FROM comments WHERE status = 0 AND post_id = ? ORDER BY creation_date DESC"
         );
-        $statement->execute([$identifier]);
 
+        $statement->execute([$identifier]);
         $comments = [];
+
         while (($row = $statement->fetch())) {
             $comment = $this->fetchComment($row);
-
             $comments[] = $comment;
         }
 
@@ -77,27 +77,28 @@ class CommentRepository
         if (!is_int($identifier)) { return null; }
 
         $statement = $this->connection->getConnection()->prepare(
-            "SELECT id, user_id, content, status, DATE_FORMAT(comment_date, '%d/%m/%Y à %H:%i:%s') AS creation_date, post_id FROM comments WHERE id = ?"
+            "SELECT id, user_id, content, status, DATE_FORMAT(creation_date, '%d/%m/%Y à %H:%i:%s') AS creation_date, post_id FROM comments WHERE id = ?"
         );
-        $statement->execute([$identifier]);
 
+        $statement->execute([$identifier]);
         $row = $statement->fetch();
+
         if ($row === false) {
             return null;
         }
-//
+
         return $this->fetchComment($row);
     }
 
-    public function createComment(string $post, string $comment, int $userId, bool $status): bool
+    public function createComment(int $postId, string $comment, int $userId, int $status): bool
     {
         if (!is_int($userId)) { return false; }
 
         $statement = $this->connection->getConnection()->prepare(
-            'INSERT INTO comments(post_id, content, user_id, status, comment_date) VALUES(?, ?, ?, ?, NOW())'
+            'INSERT INTO comments(post_id, content, user_id, status, creation_date) VALUES(?, ?, ?, ?, NOW())'
         );
 
-        $affectedLines = $statement->execute([$post, $comment, $userId, $status]);
+        $affectedLines = $statement->execute([$postId, $comment, $userId, $status]);
 
         return ($affectedLines > 0);
     }
@@ -109,6 +110,7 @@ class CommentRepository
         $statement = $this->connection->getConnection()->prepare(
             'UPDATE comments SET content = ? WHERE id = ?'
         );
+
         $affectedLines = $statement->execute([$comment, $identifier]);
 
         return ($affectedLines > 0);
@@ -122,6 +124,7 @@ class CommentRepository
         $statement = $this->connection->getConnection()->prepare(
             'DELETE FROM comments WHERE id = ?'
         );
+
         $affectedLines = $statement->execute([$identifier]);
 
         return ($affectedLines > 0);
@@ -134,6 +137,7 @@ class CommentRepository
         $statement = $this->connection->getConnection()->prepare(
             'UPDATE comments SET status = false WHERE id = ?'
         );
+
         $affectedLines = $statement->execute([$identifier]);
 
         return ($affectedLines > 0);
@@ -146,6 +150,7 @@ class CommentRepository
         $statement = $this->connection->getConnection()->prepare(
             'UPDATE comments SET status = true WHERE id = ?'
         );
+        
         $affectedLines = $statement->execute([$identifier]);
 
         return ($affectedLines > 0);

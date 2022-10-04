@@ -44,6 +44,8 @@ class ManageComments
                     }
                 }
 
+                rsort($posts);
+
                 foreach ($posts as $post) {
                     $post->hiddenComments = $commentRepository->getHiddenCommentsFromId($post->identifier);
                     $post->username = $userRepository->getUserFromId($post->userId)->username;

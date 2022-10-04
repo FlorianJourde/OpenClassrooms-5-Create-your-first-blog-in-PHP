@@ -8,30 +8,30 @@ use Application\Model\CommentRepository;
 
 class AddComment
 {
-    public function execute(string $post, array $input, int $userId, bool $status)
+    public function execute(int $postId, array $input, int $userId, bool $status)
     {
         $manageSession = new ManageSession();
         $manageSession->execute();
 
-        $author = null;
+        $userId = null;
         $comment = null;
 
         if (!empty($input['comment'])) {
             $userId = $_SESSION['id'];
-//            $author = $input['author'];
             $comment = $input['comment'];
+            $status = 0;
         } else {
             throw new \Exception('Les données du formulaire sont invalides.');
         }
-
+        
         $commentRepository = new CommentRepository();
         $commentRepository->connection = new DatabaseConnection();
-        $success = $commentRepository->createComment($post, $comment, $userId, $status);
+        $success = $commentRepository->createComment($postId, $comment, $userId, $status);
 
         if (!$success) {
             throw new \Exception('Impossible d\'ajouter le commentaire !');
         } else {
-            header('Location: index.php?action=post&id=' . $post);
+            header('Location: index.php?action=post&id=' . $postId);
         }
     }
 }

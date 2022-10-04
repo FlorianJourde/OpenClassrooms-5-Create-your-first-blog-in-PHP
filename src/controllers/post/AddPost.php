@@ -40,7 +40,7 @@ class AddPost
             $postRepository = new PostRepository();
             $postRepository->connection = new DatabaseConnection();
             $success = $postRepository->createPost($userId, $title, $content, $status);
-//
+            
             header(sprintf('Location: index.php?action=archive'));
             }
         } else {

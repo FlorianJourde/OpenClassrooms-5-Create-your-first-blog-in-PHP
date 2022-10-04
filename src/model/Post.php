@@ -5,7 +5,7 @@ namespace Application\Model;
 class Post
 {
     public int $identifier;
-    public int $user_id;
+    public int $userId;
     public string $title;
     public string $creationDate;
     public string $content;

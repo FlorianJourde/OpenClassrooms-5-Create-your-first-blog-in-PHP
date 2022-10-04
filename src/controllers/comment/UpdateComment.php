@@ -24,7 +24,7 @@ class UpdateComment
         $commentRepository->connection = new DatabaseConnection();
 
         $comment = $commentRepository->getComment($identifier);
-        $post = $postRepository->getPost($comment->post);
+        $post = $postRepository->getPost($comment->postId);
 
         $userRole = new CheckUserRole();
 
@@ -32,7 +32,7 @@ class UpdateComment
         $userRepository->connection = new DatabaseConnection();
 
         if ($userRole->isAuthenticated($_SESSION['token'] ?? '')) {
-            if ($userRole->isAdmin($_SESSION['role'] ?? 'Guest') || $userRole->isCurrentUser($comment->user_id, $_SESSION['id'] ?? 0)) {
+            if ($userRole->isAdmin($_SESSION['role'] ?? 'Guest') || $userRole->isCurrentUser($comment->userId, $_SESSION['id'] ?? 0)) {
                 if ($input !== null) {
                 $comment = null;
 
@@ -48,11 +48,11 @@ class UpdateComment
                 if (!$success) {
                     throw new \Exception('Impossible de modifier le commentaire !');
                 }
-                if ($comment->post === null) {
+                if ($comment->postId === null) {
                     throw new \Exception('Le commentaire concerné n\'existe pas !');
                 }
 
-                header(sprintf('Location: index.php?action=post&id=%d', $comment->post));
+                header(sprintf('Location: index.php?action=post&id=%d', $comment->postId));
             }
 
             if ($comment === null) {

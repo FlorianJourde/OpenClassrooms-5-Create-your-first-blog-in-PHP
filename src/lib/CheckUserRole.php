@@ -15,9 +15,9 @@ class CheckUserRole
         }
     }
 
-    public function isCurrentUser(int $user_id, int $current_user_id): bool
+    public function isCurrentUser(int $userId, int $current_user_id): bool
     {
-        if ($user_id === $current_user_id) {
+        if ($userId === $current_user_id) {
             return true;
         } else {
             return false;

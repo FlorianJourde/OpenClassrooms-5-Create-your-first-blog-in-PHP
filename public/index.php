@@ -3,8 +3,11 @@
 define('__ROOT__', dirname(dirname(__FILE__)));
 
 require_once __ROOT__ . '/src/controllers/comment/AddComment.php';
-require_once __ROOT__ . '/src/controllers/comment/UpdateComment.php';
 require_once __ROOT__ . '/src/controllers/comment/DeleteComment.php';
+require_once __ROOT__ . '/src/controllers/comment/HideComment.php';
+require_once __ROOT__ . '/src/controllers/comment/ShowComment.php';
+require_once __ROOT__ . '/src/controllers/comment/ManageComments.php';
+require_once __ROOT__ . '/src/controllers/comment/UpdateComment.php';
 require_once __ROOT__ . '/src/controllers/post/AddPost.php';
 require_once __ROOT__ . '/src/controllers/post/DeletePost.php';
 require_once __ROOT__ . '/src/controllers/post/UpdatePost.php';
@@ -19,9 +22,12 @@ require_once __ROOT__ . '/src/controllers/Login.php';
 
 use Application\Controllers\Comment\AddComment;
 use Application\Controllers\Comment\DeleteComment;
+use Application\Controllers\Comment\HideComment;
+use Application\Controllers\Comment\ShowComment;
 use Application\Controllers\Comment\UpdateComment;
 use Application\Controllers\Homepage;
 use Application\Controllers\Archive;
+use Application\Controllers\Comment\ManageComments;
 use Application\Controllers\Login;
 use Application\Controllers\Post;
 use Application\Controllers\Post\AddPost;
@@ -31,6 +37,7 @@ use Application\Controllers\Register;
 use Application\Controllers\User\AddUser;
 use Application\Controllers\User\AuthenticationUser;
 use Application\Controllers\User\LogoutUser;
+use Application\Lib\RenderFront;
 
 try {
     if (isset($_GET['action']) && $_GET['action'] !== '') {
@@ -44,13 +51,6 @@ try {
             }
         } elseif ($_GET['action'] === 'archive') {
             (new Archive())->execute();
-        } elseif ($_GET['action'] === 'addPost') {
-            $input = null;
-            if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-                $input = $_POST;
-            }
-
-            (new AddPost())->execute($_POST);
         } elseif ($_GET['action'] === 'register') {
             (new Register())->execute();
         } elseif ($_GET['action'] === 'login') {
@@ -69,30 +69,13 @@ try {
             $password = $_POST['password'];
 
             (new AuthenticationUser())->execute($email, $password);
-        } elseif ($_GET['action'] === 'addComment') {
-            if (isset($_GET['id']) && $_GET['id'] > 0) {
-                $identifier = $_GET['id'];
-                $user_id = '1';
-                $status = true;
-
-                (new AddComment())->execute($identifier, $_POST, $user_id, $status);
-            } else {
-                throw new Exception('Aucun identifiant de billet envoyé');
+        } elseif ($_GET['action'] === 'addPost') {
+            $input = null;
+            if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+                $input = $_POST;
             }
-        } elseif ($_GET['action'] === 'updateComment') {
-            if (isset($_GET['id']) && $_GET['id'] > 0) {
-                $identifier = $_GET['id'];
-                // It sets the input only when the HTTP method is POST (ie. the form is submitted).
-                $input = null;
 
-                if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-                    $input = $_POST;
-                }
-
-                (new UpdateComment())->execute($identifier, $input);
-            } else {
-                throw new Exception('Aucun identifiant de commentaire envoyé');
-            }
+            (new AddPost())->execute($_POST);
         } elseif ($_GET['action'] === 'updatePost') {
             if (isset($_GET['id']) && $_GET['id'] > 0) {
                 $identifier = $_GET['id'];
@@ -104,19 +87,6 @@ try {
                 }
 
                 (new UpdatePost())->execute($identifier, $input);
-            } else {
-                throw new Exception('Aucun identifiant de commentaire envoyé');
-            }
-        } elseif ($_GET['action'] === 'deleteComment') {
-            if (isset($_GET['id']) && $_GET['id'] > 0) {
-                $identifier = $_GET['id'];
-                $input = null;
-
-                if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-                    $input = $_POST;
-                }
-
-                (new DeleteComment())->execute($identifier);
             } else {
                 throw new Exception('Aucun identifiant de commentaire envoyé');
             }
@@ -133,25 +103,87 @@ try {
             } else {
                 throw new Exception('Aucun identifiant d\'article envoyé');
             }
+        } elseif ($_GET['action'] === 'addComment') {
+            if (isset($_GET['id']) && $_GET['id'] > 0) {
+                $identifier = $_GET['id'];
+                $userId = 0;
+                $status = false;
+
+                (new AddComment())->execute($identifier, $_POST, $userId, $status);
+            } else {
+                throw new Exception('Aucun identifiant de billet envoyé');
+            }
+        } elseif ($_GET['action'] === 'hideComment') {
+            if (isset($_GET['id']) && $_GET['id'] > 0) {
+                $identifier = $_GET['id'];
+
+                (new HideComment())->execute($identifier);
+            } else {
+                throw new Exception('Aucun identifiant de commentaire envoyé');
+            }
+        } elseif ($_GET['action'] === 'showComment') {
+            if (isset($_GET['id']) && $_GET['id'] > 0) {
+                $identifier = $_GET['id'];
+
+                (new ShowComment())->execute($identifier);
+            } else {
+                throw new Exception('Aucun identifiant de commentaire envoyé');
+            }
+        } elseif ($_GET['action'] === 'updateComment') {
+            if (isset($_GET['id']) && $_GET['id'] > 0) {
+                $identifier = $_GET['id'];
+                // It sets the input only when the HTTP method is POST (ie. the form is submitted).
+                $input = null;
+
+                if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+                    $input = $_POST;
+                }
+
+                (new UpdateComment())->execute($identifier, $input);
+            } else {
+                throw new Exception('Aucun identifiant de commentaire envoyé');
+            }
+        } elseif ($_GET['action'] === 'manageComments') {
+            $input = null;
+
+            if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+                $input = $_POST;
+            }
+
+            (new ManageComments())->execute();
+        } elseif ($_GET['action'] === 'deleteComment') {
+            if (isset($_GET['id']) && $_GET['id'] > 0) {
+                $identifier = $_GET['id'];
+                $input = null;
+
+                if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+                    $input = $_POST;
+                }
+
+                (new DeleteComment())->execute($identifier);
+            } else {
+                throw new Exception('Aucun identifiant de commentaire envoyé');
+            }
         } else {
             throw new Exception("La page que vous recherchez n'existe pas.");
         }
     } else {
-//        var_dump($_GET);
-//        die();
-
         (new Homepage())->execute();
     }
 } catch (Exception $e) {
     $errorMessage = $e->getMessage();
 
-    $loader = new \Twig\Loader\FilesystemLoader(__ROOT__ . '/templates');
-    $twig = new \Twig\Environment($loader, [
-//        'cache' => 'cache',
-        'debug' => true
-    ]);
 
-    $twig->addExtension(new \Twig\Extension\DebugExtension());
-
+    $twig = new RenderFront();
     echo $twig->render('error.twig', ['errorMessage' => $errorMessage]);
+
+//    $loader = new \Twig\Loader\FilesystemLoader(__ROOT__ . '/templates');
+//    $twig = new \Twig\Environment($loader, [
+////        'cache' => 'cache',
+//        'debug' => true
+//    ]);
+//
+//    $twig->addExtension(new \Twig\Extension\DebugExtension());
+//
+//    echo $twig->render('error.twig', ['errorMessage' => $errorMessage]);
 }

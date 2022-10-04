@@ -26,16 +26,20 @@ class Post
         $userRepository->connection = new DatabaseConnection();
 
         $post = $postRepository->getPost($identifier);
-        $user = $userRepository->getUserFromId($post->user_id);
+        $user = $userRepository->getUserFromId($post->userId);
         $post->username = $user->username;
         $comments = $commentRepository->getComments($identifier);
+        $visibleComments = [];
 
         foreach ($comments as $comment) {
-            $user = $userRepository->getUserFromId($comment->user_id);
-            $comment->username = $user->username;
+            if($comment->status === true) {
+                $user = $userRepository->getUserFromId($comment->userId);
+                $comment->username = $user->username;
+                $visibleComments[] = $comment;
+            }
         }
 
         $twig = new RenderFront();
-        echo $twig->render('post.twig', ['post' => $post, 'comments' => $comments, 'session' => $_SESSION]);
+        echo $twig->render('post.twig', ['post' => $post, 'comments' => $visibleComments, 'session' => $_SESSION]);
     }
 }

@@ -31,7 +31,7 @@ class AddPost
             if (!empty($input['title']) && !empty($input['content'])) {
                 $title = $input['title'];
                 $content = $input['content'];
-                $user_id = $_SESSION['id'];
+                $userId = $_SESSION['id'];
                 $status = true;
             } else {
                 throw new \Exception('Les données du formulaire sont invalides.');
@@ -39,8 +39,8 @@ class AddPost
 
             $postRepository = new PostRepository();
             $postRepository->connection = new DatabaseConnection();
-            $success = $postRepository->createPost($user_id, $title, $content, $status);
-//
+            $success = $postRepository->createPost($userId, $title, $content, $status);
+            
             header(sprintf('Location: index.php?action=archive'));
             }
         } else {

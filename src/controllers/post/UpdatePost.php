@@ -22,7 +22,7 @@ class UpdatePost
 
         $userRepository = new UserRepository();
         $userRepository->connection = new DatabaseConnection();
-        $user = $userRepository->getUserFromId($postRepository->getPost($identifier)->user_id)->username;
+        $user = $userRepository->getUserFromId($postRepository->getPost($identifier)->userId)->username;
 
         $userRole = new CheckUserRole();
 

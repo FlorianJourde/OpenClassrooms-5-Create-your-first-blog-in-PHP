@@ -24,7 +24,7 @@ class Archive
         $posts =  $postRepository->getPosts();
 
         foreach ($posts as $post) {
-            $user = $userRepository->getUserFromId($post->user_id);
+            $user = $userRepository->getUserFromId($post->userId);
             $post->username = $user->username;
         }
 

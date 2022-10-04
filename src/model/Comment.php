@@ -5,8 +5,8 @@ namespace Application\Model;
 class Comment
 {
     public int $identifier;
-    public int $user_id;
-    public int $post_id;
+    public int $userId;
+    public int $postId;
     public string $comment;
     public string $creationDate;
     public string $username;

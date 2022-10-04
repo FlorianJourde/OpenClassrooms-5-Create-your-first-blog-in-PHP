@@ -12,8 +12,8 @@ class CommentRepository
     {
         $comment = new Comment();
         $comment->identifier = $row['id'];
-        $comment->user_id = $row['user_id'];
-        $comment->post_id = $row['post_id'];
+        $comment->userId = $row['user_id'];
+        $comment->postId = $row['post_id'];
         $comment->comment = $row['content'];
         $comment->creationDate = $row['creation_date'];
         $comment->status = $row['status'];
@@ -89,15 +89,15 @@ class CommentRepository
         return $this->fetchComment($row);
     }
 
-    public function createComment(string $post, string $comment, int $user_id, bool $status): bool
+    public function createComment(string $post, string $comment, int $userId, bool $status): bool
     {
-        if (!is_int($user_id)) { return false; }
+        if (!is_int($userId)) { return false; }
 
         $statement = $this->connection->getConnection()->prepare(
             'INSERT INTO comments(post_id, content, user_id, status, comment_date) VALUES(?, ?, ?, ?, NOW())'
         );
 
-        $affectedLines = $statement->execute([$post, $comment, $user_id, $status]);
+        $affectedLines = $statement->execute([$post, $comment, $userId, $status]);
 
         return ($affectedLines > 0);
     }

@@ -106,10 +106,10 @@ try {
         } elseif ($_GET['action'] === 'addComment') {
             if (isset($_GET['id']) && $_GET['id'] > 0) {
                 $identifier = $_GET['id'];
-                $user_id = '1';
+                $userId = '1';
                 $status = true;
 
-                (new AddComment())->execute($identifier, $_POST, $user_id, $status);
+                (new AddComment())->execute($identifier, $_POST, $userId, $status);
             } else {
                 throw new Exception('Aucun identifiant de billet envoyé');
             }

@@ -36,8 +36,8 @@ class ManageComments
                 $posts = [];
 
                 foreach ($hiddenComments as $comment) {
-                    $comment->username = $userRepository->getUserFromId($comment->user_id)->username;
-                    $comment->post = $postRepository->getPost($comment->post_id);
+                    $comment->username = $userRepository->getUserFromId($comment->userId)->username;
+                    $comment->post = $postRepository->getPost($comment->postId);
 
                     if (!in_array($comment->post, $posts)) {
                         $posts[] = $comment->post;
@@ -46,10 +46,10 @@ class ManageComments
 
                 foreach ($posts as $post) {
                     $post->hiddenComments = $commentRepository->getHiddenCommentsFromId($post->identifier);
-                    $post->username = $userRepository->getUserFromId($post->user_id)->username;
+                    $post->username = $userRepository->getUserFromId($post->userId)->username;
                     
                     foreach ($post->hiddenComments as $hiddenComment) {
-                        $hiddenComment->username = $userRepository->getUserFromId($hiddenComment->user_id)->username;
+                        $hiddenComment->username = $userRepository->getUserFromId($hiddenComment->userId)->username;
                     }
                 }
             }

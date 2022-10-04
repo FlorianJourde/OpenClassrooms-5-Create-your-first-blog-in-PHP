@@ -18,7 +18,7 @@ class PostRepository
         $row = $statement->fetch();
         $post = new Post();
         $post->title = $row['title'];
-        $post->user_id = $row['user_id'];
+        $post->userId = $row['user_id'];
         $post->creationDate = $row['creation_date'];
         $post->content = $row['content'];
         $post->identifier = $row['id'];
@@ -61,7 +61,7 @@ class PostRepository
             $post = new Post();
             $post->title = $row['title'];
             $post->creationDate = $row['creation_date'];
-            $post->user_id = $row['user_id'];
+            $post->userId = $row['user_id'];
             $post->content = $row['content'];
             $post->identifier = $row['id'];
 
@@ -71,15 +71,15 @@ class PostRepository
         return $posts;
     }
 
-    public function createPost(int $user_id, string $title, string $content, bool $status): bool
+    public function createPost(int $userId, string $title, string $content, bool $status): bool
     {
-        if (!is_int($user_id)) { return false; }
+        if (!is_int($userId)) { return false; }
 
         $statement = $this->connection->getConnection()->prepare(
             "INSERT INTO posts(user_id, title, content, creation_date, update_date, status) VALUES (?, ?, ?, NOW(), NOW(), ?)"
         );
 
-        $affectedLines = $statement->execute([$user_id,  $title, $content, $status]);
+        $affectedLines = $statement->execute([$userId,  $title, $content, $status]);
 
         return ($affectedLines > 0);
     }

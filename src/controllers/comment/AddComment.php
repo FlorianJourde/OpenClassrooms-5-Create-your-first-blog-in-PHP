@@ -8,7 +8,7 @@ use Application\Model\CommentRepository;
 
 class AddComment
 {
-    public function execute(string $post, array $input, int $user_id, bool $status)
+    public function execute(string $post, array $input, int $userId, bool $status)
     {
         $manageSession = new ManageSession();
         $manageSession->execute();
@@ -17,7 +17,7 @@ class AddComment
         $comment = null;
 
         if (!empty($input['comment'])) {
-            $user_id = $_SESSION['id'];
+            $userId = $_SESSION['id'];
 //            $author = $input['author'];
             $comment = $input['comment'];
         } else {
@@ -26,7 +26,7 @@ class AddComment
 
         $commentRepository = new CommentRepository();
         $commentRepository->connection = new DatabaseConnection();
-        $success = $commentRepository->createComment($post, $comment, $user_id, $status);
+        $success = $commentRepository->createComment($post, $comment, $userId, $status);
 
         if (!$success) {
             throw new \Exception('Impossible d\'ajouter le commentaire !');

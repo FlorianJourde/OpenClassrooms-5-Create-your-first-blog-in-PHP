@@ -27,7 +27,7 @@ class HideComment
         if ($userRole->isAuthenticated($_SESSION['token'] ?? '')) {
             if ($userRole->isAdmin($_SESSION['role']) ?? 'Guest') {
                 $comment = $commentRepository->getComment($identifier);
-                $post_id = $comment->post_id;
+                $postId = $comment->postId;
                 $success = $commentRepository->hideComment($identifier);
             }
         } else {
@@ -37,7 +37,7 @@ class HideComment
         if (!$success) {
             throw new \Exception('Impossible de masquer le commentaire !');
         } else {
-            header('Location: index.php?action=post&id=' . $post_id);
+            header('Location: index.php?action=post&id=' . $postId);
         }
     }
 }

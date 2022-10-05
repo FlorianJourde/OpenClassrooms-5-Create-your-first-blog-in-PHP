@@ -9,4 +9,5 @@ class User
     public string $email;
     public string $role;
     public string $password;
+    public ?string $token;
 }

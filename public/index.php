@@ -71,11 +71,13 @@ try {
             (new AuthenticationUser())->execute($email, $password);
         } elseif ($_GET['action'] === 'addPost') {
             $input = null;
+            $image = $_FILES;
+
             if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $input = $_POST;
             }
 
-            (new AddPost())->execute($_POST);
+            (new AddPost())->execute($_POST/* , $image */);
         } elseif ($_GET['action'] === 'updatePost') {
             if (isset($_GET['id']) && $_GET['id'] > 0) {
                 $identifier = $_GET['id'];

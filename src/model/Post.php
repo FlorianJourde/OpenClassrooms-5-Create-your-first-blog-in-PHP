@@ -10,4 +10,5 @@ class Post
     public string $creationDate;
     public string $content;
     public string $username;
+    public ?string $image;
 }

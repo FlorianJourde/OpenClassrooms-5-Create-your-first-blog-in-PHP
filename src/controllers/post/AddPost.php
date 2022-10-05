@@ -28,6 +28,33 @@ class AddPost
             $title = null;
             $content = null;
 
+            var_dump($_POST);
+            var_dump($_FILES);
+
+            if(isset($_FILES['file'])){
+                $tmpName = $_FILES['file']['tmp_name'];
+                $name = $_FILES['file']['name'];
+                $size = $_FILES['file']['size'];
+                $error = $_FILES['file']['error'];
+
+                $tabExtension = explode('.', $name);
+                $extension = strtolower(end($tabExtension));
+
+                $extensions = ['jpg', 'png', 'jpeg', 'gif'];
+                $maxSize = 100000;
+
+                if (in_array($extension, $extensions) && $size <= $maxSize && $error == 0) {
+                    $uniqueName = uniqid('', true);
+                    $file = $uniqueName . "." . $extension;
+
+                    move_uploaded_file($tmpName, './ressources/images/' . $file);
+                } else {
+                    throw new \Exception('Le fichier est trop volumineux ou son extension n\'est pas valide.');
+                }
+            }
+
+            // var_dump($file);
+
             if (!empty($input['title']) && !empty($input['content'])) {
                 $title = $input['title'];
                 $content = $input['content'];
@@ -39,7 +66,8 @@ class AddPost
 
             $postRepository = new PostRepository();
             $postRepository->connection = new DatabaseConnection();
-            $success = $postRepository->createPost($userId, $title, $content, $status);
+
+            $success = $postRepository->createPost($userId, $title, $content, $status, $file);
             
             header(sprintf('Location: index.php?action=archive'));
             }

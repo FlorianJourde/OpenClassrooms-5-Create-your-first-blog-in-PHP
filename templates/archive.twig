@@ -1,34 +1,42 @@
 {% extends 'layout.twig' %}
 
 {% block content %}
-    <div class="wrapper">
-        <h1>Le super blog de l'AVBN !!</h1>
-        <h2>Derniers billets du blog</h2>
-        <div class="posts">
-            {% if session.role == 'Admin' %}
-                <div class="header">
-                    <a class="button-secondary button-blue" href="index.php?action=manageComments">Gestion des commentaires</a>
-                    <a class="button-primary button-blue" href="index.php?action=addPost">Ajouter un article</a>
-                </div>
-            {% endif %}
-            {% for post in posts %}
-                <div class="post">
-                    <div class="title">
-                        <h3>{{ post.title }}</h3>
-                        {% if session.role == 'Admin' %}
-                            <div class="actions">
-                                <a href="index.php?action=updatePost&id={{ post.identifier }}">modifier</a>
-                                <a href="index.php?action=deletePost&id={{ post.identifier }}">supprimer</a>
-                            </div>
-                        {% endif %}
-                    </div>
-                    <div class="content">
-                        <p class="description">{{ post.content }}</p>
-                        <p><span class="author">{{ post.username }}</span> le <span class="date">{{ post.creationDate }}</span></p>
-                        <a class="button-secondary button-blue" href="index.php?action=post&id={{ post.identifier }}">Lire l'article</a>
-                    </div>
-                </div>
-            {% endfor %}
+    <section class="post-banner padding-100" style="background-image: url('./ressources/images/vector-shapes.jpg');">
+        <div class="wrapper">
+            <h1 class="post-title">{{ post.title }}</h1>
         </div>
-    </div>
+    </section>
+
+    <section class="padding-100">
+        <div class="wrapper">
+            <h1>Le super blog de l'AVBN !!</h1>
+            <h2>Derniers billets du blog</h2>
+            <div class="posts">
+                {% if session.role == 'Admin' %}
+                    <div class="header">
+                        <a class="button-secondary button-blue" href="index.php?action=manageComments">Gestion des commentaires</a>
+                        <a class="button-primary button-blue" href="index.php?action=addPost">Ajouter un article</a>
+                    </div>
+                {% endif %}
+                {% for post in posts %}
+                    <div class="post">
+                        <div class="title">
+                            <h3>{{ post.title }}</h3>
+                            {% if session.role == 'Admin' %}
+                                <div class="actions">
+                                    <a href="index.php?action=updatePost&id={{ post.identifier }}">modifier</a>
+                                    <a href="index.php?action=deletePost&id={{ post.identifier }}">supprimer</a>
+                                </div>
+                            {% endif %}
+                        </div>
+                        <div class="content">
+                            <p class="description">{{ post.content }}</p>
+                            <p><span class="author">{{ post.username }}</span> le <span class="date">{{ post.creationDate }}</span></p>
+                            <a class="button-secondary button-blue" href="index.php?action=post&id={{ post.identifier }}">Lire l'article</a>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
 {% endblock %}

@@ -9,7 +9,14 @@
 {% endblock %}
 
 {% block content %}
-    <div class="wrapper">
-        <h1>Le super blog de l'AVBN !</h1>
-    </div>
+    <section class="post-banner padding-100" style="background-image: url('./ressources/images/vector-shapes-2.jpg');">
+        <div class="wrapper">
+            <h1 class="post-title">{{ post.title }}</h1>
+        </div>
+    </section>
+    <section class="padding-100">
+        <div class="wrapper">
+            <h1>Le super blog de l'AVBN !</h1>
+        </div>
+    </section>
 {% endblock %}

@@ -24,3 +24,18 @@
 .navigation li:not(:last-child) {
   margin-right: 10px;
 }
+
+.navbar .logo img {
+  height: 40px;
+  margin-right: 20px;
+}
+
+.navbar .logo a {
+  display: flex;
+  align-items: center;
+  text-transform: uppercase;
+  font-weight: 600;
+  font-family: monospace;
+  font-size: 30px;
+  color: var(--clr-black);
+}

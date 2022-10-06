@@ -22,4 +22,17 @@
         {% endif %}
     </div>
   </nav>
+  
+  {% if session.role == 'Admin' %}
+      <section class="navbar-manager">
+          {# <div class="header"> #}
+          <div class="wrapper">
+              <ul>
+                  <li><a class="button-tertiary" href="index.php?action=manageComments">Gestion des commentaires</a></li>
+                  <li><a class="button-tertiary" href="index.php?action=addPost">Ajouter un article</a></li>
+              </ul>
+          </div>
+          {# </div> #}
+      </section>
+  {% endif %}
 {% endblock %}

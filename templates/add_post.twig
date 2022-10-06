@@ -5,12 +5,16 @@
 {% endblock %}
 
 {% block content %}
+    <section class="banner" style="background-image: url('./ressources/images/vector-shapes.jpg');">
+        <div class="wrapper">
+            <div class="title">
+                <h1>Ajouter un article</h1>
+            </div>
+        </div>
+        <img class="vector-shape vector-shape-bottom" src="./ressources/images/vector-bottom-right-white.svg" alt="">
+    </section>
+
     <div class="wrapper">
-        <a class="button-secondary" href="index.php">Accueil</a>
-
-        <h1>Le super blog de l'AVBN !</h1>
-        <h2>Ajouter un article</h2>
-
         <form action="index.php?action=addPost" method="post" enctype="multipart/form-data">
             <div>
                 <label for="title">Titre de l'article</label><br />

@@ -1,15 +1,22 @@
+nav {
+  position: sticky;
+  top: 0;
+  left: 0;
+  z-index: 10;
+}
+
 .navbar {
   display: flex;
   justify-content: space-between;
   gap: 20px;
-  position: sticky;
-  top: 0;
-  left: 0;
   background-color: var(--clr-white);
   /* background-color: rgba(255,255,255,0.8); */
   /* backdrop-filter: saturate(180%) blur(20px); */
   z-index: 10;
   width: 100%;
+  padding-bottom: 20px;
+  padding-top: 20px;
+  box-shadow: var(--bs-secondary);
 }
 
 .navbar .logo {
@@ -31,29 +38,33 @@
 }
 
 .navbar .logo a {
-  display: flex;
+  display: inline-flex;
   align-items: center;
   text-transform: uppercase;
   font-weight: 600;
   font-family: var(--ff-secondary);
-  font-size: 30px;
+  font-size: var(--fs-small-title);
+  line-height: 1em;
   color: var(--clr-black);
 }
 
 .navbar-manager {
   background-color: var(--clr-very-dark-grey);
   color: var(--clr-white);
-  padding-top: 10px;
-  padding-bottom: 10px;
+  padding-top: 12px;
+  padding-bottom: 12px;
 }
 
 .navbar-manager ul {
   display: flex;
   justify-content: flex-end;
+  flex-wrap: wrap;
+  gap: 10px 20px;
+
 }
 
 .navbar-manager li:not(:last-child) {
-  margin-right: 20px;
+  /*margin-right: 20px;*/
 }
 
 .navbar-manager a {

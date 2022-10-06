@@ -1,11 +1,9 @@
 {% extends 'layout.twig' %}
 
-{% block head %}
-    {{ post.title }}
-{% endblock %}
+{% block title %}{{ post.title }}{% endblock %}
 
 {% block content %}
-    <section class="banner" style="background-image: url('./ressources/images/{{ post.image }}');">
+    <section class="banner offset-next-element" style="background-image: url('./ressources/images/{{ post.image }}');">
         <div class="wrapper">
             <div class="title">
                 <h1>{{ post.title }}</h1>
@@ -23,8 +21,8 @@
                     <div class="title">
                         {% if session.role == 'Admin' %}
                             <div class="actions">
-                                <a href="index.php?action=updatePost&id={{ post.identifier }}">modifier</a>
-                                <a href="index.php?action=deletePost&id={{ post.identifier }}">supprimer</a>
+                                <a href="index.php?action=updatePost&id={{ post.identifier }}">Modifier</a>
+                                <a href="index.php?action=deletePost&id={{ post.identifier }}">Supprimer</a>
                             </div>
                         {% endif %}
                     </div>
@@ -40,34 +38,33 @@
         <section class="comments">
             <img class="vector-shape vector-shape-top" src="./ressources/images/vector-top-left-white-2.svg" alt="">
             <div class="wrapper">
-                {# <div class="title"> #}
+                {% if (comments is not empty) %}
                     <h2 class="title">Commentaires</h2>
-                {# </div> #}
-                {# <div class="comments"> #}
-                {% for comment in comments %}
-                    <div class="comment">
-                        {# <div class="title"> #}
-                            <p>{{ comment.username }}</p>
-                            <p>Le {{ comment.creationDate }}</p>
+                    {% for comment in comments %}
+                        <div class="comment">
+                            <div class="header">
+                                <p class="username"><i class="fas fa-user"></i>{{ comment.username }}</p>
                                 {% if (session.role == 'Admin') or (session.id == comment.user_id) %}
-                                <div class="actions">
-                                    <a href="index.php?action=hideComment&id={{ comment.identifier }}">Masquer</a>
-                                    <a href="index.php?action=updateComment&id={{ comment.identifier }}">Modifier</a>
-                                    <a href="index.php?action=deleteComment&id={{ comment.identifier }}">Supprimer</a>
-                                </div>
+                                    <div class="actions">
+                                        <a class="hide" href="index.php?action=hideComment&id={{ comment.identifier }}"><i class="fas fa-eye"></i>Retirer</a>
+                                        <a class="edit" href="index.php?action=updateComment&id={{ comment.identifier }}"><i class="fas fa-edit"></i>Modifier</a>
+                                        <a class="delete" href="index.php?action=deleteComment&id={{ comment.identifier }}"><i class="fas fa-trash"></i>Supprimer</a>
+                                    </div>
                                 {% endif %}
-                        {# </div> #}
-                        <div class="content">
-                            <p>{{ comment.comment }}</p>
+                            </div>
+                            <p class="date">le {{ comment.creationDate }}</p>
+                            <div class="content">
+                                <p>{{ comment.comment }}</p>
+                            </div>
                         </div>
-                    </div>
-                {% endfor %}
+                    {% endfor %}
+                {% endif %}
                 {% if session.role is defined %}
                     <h2 class="title">Ajouter un commentaire</h2>
                     <form action="index.php?action=addComment&id={{ post.identifier }}" method="post">
                         <div class="user"></div>
                         <div>
-                            <label for="comment">Commentaire</label><br />
+{#                            <label for="comment">Commentaire</label><br />#}
                             <textarea id="comment" name="comment"></textarea>
                         </div>
                         <div>
@@ -75,7 +72,6 @@
                         </div>
                     </form>
                 {% endif %}
-                {# </div> #}
             </div>
         </section>
     {% endif %}

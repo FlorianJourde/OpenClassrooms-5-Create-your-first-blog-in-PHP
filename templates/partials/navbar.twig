@@ -1,28 +1,28 @@
 {% block navbar %}
-  <nav class="navbar padding-20">
-    <div class="wrapper">
-      {# {{ dump(session) }} #}
-      <div class="logo">
-        <a href="index.php">
-        <img src="./ressources/images/logo.svg" alt=""> Test
-        </a>
-      </div>
-      <ul class="navigation">
-        <li><a class="button-tertiary" href="index.php?action=archive">Articles</a></li>
-      </ul>
-        {% if session.is_authenticated != true %}
-        <ul class="navigation user-navigation">
-          <li><a class="button-secondary" href="index.php?action=register">S'enregistrer</a></li>
-          <li><a class="button-primary" href="index.php?action=login">Se connecter</a></li>
-        </ul>
-        {% else %}
-        <ul class="navigation user-navigation">
-          <li><a class="button-primary" href="index.php?action=logoutUser">Se déconnecter</a></li>
-        </ul>
-        {% endif %}
+  <nav>
+    <div class="navbar padding-20">
+        <div class="wrapper">
+          {# {{ dump(session) }} #}
+          <div class="logo">
+            <a href="index.php">
+            <img src="./ressources/images/logo.svg" alt=""> Florian <br> Jourde
+            </a>
+          </div>
+          <ul class="navigation">
+            <li><a class="button-tertiary" href="index.php?action=archive">Articles</a></li>
+          </ul>
+            {% if session.is_authenticated != true %}
+            <ul class="navigation user-navigation">
+              <li><a class="button-secondary" href="index.php?action=register">S'enregistrer</a></li>
+              <li><a class="button-primary" href="index.php?action=login">Se connecter</a></li>
+            </ul>
+            {% else %}
+            <ul class="navigation user-navigation">
+              <li><a class="button-primary" href="index.php?action=logoutUser">Se déconnecter</a></li>
+            </ul>
+            {% endif %}
+        </div>
     </div>
-  </nav>
-  
   {% if session.role == 'Admin' %}
       <section class="navbar-manager">
           {# <div class="header"> #}
@@ -35,4 +35,5 @@
           {# </div> #}
       </section>
   {% endif %}
+  </nav>
 {% endblock %}

@@ -4,6 +4,6 @@
 		.s0 { fill: #ffffff } 
 	</style>
 	<g id="swoop-2-bottom-left-white">
-		<path id="Path-Copy" class="s0" d="m1440 0.4c0 0-901.4 115.1-1440 399.6v-400h1440z"/>
+		<path id="Path-Copy" class="s0" d="m0 0h1440v400c-538.6-284.5-1440-399.6-1440-399.6z"/>
 	</g>
 </svg>

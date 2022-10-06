@@ -22,10 +22,12 @@ class Archive
         $userRepository->connection = new DatabaseConnection();
 
         $posts =  $postRepository->getPosts();
+        
 
         foreach ($posts as $post) {
             $user = $userRepository->getUserFromId($post->userId);
             $post->username = $user->username;
+            $post->image === null ? $post->image = 'placeholder-min.jpg' : $post->image;
         }
 
         $twig = new RenderFront();

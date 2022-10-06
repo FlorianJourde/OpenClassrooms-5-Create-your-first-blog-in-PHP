@@ -5,15 +5,20 @@
 {% endblock %}
 
 {% block content %}
-    <section class="post-banner padding-100" style="background-image: url('./ressources/images/{{ post.image }}');">
+    <section class="banner" style="background-image: url('./ressources/images/{{ post.image }}');">
         <div class="wrapper">
-            <h1 class="post-title">{{ post.title }}</h1>
+            <div class="title padding-100">
+                <h1>{{ post.title }}</h1>
+            </div>
         </div>
+        {# <div class="vector-shape"> #}
+            <img class="vector-shape" src="./ressources/images/vector-bottom-right-white.svg" alt="">
+        {# </div> #}
     </section>
 
-    <section class="padding-100">
+    <main class="single">
         <div class="wrapper">
-            <div class="posts">
+            {# <div class="posts"> #}
                 <div class="post">
                     <div class="title">
                         {% if session.role == 'Admin' %}
@@ -28,7 +33,7 @@
                         <p><span class="author">{{ post.username }}</span> le <span class="date">{{ post.creationDate }}</span></p>
                     </div>
                 </div>
-            </div>
+            {# </div> #}
 
             {% if session.role is defined %}
                 <h2>Ajouter un commentaire</h2>
@@ -68,5 +73,5 @@
                 </div>
             {% endif %}
         </div>
-    </section>
+    </main>
 {% endblock %}

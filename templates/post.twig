@@ -33,38 +33,22 @@
                         <p><span class="author">{{ post.username }}</span> le <span class="date">{{ post.creationDate }}</span></p>
                     </div>
                 </div>
-            {# </div> #}
-
-            {% if session.role is defined %}
-                <h2>Ajouter un commentaire</h2>
-                <form action="index.php?action=addComment&id={{ post.identifier }}" method="post">
-                    <div class="user"></div>
-                    <div>
-                        <label for="comment">Commentaire</label><br />
-                        <textarea id="comment" name="comment"></textarea>
-                    </div>
-                    <div>
-                        <input type="submit" />
-                    </div>
-                </form>
-            {% endif %}
-
-
-            
+            {# </div> #}            
         </div>
     </main>
-    {% if comments is not empty %}
+    {% if (comments is not empty) or (session.role is defined) %}
         <section class="comments">
             <img class="vector-shape vector-shape-top" src="./ressources/images/vector-top-left-white-2.svg" alt="">
             <div class="wrapper">
-                <div class="title">
-                    <h2>Commentaires</h2>
-                </div>
+                {# <div class="title"> #}
+                    <h2 class="title">Commentaires</h2>
+                {# </div> #}
                 {# <div class="comments"> #}
                 {% for comment in comments %}
                     <div class="comment">
-                        <div class="title">
-                            <p><strong>{{ comment.username }}</strong> le {{ comment.creationDate }}</p>
+                        {# <div class="title"> #}
+                            <p>{{ comment.username }}</p>
+                            <p>Le {{ comment.creationDate }}</p>
                                 {% if (session.role == 'Admin') or (session.id == comment.user_id) %}
                                 <div class="actions">
                                     <a href="index.php?action=hideComment&id={{ comment.identifier }}">Masquer</a>
@@ -72,12 +56,25 @@
                                     <a href="index.php?action=deleteComment&id={{ comment.identifier }}">Supprimer</a>
                                 </div>
                                 {% endif %}
-                        </div>
+                        {# </div> #}
                         <div class="content">
                             <p>{{ comment.comment }}</p>
                         </div>
                     </div>
                 {% endfor %}
+                {% if session.role is defined %}
+                    <h2 class="title">Ajouter un commentaire</h2>
+                    <form action="index.php?action=addComment&id={{ post.identifier }}" method="post">
+                        <div class="user"></div>
+                        <div>
+                            <label for="comment">Commentaire</label><br />
+                            <textarea id="comment" name="comment"></textarea>
+                        </div>
+                        <div>
+                            <input type="submit" />
+                        </div>
+                    </form>
+                {% endif %}
                 {# </div> #}
             </div>
         </section>

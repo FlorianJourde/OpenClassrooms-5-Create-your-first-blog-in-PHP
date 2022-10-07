@@ -3,20 +3,35 @@
 {% block title %}Modification du commentaire{% endblock %}
 
 {% block content %}
-   <div class="wrapper">
-      <h1>Le super blog de l'AVBN !</h1>
-      <p><a href="index.php?action=post&id={{ post.identifier }}">Retour au billet</a></p>
-      <h2>Modification du commentaire</h2>
-
-      <form action="index.php?action=updateComment&id={{ comment.identifier }}" method="post">
-         <p>{{ comment.author }}</p>
-         <div>
-            <label for="comment">Commentaire</label><br />
-            <textarea id="comment" name="comment">{{ comment.comment }}</textarea>
+   <section class="banner offset-next-element" style="background-image: url('./ressources/images/vector-shapes-2.jpg');">
+      <div class="wrapper">
+         <div class="title">
+            <h1>Modification du commentaire</h1>
          </div>
-         <div>
-            <input type="submit" value="Modifier" />
+      </div>
+      <img class="vector-shape vector-shape-bottom" src="./ressources/images/vector-bottom-right-white.svg" alt="">
+   </section>
+   <section class="update-comment position-relative">
+      <div class="wrapper">
+         <div class="page management">
+            <div class="post">
+               <div class="header">
+                  <h3 class="title"><i class="fas fa-comment-alt"></i>Commentaire</h3>
+                  <div class="actions">
+                     <a class="hide" href="index.php?action=post&id={{ post.identifier }}"><i class="fas fa-eye"></i>Voir</a>
+                  </div>
+               </div>
+                  <form action="index.php?action=updateComment&id={{ comment.identifier }}" method="post">
+                     <textarea id="comment" name="comment">{{ comment.comment }}</textarea>
+                     <div class="infos">
+                        <h3><i class="fas fa-user"></i>{{ comment.username }}</h3>
+                        <p><i class="fas fa-calendar"></i>{{ post.creationDate }}</p>
+                     </div>
+                     <input type="submit" value="Modifier" />
+                  </form>
+               </div>
+            </div>
          </div>
-      </form>
-   </div>
+      <img class="vector-shape vector-shape-bottom vector-shape-behind" src="./ressources/images/vector-bottom-right-dark-grey.svg" alt="">
+   </section>
 {% endblock %}

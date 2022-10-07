@@ -19,17 +19,17 @@ class UpdateComment
 
         $postRepository = new PostRepository();
         $postRepository->connection = new DatabaseConnection();
-
         $commentRepository = new CommentRepository();
         $commentRepository->connection = new DatabaseConnection();
+        $userRepository = new UserRepository();
+        $userRepository->connection = new DatabaseConnection();
 
         $comment = $commentRepository->getComment($identifier);
         $post = $postRepository->getPost($comment->postId);
 
         $userRole = new CheckUserRole();
 
-        $userRepository = new UserRepository();
-        $userRepository->connection = new DatabaseConnection();
+        $comment->username = $userRepository->getUserFromId($comment->userId)->username;
 
         if ($userRole->isAuthenticated($_SESSION['token'] ?? '')) {
             if ($userRole->isAdmin($_SESSION['role'] ?? 'Guest') || $userRole->isCurrentUser($comment->userId, $_SESSION['id'] ?? 0)) {

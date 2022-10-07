@@ -7,6 +7,7 @@ use Application\Lib\DatabaseConnection;
 use Application\Lib\ManageSession;
 use Application\Lib\RenderFront;
 use Application\Model\PostRepository;
+use Application\Model\UserRepository;
 
 class DeletePost
 {
@@ -17,14 +18,14 @@ class DeletePost
 
         $postRepository = new PostRepository();
         $postRepository->connection = new DatabaseConnection();
+        $userRepository = new UserRepository();
+        $userRepository->connection = new DatabaseConnection();
         $post = $postRepository->getPost($identifier);
 
         $userRole = new CheckUserRole();
 
         $post->image === null ? $post->image = 'placeholder-min.jpg' : $post->image;
-
-//        var_dump($post);
-//        die();
+        $post->username = $userRepository->getUserFromId($post->userId)->username;
 
         if ($userRole->isAuthenticated($_SESSION['token'] ?? '')) {
             if ($userRole->isAdmin($_SESSION['role'] ?? 'Guest')) {

@@ -17,7 +17,7 @@
     <main class="single">
         <div class="wrapper">
             {# <div class="posts"> #}
-                <div class="post">
+                <div class="post page">
 {#                    <div class="title">#}
 {#                        {% if session.role == 'Admin' %}#}
 {#                            <div class="actions">#}
@@ -58,7 +58,7 @@
                                     </div>
                                 {% endif %}
                             </div>
-                            <p class="date">le {{ comment.creationDate }}</p>
+                            <p class="date">{{ comment.creationDate }}</p>
                             <div class="content">
                                 <p>{{ comment.comment }}</p>
                             </div>

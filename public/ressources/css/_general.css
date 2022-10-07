@@ -34,19 +34,13 @@ input[type="submit"], ::-webkit-file-upload-button {
 ::-webkit-file-upload-button {
     margin-right: 20px;
     background-color: var(--clr-dark-blue);
-    /*color: var(--clr-very-dark-grey);*/
 }
 
 form > *:not(:last-child) {
     margin-bottom: 30px;
 }
 
-form {
-    /*margin-bottom: 2rem;*/
-}
-
 body {
-    /* padding: 2rem 0; */
     min-height: 100vh;
     position: relative;
     width: 100%;
@@ -58,17 +52,11 @@ body {
 a {
     text-decoration: none;
     color: var(--clr-dark-purple);
-    /*margin: 1rem 0;*/
     display: inline-block;
-}
-
-h1, h2 {
-    /* margin: 2rem auto; */
 }
 
 h1, h2, h3 {
     font-family: var(--ff-primary);
-    /* text-align:center; */
 }
 
 ul {
@@ -98,13 +86,10 @@ ul {
     width: 100%;
     padding-top: 150px;
     padding-bottom: 250px;
-    /*z-index: -1;*/
     background-size: cover;
     background-position: center;
     display: flex;
     flex-direction: column;
-    /* align-items: center; */
-    /* margin-bottom: -500px; */
 }
 
 .banner {
@@ -133,12 +118,7 @@ ul {
   
 
 .posts {
-    /* display: flex;
-    flex-direction: column;
-    align-items: flex-end; */
     display: grid;
-    /* grid-template-columns: 2fr; */
-    /* grid-template-rows: 2fr; */
     grid-template-columns: repeat(3, 1fr);
     gap: 50px;
     grid-auto-rows: 1fr;
@@ -147,28 +127,16 @@ ul {
 .posts .header {
     margin-bottom: 1rem;
 }
-
-.archive .post .title, .comment .title {
-    /* color: var(--clr-white);
-    font-size:0.9em;
-    margin-bottom:0;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem; */
-}
-
-.archive .post .title h3 {
-    /* display: inline-block; */
-}
-
 .post .title {
     font-size: var(--fs-small-title);
-    /* background-color: var(--clr-dark-blue); */
 }
 
 .post .infos > *:not(:last-child) {
     margin-bottom: 20px;
+}
+
+main.single {
+    padding-bottom: 100px;
 }
 
 main.single .post .infos p {
@@ -183,16 +151,11 @@ main.single .post .description {
     margin-bottom: 40px;
 }
 
-
-.management {
-    /*padding-bottom: 100px;*/
-}
-
 .archive .post .actions a, .management .post .actions a {
     color: var(--clr-white);
 }
 
-/*.management .post > *, */.management .single > *:not(:last-child) {
+.management .single > *:not(:last-child) {
     margin-bottom: 30px;
 }
 
@@ -201,7 +164,6 @@ main.single .post .description {
 }
 
 .management .single {
-    /*background-color: var(--clr-dark-green);*/
     border-radius: 30px;
     padding: 40px;
 }
@@ -233,14 +195,8 @@ main.single .post .description {
 .delete-post .management .single, .delete-post input[type="submit"] {
     background-color: var(--clr-dark-pink);
 }
-/*.post .header .title {*/
-
-/*}*/
-/*font-size: var(--fs-big-text);*/
 
 .comments {
-    /* margin-top: -500px; */
-    /*position: relative;*/
     padding-top: 300px;
     padding-bottom: 150px;
     background-color: var(--clr-very-light-grey);
@@ -294,14 +250,11 @@ main.single .post .description {
 
 .archive .post .content, .comment .content {
     margin-top:0;
-    /* padding: 1rem; */
 }
 
 .archive .post .content {
-    /* background-color: var(--clr-light-blue); */
     display: flex;
     flex-direction: column;
-    /* align-items: center; */
     flex-grow: 1;
 }
 
@@ -329,7 +282,6 @@ main.single .post .description {
 }
 
 .archive .post .content .author {
-    /*text-align: right;*/
     font-weight: 600;
 }
 
@@ -342,12 +294,7 @@ main.single .post .description {
     margin-top: 100px;
 }
 
-.comment .content {
-    /* background-color: var(--clr-light-green); */
-}
-
 .comment {
-    /* margin-bottom: 2rem; */
     border-radius: 20px;
     overflow: hidden;
      box-shadow: var(--bs-primary);
@@ -368,42 +315,51 @@ main.single .post .description {
     display: flex;
     flex-direction: column;
     border-radius: 20px;
-    /* overflow: hidden; */
     padding: 40px;
-    /*background-color: var(--clr-very-dark-grey);*/
     background: var(--clr-radial-very-dark-grey);
     color: var(--clr-white);
 }
 
 .register, .login {
-    z-index: 1;
     padding-bottom: 50px;
 }
 
-main.single .post, .register form, .login form, .add-post form, .delete-post .page, .update-post .page {
+.page {
     border-radius: 40px;
     padding: 40px;
     background-color: var(--clr-white);
 }
+
 .update-post .page, .update-post input[type="submit"] {
     background-color: var(--clr-light-green);
+}
+
+.update-comment .page {
+    background-color: var(--clr-light-blue);
+}
+
+.update-comment input[type="submit"] {
+    background-color: var(--clr-dark-blue);
+}
+
+.update-comment {
+    color: var(--clr-very-dark-blue);
 }
 
 .update-post {
     color: var(--clr-very-dark-green);
 }
 
-.update-post .post .actions a {
+.update-post .post .actions a, .update-post .post .infos p {
     color: var(--clr-dark-green);
+}
+
+.update-comment .post .actions a, .update-comment .post .infos p {
+    color: var(--clr-dark-blue);
 }
 
 .update-post input[type="submit"] {
     background-color: var(--clr-very-dark-green);
-}
-
-
-.update-post .post .infos p {
-    color: var(--clr-dark-green);
 }
 
 .register form label, .login form label, .add-post form label {
@@ -436,21 +392,9 @@ input[type="file"] {
     box-shadow: unset;
 }
 
-/*::-webkit-file-upload-button {*/
-/*    background: black;*/
-/*    color: red;*/
-/*    padding: 1em;*/
-/*    cursor: pointer;*/
-/*    margin-right: 20px;*/
-/*}*/
-
 .register form {
     background-color: var(--clr-very-light-orange);
     color: var(--clr-dark-orange);
-}
-
-.actions a:not(:last-child) {
-    /*margin-right: 20px;*/
 }
 
 .actions {
@@ -482,7 +426,6 @@ input[type="file"] {
 .vector-shape {
     width: 100%;
     height: 200px;
-    /* height: auto; */
     z-index: 0;
     position: absolute;
 }
@@ -496,7 +439,8 @@ input[type="file"] {
 }
 
 .position-relative {
-    position: relative;;
+    position: relative;
+    z-index: 1;
 }
 
 .vector-shape-behind {
@@ -505,8 +449,6 @@ input[type="file"] {
 
 .button-primary, .button-secondary, .button-tertiary {
     width: fit-content;
-    /* border: 3px solid var(--clr-dark-purple); */
-    /*margin-bottom: 1rem;*/
 }
 
 .button-primary, .button-secondary {
@@ -524,10 +466,6 @@ input[type="file"] {
     color: var(--clr-dark-purple);
 }
 
-.button-tertiary {
-    /* color: var(--clr-dark-purple); */
-}
-
 .button-primary.button-blue {
     background-color: var(--clr-dark-blue);
     border: 3px solid var(--clr-dark-blue);
@@ -543,6 +481,11 @@ input[type="file"] {
     border: 3px solid var(--clr-dark-pink);
 }
 
+.button-primary.button-yellow {
+    background-color: var(--clr-dark-yellow);
+    border: 3px solid var(--clr-dark-yellow);
+}
+
 .button-secondary.button-white {
     color: var(--clr-white);
     border: 3px solid var(--clr-white);
@@ -551,17 +494,19 @@ input[type="file"] {
 .work {
     padding-top: 250px;
     padding-bottom: 100px;
-    /*background-color: var(--clr-dark-pink);*/
-    /*position: relative;*/
-    z-index: 1;
-    background: linear-gradient(45deg, #552832 0%, #a83b56 50%, #873146 100%);
+    background: linear-gradient(45deg, #4d3a02 0%, #cba83f 50%, #896e1e 100%);
 }
 
-.add-post {
-    z-index: 1;
+.error {
+    background-color: var(--clr-dark-pink);
 }
 
-.work .curriculum {
+.error .box {
+    position: relative;
+    top: -100px;
+}
+
+.box {
     padding: 80px;
     background-color: var(--clr-white);
     border-radius: 40px;
@@ -571,31 +516,48 @@ input[type="file"] {
     justify-content: space-between;
     align-items: center;
     gap: 50px;
-    color: var(--clr-dark-pink);
+}
+.work {
+    color: var(--clr-dark-yellow);
+
 }
 
-.work .curriculum .question {
+.box .question {
     flex-grow: 1;
 }
 
-.work .curriculum .fas, .work .curriculum p {
+.work .fas, .work p {
+    color: var(--clr-yellow);
+}
+
+.error .fas, .error p {
     color: var(--clr-pink);
 }
 
-.work .curriculum .fas {
+.box .fas {
     font-size: var(--fs-very-big-title);
 }
 
-.work .curriculum h2 {
+.box h2 {
     font-size: var(--fs-title);
     margin-bottom: 15px;
 }
 
-.work .curriculum p, .work .curriculum a {
+.box p, .box a {
     font-size: var(--fs-big-text);
 }
 
-.work .curriculum .button-primary {
+.box a {
+    align-items: center;
+    display: flex;
+}
+
+.box a i.fas {
+    font-size: var(--fs-title);
+    margin-right: 20px;
+}
+
+.box .button-primary {
     padding: 20px 40px;
     border-radius: 20px;
 }

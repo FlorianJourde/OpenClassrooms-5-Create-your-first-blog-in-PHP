@@ -19,22 +19,27 @@ class DeleteComment
 
         $postRepository = new PostRepository();
         $postRepository->connection = new DatabaseConnection();
-
         $commentRepository = new CommentRepository();
         $commentRepository->connection = new DatabaseConnection();
+        $userRepository = new UserRepository();
+        $userRepository->connection = new DatabaseConnection();
 
         $comment = $commentRepository->getComment($identifier);
         $post = $postRepository->getPost($comment->postId);
 
         $userRole = new CheckUserRole();
+        $comment->username = $userRepository->getUserFromId($post->userId)->username;
 
-        $userRepository = new UserRepository();
-        $userRepository->connection = new DatabaseConnection();
+//        var_dump($comment);
+//        die();
 
         if ($userRole->isAuthenticated($_SESSION['token'] ?? '')) {
             if ($userRole->isAdmin(empty($_SESSION['role']) ?? 'Guest') || $userRole->isCurrentUser($comment->userId, $_SESSION['id'] ?? 0)) {
                 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+//                    var_dump($comment->postId);
+//                    die();
                     $success = $commentRepository->deleteComment($identifier);
+
 
                     header(sprintf('Location: index.php?action=post&id=%d', $comment->postId));
                     if (!$success) {

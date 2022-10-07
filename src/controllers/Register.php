@@ -2,6 +2,7 @@
 
 namespace Application\Controllers;
 
+use Application\Lib\CheckUserRole;
 use Application\Lib\DatabaseConnection;
 use Application\Lib\ManageSession;
 use Application\Lib\RenderFront;
@@ -16,6 +17,12 @@ class Register
 
         $userRepository = new UserRepository();
         $userRepository->connection = new DatabaseConnection();
+
+        $userRole = new CheckUserRole();
+
+        if ($userRole->isAuthenticated($_SESSION['token'] ?? '')) {
+            header(sprintf('Location: index.php'));
+        }
 
         $twig = new RenderFront();
         echo $twig->render('register.twig', ['users' => $userRepository->getUsers()]);

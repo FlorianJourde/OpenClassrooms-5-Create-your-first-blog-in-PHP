@@ -26,11 +26,16 @@ nav {
 .navigation {
   display: flex;
   align-items: center;
+  gap: 10px 20px;
 }
 
-.navigation li:not(:last-child) {
-  margin-right: 10px;
-}
+/*.navigation li {*/
+/*  */
+/*}*/
+
+/*.navigation li:not(:last-child) {*/
+/*  margin-right: 10px;*/
+/*}*/
 
 .navbar .logo img {
   height: 40px;
@@ -60,13 +65,23 @@ nav {
   justify-content: flex-end;
   flex-wrap: wrap;
   gap: 10px 20px;
-
-}
-
-.navbar-manager li:not(:last-child) {
-  /*margin-right: 20px;*/
 }
 
 .navbar-manager a {
   color: var(--clr-white);
+}
+
+.navbar-notification {
+  color: var(--clr-white);
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: center;
+}
+
+.navbar-notification-success {
+  background-color: var(--clr-dark-green);
+}
+
+.navbar-notification-error {
+  background-color: var(--clr-dark-pink);
 }

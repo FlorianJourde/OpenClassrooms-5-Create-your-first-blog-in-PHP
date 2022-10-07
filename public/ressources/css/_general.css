@@ -362,7 +362,7 @@ main.single .post .description {
     background-color: var(--clr-very-dark-green);
 }
 
-.register form label, .login form label, .add-post form label {
+.register form label, .login form label, .add-post form label, .contact form label {
     font-size: var(--fs-big-text);
     margin-bottom: 10px;
     display: inline-block;
@@ -378,9 +378,17 @@ main.single .post .description {
     color: var(--clr-white);
 }
 
+.contact form {
+    background-color: var(--clr-dark-yellow);
+    color: var(--clr-white);
+}
+
 .login form input[type="submit"] {
     background-color: var(--clr-very-dark-purple);
 }
+
+.contact form input[type="submit"] {
+    background-color: var(--clr-yellow);}
 
 .add-post form input[type="submit"] {
     background-color: var(--clr-very-dark-grey);

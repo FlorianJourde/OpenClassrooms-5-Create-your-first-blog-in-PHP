@@ -32,6 +32,9 @@ class Post
         $visibleComments = [];
         $post->image === null ? $post->image = 'vector-shapes.jpg' : $post->image;
 
+//        echo phpinfo();
+//        die();
+
         foreach ($comments as $comment) {
             if($comment->status === true) {
                 $user = $userRepository->getUserFromId($comment->userId);

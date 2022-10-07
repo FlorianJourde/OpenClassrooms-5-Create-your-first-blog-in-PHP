@@ -31,8 +31,11 @@ class AddPost
             var_dump($_POST);
             var_dump($_FILES);
 
-            if(isset($_FILES['file'])){
+            if(isset($_FILES['file'])) {
                 $tmpName = $_FILES['file']['tmp_name'];
+//                var_dump($_FILES['file']);
+//                die();
+
                 $name = $_FILES['file']['name'];
                 $size = $_FILES['file']['size'];
                 $error = $_FILES['file']['error'];
@@ -41,7 +44,7 @@ class AddPost
                 $extension = strtolower(end($tabExtension));
 
                 $extensions = ['jpg', 'png', 'jpeg', 'gif'];
-                $maxSize = 100000;
+                $maxSize = 1000000;
 
                 if (in_array($extension, $extensions) && $size <= $maxSize && $error == 0) {
                     $uniqueName = uniqid('', true);

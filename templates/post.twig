@@ -19,12 +19,12 @@
             {# <div class="posts"> #}
                 <div class="post">
                     <div class="title">
-                        {% if session.role == 'Admin' %}
-                            <div class="actions">
-                                <a href="index.php?action=updatePost&id={{ post.identifier }}">Modifier</a>
-                                <a href="index.php?action=deletePost&id={{ post.identifier }}">Supprimer</a>
-                            </div>
-                        {% endif %}
+{#                        {% if session.role == 'Admin' %}#}
+{#                            <div class="actions">#}
+{#                                <a href="index.php?action=updatePost&id={{ post.identifier }}">Modifier</a>#}
+{#                                <a href="index.php?action=deletePost&id={{ post.identifier }}">Supprimer</a>#}
+{#                            </div>#}
+{#                        {% endif %}#}
                     </div>
                     <div class="content">
                         <p class="description">{{ post.content }}</p>
@@ -35,7 +35,7 @@
         </div>
     </main>
     {% if (comments is not empty) or (session.role is defined) %}
-        <section class="comments">
+        <section class="comments position-relative">
             <img class="vector-shape vector-shape-top" src="./ressources/images/vector-top-left-white-2.svg" alt="">
             <div class="wrapper">
                 {% if (comments is not empty) %}

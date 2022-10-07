@@ -12,10 +12,10 @@ input, button, textarea, select {
     font: inherit;
 }
 
-input, textarea {
+input, textarea, ::-webkit-file-upload-button {
     width: 100%;
-    padding: 1rem;
-    border-radius: 1rem;
+    padding: 20px;
+    border-radius: 20px;
     border: none;
     box-shadow: var(--bs-primary);
 }
@@ -24,11 +24,17 @@ textarea {
     min-height: 120px;
 }
 
-input[type="submit"] {
+input[type="submit"], ::-webkit-file-upload-button {
     background-color: var(--clr-dark-orange);
     color: var(--clr-white);
     cursor: pointer;
     max-width: 200px;
+}
+
+::-webkit-file-upload-button {
+    margin-right: 20px;
+    background-color: var(--clr-dark-blue);
+    /*color: var(--clr-very-dark-grey);*/
 }
 
 form div:not(:last-child) {
@@ -101,7 +107,7 @@ ul {
     /* margin-bottom: -500px; */
 }
 
-.banner, .management, .work, .comments, .add-comment, .login, .register {
+.banner {
     position: relative;
 }
 
@@ -175,13 +181,13 @@ ul {
 
 .management .single {
     /*background-color: var(--clr-dark-green);*/
-    /*margin-bottom: 40px;*/
+    margin-bottom: 50px;
     border-radius: 30px;
     padding: 40px;
 }
 
-.management .single:not(:last-child) {
-    margin-bottom: 4rem;
+.management > *:not(:last-child) {
+    margin-bottom: 50px;
 }
 
 .management .single .post {
@@ -196,6 +202,13 @@ ul {
     gap: 10px;
 }
 
+.delete-post .page > .title {
+    color: var(--clr-dark-pink);
+}
+
+.delete-post .management .single, .delete-post input[type="submit"] {
+    background-color: var(--clr-dark-pink);
+}
 /*.post .header .title {*/
 
 /*}*/
@@ -333,7 +346,8 @@ ul {
     border-radius: 20px;
     /* overflow: hidden; */
     padding: 40px;
-    background-color: var(--clr-very-dark-grey);
+    /*background-color: var(--clr-very-dark-grey);*/
+    background: var(--clr-radial-very-dark-grey);
     color: var(--clr-white);
 }
 
@@ -342,10 +356,21 @@ ul {
     padding-bottom: 50px;
 }
 
-main.single .post, .register form, .login form {
-    border-radius: 20px;
+main.single .post, .register form, .login form, .add-post form, .delete-post .page {
+    border-radius: 40px;
     padding: 40px;
     background-color: var(--clr-white);
+}
+
+.register form label, .login form label, .add-post form label {
+    font-size: var(--fs-big-text);
+    margin-bottom: 10px;
+    display: inline-block;
+    font-weight: 500;
+}
+
+.add-post form {
+    background-color: var(--clr-light-blue);
 }
 
 .login form {
@@ -354,19 +379,30 @@ main.single .post, .register form, .login form {
 }
 
 .login form input[type="submit"] {
-background-color: var(--clr-very-dark-purple);
+    background-color: var(--clr-very-dark-purple);
 }
+
+.add-post form input[type="submit"] {
+    background-color: var(--clr-very-dark-grey);
+}
+
+input[type="file"] {
+    padding: unset;
+    border-radius: unset;
+    box-shadow: unset;
+}
+
+/*::-webkit-file-upload-button {*/
+/*    background: black;*/
+/*    color: red;*/
+/*    padding: 1em;*/
+/*    cursor: pointer;*/
+/*    margin-right: 20px;*/
+/*}*/
 
 .register form {
     background-color: var(--clr-very-light-orange);
     color: var(--clr-dark-orange);
-}
-
-.register form label, .login form label {
-    font-size: var(--fs-big-text);
-    margin-bottom: 10px;
-    display: inline-block;
-    font-weight: 500;
 }
 
 .actions a:not(:last-child) {
@@ -413,6 +449,10 @@ background-color: var(--clr-very-dark-purple);
 
 .vector-shape-top {
     top: 0;
+}
+
+.position-relative {
+    position: relative;;
 }
 
 .vector-shape-behind {
@@ -470,7 +510,11 @@ background-color: var(--clr-very-dark-purple);
     /*background-color: var(--clr-dark-pink);*/
     /*position: relative;*/
     z-index: 1;
-    background: linear-gradient(45deg, #552832 0%, #873146 92%);
+    background: linear-gradient(45deg, #552832 0%, #a83b56 50%, #873146 100%);
+}
+
+.add-post {
+    z-index: 1;
 }
 
 .work .curriculum {

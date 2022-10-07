@@ -14,8 +14,9 @@ require_once __ROOT__ . '/src/controllers/post/UpdatePost.php';
 require_once __ROOT__ . '/src/controllers/user/AddUser.php';
 require_once __ROOT__ . '/src/controllers/user/AuthenticationUser.php';
 require_once __ROOT__ . '/src/controllers/user/LogoutUser.php';
-require_once __ROOT__ . '/src/controllers/Homepage.php';
 require_once __ROOT__ . '/src/controllers/Archive.php';
+require_once __ROOT__ . '/src/controllers/Contact.php';
+require_once __ROOT__ . '/src/controllers/Homepage.php';
 require_once __ROOT__ . '/src/controllers/Post.php';
 require_once __ROOT__ . '/src/controllers/Register.php';
 require_once __ROOT__ . '/src/controllers/Login.php';
@@ -25,6 +26,7 @@ use Application\Controllers\Comment\DeleteComment;
 use Application\Controllers\Comment\HideComment;
 use Application\Controllers\Comment\ShowComment;
 use Application\Controllers\Comment\UpdateComment;
+use Application\Controllers\Contact;
 use Application\Controllers\Homepage;
 use Application\Controllers\Archive;
 use Application\Controllers\Comment\ManageComments;
@@ -166,6 +168,21 @@ try {
             } else {
                 throw new Exception('Aucun identifiant de commentaire envoyé');
             }
+        } elseif ($_GET['action'] === 'contact') {
+//            if (isset($_GET['id']) && $_GET['id'] > 0) {
+//                $identifier = $_GET['id'];
+                $input = null;
+
+                if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+                    $input = $_POST;
+//                    var_dump($_POST);
+//                    die();
+                }
+
+                (new Contact())->execute($input);
+//            } else {
+//                throw new Exception('Aucun identifiant de commentaire envoyé');
+//            }
         } else {
             throw new Exception("La page que vous recherchez n'existe pas.");
         }

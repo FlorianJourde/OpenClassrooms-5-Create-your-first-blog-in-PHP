@@ -171,6 +171,10 @@ ul {
     margin-bottom: 20px;
 }
 
+main.single .post .infos p {
+    color: var(--clr-grey);
+}
+
 main.single .post .description {
     font-size: var(--fs-big-text);
 }

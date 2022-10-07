@@ -18,17 +18,23 @@
         <div class="wrapper">
             {# <div class="posts"> #}
                 <div class="post">
-                    <div class="title">
+{#                    <div class="title">#}
 {#                        {% if session.role == 'Admin' %}#}
 {#                            <div class="actions">#}
 {#                                <a href="index.php?action=updatePost&id={{ post.identifier }}">Modifier</a>#}
 {#                                <a href="index.php?action=deletePost&id={{ post.identifier }}">Supprimer</a>#}
 {#                            </div>#}
 {#                        {% endif %}#}
-                    </div>
-                    <div class="content">
+{#                    </div>#}
+{#                    <div class="content">#}
                         <p class="description">{{ post.content }}</p>
-                        <p><span class="author">{{ post.username }}</span> le <span class="date">{{ post.creationDate }}</span></p>
+{#                        <p><span class="author">{{ post.username }}</span> le <span class="date">{{ post.creationDate }}</span></p>#}
+{#                    </div>#}
+
+
+                    <div class="infos">
+                        <h3><i class="fas fa-user"></i>{{ post.username }}</h3>
+                        <p><i class="fas fa-calendar"></i>{{ post.creationDate }}</p>
                     </div>
                 </div>
             {# </div> #}            

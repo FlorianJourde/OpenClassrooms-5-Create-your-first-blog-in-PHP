@@ -30,7 +30,7 @@ class Post
         $post->username = $user->username;
         $comments = $commentRepository->getComments($identifier);
         $visibleComments = [];
-        $post->image === null ? $post->image = 'vector-shapes.jpg' : $post->image;
+        $post->image === null ? $post->image = 'placeholder-min.jpg' : $post->image;
 
 //        echo phpinfo();
 //        die();

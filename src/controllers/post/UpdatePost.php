@@ -26,6 +26,12 @@ class UpdatePost
 
         $userRole = new CheckUserRole();
 
+
+        $post->image === null ? $post->image = 'placeholder-min.jpg' : $post->image;
+
+//        var_dump($post);
+//        die();
+
         if ($userRole->isAuthenticated($_SESSION['token'] ?? '')) {
             if ($userRole->isAdmin($_SESSION['role'] ?? 'Guest')) {
                 if ($input !== null) {

@@ -17,8 +17,14 @@ class DeletePost
 
         $postRepository = new PostRepository();
         $postRepository->connection = new DatabaseConnection();
+        $post = $postRepository->getPost($identifier);
 
         $userRole = new CheckUserRole();
+
+        $post->image === null ? $post->image = 'placeholder-min.jpg' : $post->image;
+
+//        var_dump($post);
+//        die();
 
         if ($userRole->isAuthenticated($_SESSION['token'] ?? '')) {
             if ($userRole->isAdmin($_SESSION['role'] ?? 'Guest')) {
@@ -37,6 +43,6 @@ class DeletePost
         }
 
         $twig = new RenderFront();
-        echo $twig->render('delete_post.twig', ['post' => $postRepository->getPost($identifier), 'session' => $_SESSION]);
+        echo $twig->render('delete_post.twig', ['post' => $post, 'session' => $_SESSION]);
     }
 }

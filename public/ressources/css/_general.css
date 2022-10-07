@@ -37,7 +37,7 @@ input[type="submit"], ::-webkit-file-upload-button {
     /*color: var(--clr-very-dark-grey);*/
 }
 
-form div:not(:last-child) {
+form > *:not(:last-child) {
     margin-bottom: 30px;
 }
 
@@ -167,26 +167,46 @@ ul {
     /* background-color: var(--clr-dark-blue); */
 }
 
+.post .infos > *:not(:last-child) {
+    margin-bottom: 20px;
+}
+
+main.single .post .description {
+    font-size: var(--fs-big-text);
+}
+
+.single .post > *:not(:last-child) {
+    margin-bottom: 40px;
+}
+
+
 .management {
-    padding-bottom: 100px;
+    /*padding-bottom: 100px;*/
 }
 
 .archive .post .actions a, .management .post .actions a {
     color: var(--clr-white);
 }
 
-.management .post > *, .management .single > *:not(:last-child) {
+/*.management .post > *, */.management .single > *:not(:last-child) {
+    margin-bottom: 30px;
+}
+
+.management .post > *:not(:last-child) {
     margin-bottom: 30px;
 }
 
 .management .single {
     /*background-color: var(--clr-dark-green);*/
-    margin-bottom: 50px;
     border-radius: 30px;
     padding: 40px;
 }
 
-.management > *:not(:last-child) {
+.management .single:not(:last-child) {
+    margin-bottom: 50px;
+}
+
+.page.management > *:not(:last-child) {
     margin-bottom: 50px;
 }
 
@@ -356,10 +376,30 @@ ul {
     padding-bottom: 50px;
 }
 
-main.single .post, .register form, .login form, .add-post form, .delete-post .page {
+main.single .post, .register form, .login form, .add-post form, .delete-post .page, .update-post .page {
     border-radius: 40px;
     padding: 40px;
     background-color: var(--clr-white);
+}
+.update-post .page, .update-post input[type="submit"] {
+    background-color: var(--clr-light-green);
+}
+
+.update-post {
+    color: var(--clr-very-dark-green);
+}
+
+.update-post .post .actions a {
+    color: var(--clr-dark-green);
+}
+
+.update-post input[type="submit"] {
+    background-color: var(--clr-very-dark-green);
+}
+
+
+.update-post .post .infos p {
+    color: var(--clr-dark-green);
 }
 
 .register form label, .login form label, .add-post form label {

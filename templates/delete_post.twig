@@ -5,7 +5,9 @@
 {% endblock %}
 
 {% block content %}
-    <section class="banner offset-next-element" style="background-image: url('./ressources/images/vector-shapes-2.jpg');">
+
+    {#    <section class="banner offset-next-element" style="background-image: url('./ressources/images/vector-shapes-2.jpg');">#}
+    <section class="banner offset-next-element" style="background-image: url('./ressources/images/{{ post.image }}');">
         <div class="wrapper">
             <div class="title">
                 <h1>Suppression de l'article</h1>
@@ -15,16 +17,16 @@
     </section>
     <section class="delete-post position-relative">
         <div class="wrapper">
-
             <div class="page management">
 {#                <p><a href="index.php?action=post&id={{ post.identifier }}">Retour à l'article</a></p>#}
             <h2 class="title">Souhaitez-vous vraiment supprimer l'article ?</h2>
 
-                <div class="single" {#style="background-color: {{ random(['var(--clr-dark-green)', 'var(--clr-dark-blue)', 'var(--clr-dark-purple)', 'var(--clr-dark-yellow)', 'var(--clr-dark-orange)', 'var(--clr-dark-pink)']) }};#}">
+                <div class="single">
                     <div class="post">
+{#                        {{ dump(post) }}#}
                         <div class="header">
                             {#                            <div class="title">#}
-                            <h3 class="title"><i class="fas fa-newspaper"></i>{{ post.title }}</a></h3>
+                            <h3 class="title"><i class="fas fa-newspaper"></i>{{ post.title }}</h3>
                             {% if session.role == 'Admin' %}
                                 <div class="actions">
                                     <a class="hide" href="index.php?action=post&id={{ post.identifier }}"><i class="fas fa-eye"></i>Voir</a>

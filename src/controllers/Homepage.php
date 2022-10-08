@@ -35,7 +35,9 @@ class Homepage
 //        $userRepository->checkToken($_SESSION['token'] ?? []);
 //        var_dump($userRepository->checkToken($_SESSION['token']));
 
+        $posts = array_slice($postRepository->getPosts(),0, 3);
+
         $twig = new RenderFront();
-        echo $twig->render('home.twig', ['posts' => $postRepository->getPosts(), 'session' => $_SESSION]);
+        echo $twig->render('home.twig', ['posts' => $posts, 'session' => $_SESSION]);
     }
 }

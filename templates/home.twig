@@ -3,13 +3,149 @@
 {% block title %}Accueil{% endblock %}
 
 {% block content %}
-    <section class="banner" style="background-image: url('./ressources/images/vector-shapes-2.jpg');">
+    <section class="banner home" style="background-image: url('./ressources/images/monokai-1.jpg');">
         <div class="wrapper">
-            <div class="title">
-                <h1>Accueil</h1>
+            <div class="introduction">
+                <div class="title">
+                    <h1>Bienvenue sur mon blog !</h1>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus elementum iaculis mauris. Suspendisse nec mauris elit.</p>
+                    <p>Fusce consectetur sem at risus vestibulum, gravida dapibus dolor tincidunt.</p>
+                </div>
+                <div class="box">
+                    <h2>Voir la vie en <span style="font-size: var(--fs-very-big-title);"><br>
+                        <span style="color: var(--clr-orange)">M</span><span style="color: var(--clr-blue)">o</span><span style="color: var(--clr-pink)">n</span><span style="color: var(--clr-green)">o</span><span style="color: var(--clr-yellow)">k</span><span style="color: var(--clr-purple)">a</span><span style="color: var(--clr-orange)">i</span>
+                     !</span></h2>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus elementum dui sit amet felis condimentum auctor et ac tortor. Nullam eget iaculis mauris. Suspendisse nec mauris elit. Fusce consectetur sem at risus vestibulum, gravida dapibus dolor tincidunt. Etiam nisi turpis, consectetur vel consequat viverra, varius eu arcu.</p>
+                </div>
             </div>
         </div>
         <img class="vector-shape vector-shape-bottom" src="./ressources/images/vector-bottom-right-white.svg" alt="">
+    </section>
+    <section class="partners">
+        <div class="wrapper">
+            <ul>
+                <li><a href="github.com"><img src="./ressources/images/github.png" alt=""></a></li>
+                <li><a href="github.com"><img src="./ressources/images/twitter.png" alt=""></a></li>
+                <li><a href="github.com"><img src="./ressources/images/frontend-mentor.png" alt=""></a></li>
+                <li><a href="github.com"><img src="./ressources/images/linkedin.png" alt=""></a></li>
+                <li><a href="github.com"><img src="./ressources/images/codewars.png" alt=""></a></li>
+                <li><a href="github.com"><img src="./ressources/images/senscritique.png" alt=""></a></li>
+            </ul>
+        </div>
+    </section>
+    <main class="archive offset-next-element">
+        <div class="wrapper">
+            <h2 class="section-title">Derniers articles</h2>
+            <div class="posts">
+                {% for post in posts %}
+                    <div class="post">
+                        <img class="thumbnail" src="./ressources/images/{{ post.image }}" alt="">
+                        {% if session.role == 'Admin' %}
+                            <div class="actions">
+                                <a href="index.php?action=updatePost&id={{ post.identifier }}"><i class="fas fa-edit"></i>Modifier</a>
+                                <a href="index.php?action=deletePost&id={{ post.identifier }}"><i class="fas fa-trash"></i>Supprimer</a>
+                            </div>
+                        {% endif %}
+                        <div class="content">
+                            <h3 class="title">{{ post.title }}</h3>
+                            <p class="description">{{ post.content|length > 50 ? post.content|slice(0, 100) ~ '...' : post.content  }}</p>
+                            <a class="button-secondary button-white" href="index.php?action=post&id={{ post.identifier }}">Lire l'article</a>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </main>
+    <section class="portrait position-relative">
+        <img class="vector-shape vector-shape-top" src="./ressources/images/vector-top-right-white-3.svg" alt="">
+        <div class="wrapper">
+{#            <div class="">#}
+{#                <div>#}
+                <img class="profile-picture" src="./ressources/images/florian.jpg" alt="">
+{#                </div>#}
+                <div class="presentation">
+                    <h2>Bienvenue sur mon blog !</h2>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus elementum iaculis mauris. Suspendisse nec mauris elit.</p>
+                    <p>Fusce consectetur sem at risus vestibulum, gravida dapibus dolor tincidunt.</p>
+                </div>
+{#                <div class="box">#}
+{#                    <h2>Voir la vie en <span style="font-size: var(--fs-very-big-title);"><br>#}
+{#                        <span style="color: var(--clr-dark-orange)">M</span><span style="color: var(--clr-dark-blue)">o</span><span style="color: var(--clr-dark-pink)">n</span><span style="color: var(--clr-dark-green)">o</span><span style="color: var(--clr-dark-yellow)">k</span><span style="color: var(--clr-dark-purple)">a</span><span style="color: var(--clr-dark-orange)">i</span>#}
+{#                     !</span></h2>#}
+{#                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus elementum dui sit amet felis condimentum auctor et ac tortor. Nullam eget iaculis mauris. Suspendisse nec mauris elit. Fusce consectetur sem at risus vestibulum, gravida dapibus dolor tincidunt. Etiam nisi turpis, consectetur vel consequat viverra, varius eu arcu.</p>#}
+{#                </div>#}
+{#            </div>#}
+        </div>
+        <img class="vector-shape vector-shape-bottom" src="./ressources/images/vector-bottom-left-white-3.svg" alt="">
+    </section>
+
+    <section class="achievements offset-next-element">
+        <div class="wrapper">
+            <h2 class="section-title">Realisations</h2>
+            <ul>
+                <li>
+{#                    <a target="_blank" href="http://chaletsetcaviar.florianjourde.com/">#}
+                        <img src="./ressources/images/chalets-et-caviar.jpg" alt="">
+                        <div class="description">
+                            <h3>Chalets & Caviar</h3>
+{#                            <p>Description du projet</p>#}
+                            <a target="_blank" href="http://chaletsetcaviar.florianjourde.com/">Voir le site</a>
+                        </div>
+{#                    </a>#}
+                </li>
+                <li>
+{#                    <a target="_blank" href="http://chaletsetcaviar.florianjourde.com/">#}
+                        <img src="./ressources/images/les-films-de-plein-air.jpg" alt="">
+                        <div class="description">
+                            <h3>Les Films de plein air</h3>
+{#                            <p>Description du projet</p>#}
+                            <a target="_blank" href="http://lesfilmsdepleinair.florianjourde.com/">Voir le site</a>
+                        </div>
+{#                    </a>#}
+                </li>
+                <li>
+{#                    <a target="_blank" href="https://florianjourde.github.io/Frontend-Mentor-17-Blogr-landing-page/">#}
+                        <img src="./ressources/images/blogr.jpg" alt="">
+                        <div class="description">
+                            <h3>Blogr</h3>
+{#                            <p>Description du projet</p>#}
+                            <a target="_blank" href="https://florianjourde.github.io/Frontend-Mentor-17-Blogr-landing-page/">Voir le site</a>
+                        </div>
+{#                    </a>#}
+                </li>
+                <li>
+{#                    <a target="_blank" href="https://florianjourde.github.io/Frontend-Mentor-16-Sunnyside-agency-landing-page/">#}
+                        <img src="./ressources/images/sunnyside.jpg" alt="">
+                        <div class="description">
+                            <h3>Sunnyside</h3>
+{#                            <p>Description du projet</p>#}
+                            <a target="_blank" href="https://florianjourde.github.io/Frontend-Mentor-16-Sunnyside-agency-landing-page/">Voir le site</a>
+
+                        </div>
+{#                    </a>#}
+                </li>
+                <li>
+{#                    <a target="_blank" href="https://florianjourde.github.io/Frontend-Mentor-15-Tip-calculator-app/">#}
+                        <img src="./ressources/images/splitter.jpg" alt="">
+                        <div class="description">
+                            <h3>Splitter</h3>
+{#                            <p>Description du projet</p>#}
+                            <a target="_blank" href="https://florianjourde.github.io/Frontend-Mentor-15-Tip-calculator-app/">Voir le site</a>
+                        </div>
+{#                    </a>#}
+                </li>
+                <li>
+{#                    <a target="_blank" href="https://florianjourde.github.io/Frontend-Mentor-14-Time-tracking-dashboard/">#}
+                        <img src="./ressources/images/time-tracker.jpg" alt="">
+                        <div class="description">
+                            <h3>Time Tracker</h3>
+{#                            <p>Description du projet</p>#}
+                            <a target="_blank" href="https://florianjourde.github.io/Frontend-Mentor-14-Time-tracking-dashboard/">Voir le site</a>
+                        </div>
+{#                    </a>#}
+                </li>
+            </ul>
+        </div>
     </section>
     {% include 'partials/work.twig' %}
 {% endblock %}

@@ -100,6 +100,11 @@ ul {
     margin-top: -100px;
 }
 
+.banner.home {
+    padding-top: 100px;
+    padding-bottom: 0;
+}
+
 .banner .title {
     font-size: var(--fs-big-title);
     font-family: var(--ff-primary);
@@ -113,9 +118,184 @@ ul {
     top: 0;
     left: 0;
     position: absolute;
-    background-color: var(--clr-transparent-grey);
+    /*background-color: var(--clr-transparent-grey);*/
+    opacity: 0.25;
+    background: radial-gradient(transparent 0%, black 100%);
 }
-  
+
+.banner .introduction .title {
+    font-size: var(--fs-big-text);
+    /*max-width: 300px;*/
+}
+
+.banner .introduction .title {
+    display: flex;
+    flex-direction: column;
+    /*margin-bottom: 50px;*/
+    gap: 20px;
+}
+
+.introduction {
+    display: flex;
+    /*flex-wrap: wrap;*/
+    justify-content: space-between;
+    gap: 100px;
+}
+
+.introduction .box {
+    /*min-width: 100%;*/
+    align-items: center;
+    justify-content: center;
+    flex-grow: 1;
+    max-width: 700px;
+    background: radial-gradient(at top, #ffffff 0%, #ededed 100%);
+    box-shadow: unset;
+}
+
+.introduction .box h2 {
+    font-size: var(--fs-big-title);
+    font-family: var(--ff-secondary);
+    text-align: center;
+}
+
+.partners {
+    padding-top: 150px;
+    padding-bottom: 150px;
+}
+
+.partners ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 50px 100px;}
+
+.partners img {
+    width: 250px;
+    object-fit: contain;
+    filter: saturate(0);
+    transition: filter .4s, transform .4s;
+}
+
+.partners a:hover img {
+    filter: saturate(1);
+    transform: translateY(-5px);
+}
+
+.section-title {
+    font-size: var(--fs-big-title);
+    margin-bottom: 50px;
+}
+
+.portrait {
+    /*background-color: var(--clr-radial-very-dark-grey);*/
+    padding-top: 250px;
+    padding-bottom: 100px;
+    background: linear-gradient(315deg, #0a4a52 0%, #51b8c4 50%, #206972 100%);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 100px;
+}
+
+.portrait .profile-picture {
+    width: 500px;
+    border-radius: 50px;
+    box-shadow: var(--bs-secondary);
+}
+
+.achievements ul {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 50px;
+    grid-auto-rows: 1fr;
+}
+
+.achievements {
+    padding-top: 100px;
+    padding-bottom: 150px;
+}
+
+.achievements img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    /*border-radius: 20px;*/
+}
+
+.achievements li::before {
+    content: "";
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /*background: linear-gradient(360deg, black 25%, transparent);*/
+    background-color: var(--clr-black);
+    opacity: 0;
+    position: absolute;
+    border-radius: 20px;
+    transition: opacity .4s;
+}
+
+.achievements li:hover::before {
+    opacity: 0.5;
+}
+
+.achievements .description {
+    position: absolute;
+    /*top: auto;*/
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px;
+    background-color: var(--clr-white);
+    border-radius: 20px 20px 0 0;
+    transform: translateY(40px);
+    transition: transform .4s;
+    box-shadow:  0 -10px 20px #00000010;
+}
+
+.achievements li:hover .description {
+    transform: translateY(0);
+    /*opacity: 0.75;*/
+}
+
+.achievements .description h3 {
+    font-size: var(--fs-small-title);
+    margin-bottom: 20px;
+}
+.achievements .description p {
+    font-size: var(--fs-big-text);
+}
+
+.achievements li {
+    box-shadow: var(--bs-secondary);
+    overflow: hidden;
+    position: relative;
+    border-radius: 20px;
+}
+
+.achievements a {
+    height: 100%;
+    width: 100%;
+    /*color: var(--clr-white);*/
+}
+
+.presentation {
+    color: var(--clr-white);
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.presentation h2 {
+    font-size: var(--fs-big-title);
+}
+
+.presentation p {
+    font-size: var(--fs-small-title);
+    color: var(--clr-light-blue);
+}
 
 .posts {
     display: grid;
@@ -307,7 +487,7 @@ main.single .post .description {
     margin-bottom: 40px;
 }
 
-.archive {
+.introduction, .archive, .achievements {
     z-index: 2;
 }
 
@@ -418,7 +598,7 @@ input[type="file"] {
     width: 100%;
     padding-left: 1rem;
     padding-right: 1rem;
-    max-width: 1280px;
+    max-width: 1200px;
     margin-left: auto;
     margin-right: auto;
     position: relative;

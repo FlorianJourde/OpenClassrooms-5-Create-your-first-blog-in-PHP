@@ -1,6 +1,6 @@
 {% block navbar %}
   <nav>
-    <div class="navbar padding-20">
+    <div class="navbar{# padding-20#}">
         <div class="wrapper">
           {# {{ dump(session) }} #}
           <div class="logo">
@@ -8,18 +8,18 @@
             <img src="./ressources/images/logo.svg" alt=""> Florian <br> Jourde
             </a>
           </div>
-          <ul class="navigation">
-            <li><a class="button-tertiary" href="index.php?action=archive">Articles</a></li>
-            <li><a class="button-tertiary" href="index.php?action=contact">Contact</a></li>
+          <ul class="navigation links">
+            <li><a class="button-tertiary button-dark-yellow" href="index.php?action=archive">Articles</a></li>
+            <li><a class="button-tertiary button-dark-yellow" href="index.php?action=contact">Contact</a></li>
           </ul>
             {% if session.is_authenticated != true %}
             <ul class="navigation user-navigation">
-              <li><a class="button-secondary" href="index.php?action=register">S'enregistrer</a></li>
-              <li><a class="button-primary" href="index.php?action=login">Se connecter</a></li>
+              <li><a class="button-secondary button-black" href="index.php?action=register"><i class="fas fa-user-plus"></i>S'enregistrer</a></li>
+              <li><a class="button-primary button-black" href="index.php?action=login"><i class="fas fa-sign-in-alt"></i>Se connecter</a></li>
             </ul>
             {% else %}
             <ul class="navigation user-navigation">
-              <li><a class="button-primary" href="index.php?action=logoutUser">Se déconnecter</a></li>
+              <li><a class="button-primary button-black" href="index.php?action=logoutUser"><i class="fas fa-sign-out-alt"></i>Se déconnecter</a></li>
             </ul>
             {% endif %}
         </div>
@@ -32,8 +32,8 @@
                           <li><a href="index.php?action=updatePost&id={{ post.identifier }}">Modifier l'article</a></li>
                           <li><a href="index.php?action=deletePost&id={{ post.identifier }}">Supprimer l'article</a></li>
                   {% endif %}
-                  <li><a class="button-tertiary" href="index.php?action=manageComments">Gestion des commentaires</a></li>
-                  <li><a class="button-tertiary" href="index.php?action=addPost">Ajouter un article</a></li>
+                  <li><a class="button-tertiary button-white" href="index.php?action=manageComments">Gestion des commentaires</a></li>
+                  <li><a class="button-tertiary button-white" href="index.php?action=addPost">Ajouter un article</a></li>
               </ul>
           </div>
           {# </div> #}

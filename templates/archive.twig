@@ -18,7 +18,7 @@
                     <div class="post">
                         <img class="thumbnail" src="./ressources/images/{{ post.image }}" alt="">
                             {% if session.role == 'Admin' %}
-                                <div class="actions">
+                                <div class="actions icon-spacing white">
                                     <a href="index.php?action=updatePost&id={{ post.identifier }}"><i class="fas fa-edit"></i>Modifier</a>
                                     <a href="index.php?action=deletePost&id={{ post.identifier }}"><i class="fas fa-trash"></i>Supprimer</a>
                                 </div>
@@ -26,7 +26,7 @@
                         <div class="content">
                             <h3 class="title">{{ post.title }}</h3>
                             <p class="description">{{ post.content|length > 50 ? post.content|slice(0, 100) ~ '...' : post.content  }}</p>
-                            <a class="button-secondary button-white" href="index.php?action=post&id={{ post.identifier }}">Lire l'article</a>
+                            <a class="button-secondary button-white" href="index.php?action=post&id={{ post.identifier }}">Lire l'article<i class="fas fa-arrow-right"></i></a>
                         </div>
                     </div>
                 {% endfor %}

@@ -18,9 +18,9 @@
                     <div class="post">
                         <div class="header">
 {#                            <div class="title">#}
-                                <h3 class="title"><i class="fas fa-newspaper"></i>{{ post.title }}</h3>
+                                <h3 class="title icon-spacing"><i class="fas fa-newspaper"></i>{{ post.title }}</h3>
                                 {% if session.role == 'Admin' %}
-                                    <div class="actions">
+                                    <div class="actions icon-spacing white">
                                         <a class="hide" href="index.php?action=post&id={{ post.identifier }}"><i class="fas fa-eye"></i>Voir</a>
                                         <a class="edit" href="index.php?action=updatePost&id={{ post.identifier }}"><i class="fas fa-edit"></i>Modifier</a>
                                         <a class="delete" href="index.php?action=deletePost&id={{ post.identifier }}"><i class="fas fa-trash"></i>Supprimer</a>
@@ -37,7 +37,7 @@
                             <p class="description">{{ post.content }}</p>
 {#                            <p><span class="author">{{ post.username }}</span> le <span class="date">{{ post.creationDate }}</span></p>#}
 
-                        <div class="infos">
+                        <div class="infos icon-spacing">
                             <h3><i class="fas fa-user"></i>{{ post.username }}</h3>
                             <p><i class="fas fa-calendar"></i>{{ post.creationDate }}</p>
                         </div>
@@ -66,9 +66,9 @@
                     {% for comment in post.hiddenComments %}
                         <div class="comment">
                             <div class="header">
-                                <p class="username"><i class="fas fa-user"></i>{{ comment.username }}</p>
+                                <p class="username icon-spacing"><i class="fas fa-user"></i>{{ comment.username }}</p>
                                 {% if (session.role == 'Admin') or (session.id == comment.user_id) %}
-                                    <div class="actions">
+                                    <div class="actions icon-spacing">
                                         <a class="hide" href="index.php?action=showComment&id={{ comment.identifier }}"><i class="fas fa-eye"></i>Accepter</a>
                                         <a class="edit" href="index.php?action=updateComment&id={{ comment.identifier }}"><i class="fas fa-edit"></i>Modifier</a>
                                         <a class="delete" href="index.php?action=deleteComment&id={{ comment.identifier }}"><i class="fas fa-trash"></i>Supprimer</a>

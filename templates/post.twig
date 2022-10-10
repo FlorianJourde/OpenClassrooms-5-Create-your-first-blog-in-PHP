@@ -32,7 +32,7 @@
 {#                    </div>#}
 
 
-                    <div class="infos">
+                    <div class="infos icon-spacing">
                         <h3><i class="fas fa-user"></i>{{ post.username }}</h3>
                         <p><i class="fas fa-calendar"></i>{{ post.creationDate }}</p>
                     </div>
@@ -45,13 +45,13 @@
             <img class="vector-shape vector-shape-top" src="./ressources/images/vector-top-left-white-2.svg" alt="">
             <div class="wrapper">
                 {% if (comments is not empty) %}
-                    <h2 class="title">Commentaires</h2>
+                    <h2 class="section-title">Commentaires</h2>
                     {% for comment in comments %}
                         <div class="comment">
                             <div class="header">
-                                <p class="username"><i class="fas fa-user"></i>{{ comment.username }}</p>
+                                <p class="username icon-spacing"><i class="fas fa-user"></i>{{ comment.username }}</p>
                                 {% if (session.role == 'Admin') or (session.id == comment.user_id) %}
-                                    <div class="actions">
+                                    <div class="actions icon-spacing">
                                         <a class="hide" href="index.php?action=hideComment&id={{ comment.identifier }}"><i class="fas fa-eye"></i>Retirer</a>
                                         <a class="edit" href="index.php?action=updateComment&id={{ comment.identifier }}"><i class="fas fa-edit"></i>Modifier</a>
                                         <a class="delete" href="index.php?action=deleteComment&id={{ comment.identifier }}"><i class="fas fa-trash"></i>Supprimer</a>
@@ -74,7 +74,7 @@
                             <textarea id="comment" name="comment"></textarea>
                         </div>
                         <div>
-                            <input type="submit" />
+                            <input class="button-form button-very-dark-grey" type="submit" />
                         </div>
                     </form>
                 {% endif %}

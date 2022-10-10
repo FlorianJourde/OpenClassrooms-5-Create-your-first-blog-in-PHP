@@ -1,5 +1,70 @@
 footer {
   width: 100%;
-  height: 300px;
+  /*height: 300px;*/
+  padding-top: 50px;
+  padding-bottom: 50px;
   background-color: var(--clr-very-dark-grey);
+  color: var(--clr-white);
+}
+
+footer .logo img {
+  height: 30px;
+  object-fit: contain;
+}
+
+footer .logo {
+  font-family: var(--ff-secondary);
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  text-align: center;
+}
+
+footer .logo p {
+  text-transform: uppercase;
+  font-weight: 600;
+  font-family: var(--ff-secondary);
+  font-size: var(--fs-small-title);
+}
+
+footer a {
+  color: var(--clr-white);
+}
+
+footer .legal {
+  display: flex;
+  gap: 30px;
+}
+
+footer .rights {
+  color: var(--clr-grey);
+}
+
+footer .links i {
+  transition: .4s;
+  /*font-size: var(--fs-small-title);*/
+}
+
+footer .links a:hover i {
+  transform: translateY(-5px);
+  color: var(--clr-yellow);
+}
+
+footer .top-section {
+  padding-bottom: 50px;
+}
+
+footer .bottom-section {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 50px;
+  border-top: 3px solid var(--clr-dark-grey);
+  /*font-size: var(--fs-big-text);*/
+  align-items: center;
+}
+
+footer .bottom-section .links ul {
+  font-size: var(--fs-big-text);
+  display: flex;
+  gap: 30px;
 }

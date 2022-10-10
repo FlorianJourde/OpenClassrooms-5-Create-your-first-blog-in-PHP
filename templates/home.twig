@@ -41,7 +41,7 @@
                     <div class="post">
                         <img class="thumbnail" src="./ressources/images/{{ post.image }}" alt="">
                         {% if session.role == 'Admin' %}
-                            <div class="actions">
+                            <div class="actions icon-spacing white">
                                 <a href="index.php?action=updatePost&id={{ post.identifier }}"><i class="fas fa-edit"></i>Modifier</a>
                                 <a href="index.php?action=deletePost&id={{ post.identifier }}"><i class="fas fa-trash"></i>Supprimer</a>
                             </div>
@@ -49,7 +49,7 @@
                         <div class="content">
                             <h3 class="title">{{ post.title }}</h3>
                             <p class="description">{{ post.content|length > 50 ? post.content|slice(0, 100) ~ '...' : post.content  }}</p>
-                            <a class="button-secondary button-white" href="index.php?action=post&id={{ post.identifier }}">Lire l'article</a>
+                            <a class="button-secondary button-white" href="index.php?action=post&id={{ post.identifier }}">Lire l'article<i class="fas fa-arrow-right"></i></a>
                         </div>
                     </div>
                 {% endfor %}
@@ -76,76 +76,134 @@
 {#                </div>#}
 {#            </div>#}
         </div>
-        <img class="vector-shape vector-shape-bottom" src="./ressources/images/vector-bottom-left-white-3.svg" alt="">
+        <img class="vector-shape vector-shape-bottom" src="./ressources/images/vector-bottom-left-white.svg" alt="">
     </section>
 
-    <section class="achievements offset-next-element">
+    <section class="achievements">
         <div class="wrapper">
             <h2 class="section-title">Realisations</h2>
             <ul>
                 <li>
 {#                    <a target="_blank" href="http://chaletsetcaviar.florianjourde.com/">#}
-                        <img src="./ressources/images/chalets-et-caviar.jpg" alt="">
+                        <img src="./ressources/images/min/chalets-et-caviar-min.jpg" alt="">
                         <div class="description">
                             <h3>Chalets & Caviar</h3>
-{#                            <p>Description du projet</p>#}
-                            <a target="_blank" href="http://chaletsetcaviar.florianjourde.com/">Voir le site</a>
+                            <div class="links">
+                                {#                            <p>Description du projet</p>#}
+                                <a target="_blank" class="button-secondary button-white button-small" href="http://chaletsetcaviar.florianjourde.com/"><i class="fas fa-globe"></i>Site</a>
+                                <a target="_blank" class="button-secondary button-white button-small" href="http://chaletsetcaviar.florianjourde.com/"><i class="fab fa-github"></i>Dépot</a>
+                            </div>
                         </div>
 {#                    </a>#}
                 </li>
                 <li>
 {#                    <a target="_blank" href="http://chaletsetcaviar.florianjourde.com/">#}
-                        <img src="./ressources/images/les-films-de-plein-air.jpg" alt="">
+                        <img src="./ressources/images/min/les-films-de-plein-air-min.jpg" alt="">
                         <div class="description">
                             <h3>Les Films de plein air</h3>
+                            <div class="links">
 {#                            <p>Description du projet</p>#}
-                            <a target="_blank" href="http://lesfilmsdepleinair.florianjourde.com/">Voir le site</a>
+                                <a target="_blank" class="button-secondary button-white button-small" href="http://lesfilmsdepleinair.florianjourde.com/"><i class="fas fa-globe"></i>Site</a>
+                            <a target="_blank" class="button-secondary button-white button-small" href="http://lesfilmsdepleinair.florianjourde.com/"><i class="fab fa-github"></i>Dépot</a>
+                            </div>
                         </div>
 {#                    </a>#}
                 </li>
                 <li>
 {#                    <a target="_blank" href="https://florianjourde.github.io/Frontend-Mentor-17-Blogr-landing-page/">#}
-                        <img src="./ressources/images/blogr.jpg" alt="">
+                        <img src="./ressources/images/min/blogr-min.jpg" alt="">
                         <div class="description">
                             <h3>Blogr</h3>
-{#                            <p>Description du projet</p>#}
-                            <a target="_blank" href="https://florianjourde.github.io/Frontend-Mentor-17-Blogr-landing-page/">Voir le site</a>
+                            <div class="links">
+                                {#                            <p>Description du projet</p>#}
+                                <a target="_blank" class="button-secondary button-white button-small" href="https://florianjourde.github.io/Frontend-Mentor-17-Blogr-landing-page/"><i class="fas fa-globe"></i>Site</a>
+                                <a target="_blank" class="button-secondary button-white button-small" href="https://florianjourde.github.io/Frontend-Mentor-17-Blogr-landing-page/"><i class="fab fa-github"></i>Dépot</a>
+                            </div>
                         </div>
 {#                    </a>#}
                 </li>
                 <li>
 {#                    <a target="_blank" href="https://florianjourde.github.io/Frontend-Mentor-16-Sunnyside-agency-landing-page/">#}
-                        <img src="./ressources/images/sunnyside.jpg" alt="">
+                        <img src="./ressources/images/min/sunnyside-min.jpg" alt="">
                         <div class="description">
                             <h3>Sunnyside</h3>
-{#                            <p>Description du projet</p>#}
-                            <a target="_blank" href="https://florianjourde.github.io/Frontend-Mentor-16-Sunnyside-agency-landing-page/">Voir le site</a>
-
+                            <div class="links">
+                                {#                            <p>Description du projet</p>#}
+                                <a target="_blank" class="button-secondary button-white button-small" href="https://florianjourde.github.io/Frontend-Mentor-16-Sunnyside-agency-landing-page/"><i class="fas fa-globe"></i>Site</a>
+                                <a target="_blank" class="button-secondary button-white button-small" href="https://florianjourde.github.io/Frontend-Mentor-16-Sunnyside-agency-landing-page/"><i class="fab fa-github"></i>Dépot</a>
+                            </div>
                         </div>
 {#                    </a>#}
                 </li>
                 <li>
 {#                    <a target="_blank" href="https://florianjourde.github.io/Frontend-Mentor-15-Tip-calculator-app/">#}
-                        <img src="./ressources/images/splitter.jpg" alt="">
+                        <img src="./ressources/images/min/splitter-min.jpg" alt="">
                         <div class="description">
                             <h3>Splitter</h3>
-{#                            <p>Description du projet</p>#}
-                            <a target="_blank" href="https://florianjourde.github.io/Frontend-Mentor-15-Tip-calculator-app/">Voir le site</a>
+                            <div class="links">
+                                {#                            <p>Description du projet</p>#}
+                                <a target="_blank" class="button-secondary button-white button-small" href="https://florianjourde.github.io/Frontend-Mentor-15-Tip-calculator-app/"><i class="fas fa-globe"></i>Site</a>
+                                <a target="_blank" class="button-secondary button-white button-small" href="https://florianjourde.github.io/Frontend-Mentor-15-Tip-calculator-app/"><i class="fab fa-github"></i>Dépot</a>
+                            </div>
                         </div>
 {#                    </a>#}
                 </li>
                 <li>
 {#                    <a target="_blank" href="https://florianjourde.github.io/Frontend-Mentor-14-Time-tracking-dashboard/">#}
-                        <img src="./ressources/images/time-tracker.jpg" alt="">
+                        <img src="./ressources/images/min/time-tracker-min.jpg" alt="">
                         <div class="description">
                             <h3>Time Tracker</h3>
-{#                            <p>Description du projet</p>#}
-                            <a target="_blank" href="https://florianjourde.github.io/Frontend-Mentor-14-Time-tracking-dashboard/">Voir le site</a>
+                            <div class="links">
+                                {#                            <p>Description du projet</p>#}
+                                <a target="_blank" class="button-secondary button-white button-small" href="https://florianjourde.github.io/Frontend-Mentor-14-Time-tracking-dashboard/"><i class="fas fa-globe"></i>Site</a>
+                                <a target="_blank" class="button-secondary button-white button-small" href="https://florianjourde.github.io/Frontend-Mentor-14-Time-tracking-dashboard/"><i class="fab fa-github"></i>Dépot</a>
+                            </div>
                         </div>
 {#                    </a>#}
                 </li>
             </ul>
         </div>
     </section>
-    {% include 'partials/work.twig' %}
+
+    <section class="skills position-relative">
+        <img class="vector-shape vector-shape-top" src="./ressources/images/vector-top-left-white-2.svg" alt="">
+        <div class="wrapper">
+            <h2 class="section-title">Compétences</h2>
+            <ul>
+{#                <li><img src="./ressources/images/logos/css-logo.png" alt=""><h3>CSS</h3></li>#}
+                <li><img src="./ressources/images/logos/figma-logo.png" alt=""><h3 style="color: #a259ff;">Figma</h3></li>
+                <li><img src="./ressources/images/logos/git-logo.png" alt=""><h3 style="color: #de4c36;">Github</h3></li>
+                <li><img src="./ressources/images/logos/html-logo.png" alt=""><h3 style="color: #e44d26;">HTML</h3></li>
+                <li><img src="./ressources/images/logos/illustrator-logo.png" alt=""><h3 style="color: #df8600;">Illustrator</h3></li>
+                <li><img src="./ressources/images/logos/indesign-logo.png" alt=""><h3 style="color: #ff3068;">InDesign</h3></li>
+                <li><img src="./ressources/images/logos/javascript-logo.png" alt=""><h3 style="color: #000000;">Javascript</h3></li>
+                <li><img src="./ressources/images/logos/jquery-logo.png" alt=""><h3 style="color: #1266a9;">jQuery</h3></li>
+{#                <li><img src="./ressources/images/logos/mongo-db-logo.png" alt=""><h3 style'=color:'' MongoDB</h3></li>#}
+                <li><img src="./ressources/images/logos/mysql-logo.png" alt=""><h3 style="color: #00758f;">MySQL</h3></li>
+                <li><img src="./ressources/images/logos/photoshop-logo.png" alt=""><h3 style="color: #31a8ff;">Photoshop</h3></li>
+                <li><img src="./ressources/images/logos/php-logo.png" alt=""><h3 style="color: #8993be;">PHP</h3></li>
+                <li><img src="./ressources/images/logos/sass-logo.png" alt=""><h3 style="color: #cd6799;">Sass</h3></li>
+                <li><img src="./ressources/images/logos/symfony-logo.png" alt=""><h3 style="color: #1a171b;">Symfony</h3></li>
+                <li><img src="./ressources/images/logos/twig-logo.png" alt=""><h3 style="color: #52820f;">Twig</h3></li>
+                <li><img src="./ressources/images/logos/vue-js-logo.png" alt=""><h3 style="color: #41b883;">Vue.js</h3></li>
+                <li><img src="./ressources/images/logos/wordpress-logo.png" alt=""><h3 style="color: #32373c;">Wordpress</h3></li>
+            </ul>
+        </div>
+    </section>
+
+{#    {% include 'partials/work.twig' %}#}
+    <section class="work position-relative">
+        <img class="vector-shape vector-shape-top" src="./ressources/images/vector-top-left-very-light-grey-2.svg" alt="">
+        <div class="wrapper">
+            <div class="box">
+                <div class="icon"><i class="fas fa-file"></i></div>
+                <div class="question">
+                    <h2>Mon travail vous plaît ?</h2>
+                    <p>N'hésitez pas à consulter mon CV !</p>
+                </div>
+                <a class="button-primary button-yellow" href="./ressources/documents/Florian-Jourde-CV.pdf" target=”_blank”><i class="fas fa-download"></i>Télécharger le document</a>
+            </div>
+        </div>
+        <img class="vector-shape vector-shape-bottom" src="./ressources/images/vector-bottom-right-dark-grey.svg" alt="">
+    </section>
 {% endblock %}

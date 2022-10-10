@@ -25,10 +25,10 @@ textarea {
 }
 
 input[type="submit"], ::-webkit-file-upload-button {
-    background-color: var(--clr-dark-orange);
-    color: var(--clr-white);
-    cursor: pointer;
-    max-width: 200px;
+    /*background-color: var(--clr-dark-orange);*/
+    /*color: var(--clr-white);*/
+    /*cursor: pointer;*/
+    /*max-width: 200px;*/
 }
 
 ::-webkit-file-upload-button {
@@ -49,10 +49,10 @@ body {
     color: var(--clr-very-dark-grey);
 }
 
-a {
+a, input {
     text-decoration: none;
-    color: var(--clr-dark-purple);
-    display: inline-block;
+    transition: background-color .4s, color .4s, border .4s;
+    /*display: inline-block;*/
 }
 
 h1, h2, h3 {
@@ -63,24 +63,217 @@ ul {
     list-style-type: none;
 }
 
-.padding-100 {
-    padding-top: 100px;
-    padding-bottom: 100px;
+.button-primary, .button-secondary, .button-tertiary, .button-form, ::-webkit-file-upload-button {
+    /*transition: background-color .4s, color .4s, border .4s;*/
 }
 
-.padding-top-100 {
-    padding-top: 100px;
+.button-primary, .button-secondary, .button-tertiary {
+    width: fit-content;
+    /*display: inline-flex;*/
+    /*align-items: center;*/
 }
 
-.padding-50 {
-    padding-top: 50px;
-    padding-bottom: 50px;
+::-webkit-file-upload-button {
+    color: var(--clr-white);
 }
 
-.padding-20 {
-    padding-top: 20px;
-    padding-bottom: 20px;
+
+.button-form, ::-webkit-file-upload-button {
+    /*display: inline-flex;*/
+    cursor: pointer;
+    max-width: 200px;
+    border: none;
+    padding: 20px;
+    border-radius: 20px;
 }
+
+.button-primary, .button-secondary {
+    border-radius: 10px;
+    padding: 8px 16px;
+    border: 3px solid var(--clr-very-dark-grey);
+    color: var(--clr-white);
+    gap: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.button-primary.button-black {
+    background-color: var(--clr-very-dark-grey);
+}
+
+.button-secondary.button-black {
+    color: var(--clr-very-dark-grey);
+}
+
+.navigation.links li:hover {
+    transform: translateY(-5px);
+}
+
+.button-tertiary.button-dark-yellow {
+    color: var(--clr-dark-yellow);
+}
+
+.button-tertiary.button-dark-yellow:hover {
+    color: var(--clr-very-dark-grey);
+}
+
+.button-tertiary.button-white {
+    color: var(--clr-white);
+}
+
+.button-tertiary.button-white:hover {
+    color: var(--clr-yellow);
+}
+
+.button-primary.button-black:hover {
+    background-color: var(--clr-dark-yellow);
+    border: 3px solid var(--clr-dark-yellow);
+    /*color: var(--clr-very-dark-grey);*/
+}
+
+.button-secondary:hover {
+    background-color: var(--clr-very-dark-grey);
+    color: var(--clr-white);
+}
+
+.button-small {
+    padding: 6px 12px;
+}
+
+.button-light-yellow {
+    background-color: var(--clr-light-yellow);
+}
+
+.button-light-yellow:hover {
+    background-color: var(--clr-very-dark-yellow);
+    color: var(--clr-white);
+}
+
+.button-very-dark-yellow {
+    background-color: var(--clr-very-dark-yellow);
+    color: var(--clr-white);
+}
+
+.button-very-dark-purple {
+    background-color: var(--clr-very-dark-purple);
+    color: var(--clr-white);
+}
+
+.button-dark-orange {
+    background-color: var(--clr-dark-orange);
+    color: var(--clr-white);
+}
+
+.button-very-dark-green {
+    background-color: var(--clr-very-dark-green);
+    color: var(--clr-white);
+}
+
+.button-dark-pink {
+    background-color: var(--clr-dark-pink);
+    color: var(--clr-white);
+}
+
+.button-very-dark-grey {
+    background-color: var(--clr-very-dark-grey);
+    color: var(--clr-white);
+}
+
+.button-dark-orange:hover, .button-blue:hover, .button-very-dark-purple:hover, .button-very-dark-green:hover, .button-dark-pink:hover, .button-very-dark-yellow:hover, ::-webkit-file-upload-button:hover {
+    background-color: var(--clr-very-dark-grey);
+}
+
+.button-very-dark-grey:hover {
+    background-color: var(--clr-very-dark-yellow);
+}
+
+.button-blue {
+    background-color: var(--clr-blue);
+    color: var(--clr-white);
+}
+
+.button-primary.button-blue {
+    background-color: var(--clr-dark-blue);
+    border: 3px solid var(--clr-dark-blue);
+}
+
+.button-secondary.button-blue {
+    color: var(--clr-dark-blue);
+    border: 3px solid var(--clr-dark-blue);
+}
+
+.button-primary.button-pink {
+    background-color: var(--clr-dark-pink);
+    border: 3px solid var(--clr-dark-pink);
+}
+
+/*.button-primary.button-pink:hover {*/
+/*    background-color: var(--clr-very-dark-pink);*/
+/*    border: 3px solid var(--clr-very-dark-pink);*/
+/*}*/
+
+.button-primary.button-yellow {
+    background-color: var(--clr-dark-yellow);
+    border: 3px solid var(--clr-dark-yellow);
+}
+
+.button-primary.button-yellow:hover, .button-primary.button-pink:hover {
+    background-color: var(--clr-very-dark-grey);
+    border: 3px solid var(--clr-very-dark-grey);
+    /*border: 3px solid var(--clr-dark-yellow);*/
+}
+
+.button-primary.button-white {
+    background-color: var(--clr-white);
+    border: 3px solid var(--clr-white);
+}
+
+.button-secondary.button-white {
+    color: var(--clr-white);
+    border: 3px solid var(--clr-white);
+}
+
+.button-secondary.button-white:hover {
+    background-color: var(--clr-white);
+    color: var(--clr-very-dark-grey);
+}
+
+.section-title {
+    position: relative;
+    display: inline-block;
+}
+
+.section-title::before {
+    content: "";
+    width: 100%;
+    height: 100%;
+    top: -15px;
+    left: -30px;
+    border-radius: 100px;
+    background-color: var(--clr-black);
+    opacity: 0.05;
+    position: absolute;
+}
+
+/*.padding-100 {*/
+/*    padding-top: 100px;*/
+/*    padding-bottom: 100px;*/
+/*}*/
+
+/*.padding-top-100 {*/
+/*    padding-top: 100px;*/
+/*}*/
+
+/*.padding-50 {*/
+/*    padding-top: 50px;*/
+/*    padding-bottom: 50px;*/
+/*}*/
+
+/*.padding-20 {*/
+/*    padding-top: 20px;*/
+/*    padding-bottom: 20px;*/
+/*}*/
 
 .banner {
     width: 100%;
@@ -213,7 +406,7 @@ ul {
 
 .achievements {
     padding-top: 100px;
-    padding-bottom: 150px;
+    /*padding-bottom: 150px;*/
 }
 
 .achievements img {
@@ -248,9 +441,10 @@ ul {
     left: 0;
     width: 100%;
     padding: 20px;
-    background-color: var(--clr-white);
+    color: var(--clr-white);
+    background-color: var(--clr-very-dark-grey);
     border-radius: 20px 20px 0 0;
-    transform: translateY(40px);
+    transform: translateY(58px);
     transition: transform .4s;
     box-shadow:  0 -10px 20px #00000010;
 }
@@ -275,10 +469,51 @@ ul {
     border-radius: 20px;
 }
 
+.achievements i {
+    /*margin-right: 10px;*/
+}
+
 .achievements a {
-    height: 100%;
+    /*height: 100%;*/
+    /*width: 100%;*/
+    /*color: var(--clr-very-dark-grey);*/
+}
+
+.achievements .links {
+    display: flex;
+    gap: 20px;
+}
+
+.skills {
+    /*display: flex;*/
+    padding-top: 300px;
+    /*padding-bottom: 100px;*/
+    background-color: var(--clr-very-light-grey);
+}
+
+.skills ul {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 40px;
+    grid-auto-rows: 1fr;
+}
+
+.skills li {
+    /*width: 200px;*/
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: var(--bs-primary);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    background-color: var(--clr-white);
+}
+
+.skills li img {
     width: 100%;
-    /*color: var(--clr-white);*/
+    height: 50px;
+    object-fit: contain;
 }
 
 .presentation {
@@ -331,8 +566,16 @@ main.single .post .description {
     margin-bottom: 40px;
 }
 
-.archive .post .actions a, .management .post .actions a {
+.actions.white a {
     color: var(--clr-white);
+}
+
+.actions.white a:hover {
+    color: var(--clr-yellow);
+}
+
+.actions a:hover {
+    color: var(--clr-very-dark-grey);
 }
 
 .management .single > *:not(:last-child) {
@@ -372,7 +615,7 @@ main.single .post .description {
     color: var(--clr-dark-pink);
 }
 
-.delete-post .management .single, .delete-post input[type="submit"] {
+.delete-post .management .single/*, .delete-post input[type="submit"]*/ {
     background-color: var(--clr-dark-pink);
 }
 
@@ -407,10 +650,13 @@ main.single .post .description {
     margin-bottom: 10px;
 }
 
-.post .fas, .comment .fas {
+/*.actions .fas, .infos .fas, .username .fas, .title .fas, .contact .page label .fas, .comment .fas {*/
+/*    margin-right: 10px;*/
+/*}*/
+
+.icon-spacing .fas{
     margin-right: 10px;
 }
-
 
 .comment .hide {
     color: var(--clr-dark-purple);
@@ -487,7 +733,7 @@ main.single .post .description {
     margin-bottom: 40px;
 }
 
-.introduction, .archive, .achievements {
+.introduction, .archive, .achievements, .skills {
     z-index: 2;
 }
 
@@ -498,6 +744,7 @@ main.single .post .description {
     padding: 40px;
     background: var(--clr-radial-very-dark-grey);
     color: var(--clr-white);
+    box-shadow: var(--bs-secondary);
 }
 
 .register, .login {
@@ -510,7 +757,7 @@ main.single .post .description {
     background-color: var(--clr-white);
 }
 
-.update-post .page, .update-post input[type="submit"] {
+.update-post .page {
     background-color: var(--clr-light-green);
 }
 
@@ -518,9 +765,9 @@ main.single .post .description {
     background-color: var(--clr-light-blue);
 }
 
-.update-comment input[type="submit"] {
-    background-color: var(--clr-dark-blue);
-}
+/*.update-comment input[type="submit"] {*/
+/*    background-color: var(--clr-dark-blue);*/
+/*}*/
 
 .update-comment {
     color: var(--clr-very-dark-blue);
@@ -538,9 +785,9 @@ main.single .post .description {
     color: var(--clr-dark-blue);
 }
 
-.update-post input[type="submit"] {
-    background-color: var(--clr-very-dark-green);
-}
+/*.update-post input[type="submit"] {*/
+/*    background-color: var(--clr-very-dark-green);*/
+/*}*/
 
 .register form label, .login form label, .add-post form label, .contact form label {
     font-size: var(--fs-big-text);
@@ -563,15 +810,16 @@ main.single .post .description {
     color: var(--clr-white);
 }
 
-.login form input[type="submit"] {
-    background-color: var(--clr-very-dark-purple);
-}
+/*.login form input[type="submit"] {*/
+/*    background-color: var(--clr-very-dark-purple);*/
+/*}*/
 
 .contact form input[type="submit"] {
-    background-color: var(--clr-yellow);}
+    /*background-color: var(--clr-yellow);*/
+}
 
 .add-post form input[type="submit"] {
-    background-color: var(--clr-very-dark-grey);
+    /*background-color: var(--clr-very-dark-grey);*/
 }
 
 input[type="file"] {
@@ -634,51 +882,6 @@ input[type="file"] {
 .vector-shape-behind {
     z-index: -1;
 }
-
-.button-primary, .button-secondary, .button-tertiary {
-    width: fit-content;
-}
-
-.button-primary, .button-secondary {
-    border-radius: 10px;
-    padding: 0.5rem 1rem;
-    border: 3px solid var(--clr-dark-purple);
-    color: var(--clr-white);
-}
-
-.button-primary {
-    background-color: var(--clr-dark-purple);
-}
-
-.button-secondary {
-    color: var(--clr-dark-purple);
-}
-
-.button-primary.button-blue {
-    background-color: var(--clr-dark-blue);
-    border: 3px solid var(--clr-dark-blue);
-}
-
-.button-secondary.button-blue {
-    color: var(--clr-dark-blue);
-    border: 3px solid var(--clr-dark-blue);
-}
-
-.button-primary.button-pink {
-    background-color: var(--clr-dark-pink);
-    border: 3px solid var(--clr-dark-pink);
-}
-
-.button-primary.button-yellow {
-    background-color: var(--clr-dark-yellow);
-    border: 3px solid var(--clr-dark-yellow);
-}
-
-.button-secondary.button-white {
-    color: var(--clr-white);
-    border: 3px solid var(--clr-white);
-}
-
 .work {
     padding-top: 250px;
     padding-bottom: 100px;

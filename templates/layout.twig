@@ -14,8 +14,11 @@
     <title>{% block title %}Accueil{% endblock %} | Florian Jourde</title>
 </head>
 <body>
-    {% include 'partials/navbar.twig' %}
-    {% block content %}{% endblock %}
-    {% include 'partials/footer.twig' %}
+{#    <div class="layout">#}
+        {% include 'partials/navbar.twig' %}
+        {% block content %}{% endblock %}
+        {% include 'partials/footer.twig' %}
+        <script src="./ressources/js/main.js" type="module"></script>
+{#    </div>#}
 </body>
 </html>

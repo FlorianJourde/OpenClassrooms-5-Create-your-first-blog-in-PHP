@@ -16,26 +16,56 @@ nav {
   width: 100%;
   padding-bottom: 20px;
   padding-top: 20px;
-  /*box-shadow: var(--bs-secondary);*/
+  box-shadow: var(--bs-secondary);
+  align-items: center;
 }
 
 .navbar .logo {
   flex-grow: 1;
 }
 
-.navigation {
+.menu {
+  display: flex;
+  align-items: center;
+  gap: 10px 20px;
+  transition: .4s;
+}
+
+.menu.mobile-only, .mobile-only {
+  /*display: none;*/
+}
+
+.menu.desktop-only {
+  /*display: initial;*/
+}
+
+section, nav, main, footer {
+  transition: transform .4s;
+}
+
+section.menu-open, nav.menu-open, main.menu-open, footer.menu-open {
+  transform: translateX(-300px);
+}
+
+.open-menu, .close-menu {
+  font-size: var(--fs-title);
+}
+
+.close-menu {
+  position: absolute;
+  top: 30px;
+  right: 30px;
+}
+
+.navigation-links, .navigation-user {
   display: flex;
   align-items: center;
   gap: 10px 20px;
 }
 
-.navigation.links li {
+.navigation-links li {
   transition: transform .4s;
 }
-
-/*.navigation li:not(:last-child) {*/
-/*  margin-right: 10px;*/
-/*}*/
 
 .navbar .logo img {
   height: 40px;

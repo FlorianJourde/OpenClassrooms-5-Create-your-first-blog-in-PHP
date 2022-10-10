@@ -589,7 +589,7 @@ ul {
     display: flex;
     flex-direction: column;
     gap: 40px;
-    min-width: 400px;
+    /*min-width: 400px;*/
 }
 
 .presentation h2 {

@@ -1,4 +1,14 @@
 @media (max-width: 768px) {
+    :root {
+        --fs-very-big-title: 40px;
+        --fs-big-title: 30px;
+        --fs-title: 26px;
+        --fs-small-title: 20px;
+        --fs-big-text: 18px;
+        --fs-regular-text: 14px;
+        --fs-small-text: 10px;
+    }
+
     .posts {
         grid-template-columns: repeat(1, 1fr);
     }
@@ -13,6 +23,19 @@
 
     footer .bottom-section {
         justify-content: center;
+    }
+
+    .box {
+        padding: 30px;
+    }
+
+    .banner {
+        padding-top: 100px;
+        padding-bottom: 200px;
+    }
+
+    .introduction {
+        gap: 50px;
     }
 }
 

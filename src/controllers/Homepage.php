@@ -2,17 +2,17 @@
 
 namespace Application\Controllers;
 
-require_once __ROOT__ . '/src/lib/CheckUserRole.php';
-require_once __ROOT__ . '/src/lib/DatabaseConnection.php';
-require_once __ROOT__ . '/src/lib/ManageSession.php';
-require_once __ROOT__ . '/src/lib/RenderFront.php';
-require_once __ROOT__ . '/src/model/Post.php';
-require_once __ROOT__ . '/src/model/PostRepository.php';
-require_once __ROOT__ . '/src/model/Comment.php';
-require_once __ROOT__ . '/src/model/CommentRepository.php';
-require_once __ROOT__ . '/src/model/User.php';
-require_once __ROOT__ . '/src/model/UserRepository.php';
-require_once __ROOT__ . '/vendor/autoload.php';
+require_once '../src/lib/CheckUserRole.php';
+require_once '../src/lib/DatabaseConnection.php';
+require_once '../src/lib/ManageSession.php';
+require_once '../src/lib/RenderFront.php';
+require_once '../src/model/Post.php';
+require_once '../src/model/PostRepository.php';
+require_once '../src/model/Comment.php';
+require_once '../src/model/CommentRepository.php';
+require_once '../src/model/User.php';
+require_once '../src/model/UserRepository.php';
+require_once '../vendor/autoload.php';
 
 use Application\Lib\DatabaseConnection;
 use Application\Lib\ManageSession;

@@ -1,6 +1,6 @@
 # OpenClassrooms - Create your first blog in PHP
 
-![OpenClassrooms banneer](./ressources/images/oc_banner.png)
+![OpenClassrooms banneer](/public/ressources/images/oc_banner.png)
 
 ### About
 

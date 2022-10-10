@@ -35,7 +35,7 @@ class ShowComment
         if (!$success) {
             throw new \Exception('Impossible d\'afficher le commentaire !');
         } else {
-            header('Location: index.php?action=manageComments');
+            header('Location: ?action=manageComments');
         }
     }
 }

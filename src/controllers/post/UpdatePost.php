@@ -54,7 +54,7 @@ class UpdatePost
                         throw new \Exception('L\'article concerné n\'existe pas !');
                     }
 
-                    header(sprintf('Location: index.php?action=post&id=%d', $identifier));
+                    header(sprintf('Location: ?action=post&id=%d', $identifier));
                 }
             }
         } else {

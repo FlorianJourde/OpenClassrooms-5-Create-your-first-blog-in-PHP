@@ -1,25 +1,25 @@
 <?php
 
-define('__ROOT__', dirname(dirname(__FILE__)));
+//define('__ROOT__', dirname(dirname(__FILE__)));
 
-require_once __ROOT__ . '/src/controllers/comment/AddComment.php';
-require_once __ROOT__ . '/src/controllers/comment/DeleteComment.php';
-require_once __ROOT__ . '/src/controllers/comment/HideComment.php';
-require_once __ROOT__ . '/src/controllers/comment/ShowComment.php';
-require_once __ROOT__ . '/src/controllers/comment/ManageComments.php';
-require_once __ROOT__ . '/src/controllers/comment/UpdateComment.php';
-require_once __ROOT__ . '/src/controllers/post/AddPost.php';
-require_once __ROOT__ . '/src/controllers/post/DeletePost.php';
-require_once __ROOT__ . '/src/controllers/post/UpdatePost.php';
-require_once __ROOT__ . '/src/controllers/user/AddUser.php';
-require_once __ROOT__ . '/src/controllers/user/AuthenticationUser.php';
-require_once __ROOT__ . '/src/controllers/user/LogoutUser.php';
-require_once __ROOT__ . '/src/controllers/Archive.php';
-require_once __ROOT__ . '/src/controllers/Contact.php';
-require_once __ROOT__ . '/src/controllers/Homepage.php';
-require_once __ROOT__ . '/src/controllers/Post.php';
-require_once __ROOT__ . '/src/controllers/Register.php';
-require_once __ROOT__ . '/src/controllers/Login.php';
+require_once '../src/controllers/comment/AddComment.php';
+require_once '../src/controllers/comment/DeleteComment.php';
+require_once '../src/controllers/comment/HideComment.php';
+require_once '../src/controllers/comment/ShowComment.php';
+require_once '../src/controllers/comment/ManageComments.php';
+require_once '../src/controllers/comment/UpdateComment.php';
+require_once '../src/controllers/post/AddPost.php';
+require_once '../src/controllers/post/DeletePost.php';
+require_once '../src/controllers/post/UpdatePost.php';
+require_once '../src/controllers/user/AddUser.php';
+require_once '../src/controllers/user/AuthenticationUser.php';
+require_once '../src/controllers/user/LogoutUser.php';
+require_once '../src/controllers/Archive.php';
+require_once '../src/controllers/Contact.php';
+require_once '../src/controllers/Homepage.php';
+require_once '../src/controllers/Post.php';
+require_once '../src/controllers/Register.php';
+require_once '../src/controllers/Login.php';
 
 use Application\Controllers\Comment\AddComment;
 use Application\Controllers\Comment\DeleteComment;
@@ -196,7 +196,7 @@ try {
     $twig = new RenderFront();
     echo $twig->render('error.twig', ['errorMessage' => $errorMessage]);
 
-//    $loader = new \Twig\Loader\FilesystemLoader(__ROOT__ . '/templates');
+//    $loader = new \Twig\Loader\FilesystemLoader('../templates');
 //    $twig = new \Twig\Environment($loader, [
 ////        'cache' => 'cache',
 //        'debug' => true

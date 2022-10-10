@@ -50,7 +50,7 @@ class AddPost
                     $uniqueName = uniqid('', true);
                     $file = $uniqueName . "." . $extension;
 
-                    move_uploaded_file($tmpName, './ressources/images/' . $file);
+                    move_uploaded_file($tmpName, '../public/ressources/images/' . $file);
                 } else {
                     throw new \Exception('Le fichier est trop volumineux ou son extension n\'est pas valide.');
                 }
@@ -72,7 +72,7 @@ class AddPost
 
             $success = $postRepository->createPost($userId, $title, $content, $status, $file);
             
-            header(sprintf('Location: index.php?action=archive'));
+            header(sprintf('Location: ?action=archive'));
             }
         } else {
             throw new \Exception('Vous n\'avez pas accès à cette page !');

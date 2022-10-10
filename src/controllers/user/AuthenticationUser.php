@@ -18,7 +18,7 @@ class AuthenticationUser
 
         if ($success === null) {
             throw new \Exception('Authentification impossible !');
-            header('Location: index.php?action=login');
+            header('Location: ?action=login');
         } else {
             $user = $userRepository->getUserFromEmail($email);
             $_SESSION['is_authenticated'] = true;
@@ -30,7 +30,7 @@ class AuthenticationUser
             $_SESSION['token'] = bin2hex(random_bytes(16));
             $userRepository->generateToken($_SESSION['token'], $user->identifier);
 
-            header('Location: index.php');
+            header('Location: /');
         }
     }
 }

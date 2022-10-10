@@ -33,9 +33,9 @@ class DeletePost
                     $success = $postRepository->deletePost($identifier);
 
                     if ($success) {
-                        header(sprintf('Location: index.php?action=archive'));
+                        header(sprintf('Location: ?action=archive'));
                     } else {
-                        header(sprintf('Location: index.php?action=post&id=%d', $identifier));
+                        header(sprintf('Location: ?action=post&id=%d', $identifier));
                     }
                 }
             }

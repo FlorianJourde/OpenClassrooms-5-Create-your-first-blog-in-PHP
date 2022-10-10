@@ -3,14 +3,14 @@
 {% block title %}{{ post.title }}{% endblock %}
 
 {% block content %}
-    <section class="banner offset-next-element" style="background-image: url('./ressources/images/{{ post.image }}');">
+    <section class="banner offset-next-element" style="background-image: url('/public/ressources/images/{{ post.image }}');">
         <div class="wrapper">
             <div class="title">
                 <h1>{{ post.title }}</h1>
             </div>
         </div>
         {# <div class="vector-shape"> #}
-            <img class="vector-shape vector-shape-bottom" src="./ressources/images/vector-bottom-right-white.svg" alt="">
+            <img class="vector-shape vector-shape-bottom" src="/public/ressources/images/vector-bottom-right-white.svg" alt="">
         {# </div> #}
     </section>
 
@@ -21,8 +21,8 @@
 {#                    <div class="title">#}
 {#                        {% if session.role == 'Admin' %}#}
 {#                            <div class="actions">#}
-{#                                <a href="index.php?action=updatePost&id={{ post.identifier }}">Modifier</a>#}
-{#                                <a href="index.php?action=deletePost&id={{ post.identifier }}">Supprimer</a>#}
+{#                                <a href="?action=updatePost&id={{ post.identifier }}">Modifier</a>#}
+{#                                <a href="?action=deletePost&id={{ post.identifier }}">Supprimer</a>#}
 {#                            </div>#}
 {#                        {% endif %}#}
 {#                    </div>#}
@@ -42,7 +42,7 @@
     </main>
     {% if (comments is not empty) or (session.role is defined) %}
         <section class="comments position-relative">
-            <img class="vector-shape vector-shape-top" src="./ressources/images/vector-top-left-white-2.svg" alt="">
+            <img class="vector-shape vector-shape-top" src="/public/ressources/images/vector-top-left-white-2.svg" alt="">
             <div class="wrapper">
                 {% if (comments is not empty) %}
                     <h2 class="section-title">Commentaires</h2>
@@ -52,9 +52,9 @@
                                 <p class="username icon-spacing"><i class="fas fa-user"></i>{{ comment.username }}</p>
                                 {% if (session.role == 'Admin') or (session.id == comment.user_id) %}
                                     <div class="actions icon-spacing">
-                                        <a class="hide" href="index.php?action=hideComment&id={{ comment.identifier }}"><i class="fas fa-eye"></i>Retirer</a>
-                                        <a class="edit" href="index.php?action=updateComment&id={{ comment.identifier }}"><i class="fas fa-edit"></i>Modifier</a>
-                                        <a class="delete" href="index.php?action=deleteComment&id={{ comment.identifier }}"><i class="fas fa-trash"></i>Supprimer</a>
+                                        <a class="hide" href="?action=hideComment&id={{ comment.identifier }}"><i class="fas fa-eye"></i>Retirer</a>
+                                        <a class="edit" href="?action=updateComment&id={{ comment.identifier }}"><i class="fas fa-edit"></i>Modifier</a>
+                                        <a class="delete" href="?action=deleteComment&id={{ comment.identifier }}"><i class="fas fa-trash"></i>Supprimer</a>
                                     </div>
                                 {% endif %}
                             </div>
@@ -67,7 +67,7 @@
                 {% endif %}
                 {% if session.role is defined %}
                     <h2 class="title">Ajouter un commentaire</h2>
-                    <form action="index.php?action=addComment&id={{ post.identifier }}" method="post">
+                    <form action="?action=addComment&id={{ post.identifier }}" method="post">
                         <div class="user"></div>
                         <div>
 {#                            <label for="comment">Commentaire</label><br />#}

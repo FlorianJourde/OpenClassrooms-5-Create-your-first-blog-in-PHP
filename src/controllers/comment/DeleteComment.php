@@ -41,10 +41,10 @@ class DeleteComment
                     $success = $commentRepository->deleteComment($identifier);
 
 
-                    header(sprintf('Location: index.php?action=post&id=%d', $comment->postId));
+                    header(sprintf('Location: ?action=post&id=%d', $comment->postId));
                     if (!$success) {
 
-                        header(sprintf('Location: index.php?action=post&id=%d', $comment->postId));
+                        header(sprintf('Location: ?action=post&id=%d', $comment->postId));
                     }
                 }
             }

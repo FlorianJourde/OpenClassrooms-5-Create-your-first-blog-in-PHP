@@ -21,7 +21,7 @@ class Register
         $userRole = new CheckUserRole();
 
         if ($userRole->isAuthenticated($_SESSION['token'] ?? '')) {
-            header(sprintf('Location: index.php'));
+            header(sprintf('Location: /'));
         }
 
         $twig = new RenderFront();

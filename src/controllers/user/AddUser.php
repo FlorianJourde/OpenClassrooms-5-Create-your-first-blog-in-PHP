@@ -21,7 +21,7 @@ class AddUser
         if (!$success) {
             throw new \Exception('Impossible d\'ajouter l\'utilisateur !');
         } else {
-            header('Location: index.php');
+            header('Location: /');
         }
     }
 }

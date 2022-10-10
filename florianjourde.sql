@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : ven. 07 oct. 2022 à 14:32
+-- Généré le : lun. 10 oct. 2022 à 00:02
 -- Version du serveur : 5.7.36
 -- Version de PHP : 7.4.26
 
@@ -36,7 +36,7 @@ CREATE TABLE IF NOT EXISTS `comments` (
   `status` tinyint(1) DEFAULT NULL,
   `creation_date` datetime NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=112 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=121 DEFAULT CHARSET=utf8;
 
 --
 -- Déchargement des données de la table `comments`
@@ -44,10 +44,10 @@ CREATE TABLE IF NOT EXISTS `comments` (
 
 INSERT INTO `comments` (`id`, `user_id`, `post_id`, `content`, `status`, `creation_date`) VALUES
 (4, 2, 1, 'J\'écris un nouveau commentaire', 0, '2022-05-26 18:52:38'),
-(5, 2, 1, 'Sympa ce blog !', 0, '2022-05-26 18:53:56'),
+(5, 2, 1, 'Sympa ce blog !', 1, '2022-05-26 18:53:56'),
 (10, 2, 1, 'Contenu de l\'articleee', 1, '2022-06-17 15:29:54'),
 (11, 2, 1, '\r\n  $commentRepository->connection = new DatabaseConnection();', 1, '2022-06-22 23:08:46'),
-(17, 2, 1, 'Code refactoriséddcdc', 0, '2022-06-22 23:52:15'),
+(17, 2, 1, 'Code refactoriséddcdc', 1, '2022-06-22 23:52:15'),
 (35, 2, 1, 'Preum\'s', 1, '2022-03-03 13:00:42'),
 (56, 1, 9, 'ok', 1, '2022-09-27 22:17:44'),
 (57, 1, 9, 'ok', 1, '2022-09-27 22:17:46'),
@@ -56,7 +56,16 @@ INSERT INTO `comments` (`id`, `user_id`, `post_id`, `content`, `status`, `creati
 (108, 1, 25, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam ipsum dolor, varius eu tortor et, iaculis convallis magna. Etiam a nulla eu justo rutrum suscipit. Vestibulum sit amet turpis in ipsum bibendum scelerisque. In hac habitasse platea dictumst.', 1, '2022-10-07 15:02:25'),
 (109, 1, 25, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam ipsum dolor, varius eu tortor et, iaculis convallis magna. Etiam a nulla eu justo rutrum suscipit. Vestibulum sit amet turpis in ipsum bibendum scelerisque. In hac habitasse platea dictumst. Mauris mollis dolor quis est gravida auctor. Sed condimentum vestibulum leo, dapibus vulputate enim porttitor sed. Sed non nulla sed odio consectetur ornare vel in est.', 1, '2022-10-07 15:02:29'),
 (110, 1, 25, 'Mauris mollis dolor quis est gravida auctor. Sed condimentum vestibulum leo, dapibus vulputate enim porttitor sed. Sed non nulla sed odio consectetur ornare vel in est. Vivamus imperdiet, sapien eu venenatis lobortis, eros risus eleifend augue, non aliquet velit turpis blandit nisl. Duis feugiat mollis purus eu posuere. Pellentesque malesuada ut justo a pretium.', 1, '2022-10-07 15:02:35'),
-(111, 1, 25, 'Commentaire !', 1, '2022-10-07 15:02:43');
+(111, 1, 25, 'Commentaire !', 1, '2022-10-07 15:02:43'),
+(112, 1, 24, 'C\'est ça, le nouvel article ?', 0, '2022-10-07 20:20:12'),
+(113, 1, 25, 'Ajout d\'un commentaire', 0, '2022-10-07 20:22:24'),
+(114, 1, 25, 'Ajout d\'un commentaire', 0, '2022-10-07 20:22:46'),
+(115, 1, 25, 'sdcsdcdc', 1, '2022-10-07 20:23:26'),
+(116, 1, 25, 'Bonjour', 1, '2022-10-07 20:24:21'),
+(117, 1, 25, 'Ok ok ok', 1, '2022-10-07 20:24:55'),
+(118, 1, 25, 'dfvdsfvsfdv', 0, '2022-10-07 20:25:07'),
+(119, 1, 25, 'dfvdsfvsfdv', 1, '2022-10-07 20:27:36'),
+(120, 1, 25, 'dfvdfvfdv', 1, '2022-10-07 20:27:40');
 
 -- --------------------------------------------------------
 
@@ -109,7 +118,7 @@ CREATE TABLE IF NOT EXISTS `users` (
 --
 
 INSERT INTO `users` (`id`, `username`, `email`, `role`, `password`, `token`) VALUES
-(1, 'Thierry', 'email@email.com', 'Admin', 'e10adc3949ba59abbe56e057f20f883e', NULL),
+(1, 'Thierry', 'email@email.com', 'Admin', 'e10adc3949ba59abbe56e057f20f883e', '29fddbb41bf72b4f92cd77b97cd01e64'),
 (2, 'Robert', 'test@test.com', 'User', 'e10adc3949ba59abbe56e057f20f883e', NULL),
 (3, 'Christophe', 'email@email.fr', 'User', 'e10adc3949ba59abbe56e057f20f883e', NULL),
 (4, 'Gérard', 'test@test.fr', 'User', 'e10adc3949ba59abbe56e057f20f883e', NULL);

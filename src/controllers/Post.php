@@ -15,13 +15,10 @@ class Post
     {
         $manageSession = new ManageSession();
         $manageSession->execute();
-
         $postRepository = new PostRepository();
         $postRepository->connection = new DatabaseConnection();
-
         $commentRepository = new CommentRepository();
         $commentRepository->connection = new DatabaseConnection();
-
         $userRepository = new UserRepository();
         $userRepository->connection = new DatabaseConnection();
 
@@ -32,9 +29,6 @@ class Post
         $visibleComments = [];
         $post->image === null ? $post->image = 'placeholder-min.jpg' : $post->image;
 
-//        echo phpinfo();
-//        die();
-
         foreach ($comments as $comment) {
             if($comment->status === true) {
                 $user = $userRepository->getUserFromId($comment->userId);
@@ -44,6 +38,6 @@ class Post
         }
 
         $twig = new RenderFront();
-        echo $twig->render('post.twig', ['post' => $post, 'comments' => $visibleComments, 'session' => $_SESSION]);
+        echo $twig->render('post.twig', ['post' => $post, 'comments' => array_reverse($visibleComments), 'session' => $_SESSION]);
     }
 }

@@ -16,7 +16,6 @@ class DeleteComment
     {
         $manageSession = new ManageSession();
         $manageSession->execute();
-
         $postRepository = new PostRepository();
         $postRepository->connection = new DatabaseConnection();
         $commentRepository = new CommentRepository();
@@ -28,24 +27,17 @@ class DeleteComment
         $post = $postRepository->getPost($comment->postId);
 
         $userRole = new CheckUserRole();
-        $comment->username = $userRepository->getUserFromId($post->userId)->username;
+        $comment->username = $userRepository->getUserFromId($comment->userId)->username;
 
-//        var_dump($comment);
-//        die();
+        if (($userRole->isAuthenticated($_SESSION['token'] ?? ''))
+        && ($userRole->isAdmin(empty($_SESSION['role']) ? 'Guest' : $_SESSION['role'])
+        || $userRole->isCurrentUser($comment->userId, $_SESSION['id'] ?? 0))) {
+            if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+                $success = $commentRepository->deleteComment($identifier);
 
-        if ($userRole->isAuthenticated($_SESSION['token'] ?? '')) {
-            if ($userRole->isAdmin(empty($_SESSION['role']) ?? 'Guest') || $userRole->isCurrentUser($comment->userId, $_SESSION['id'] ?? 0)) {
-                if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-//                    var_dump($comment->postId);
-//                    die();
-                    $success = $commentRepository->deleteComment($identifier);
-
-
+                header(sprintf('Location: ?action=post&id=%d', $comment->postId));
+                if (!$success) {
                     header(sprintf('Location: ?action=post&id=%d', $comment->postId));
-                    if (!$success) {
-
-                        header(sprintf('Location: ?action=post&id=%d', $comment->postId));
-                    }
                 }
             }
         } else {

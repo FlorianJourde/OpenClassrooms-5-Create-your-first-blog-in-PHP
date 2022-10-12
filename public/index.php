@@ -1,7 +1,5 @@
 <?php
 
-//define('__ROOT__', dirname(dirname(__FILE__)));
-
 require_once '../src/controllers/comment/AddComment.php';
 require_once '../src/controllers/comment/DeleteComment.php';
 require_once '../src/controllers/comment/HideComment.php';
@@ -192,17 +190,6 @@ try {
 } catch (Exception $e) {
     $errorMessage = $e->getMessage();
 
-
     $twig = new RenderFront();
-    echo $twig->render('error.twig', ['errorMessage' => $errorMessage]);
-
-//    $loader = new \Twig\Loader\FilesystemLoader('../templates');
-//    $twig = new \Twig\Environment($loader, [
-////        'cache' => 'cache',
-//        'debug' => true
-//    ]);
-//
-//    $twig->addExtension(new \Twig\Extension\DebugExtension());
-//
-//    echo $twig->render('error.twig', ['errorMessage' => $errorMessage]);
+    echo $twig->render('error.twig', ['errorMessage' => $errorMessage, 'session' => $_SESSION]);
 }

@@ -64,7 +64,7 @@
     align-items: flex-end;
     flex-direction: column;
     font-size: var(--fs-big-text);
-    min-width: 300px;
+    min-width: 350px;
     gap: 20px;
 }
 

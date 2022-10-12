@@ -159,7 +159,7 @@
         align-items: center;
         justify-content: center;
         gap: 30px;
-        box-shadow: inset 30px 0 50px #00000040;
+        box-shadow: inset 10px 0 30px #00000020;
         color: var(--clr-white);
         font-size: var(--fs-big-text);
         z-index: 100;

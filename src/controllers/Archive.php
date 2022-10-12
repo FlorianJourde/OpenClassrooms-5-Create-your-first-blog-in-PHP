@@ -14,15 +14,12 @@ class Archive
     {
         $manageSession = new ManageSession();
         $manageSession->execute();
-
         $postRepository = new PostRepository();
         $postRepository->connection = new DatabaseConnection();
-
         $userRepository = new UserRepository();
         $userRepository->connection = new DatabaseConnection();
 
         $posts =  $postRepository->getPosts();
-        
 
         foreach ($posts as $post) {
             $user = $userRepository->getUserFromId($post->userId);
@@ -31,6 +28,6 @@ class Archive
         }
 
         $twig = new RenderFront();
-        echo $twig->render('archive.twig', ['posts' => $posts, 'session' => $_SESSION/*, 'authors' => $userRepository->getUsers()*/]);
+        echo $twig->render('archive.twig', ['posts' => $posts, 'session' => $_SESSION]);
     }
 }

@@ -1,8 +1,7 @@
 {% block navbar %}
   <nav>
-    <div class="navbar{# padding-20#}">
+    <div class="navbar">
         <div class="wrapper">
-            {# {{ dump(session) }} #}
             <div class="logo">
                 <a href="/">
                     <img src="/public/ressources/images/logo.svg" alt=""> Florian <br> Jourde
@@ -10,7 +9,6 @@
             </div>
             <a type="button" class="open-menu mobile-only"><i class="fas fa-bars"></i></a>
             <div class="menu desktop-only">
-{#                <a type="button" class="close-menu"><i class="fas fa-times"></i></a>#}
                 <ul class="navigation-links">
                     <li><a class="button-tertiary button-dark-yellow" href="?action=archive">Articles</a></li>
                     <li><a class="button-tertiary button-dark-yellow" href="?action=contact">Contact</a></li>
@@ -40,7 +38,6 @@
                   <li><a class="button-tertiary button-white" href="?action=addPost">Ajouter un article</a></li>
               </ul>
           </div>
-          {# </div> #}
       </div>
   {% endif %}
   </nav>

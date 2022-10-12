@@ -10,15 +10,16 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Flow+Rounded&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Flow+Circular&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/3297382b62.js" crossorigin="anonymous"></script>
     <title>{% block title %}Accueil{% endblock %} | Florian Jourde</title>
 </head>
 <body>
-{#    <div class="layout">#}
-        {% include 'partials/navbar.twig' %}
-        {% block content %}{% endblock %}
-        {% include 'partials/footer.twig' %}
-        <script src="/public/ressources/js/main.js" type="module"></script>
-{#    </div>#}
+    {% include 'partials/navbar.twig' %}
+    {% block content %}{% endblock %}
+    {% include 'partials/footer.twig' %}
+    {% include 'partials/top_page.twig' %}
+    <script src="/public/ressources/js/main.js" type="module"></script>
 </body>
 </html>

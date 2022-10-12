@@ -3,20 +3,20 @@
 {% block title %}Accueil{% endblock %}
 
 {% block content %}
-    <section class="banner home" style="background-image: url('/public/ressources/images/monokai-1.jpg');">
+    <section class="banner home">
         <div class="wrapper">
             <div class="introduction">
                 <div class="title">
                     <h1>Bienvenue sur mon blog !</h1>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus elementum iaculis mauris. Suspendisse nec mauris elit.</p>
-                    <p>Fusce consectetur sem at risus vestibulum, gravida dapibus dolor tincidunt.</p>
+                    <p class="placeholder">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus elementum iaculis mauris. Suspendisse nec mauris elit.</p>
+                    <p class="placeholder">Fusce consectetur sem at risus vestibulum, gravida dapibus dolor tincidunt.</p>
                     <a href="/#partners" role="button"><i class="fas fa-arrow-down"></i></a>
                 </div>
                 <div class="box">
                     <h2>Voir la vie en <span style="font-size: var(--fs-very-big-title);">
                         <span style="color: var(--clr-orange)">M</span><span style="color: var(--clr-blue)">o</span><span style="color: var(--clr-pink)">n</span><span style="color: var(--clr-green)">o</span><span style="color: var(--clr-yellow)">k</span><span style="color: var(--clr-purple)">a</span><span style="color: var(--clr-orange)">i</span>
                      !</span></h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus elementum dui sit amet felis condimentum auctor et ac tortor. Nullam eget iaculis mauris. Suspendisse nec mauris elit. Fusce consectetur sem at risus vestibulum, gravida dapibus dolor tincidunt. Etiam nisi turpis, consectetur vel consequat viverra, varius eu arcu.</p>
+                    <p class="placeholder">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus elementum dui sit amet felis condimentum auctor et ac tortor. Nullam eget iaculis mauris. Suspendisse nec mauris elit. Fusce consectetur sem at risus vestibulum, gravida dapibus dolor tincidunt. Etiam nisi turpis, consectetur vel consequat viverra, varius eu arcu.</p>
                 </div>
             </div>
         </div>
@@ -25,12 +25,12 @@
     <section id="partners" class="partners">
         <div class="wrapper">
             <ul>
-                <li><a href="github.com"><img src="/public/ressources/images/github.png" alt=""></a></li>
-                <li><a href="github.com"><img src="/public/ressources/images/twitter.png" alt=""></a></li>
-                <li><a href="github.com"><img src="/public/ressources/images/frontend-mentor.png" alt=""></a></li>
-                <li><a href="github.com"><img src="/public/ressources/images/linkedin.png" alt=""></a></li>
-                <li><a href="github.com"><img src="/public/ressources/images/codewars.png" alt=""></a></li>
-                <li><a href="github.com"><img src="/public/ressources/images/senscritique.png" alt=""></a></li>
+                <li><a target="_blank" href="https://github.com/FlorianJourde"><img src="/public/ressources/images/github.png" alt=""></a></li>
+                <li><a target="_blank" href="https://twitter.com/Ctrl_FJ"><img src="/public/ressources/images/twitter.png" alt=""></a></li>
+                <li><a target="_blank" href="https://www.frontendmentor.io/profile/FlorianJourde"><img src="/public/ressources/images/frontend-mentor.png" alt=""></a></li>
+                <li><a target="_blank" href="https://www.linkedin.com/in/florianjourde/"><img src="/public/ressources/images/linkedin.png" alt=""></a></li>
+                <li><a target="_blank" href="https://www.codewars.com/users/FlorianJourde"><img src="/public/ressources/images/codewars.png" alt=""></a></li>
+                <li><a target="_blank" href="https://www.senscritique.com/JourdeFlorian"><img src="/public/ressources/images/senscritique.png" alt=""></a></li>
             </ul>
         </div>
     </section>
@@ -49,7 +49,7 @@
                         {% endif %}
                         <div class="content">
                             <h3 class="title">{{ post.title }}</h3>
-                            <p class="description">{{ post.content|length > 50 ? post.content|slice(0, 100) ~ '...' : post.content  }}</p>
+                            <p class="description placeholder">{{ post.content|length > 50 ? post.content|slice(0, 100) ~ '...' : post.content  }}</p>
                             <a class="button-secondary button-white" href="?action=post&id={{ post.identifier }}">Lire l'article<i class="fas fa-arrow-right"></i></a>
                         </div>
                     </div>
@@ -60,139 +60,105 @@
     <section class="portrait position-relative">
         <img class="vector-shape vector-shape-top" src="/public/ressources/images/vector-top-right-white-3.svg" alt="">
         <div class="wrapper">
-{#            <div class="">#}
-{#                <div>#}
-                <img class="profile-picture" src="/public/ressources/images/florian.jpg" alt="">
-{#                </div>#}
-                <div class="presentation">
-                    <h2>Bienvenue sur mon blog !</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus elementum iaculis mauris. Suspendisse nec mauris elit.</p>
-                    <p>Fusce consectetur sem at risus vestibulum, gravida dapibus dolor tincidunt.</p>
-                </div>
-{#                <div class="box">#}
-{#                    <h2>Voir la vie en <span style="font-size: var(--fs-very-big-title);"><br>#}
-{#                        <span style="color: var(--clr-dark-orange)">M</span><span style="color: var(--clr-dark-blue)">o</span><span style="color: var(--clr-dark-pink)">n</span><span style="color: var(--clr-dark-green)">o</span><span style="color: var(--clr-dark-yellow)">k</span><span style="color: var(--clr-dark-purple)">a</span><span style="color: var(--clr-dark-orange)">i</span>#}
-{#                     !</span></h2>#}
-{#                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus elementum dui sit amet felis condimentum auctor et ac tortor. Nullam eget iaculis mauris. Suspendisse nec mauris elit. Fusce consectetur sem at risus vestibulum, gravida dapibus dolor tincidunt. Etiam nisi turpis, consectetur vel consequat viverra, varius eu arcu.</p>#}
-{#                </div>#}
-{#            </div>#}
+            <img class="profile-picture" src="/public/ressources/images/florian.jpg" alt="">
+            <div class="presentation">
+                <h2>Bienvenue sur mon blog !</h2>
+                <p class="placeholder">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus elementum iaculis mauris. Suspendisse nec mauris elit.</p>
+                <p class="placeholder">Fusce consectetur sem at risus vestibulum, gravida dapibus dolor tincidunt.</p>
+            </div>
         </div>
         <img class="vector-shape vector-shape-bottom" src="/public/ressources/images/vector-bottom-left-white.svg" alt="">
     </section>
-
     <section class="achievements">
         <div class="wrapper">
-            <h2 class="section-title">Realisations</h2>
+            <h2 class="section-title">Réalisations</h2>
             <ul>
                 <li>
-{#                    <a target="_blank" href="http://chaletsetcaviar.florianjourde.com/">#}
-                        <img src="/public/ressources/images/min/chalets-et-caviar-min.jpg" alt="">
-                        <div class="description">
-                            <h3>Chalets & Caviar</h3>
-                            <div class="links">
-                                {#                            <p>Description du projet</p>#}
-                                <a target="_blank" class="button-secondary button-white button-small" href="http://chaletsetcaviar.florianjourde.com/"><i class="fas fa-globe"></i>Site</a>
-                                <a target="_blank" class="button-secondary button-white button-small" href="http://chaletsetcaviar.florianjourde.com/"><i class="fab fa-github"></i>Dépot</a>
-                            </div>
+                    <img src="/public/ressources/images/min/chalets-et-caviar-min.jpg" alt="">
+                    <div class="description">
+                        <h3>Chalets & Caviar</h3>
+                        <div class="links">
+                            <a target="_blank" class="button-secondary button-white button-small" href="http://chaletsetcaviar.florianjourde.com/"><i class="fas fa-globe"></i>Site</a>
+                            <a target="_blank" class="button-secondary button-white button-small" href="https://github.com/FlorianJourde/OpenClassrooms-2-Wordpress-theme-integration-for-a-client"><i class="fab fa-github"></i>Dépot</a>
                         </div>
-{#                    </a>#}
+                    </div>
                 </li>
                 <li>
-{#                    <a target="_blank" href="http://chaletsetcaviar.florianjourde.com/">#}
-                        <img src="/public/ressources/images/min/les-films-de-plein-air-min.jpg" alt="">
-                        <div class="description">
-                            <h3>Les Films de plein air</h3>
-                            <div class="links">
-{#                            <p>Description du projet</p>#}
-                                <a target="_blank" class="button-secondary button-white button-small" href="http://lesfilmsdepleinair.florianjourde.com/"><i class="fas fa-globe"></i>Site</a>
-                            <a target="_blank" class="button-secondary button-white button-small" href="http://lesfilmsdepleinair.florianjourde.com/"><i class="fab fa-github"></i>Dépot</a>
-                            </div>
+                    <img src="/public/ressources/images/min/les-films-de-plein-air-min.jpg" alt="">
+                    <div class="description">
+                        <h3>Les Films de plein air</h3>
+                        <div class="links">
+                            <a target="_blank" class="button-secondary button-white button-small" href="http://lesfilmsdepleinair.florianjourde.com/"><i class="fas fa-globe"></i>Site</a>
+                        <a target="_blank" class="button-secondary button-white button-small" href="https://github.com/FlorianJourde/OpenClassrooms-3-Analyze-your-client-s-needs-for-their-film-festival"><i class="fab fa-github"></i>Dépot</a>
                         </div>
-{#                    </a>#}
+                    </div>
                 </li>
                 <li>
-{#                    <a target="_blank" href="https://florianjourde.github.io/Frontend-Mentor-17-Blogr-landing-page/">#}
-                        <img src="/public/ressources/images/min/blogr-min.jpg" alt="">
-                        <div class="description">
-                            <h3>Blogr</h3>
-                            <div class="links">
-                                {#                            <p>Description du projet</p>#}
-                                <a target="_blank" class="button-secondary button-white button-small" href="https://florianjourde.github.io/Frontend-Mentor-17-Blogr-landing-page/"><i class="fas fa-globe"></i>Site</a>
-                                <a target="_blank" class="button-secondary button-white button-small" href="https://florianjourde.github.io/Frontend-Mentor-17-Blogr-landing-page/"><i class="fab fa-github"></i>Dépot</a>
-                            </div>
+                    <img src="/public/ressources/images/min/blogr-min.jpg" alt="">
+                    <div class="description">
+                        <h3>Blogr</h3>
+                        <div class="links">
+                            <a target="_blank" class="button-secondary button-white button-small" href="https://florianjourde.github.io/Frontend-Mentor-17-Blogr-landing-page/"><i class="fas fa-globe"></i>Site</a>
+                            <a target="_blank" class="button-secondary button-white button-small" href="https://github.com/FlorianJourde/Frontend-Mentor-17-Blogr-landing-page"><i class="fab fa-github"></i>Dépot</a>
                         </div>
-{#                    </a>#}
+                    </div>
                 </li>
                 <li>
-{#                    <a target="_blank" href="https://florianjourde.github.io/Frontend-Mentor-16-Sunnyside-agency-landing-page/">#}
-                        <img src="/public/ressources/images/min/sunnyside-min.jpg" alt="">
-                        <div class="description">
-                            <h3>Sunnyside</h3>
-                            <div class="links">
-                                {#                            <p>Description du projet</p>#}
-                                <a target="_blank" class="button-secondary button-white button-small" href="https://florianjourde.github.io/Frontend-Mentor-16-Sunnyside-agency-landing-page/"><i class="fas fa-globe"></i>Site</a>
-                                <a target="_blank" class="button-secondary button-white button-small" href="https://florianjourde.github.io/Frontend-Mentor-16-Sunnyside-agency-landing-page/"><i class="fab fa-github"></i>Dépot</a>
-                            </div>
+                    <img src="/public/ressources/images/min/sunnyside-min.jpg" alt="">
+                    <div class="description">
+                        <h3>Sunnyside</h3>
+                        <div class="links">
+                            <a target="_blank" class="button-secondary button-white button-small" href="https://florianjourde.github.io/Frontend-Mentor-16-Sunnyside-agency-landing-page/"><i class="fas fa-globe"></i>Site</a>
+                            <a target="_blank" class="button-secondary button-white button-small" href="https://github.com/FlorianJourde/Frontend-Mentor-16-Sunnyside-agency-landing-page"><i class="fab fa-github"></i>Dépot</a>
                         </div>
-{#                    </a>#}
+                    </div>
                 </li>
                 <li>
-{#                    <a target="_blank" href="https://florianjourde.github.io/Frontend-Mentor-15-Tip-calculator-app/">#}
-                        <img src="/public/ressources/images/min/splitter-min.jpg" alt="">
-                        <div class="description">
-                            <h3>Splitter</h3>
-                            <div class="links">
-                                {#                            <p>Description du projet</p>#}
-                                <a target="_blank" class="button-secondary button-white button-small" href="https://florianjourde.github.io/Frontend-Mentor-15-Tip-calculator-app/"><i class="fas fa-globe"></i>Site</a>
-                                <a target="_blank" class="button-secondary button-white button-small" href="https://florianjourde.github.io/Frontend-Mentor-15-Tip-calculator-app/"><i class="fab fa-github"></i>Dépot</a>
-                            </div>
+                    <img src="/public/ressources/images/min/splitter-min.jpg" alt="">
+                    <div class="description">
+                        <h3>Splitter</h3>
+                        <div class="links">
+                            <a target="_blank" class="button-secondary button-white button-small" href="https://florianjourde.github.io/Frontend-Mentor-15-Tip-calculator-app/"><i class="fas fa-globe"></i>Site</a>
+                            <a target="_blank" class="button-secondary button-white button-small" href="https://github.com/FlorianJourde/Frontend-Mentor-15-Tip-calculator-app"><i class="fab fa-github"></i>Dépot</a>
                         </div>
-{#                    </a>#}
+                    </div>
                 </li>
                 <li>
-{#                    <a target="_blank" href="https://florianjourde.github.io/Frontend-Mentor-14-Time-tracking-dashboard/">#}
-                        <img src="/public/ressources/images/min/time-tracker-min.jpg" alt="">
-                        <div class="description">
-                            <h3>Time Tracker</h3>
-                            <div class="links">
-                                {#                            <p>Description du projet</p>#}
-                                <a target="_blank" class="button-secondary button-white button-small" href="https://florianjourde.github.io/Frontend-Mentor-14-Time-tracking-dashboard/"><i class="fas fa-globe"></i>Site</a>
-                                <a target="_blank" class="button-secondary button-white button-small" href="https://florianjourde.github.io/Frontend-Mentor-14-Time-tracking-dashboard/"><i class="fab fa-github"></i>Dépot</a>
-                            </div>
+                    <img src="/public/ressources/images/min/time-tracker-min.jpg" alt="">
+                    <div class="description">
+                        <h3>Time Tracker</h3>
+                        <div class="links">
+                            <a target="_blank" class="button-secondary button-white button-small" href="https://florianjourde.github.io/Frontend-Mentor-14-Time-tracking-dashboard/"><i class="fas fa-globe"></i>Site</a>
+                            <a target="_blank" class="button-secondary button-white button-small" href="https://github.com/FlorianJourde/Frontend-Mentor-14-Time-tracking-dashboard"><i class="fab fa-github"></i>Dépot</a>
                         </div>
-{#                    </a>#}
+                    </div>
                 </li>
             </ul>
         </div>
     </section>
-
-    <section class="skills position-relative">
+    <section class="skills position-relative ahead">
         <img class="vector-shape vector-shape-top" src="/public/ressources/images/vector-top-left-white-2.svg" alt="">
         <div class="wrapper">
             <h2 class="section-title">Compétences</h2>
             <ul>
-{#                <li><img src="/public/ressources/images/logos/css-logo.png" alt=""><h3>CSS</h3></li>#}
-                <li><img src="/public/ressources/images/logos/figma-logo.png" alt=""><h3 style="color: #a259ff;">Figma</h3></li>
-                <li><img src="/public/ressources/images/logos/git-logo.png" alt=""><h3 style="color: #de4c36;">Github</h3></li>
                 <li><img src="/public/ressources/images/logos/html-logo.png" alt=""><h3 style="color: #e44d26;">HTML</h3></li>
+                <li><img src="/public/ressources/images/logos/sass-logo.png" alt=""><h3 style="color: #cd6799;">Sass</h3></li>
+                <li><img src="/public/ressources/images/logos/javascript-logo.png" alt=""><h3 style="color: #000000;">Javascript</h3></li>
+                <li><img src="/public/ressources/images/logos/mysql-logo.png" alt=""><h3 style="color: #00758f;">MySQL</h3></li>
+                <li><img src="/public/ressources/images/logos/php-logo.png" alt=""><h3 style="color: #8993be;">PHP</h3></li>
+                <li><img src="/public/ressources/images/logos/symfony-logo.png" alt=""><h3 style="color: #1a171b;">Symfony</h3></li>
+                <li><img src="/public/ressources/images/logos/git-logo.png" alt=""><h3 style="color: #de4c36;">Github</h3></li>
+                <li><img src="/public/ressources/images/logos/wordpress-logo.png" alt=""><h3 style="color: #32373c;">Wordpress</h3></li>
+                <li><img src="/public/ressources/images/logos/twig-logo.png" alt=""><h3 style="color: #52820f;">Twig</h3></li>
+                <li><img src="/public/ressources/images/logos/photoshop-logo.png" alt=""><h3 style="color: #31a8ff;">Photoshop</h3></li>
                 <li><img src="/public/ressources/images/logos/illustrator-logo.png" alt=""><h3 style="color: #df8600;">Illustrator</h3></li>
                 <li><img src="/public/ressources/images/logos/indesign-logo.png" alt=""><h3 style="color: #ff3068;">InDesign</h3></li>
-                <li><img src="/public/ressources/images/logos/javascript-logo.png" alt=""><h3 style="color: #000000;">Javascript</h3></li>
                 <li><img src="/public/ressources/images/logos/jquery-logo.png" alt=""><h3 style="color: #1266a9;">jQuery</h3></li>
-{#                <li><img src="/public/ressources/images/logos/mongo-db-logo.png" alt=""><h3 style'=color:'' MongoDB</h3></li>#}
-                <li><img src="/public/ressources/images/logos/mysql-logo.png" alt=""><h3 style="color: #00758f;">MySQL</h3></li>
-                <li><img src="/public/ressources/images/logos/photoshop-logo.png" alt=""><h3 style="color: #31a8ff;">Photoshop</h3></li>
-                <li><img src="/public/ressources/images/logos/php-logo.png" alt=""><h3 style="color: #8993be;">PHP</h3></li>
-                <li><img src="/public/ressources/images/logos/sass-logo.png" alt=""><h3 style="color: #cd6799;">Sass</h3></li>
-                <li><img src="/public/ressources/images/logos/symfony-logo.png" alt=""><h3 style="color: #1a171b;">Symfony</h3></li>
-                <li><img src="/public/ressources/images/logos/twig-logo.png" alt=""><h3 style="color: #52820f;">Twig</h3></li>
                 <li><img src="/public/ressources/images/logos/vue-js-logo.png" alt=""><h3 style="color: #41b883;">Vue.js</h3></li>
-                <li><img src="/public/ressources/images/logos/wordpress-logo.png" alt=""><h3 style="color: #32373c;">Wordpress</h3></li>
+                <li><img src="/public/ressources/images/logos/figma-logo.png" alt=""><h3 style="color: #a259ff;">Figma</h3></li>
             </ul>
         </div>
     </section>
-
-{#    {% include 'partials/work.twig' %}#}
     <section class="work position-relative">
         <img class="vector-shape vector-shape-top" src="/public/ressources/images/vector-top-left-very-light-grey-2.svg" alt="">
         <div class="wrapper">

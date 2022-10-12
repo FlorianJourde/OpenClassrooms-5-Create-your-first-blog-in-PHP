@@ -55,10 +55,10 @@ class PostRepository
         if (!is_int($identifier)) { return false; }
 
         $statement = $this->connection->getConnection()->prepare(
-            "DELETE posts, comments FROM posts INNER JOIN comments ON posts.id = comments.post_id WHERE posts . id = ?"
+            "DELETE FROM posts WHERE posts.id = ? ; DELETE FROM comments WHERE post_id = ?"
         );
 
-        $affectedLines = $statement->execute([$identifier]);
+        $affectedLines = $statement->execute([$identifier, $identifier]);
 
         return ($affectedLines > 0);
     }
@@ -85,9 +85,6 @@ class PostRepository
         );
 
         $affectedLines = $statement->execute([$userId,  $title, $content, $status, $imageName]);
-
-        // var_dump($userId,  $title, $content, $status, $imageName);
-        // die();
 
         return ($affectedLines > 0);
     }

@@ -1,7 +1,10 @@
 @import "_browser.css";
+@import "_buttons.scss";
 @import "_footer.css";
 @import "_general.css";
 @import "_navbar.css";
 @import "_post.css";
+@import "_reset.css";
 @import "_root.css";
 @import "_responsive.css";
+@import "_top-page.css";

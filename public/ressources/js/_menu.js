@@ -9,11 +9,12 @@ export default function toggleMenu() {
     let nav = document.querySelector('nav');
     let footer = document.querySelector('footer');
     let main = document.querySelector('main');
+    let topPageButton = document.querySelector('#top-page-button');
 
-    console.log(menu);
+    // console.log(menu);
 
     openMenu.addEventListener('click', function() {
-        console.log(this);
+        // console.log(this);
         // body.classList.add('menu-open');
         sections.forEach(section => section.classList.add('menu-open'));
         menu.classList.add('menu-open');
@@ -21,10 +22,11 @@ export default function toggleMenu() {
         nav.classList.add('menu-open');
         footer.classList.add('menu-open');
         main.classList.add('menu-open');
+        topPageButton.classList.add('menu-open');
     })
 
     closeMenu.addEventListener('click', function() {
-        console.log(this);
+        // console.log(this);
         // body.classList.remove('menu-open');
         sections.forEach(section => section.classList.remove('menu-open'));
         menu.classList.remove('menu-open');
@@ -32,5 +34,6 @@ export default function toggleMenu() {
         nav.classList.remove('menu-open');
         footer.classList.remove('menu-open');
         main.classList.remove('menu-open');
+        topPageButton.classList.remove('menu-open');
     })
 }

@@ -9,35 +9,17 @@
                 <h1>{{ post.title }}</h1>
             </div>
         </div>
-        {# <div class="vector-shape"> #}
-            <img class="vector-shape vector-shape-bottom" src="/public/ressources/images/vector-bottom-right-white.svg" alt="">
-        {# </div> #}
+        <img class="vector-shape vector-shape-bottom" src="/public/ressources/images/vector-bottom-right-white.svg" alt="">
     </section>
-
     <main class="single">
         <div class="wrapper">
-            {# <div class="posts"> #}
-                <div class="post page">
-{#                    <div class="title">#}
-{#                        {% if session.role == 'Admin' %}#}
-{#                            <div class="actions">#}
-{#                                <a href="?action=updatePost&id={{ post.identifier }}">Modifier</a>#}
-{#                                <a href="?action=deletePost&id={{ post.identifier }}">Supprimer</a>#}
-{#                            </div>#}
-{#                        {% endif %}#}
-{#                    </div>#}
-{#                    <div class="content">#}
-                        <p class="description">{{ post.content }}</p>
-{#                        <p><span class="author">{{ post.username }}</span> le <span class="date">{{ post.creationDate }}</span></p>#}
-{#                    </div>#}
-
-
-                    <div class="infos icon-spacing">
-                        <h3><i class="fas fa-user"></i>{{ post.username }}</h3>
-                        <p><i class="fas fa-calendar"></i>{{ post.creationDate }}</p>
-                    </div>
+            <div class="post page">
+                <p class="description">{{ post.content }}</p>
+                <div class="infos icon-spacing">
+                    <h3><i class="fas fa-user"></i>{{ post.username }}</h3>
+                    <p><i class="fas fa-calendar"></i>{{ post.creationDate }}</p>
                 </div>
-            {# </div> #}            
+            </div>
         </div>
     </main>
     {% if (comments is not empty) or (session.role is defined) %}
@@ -66,16 +48,10 @@
                     {% endfor %}
                 {% endif %}
                 {% if session.role is defined %}
-                    <h2 class="title">Ajouter un commentaire</h2>
+                    <h2 class="section-title">Ajouter un commentaire</h2>
                     <form action="?action=addComment&id={{ post.identifier }}" method="post">
-                        <div class="user"></div>
-                        <div>
-{#                            <label for="comment">Commentaire</label><br />#}
-                            <textarea id="comment" name="comment"></textarea>
-                        </div>
-                        <div>
-                            <input class="button-form button-very-dark-grey" type="submit" />
-                        </div>
+                        <textarea id="comment" name="comment"></textarea>
+                        <input class="button-form button-very-dark-grey" type="submit" />
                     </form>
                 {% endif %}
             </div>

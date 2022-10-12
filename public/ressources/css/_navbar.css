@@ -43,10 +43,6 @@ section, nav, main, footer {
   transition: transform .4s;
 }
 
-section.menu-open, nav.menu-open, main.menu-open, footer.menu-open, #top-page-button.menu-open {
-  transform: translateX(-300px);
-}
-
 .open-menu, .close-menu {
   font-size: var(--fs-title);
   cursor: pointer;

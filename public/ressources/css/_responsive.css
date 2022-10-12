@@ -165,6 +165,10 @@
         z-index: 100;
     }
 
+    section.menu-open, nav.menu-open, main.menu-open, footer.menu-open, #top-page-button.menu-open {
+        transform: translateX(-300px);
+    }
+
     .menu.menu-open {
         transform: translateX(0);
     }

@@ -4,6 +4,7 @@
     font-size: var(--fs-big-title);
     margin-bottom: 50px;
     font-family: var(--ff-secondary);
+    font-weight: 600;
 }
 
 .section-title::before {
@@ -145,6 +146,7 @@
 .introduction .box h2 {
     font-size: var(--fs-big-title);
     font-family: var(--ff-secondary);
+    font-weight: 600;
     text-align: center;
 }
 

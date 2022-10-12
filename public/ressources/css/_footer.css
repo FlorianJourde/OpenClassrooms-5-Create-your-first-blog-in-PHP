@@ -13,17 +13,16 @@ footer .logo img {
 }
 
 footer .logo {
-  font-family: var(--ff-secondary);
   display: flex;
   gap: 20px;
   align-items: center;
   text-align: center;
+  font-weight: 600;
+  font-family: var(--ff-secondary);
 }
 
 footer .logo p {
   text-transform: uppercase;
-  font-weight: 600;
-  font-family: var(--ff-secondary);
   font-size: var(--fs-small-title);
 }
 

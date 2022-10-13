@@ -76,7 +76,7 @@ class PostRepository
         return ($affectedLines > 0);
     }
 
-    public function createPost(int $userId, string $title, string $content, bool $status, string $imageName): bool
+    public function createPost(int $userId, string $title, string $content, bool $status, ?string $imageName): bool
     {
         if (!is_int($userId)) { return false; }
 

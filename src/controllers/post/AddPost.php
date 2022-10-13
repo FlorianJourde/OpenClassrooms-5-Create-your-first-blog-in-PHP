@@ -27,15 +27,10 @@ class AddPost
             if (!empty($input)) {
             $title = null;
             $content = null;
+            $file = $_FILES['file']['error'] !== 0 ? null : $_FILES['file'];
 
-            var_dump($_POST);
-            var_dump($_FILES);
-
-            if(isset($_FILES['file'])) {
+            if(isset($file)) {
                 $tmpName = $_FILES['file']['tmp_name'];
-//                var_dump($_FILES['file']);
-//                die();
-
                 $name = $_FILES['file']['name'];
                 $size = $_FILES['file']['size'];
                 $error = $_FILES['file']['error'];
@@ -50,13 +45,9 @@ class AddPost
                     $uniqueName = uniqid('', true);
                     $file = $uniqueName . "." . $extension;
 
-                    move_uploaded_file($tmpName, '../public/ressources/images/' . $file);
-                } else {
-                    throw new \Exception('Le fichier est trop volumineux ou son extension n\'est pas valide.');
+                    move_uploaded_file($tmpName, '../public/ressources/images/posts/' . $file);
                 }
             }
-
-            // var_dump($file);
 
             if (!empty($input['title']) && !empty($input['content'])) {
                 $title = $input['title'];
@@ -79,6 +70,6 @@ class AddPost
         }
 
         $twig = new RenderFront();
-        echo $twig->render('add_post.twig', [/*'content' => */'session' => $_SESSION]);
+        echo $twig->render('add_post.twig', ['session' => $_SESSION]);
     }
 }

@@ -167,20 +167,13 @@ try {
                 throw new Exception('Aucun identifiant de commentaire envoyé');
             }
         } elseif ($_GET['action'] === 'contact') {
-//            if (isset($_GET['id']) && $_GET['id'] > 0) {
-//                $identifier = $_GET['id'];
                 $input = null;
 
                 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     $input = $_POST;
-//                    var_dump($_POST);
-//                    die();
                 }
 
                 (new Contact())->execute($input);
-//            } else {
-//                throw new Exception('Aucun identifiant de commentaire envoyé');
-//            }
         } else {
             throw new Exception("La page que vous recherchez n'existe pas.");
         }

@@ -15,22 +15,14 @@ class UpdatePost
     {
         $manageSession = new ManageSession();
         $manageSession->execute();
-
         $postRepository = new PostRepository();
         $postRepository->connection = new DatabaseConnection();
         $post = $postRepository->getPost($identifier);
-
         $userRepository = new UserRepository();
         $userRepository->connection = new DatabaseConnection();
         $user = $userRepository->getUserFromId($postRepository->getPost($identifier)->userId)->username;
-
         $userRole = new CheckUserRole();
-
-
         $post->image === null ? $post->image = 'placeholder-min.jpg' : $post->image;
-
-//        var_dump($post);
-//        die();
 
         if ($userRole->isAuthenticated($_SESSION['token'] ?? '')) {
             if ($userRole->isAdmin($_SESSION['role'] ?? 'Guest')) {

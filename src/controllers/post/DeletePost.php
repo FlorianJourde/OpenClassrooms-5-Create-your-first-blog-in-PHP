@@ -15,7 +15,6 @@ class DeletePost
     {
         $manageSession = new ManageSession();
         $manageSession->execute();
-
         $postRepository = new PostRepository();
         $postRepository->connection = new DatabaseConnection();
         $userRepository = new UserRepository();
@@ -33,6 +32,9 @@ class DeletePost
                     $success = $postRepository->deletePost($identifier);
 
                     if ($success) {
+                        if ($post->image !== 'placeholder-min.jpg') {
+                            unlink('../public/ressources/images/posts/' . $post->image);
+                        };
                         header(sprintf('Location: ?action=archive'));
                     } else {
                         header(sprintf('Location: ?action=post&id=%d', $identifier));

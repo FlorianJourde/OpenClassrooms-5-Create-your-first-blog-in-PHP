@@ -149,7 +149,7 @@
   border: 3px solid var(--clr-dark-yellow);
 }
 
-.button-primary.button-yellow:hover, .button-primary.button-pink:hover {
+.button-primary.button-yellow:hover, .button-primary.button-pink:hover, .button-primary.button-blue:hover {
   background-color: var(--clr-very-dark-grey);
   border: 3px solid var(--clr-very-dark-grey);
 }

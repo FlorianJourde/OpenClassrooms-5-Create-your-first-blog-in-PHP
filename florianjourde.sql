@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : lun. 10 oct. 2022 à 19:00
+-- Généré le : jeu. 13 oct. 2022 à 00:41
 -- Version du serveur : 5.7.36
 -- Version de PHP : 7.4.26
 
@@ -36,36 +36,31 @@ CREATE TABLE IF NOT EXISTS `comments` (
   `status` tinyint(1) DEFAULT NULL,
   `creation_date` datetime NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=121 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=156 DEFAULT CHARSET=utf8;
 
 --
 -- Déchargement des données de la table `comments`
 --
 
 INSERT INTO `comments` (`id`, `user_id`, `post_id`, `content`, `status`, `creation_date`) VALUES
-(4, 2, 1, 'J\'écris un nouveau commentaire', 0, '2022-05-26 18:52:38'),
-(5, 2, 1, 'Sympa ce blog !', 1, '2022-05-26 18:53:56'),
-(10, 2, 1, 'Contenu de l\'articleee', 1, '2022-06-17 15:29:54'),
-(11, 2, 1, '\r\n  $commentRepository->connection = new DatabaseConnection();', 1, '2022-06-22 23:08:46'),
-(17, 2, 1, 'Code refactoriséddcdc', 1, '2022-06-22 23:52:15'),
-(35, 2, 1, 'Preum\'s', 1, '2022-03-03 13:00:42'),
-(56, 1, 9, 'ok', 1, '2022-09-27 22:17:44'),
-(57, 1, 9, 'ok', 1, '2022-09-27 22:17:46'),
-(106, 1, 24, 'bla bla bla', 1, '2022-10-07 15:00:12'),
-(107, 1, 24, 'Un nouveau commentaire est apparaît sur le blog !', 1, '2022-10-07 15:00:25'),
-(108, 1, 25, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam ipsum dolor, varius eu tortor et, iaculis convallis magna. Etiam a nulla eu justo rutrum suscipit. Vestibulum sit amet turpis in ipsum bibendum scelerisque. In hac habitasse platea dictumst.', 1, '2022-10-07 15:02:25'),
-(109, 1, 25, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam ipsum dolor, varius eu tortor et, iaculis convallis magna. Etiam a nulla eu justo rutrum suscipit. Vestibulum sit amet turpis in ipsum bibendum scelerisque. In hac habitasse platea dictumst. Mauris mollis dolor quis est gravida auctor. Sed condimentum vestibulum leo, dapibus vulputate enim porttitor sed. Sed non nulla sed odio consectetur ornare vel in est.', 1, '2022-10-07 15:02:29'),
-(110, 1, 25, 'Mauris mollis dolor quis est gravida auctor. Sed condimentum vestibulum leo, dapibus vulputate enim porttitor sed. Sed non nulla sed odio consectetur ornare vel in est. Vivamus imperdiet, sapien eu venenatis lobortis, eros risus eleifend augue, non aliquet velit turpis blandit nisl. Duis feugiat mollis purus eu posuere. Pellentesque malesuada ut justo a pretium.', 1, '2022-10-07 15:02:35'),
-(111, 1, 25, 'Commentaire !', 1, '2022-10-07 15:02:43'),
-(112, 1, 24, 'C\'est ça, le nouvel article ?', 0, '2022-10-07 20:20:12'),
-(113, 1, 25, 'Ajout d\'un commentaire', 0, '2022-10-07 20:22:24'),
-(114, 1, 25, 'Ajout d\'un commentaire', 0, '2022-10-07 20:22:46'),
-(115, 1, 25, 'sdcsdcdc', 1, '2022-10-07 20:23:26'),
-(116, 1, 25, 'Bonjour', 1, '2022-10-07 20:24:21'),
-(117, 1, 25, 'Ok ok ok', 1, '2022-10-07 20:24:55'),
-(118, 1, 25, 'dfvdsfvsfdv', 0, '2022-10-07 20:25:07'),
-(119, 1, 25, 'dfvdsfvsfdv', 1, '2022-10-07 20:27:36'),
-(120, 1, 25, 'dfvdfvfdv', 1, '2022-10-07 20:27:40');
+(138, 1, 41, 'Commentaire #1', 1, '2022-10-13 02:35:47'),
+(139, 1, 41, 'Commentaire #2', 1, '2022-10-13 02:35:52'),
+(140, 1, 41, 'Commentaire #3', 1, '2022-10-13 02:35:58'),
+(141, 1, 41, 'Commentaire #4', 1, '2022-10-13 02:36:04'),
+(142, 1, 42, 'Commentaire #5', 1, '2022-10-13 02:36:17'),
+(143, 1, 42, 'Commentaire #6', 1, '2022-10-13 02:36:23'),
+(144, 1, 45, 'Commentaire #7', 1, '2022-10-13 02:36:35'),
+(145, 1, 45, 'Commentaire #8', 0, '2022-10-13 02:36:40'),
+(146, 1, 45, 'Commentaire #9', 1, '2022-10-13 02:36:46'),
+(147, 1, 44, 'Commentaire #10', 1, '2022-10-13 02:36:57'),
+(148, 1, 44, 'Commentaire #11', 0, '2022-10-13 02:37:04'),
+(149, 1, 47, 'Commentaire #12', 0, '2022-10-13 02:37:14'),
+(150, 2, 47, 'Commentaire #13', 1, '2022-10-13 02:37:38'),
+(151, 2, 44, 'Commentaire #14', 0, '2022-10-13 02:37:49'),
+(152, 2, 42, 'Commentaire #15', 1, '2022-10-13 02:38:00'),
+(153, 2, 42, 'Commentaire #16', 1, '2022-10-13 02:38:04'),
+(154, 2, 41, 'Commentaire #17', 1, '2022-10-13 02:38:12'),
+(155, 2, 47, 'Commentaire #18', 1, '2022-10-13 02:38:23');
 
 -- --------------------------------------------------------
 
@@ -84,17 +79,18 @@ CREATE TABLE IF NOT EXISTS `posts` (
   `status` tinyint(1) NOT NULL,
   `image` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=48 DEFAULT CHARSET=utf8;
 
 --
 -- Déchargement des données de la table `posts`
 --
 
 INSERT INTO `posts` (`id`, `user_id`, `title`, `content`, `creation_date`, `update_date`, `status`, `image`) VALUES
-(1, 2, 'Bienvenue sur le blog de l\'AVBN !', 'Je vous souhaite à toutes et à tous la bienvenue sur le blog qui parlera de... l\'Association de VolleyBall de Nuelly !', '2022-02-17 16:28:41', '2022-09-08 14:31:41', 0, NULL),
-(23, 1, 'Titre de l\'article', 'Contenu', '2022-10-07 11:26:32', '2022-10-07 11:26:32', 1, '633ff0c84ae012.53960942.jpg'),
-(24, 1, 'Un nouvel article apparaît sur le blog !', 'Voici son contenu... voici son contenu... voici son contenu... voici son contenu... voici son contenu... voici son contenu... voici son contenu... voici son contenu... voici son contenu... voici son contenu... voici son contenu... voici son contenu... voici son contenu........', '2022-10-07 15:00:02', '2022-10-07 15:00:02', 1, '634022d2c9c967.04720386.jpg'),
-(25, 1, 'Article avec image', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam ipsum dolor, varius eu tortor et, iaculis convallis magna. Etiam a nulla eu justo rutrum suscipit. Vestibulum sit amet turpis in ipsum bibendum scelerisque. In hac habitasse platea dictumst. Mauris mollis dolor quis est gravida auctor. Sed condimentum vestibulum leo, dapibus vulputate enim porttitor sed. Sed non nulla sed odio consectetur ornare vel in est. Vivamus imperdiet, sapien eu venenatis lobortis, eros risus eleifend augue, non aliquet velit turpis blandit nisl. Duis feugiat mollis purus eu posuere. Pellentesque malesuada ut justo a pretium. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam ipsum dolor, varius eu tortor et, iaculis convallis magna. Etiam a nulla eu justo rutrum suscipit. Vestibulum sit amet turpis in ipsum bibendum scelerisque. In hac habitasse platea dictumst. Mauris mollis dolor quis est gravida auctor. Sed condimentum vestibulum leo, dapibus vulputate enim porttitor sed. Sed non nulla sed odio consectetur ornare vel in est. Vivamus imperdiet, sapien eu venenatis lobortis, eros risus eleifend augue, non aliquet velit turpis blandit nisl. Duis feugiat mollis purus eu posuere. Pellentesque malesuada ut justo a pretium.', '2022-10-07 15:02:13', '2022-10-07 15:02:13', 1, '634023558d8f27.34258472.jpg');
+(41, 1, 'Titre #1', 'Contenu #1', '2022-10-13 02:31:21', '2022-10-13 02:31:21', 1, '63475c593bb0e1.27094960.jpg'),
+(42, 1, 'Titre #2', 'Contenu #2', '2022-10-13 02:32:58', '2022-10-13 02:32:58', 1, '63475cba4bfbe2.50801012.jpg'),
+(44, 1, 'Titre #3', 'Contenu #3', '2022-10-13 02:34:03', '2022-10-13 02:34:03', 1, NULL),
+(45, 1, 'Titre #4', 'Contenu #4', '2022-10-13 02:34:30', '2022-10-13 02:34:30', 1, '63475d16523fc2.63648119.jpg'),
+(47, 1, 'Titre #5', 'Contenu #5', '2022-10-13 02:35:17', '2022-10-13 02:35:17', 1, NULL);
 
 -- --------------------------------------------------------
 
@@ -118,7 +114,7 @@ CREATE TABLE IF NOT EXISTS `users` (
 --
 
 INSERT INTO `users` (`id`, `username`, `email`, `role`, `password`, `token`) VALUES
-(1, 'Thierry', 'email@email.com', 'Admin', 'e10adc3949ba59abbe56e057f20f883e', NULL),
+(1, 'Thierry', 'email@email.com', 'Admin', 'e10adc3949ba59abbe56e057f20f883e', '57dfc5e6cfc43bedb99876e5edf70373'),
 (2, 'Robert', 'test@test.com', 'User', 'e10adc3949ba59abbe56e057f20f883e', NULL),
 (3, 'Christophe', 'email@email.fr', 'User', 'e10adc3949ba59abbe56e057f20f883e', NULL),
 (4, 'Gérard', 'test@test.fr', 'User', 'e10adc3949ba59abbe56e057f20f883e', NULL);

@@ -3,13 +3,13 @@
 {% block title %}{{ post.title }}{% endblock %}
 
 {% block content %}
-    <section class="banner offset-next-element" style="background-image: url('/public/ressources/images/{{ post.image }}');">
+    <section class="banner offset-next-element" style="background-image: url('/public/ressources/images/posts/{{ post.image }}');">
         <div class="wrapper">
             <div class="title">
                 <h1>{{ post.title }}</h1>
             </div>
         </div>
-        <img class="vector-shape vector-shape-bottom" src="/public/ressources/images/vector-bottom-right-white.svg" alt="">
+        <img class="vector-shape vector-shape-bottom" src="/public/ressources/images/vectors/vector-bottom-right-white.svg" alt="">
     </section>
     <main class="single">
         <div class="wrapper">
@@ -24,7 +24,7 @@
     </main>
     {% if (comments is not empty) or (session.role is defined) %}
         <section class="comments position-relative">
-            <img class="vector-shape vector-shape-top" src="/public/ressources/images/vector-top-left-white-2.svg" alt="">
+            <img class="vector-shape vector-shape-top" src="/public/ressources/images/vectors/vector-top-left-white-2.svg" alt="">
             <div class="wrapper">
                 {% if (comments is not empty) %}
                     <h2 class="section-title">Commentaires</h2>

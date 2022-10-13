@@ -26,14 +26,8 @@ class Homepage
     {
         $manageSession = new ManageSession();
         $manageSession->execute();
-
         $postRepository = new PostRepository();
         $postRepository->connection = new DatabaseConnection();
-
-//        var_dump($_SESSION);
-//        $userRepository = new UserRepository();
-//        $userRepository->checkToken($_SESSION['token'] ?? []);
-//        var_dump($userRepository->checkToken($_SESSION['token']));
 
         $posts = array_slice($postRepository->getPosts(),0, 3);
 

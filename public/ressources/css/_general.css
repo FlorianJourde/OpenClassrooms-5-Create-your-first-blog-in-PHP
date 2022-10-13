@@ -38,7 +38,7 @@
 .banner.home {
     padding-top: 100px;
     padding-bottom: 0;
-    background-image: url(/public/ressources/images/monokai-1.jpg);
+    background-image: url(/public/ressources/images/monokai/monokai-1.jpg);
 }
 
 .banner .title {
@@ -645,6 +645,10 @@ input[type="file"] {
 
 .error .fas, .error p {
     color: var(--clr-pink);
+}
+
+.management .box.error .fas, .management .box.error p {
+    color: var(--clr-blue);
 }
 
 .box .fas {

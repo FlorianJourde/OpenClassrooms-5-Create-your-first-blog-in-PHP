@@ -7,6 +7,7 @@ use Application\Lib\DatabaseConnection;
 use Application\Lib\ManageSession;
 use Application\Lib\RenderFront;
 use Application\Model\PostRepository;
+use Michelf\Markdown;
 
 class AddPost
 {
@@ -51,7 +52,7 @@ class AddPost
 
             if (!empty($input['title']) && !empty($input['content'])) {
                 $title = $input['title'];
-                $content = $input['content'];
+                $content = Markdown::defaultTransform($input['content']);
                 $userId = $_SESSION['id'];
                 $status = true;
             } else {

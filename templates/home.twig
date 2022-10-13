@@ -49,7 +49,7 @@
                         {% endif %}
                         <div class="content">
                             <h3 class="title">{{ post.title }}</h3>
-                            <p class="description placeholder">{{ post.content|length > 50 ? post.content|slice(0, 100) ~ '...' : post.content  }}</p>
+                            <p class="description placeholder">{{ post.content | striptags | slice(0, 100) ~ '...' }}</p>
                             <a class="button-secondary button-white" href="?action=post&id={{ post.identifier }}">Lire l'article<i class="fas fa-arrow-right"></i></a>
                         </div>
                     </div>

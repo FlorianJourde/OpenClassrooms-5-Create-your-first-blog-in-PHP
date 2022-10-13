@@ -12,6 +12,10 @@ input, button, textarea, select {
     font: inherit;
 }
 
+#content {
+    min-height: 400px;
+}
+
 input, textarea, ::-webkit-file-upload-button {
     width: 100%;
     padding: 20px;

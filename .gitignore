@@ -1,5 +1,6 @@
 .idea
-/tmp
-/vendor
 /cache/*
 !/cache/.gitkeep
+/node_modules
+/tmp
+/vendor

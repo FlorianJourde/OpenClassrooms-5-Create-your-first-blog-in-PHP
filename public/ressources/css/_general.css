@@ -337,6 +337,9 @@ main.single .post .infos p {
 
 main.single .post .description {
     font-size: var(--fs-big-text);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
 }
 
 .single .post > *:not(:last-child) {
@@ -363,6 +366,12 @@ main.single .post .description {
     margin-bottom: 30px;
 }
 
+.management .post .description {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
 .management .single {
     border-radius: 30px;
     padding: 40px;
@@ -378,6 +387,11 @@ main.single .post .description {
 
 .management .single .post {
     color: var(--clr-white);
+}
+
+.management .single .post .description a {
+    font-weight: 600;
+    color: var(--clr-very-dark-grey);
 }
 
 .management .post .header {

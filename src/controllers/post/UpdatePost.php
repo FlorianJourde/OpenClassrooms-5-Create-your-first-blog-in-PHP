@@ -8,6 +8,8 @@ use Application\Lib\ManageSession;
 use Application\Lib\RenderFront;
 use Application\Model\PostRepository;
 use Application\Model\UserRepository;
+use League\HTMLToMarkdown\HtmlConverter;
+use Michelf\Markdown;
 
 class UpdatePost
 {
@@ -23,6 +25,8 @@ class UpdatePost
         $user = $userRepository->getUserFromId($postRepository->getPost($identifier)->userId)->username;
         $userRole = new CheckUserRole();
         $post->image === null ? $post->image = 'placeholder-min.jpg' : $post->image;
+        $htmlToMarkdownConverter = new HtmlConverter();
+        $post->content = $htmlToMarkdownConverter->convert($post->content);
 
         if ($userRole->isAuthenticated($_SESSION['token'] ?? '')) {
             if ($userRole->isAdmin($_SESSION['role'] ?? 'Guest')) {
@@ -32,7 +36,7 @@ class UpdatePost
 
                     if (!empty($input['content']) && !empty($input['title'])) {
                         $title = $input['title'];
-                        $content = $input['content'];
+                        $content = Markdown::defaultTransform($input['content']);
                     } else {
                         throw new \Exception('Les données du formulaire sont invalides.');
                     }

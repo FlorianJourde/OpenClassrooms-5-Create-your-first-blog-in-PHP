@@ -31,6 +31,10 @@ class Homepage
 
         $posts = array_slice($postRepository->getPosts(),0, 3);
 
+        foreach ($posts as $post) {
+            $post->image === null ? $post->image = 'placeholder-min.jpg' : $post->image;
+        }
+
         $twig = new RenderFront();
         echo $twig->render('home.twig', ['posts' => $posts, 'session' => $_SESSION]);
     }

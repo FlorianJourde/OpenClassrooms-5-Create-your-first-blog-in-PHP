@@ -345,7 +345,16 @@
 }
 
 main.single {
-    padding-bottom: 100px;
+    /*padding-bottom: 100px;*/
+    margin-bottom: -100px;
+}
+
+.single + .comments-section {
+    /*padding-top: 100px;*/
+}
+
+.single + footer {
+    margin-top: 200px;
 }
 
 main.single .post .infos p {
@@ -567,7 +576,7 @@ main.single .post .description a {
 }
 
 .register, .login {
-    padding-bottom: 50px;
+    /*padding-bottom: 50px;*/
 }
 
 .update-post .page {

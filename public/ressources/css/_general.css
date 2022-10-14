@@ -55,7 +55,7 @@
     left: 0;
     position: absolute;
     opacity: 0.25;
-    background: radial-gradient(transparent 0%, black 100%);
+    background-color: var(--clr-dark-grey);
     pointer-events: none;
 }
 
@@ -226,6 +226,19 @@
     opacity: 0.5;
 }
 
+.achievements .reference {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    padding: 10px 20px;
+    border-radius: 10px;
+    color: var(--clr-white);
+    background-color: var(--clr-very-dark-grey);
+    box-shadow: 0 10px 20px #00000010;
+    transition: opacity .4s;
+    opacity: 0;
+}
+
 .achievements .description {
     position: absolute;
     bottom: 0;
@@ -242,6 +255,10 @@
 
 .achievements li:hover .description {
     transform: translateY(0);
+}
+
+.achievements li:hover .reference {
+    opacity: 1;
 }
 
 .achievements .description h3 {
@@ -342,8 +359,25 @@ main.single .post .description {
     gap: 20px;
 }
 
-.single .post > *:not(:last-child) {
-    margin-bottom: 40px;
+main.single .post .description a {
+    font-weight: 600;
+    color: var(--clr-orange);
+}
+
+
+.post .description.formated > * {
+    border-radius: 10px;
+}
+
+.post .description.formated > * > * {
+    max-width: 100%;
+    border-radius: 10px;
+}
+
+.description.formated p:has(code) {
+    background-color: var(--clr-dark-grey);
+    color: var(--clr-white);
+    padding: 10px 20px;
 }
 
 .actions.white a {
@@ -356,10 +390,6 @@ main.single .post .description {
 
 .actions a:hover {
     color: var(--clr-very-dark-grey);
-}
-
-.management .single > *:not(:last-child) {
-    margin-bottom: 30px;
 }
 
 .management .post > *:not(:last-child) {
@@ -378,10 +408,6 @@ main.single .post .description {
 }
 
 .management .single:not(:last-child) {
-    margin-bottom: 50px;
-}
-
-.page.management > *:not(:last-child) {
     margin-bottom: 50px;
 }
 
@@ -410,7 +436,7 @@ main.single .post .description {
     background-color: var(--clr-dark-pink);
 }
 
-.comments {
+.comments-section {
     padding-top: 300px;
     padding-bottom: 150px;
     background-color: var(--clr-very-light-grey);
@@ -510,14 +536,20 @@ main.single .post .description {
 .comment {
     border-radius: 20px;
     overflow: hidden;
-     box-shadow: var(--bs-primary);
+    box-shadow: var(--bs-primary);
     width: 100%;
     padding: 40px;
     background-color: var(--clr-white);
 }
 
-[class~='comment']:not(:last-of-type) {
-    margin-bottom: 40px;
+.comments {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.comments + * {
+    margin-top: 100px;
 }
 
 .introduction, .archive, .achievements, .skills {

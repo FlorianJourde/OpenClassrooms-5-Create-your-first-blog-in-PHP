@@ -13,6 +13,10 @@
         scroll-padding-top: 50px;
     }
 
+    form {
+        gap: 20px;
+    }
+
     .posts {
         grid-template-columns: repeat(1, 1fr);
         gap: 20px
@@ -87,6 +91,7 @@
     .page {
         padding: 30px;
         border-radius: 30px;
+        gap: 20px;
     }
     
     .button-form, ::-webkit-file-upload-button {
@@ -101,9 +106,13 @@
         padding-bottom: 50px;
     }
     
-    .comments {
+    .comments-section {
         padding-top: 150px;
         padding-bottom: 100px;
+    }
+
+    .comments {
+        gap: 20px;
     }
     
     .archive .post {
@@ -165,8 +174,31 @@
         z-index: 100;
     }
 
-    section.menu-open, nav.menu-open, main.menu-open, footer.menu-open, #top-page-button.menu-open {
+    #frame {
+        transition: transform .4s;
+        position: relative;
+    }
+
+    #frame.menu-open {
         transform: translateX(-300px);
+    }
+
+    #frame.menu-open::after {
+        opacity: 0.5;
+    }
+
+    #frame::after {
+        content: "";
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        background-color: var(--clr-black);
+        opacity: 0;
+        z-index: 1000;
+        position: absolute;
+        pointer-events: none;
+        transition: opacity .4s;
     }
 
     .menu.menu-open {

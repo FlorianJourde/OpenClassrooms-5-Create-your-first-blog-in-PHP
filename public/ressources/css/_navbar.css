@@ -10,8 +10,6 @@ nav {
   justify-content: space-between;
   gap: 30px;
   background-color: var(--clr-white);
-  /* background-color: rgba(255,255,255,0.8); */
-  /* backdrop-filter: saturate(180%) blur(20px); */
   z-index: 10;
   width: 100%;
   padding-bottom: 20px;
@@ -29,18 +27,6 @@ nav {
   align-items: center;
   gap: 10px 20px;
   transition: .4s;
-}
-
-.menu.mobile-only, .mobile-only {
-  /*display: none;*/
-}
-
-.menu.desktop-only {
-  /*display: initial;*/
-}
-
-section, nav, main, footer {
-  transition: transform .4s;
 }
 
 .open-menu, .close-menu {

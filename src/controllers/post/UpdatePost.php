@@ -19,39 +19,39 @@ class UpdatePost
         $manageSession->execute();
         $postRepository = new PostRepository();
         $postRepository->connection = new DatabaseConnection();
-        $post = $postRepository->getPost($identifier);
         $userRepository = new UserRepository();
         $userRepository->connection = new DatabaseConnection();
+
+        $post = $postRepository->getPost($identifier);
         $user = $userRepository->getUserFromId($postRepository->getPost($identifier)->userId)->username;
         $userRole = new CheckUserRole();
         $post->image === null ? $post->image = 'placeholder-min.jpg' : $post->image;
-        $htmlToMarkdownConverter = new HtmlConverter();
+        $htmlToMarkdownConverter = new HtmlConverter(array('strip_tags' => true));
         $post->content = $htmlToMarkdownConverter->convert($post->content);
 
-        if ($userRole->isAuthenticated($_SESSION['token'] ?? '')) {
-            if ($userRole->isAdmin($_SESSION['role'] ?? 'Guest')) {
-                if ($input !== null) {
-                    $content = null;
-                    $title = null;
+        if ($userRole->isAuthenticated($_SESSION['token'] ?? '')
+        && ($userRole->isAdmin($_SESSION['role'] ?? 'Guest'))) {
+            if ($input !== null) {
+                $content = null;
+                $title = null;
 
-                    if (!empty($input['content']) && !empty($input['title'])) {
-                        $title = $input['title'];
-                        $content = Markdown::defaultTransform($input['content']);
-                    } else {
-                        throw new \Exception('Les données du formulaire sont invalides.');
-                    }
-
-                    $success = $postRepository->updatePost($identifier, $content, $title);
-
-                    if (!$success) {
-                        throw new \Exception('Impossible de modifier l\'article !');
-                    }
-                    if ($identifier === null) {
-                        throw new \Exception('L\'article concerné n\'existe pas !');
-                    }
-
-                    header(sprintf('Location: ?action=post&id=%d', $identifier));
+                if (!empty($input['content']) && !empty($input['title'])) {
+                    $title = $input['title'];
+                    $content = Markdown::defaultTransform($input['content']);
+                } else {
+                    throw new \Exception('Les données du formulaire sont invalides.');
                 }
+
+                $success = $postRepository->updatePost($identifier, $content, $title);
+
+                if (!$success) {
+                    throw new \Exception('Impossible de modifier l\'article !');
+                }
+                if ($identifier === null) {
+                    throw new \Exception('L\'article concerné n\'existe pas !');
+                }
+
+                header(sprintf('Location: ?action=post&id=%d', $identifier));
             }
         } else {
             throw new \Exception('Vous n\'avez pas accès à cette page !');

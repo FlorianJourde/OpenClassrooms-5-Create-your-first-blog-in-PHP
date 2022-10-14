@@ -33,8 +33,10 @@ textarea {
     background-color: var(--clr-dark-blue);
 }
 
-form > *:not(:last-child) {
-    margin-bottom: 30px;
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
 }
 
 body {
@@ -85,6 +87,9 @@ ul {
     border-radius: 40px;
     padding: 40px;
     background-color: var(--clr-white);
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
 }
 
 .box {

@@ -14,7 +14,7 @@
     <main class="single">
         <div class="wrapper">
             <div class="post page">
-                <div class="description">{{ post.content | raw }}</div>
+                <div class="description formated">{{ post.content | raw }}</div>
                 <div class="infos icon-spacing">
                     <h3><i class="fas fa-user"></i>{{ post.username }}</h3>
                     <p><i class="fas fa-calendar"></i>{{ post.creationDate }}</p>
@@ -23,31 +23,33 @@
         </div>
     </main>
     {% if (comments is not empty) or (session.role is defined) %}
-        <section class="comments position-relative">
+        <section class="comments-section position-relative">
             <img class="vector-shape vector-shape-top" src="/public/ressources/images/vectors/vector-top-left-white-2.svg" alt="">
             <div class="wrapper">
                 {% if (comments is not empty) %}
                     <h2 class="section-title">Commentaires</h2>
-                    {% for comment in comments %}
-                        <div class="comment">
-                            <div class="header">
-                                <p class="username icon-spacing"><i class="fas fa-user"></i>{{ comment.username }}</p>
-                                {% if (session.role == 'Admin') or (session.id == comment.userId) %}
-                                    <div class="actions icon-spacing">
-                                        {% if (session.role == 'Admin') %}
-                                            <a class="hide" href="?action=hideComment&id={{ comment.identifier }}"><i class="fas fa-eye"></i>Retirer</a>
-                                        {% endif %}
-                                        <a class="edit" href="?action=updateComment&id={{ comment.identifier }}"><i class="fas fa-edit"></i>Modifier</a>
-                                        <a class="delete" href="?action=deleteComment&id={{ comment.identifier }}"><i class="fas fa-trash"></i>Supprimer</a>
-                                    </div>
-                                {% endif %}
+                    <div class="comments">
+                        {% for comment in comments %}
+                            <div class="comment">
+                                <div class="header">
+                                    <p class="username icon-spacing"><i class="fas fa-user"></i>{{ comment.username }}</p>
+                                    {% if (session.role == 'Admin') or (session.id == comment.userId) %}
+                                        <div class="actions icon-spacing">
+                                            {% if (session.role == 'Admin') %}
+                                                <a class="hide" href="?action=hideComment&id={{ comment.identifier }}"><i class="fas fa-eye"></i>Retirer</a>
+                                            {% endif %}
+                                            <a class="edit" href="?action=updateComment&id={{ comment.identifier }}"><i class="fas fa-edit"></i>Modifier</a>
+                                            <a class="delete" href="?action=deleteComment&id={{ comment.identifier }}"><i class="fas fa-trash"></i>Supprimer</a>
+                                        </div>
+                                    {% endif %}
+                                </div>
+                                <p class="date">{{ comment.creationDate }}</p>
+                                <div class="content">
+                                    <p>{{ comment.comment }}</p>
+                                </div>
                             </div>
-                            <p class="date">{{ comment.creationDate }}</p>
-                            <div class="content">
-                                <p>{{ comment.comment }}</p>
-                            </div>
-                        </div>
-                    {% endfor %}
+                        {% endfor %}
+                    </div>
                 {% endif %}
                 {% if session.role is defined %}
                     <h2 class="section-title">Ajouter un commentaire</h2>

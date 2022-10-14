@@ -26,14 +26,13 @@ class UpdateComment
 
         $comment = $commentRepository->getComment($identifier);
         $post = $postRepository->getPost($comment->postId);
-
         $userRole = new CheckUserRole();
-
         $comment->username = $userRepository->getUserFromId($comment->userId)->username;
 
-        if ($userRole->isAuthenticated($_SESSION['token'] ?? '')) {
-            if ($userRole->isAdmin($_SESSION['role'] ?? 'Guest') || $userRole->isCurrentUser($comment->userId, $_SESSION['id'] ?? 0)) {
-                if ($input !== null) {
+        if ($userRole->isAuthenticated($_SESSION['token'] ?? '')
+        && (($userRole->isAdmin($_SESSION['role'] ?? 'Guest')
+        || $userRole->isCurrentUser($comment->userId, $_SESSION['id'] ?? 0)))) {
+            if ($input !== null) {
                 $comment = null;
 
                 if (!empty($input['comment'])) {
@@ -58,7 +57,6 @@ class UpdateComment
             if ($comment === null) {
                 throw new \Exception("Le commentaire $identifier n'existe pas.");
             }
-        }
         } else {
             throw new \Exception('Vous n\'avez pas accès à cette page !');
         }

@@ -1,5 +1,6 @@
 let windowHeight;
 let topPageButton = document.querySelector('#top-page-button');
+let beep = new Audio('/public/ressources/media/button-click-1.wav');
 
 export default function toggleMenu() {
     if (topPageButton.length === 0) {
@@ -13,6 +14,8 @@ export default function toggleMenu() {
     };
 
     topPageButton.addEventListener('click', function() {
+        beep.currentTime = 0;
+        beep.play();
         topPageScroll();
     })
 }

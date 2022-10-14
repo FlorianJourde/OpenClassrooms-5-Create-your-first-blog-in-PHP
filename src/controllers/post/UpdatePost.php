@@ -58,6 +58,6 @@ class UpdatePost
         }
 
         $twig = new RenderFront();
-        echo $twig->render('update_post.twig', ['post' => $post, 'user' => $user,'session' => $_SESSION]);
+        echo $twig->render('update_post.twig', ['post' => $post, 'user' => $user, 'session' => $_SESSION]);
     }
 }

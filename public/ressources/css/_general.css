@@ -265,6 +265,7 @@
     font-size: var(--fs-small-title);
     margin-bottom: 20px;
 }
+
 .achievements .description p {
     font-size: var(--fs-big-text);
 }
@@ -333,9 +334,10 @@
     grid-auto-rows: 1fr;
 }
 
-.posts .header {
-    margin-bottom: 1rem;
-}
+/*.posts .header {*/
+/*    margin-bottom: 1rem;*/
+/*}*/
+
 .post .title {
     font-size: var(--fs-small-title);
 }
@@ -402,7 +404,7 @@ main.single .post .description a {
 }
 
 .management .post > *:not(:last-child) {
-    margin-bottom: 30px;
+    /*margin-bottom: 30px;*/
 }
 
 .management .post .description {
@@ -422,6 +424,9 @@ main.single .post .description a {
 
 .management .single .post {
     color: var(--clr-white);
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
 }
 
 .management .single .post .description a {
@@ -429,11 +434,18 @@ main.single .post .description a {
     color: var(--clr-very-dark-grey);
 }
 
-.management .post .header {
+.header {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
+    gap: 10px;
+    /*margin-bottom: 20px;*/
+}
+
+.form-field {
+    display: flex;
+    flex-direction: column;
     gap: 10px;
 }
 
@@ -579,9 +591,11 @@ main.single .post .description a {
     /*padding-bottom: 50px;*/
 }
 
-.update-post .page {
-    background-color: var(--clr-light-green);
+.update-post .page, .add-post .page {
+    /*background-color: var(--clr-light-green);*/
+    background-color: var(--clr-blue);
 }
+
 
 .update-comment .page {
     background-color: var(--clr-light-blue);
@@ -591,28 +605,66 @@ main.single .post .description a {
     color: var(--clr-very-dark-blue);
 }
 
-.update-post {
-    color: var(--clr-very-dark-green);
+.update-post, .add-post, .update-post .actions a, .add-post .actions a {
+    color: var(--clr-very-dark-blue);
 }
 
-.update-post .post .actions a, .update-post .post .infos p {
-    color: var(--clr-dark-green);
+.markdown-tooltip {
+    position: relative;
+    cursor: pointer;
 }
 
-.update-comment .post .actions a, .update-comment .post .infos p {
-    color: var(--clr-dark-blue);
+.markdown-tooltip:hover::before {
+    opacity: 1;
+    transform: translateY(0);
 }
 
-.register form label, .login form label, .add-post form label, .contact form label {
+.markdown-tooltip::before {
+    content: "Heading : # H1 ## H2 ### H3 \A Blod : **bold text** \A Italic : *italicized text* \A Blockquote : > blockquote \A Ordered list : 1. First item \A Unordered list : - First item \A Code : `code` \A Horizontal rule : --- \A Link : [title](https://www.example.com) \A Image : ![alt text](image.jpg)";
+    text-transform: initial;
+    font-weight: 500;
+    white-space: pre;
+    background-color: var(--clr-white);
+    padding: 10px;
+    border-radius: 10px;
+    position: absolute;
+    bottom: 30px;
+    max-width: 300px;
+    right: 0;
+    flex-grow: 1;
+    box-shadow: var(--bs-secondary);
+    width: max-content;
+    opacity: 0;
+    transition: .4s;
+    pointer-events: none;
+    transform: translateY(5px);
+}
+
+/*.update-post .post .actions a, .update-post .post .infos, .add-post .post .actions a, .update-post .post .infos {*/
+    /*color: var(--clr-dark-green);*/
+    /*color: var(--clr-blue);*/
+    /*color: var(--clr-very-dark-blue);*/
+/*}*/
+
+/*.update-comment .post .actions a, .update-comment .post .infos p {*/
+/*    color: var(--clr-dark-blue);*/
+/*}*/
+
+/*.register form label, .login form label, .add-post form label, .contact form label {*/
+.form-field .title {
     font-size: var(--fs-big-text);
-    margin-bottom: 10px;
+    /*margin-bottom: 10px;*/
     display: inline-block;
     font-weight: 500;
 }
 
-.add-post form {
-    background-color: var(--clr-light-blue);
+.add-post .page {
+    /*background-color: var(--clr-light-blue);*/
 }
+
+/*.add-post .actions a, .add-post .title {*/
+/*    color: var(--clr-very-dark-blue);*/
+/*}*/
 
 .login form {
     background-color: var(--clr-dark-purple);
@@ -630,6 +682,16 @@ input[type="file"] {
     box-shadow: unset;
 }
 
+/*.label-file {*/
+/*    cursor: pointer;*/
+/*    color: green;*/
+/*    font-weight: bold;*/
+/*}*/
+
+/*.input-file {*/
+/*    display: none;*/
+/*}*/
+
 .register form {
     background-color: var(--clr-very-light-orange);
     color: var(--clr-dark-orange);
@@ -638,7 +700,7 @@ input[type="file"] {
 .actions {
     text-transform: uppercase;
     font-weight: 600;
-    font-size: 0.8rem;
+    font-size: var(--fs-small-text);
     display: flex;
     flex-wrap: wrap;
     gap: 10px 20px;

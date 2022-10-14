@@ -66,6 +66,10 @@
         gap: 50px;
         padding-top: 150px;
     }
+
+    .form-field {
+        gap: 10px;
+    }
     
     .partners {
         padding-top: 100px;

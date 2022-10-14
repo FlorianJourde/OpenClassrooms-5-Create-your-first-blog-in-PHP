@@ -1,7 +1,7 @@
-// import Editor from '/@toast-ui/editor';
+// import Editor from '../../../node_modules/@toast-ui/editor';
 // import Editor from '/public/node_modules/@toast-ui';
 // import Editor from '/public/node_modules/@toast-ui/editor';
-// const Editor = require('/node_modules/@toast-ui/editor');
+// const Editor = require('../../../node_modules/@toast-ui/editor');
 
 export default function markdownEditor() {
     // console.log('Toast UI');

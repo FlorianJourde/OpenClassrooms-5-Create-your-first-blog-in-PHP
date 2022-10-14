@@ -105,6 +105,11 @@
   color: var(--clr-white);
 }
 
+.button-very-dark-blue {
+  background-color: var(--clr-very-dark-blue);
+  color: var(--clr-white);
+}
+
 .button-dark-pink {
   background-color: var(--clr-dark-pink);
   color: var(--clr-white);
@@ -131,6 +136,11 @@
 .button-primary.button-blue {
   background-color: var(--clr-dark-blue);
   border: 3px solid var(--clr-dark-blue);
+}
+
+.button-primary.button-green {
+  background-color: var(--clr-green);
+  border: 3px solid var(--clr-green);
 }
 
 .button-secondary.button-blue {

@@ -14,16 +14,22 @@
     <section class="register position-relative">
         <div class="wrapper">
             <form class="page icon-spacing" action="?action=addUser" method="post">
-                <div>
-                    <label for="username"><i class="fas fa-user"></i>Nom d'utilisateur</label><br />
+                <div class="form-field">
+                    <div class="header title">
+                        <label for="username"><i class="fas fa-user"></i>Nom d'utilisateur</label><br />
+                    </div>
                     <input type="text" id="username" name="username" />
                 </div>
-                <div>
-                    <label for="email"><i class="fas fa-at"></i>Email</label><br />
+                <div class="form-field">
+                    <div class="header title">
+                        <label for="email"><i class="fas fa-at"></i>Email</label><br />
+                    </div>
                     <input type="email" id="email" name="email">
                 </div>
-                <div>
-                    <label for="password"><i class="fas fa-key"></i>Mot de passe</label><br />
+                <div class="form-field">
+                    <div class="header title">
+                        <label for="password"><i class="fas fa-key"></i>Mot de passe</label><br />
+                    </div>
                     <input type="password" id="password" name="password">
                 </div>
                 <input class="button-form button-dark-orange" type="submit" value="S'enregistrer" />

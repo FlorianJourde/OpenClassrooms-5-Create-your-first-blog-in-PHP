@@ -8,11 +8,9 @@
 
 ### À propos
 
-Bonjour est bienvenu sur le dépôt de mon travail concernant le cinquième projet d'OpenClassrooms, intutulé "Créez votre premier blog en PHP".
+Bonjour est bienvenu sur le dépôt de mon travail concernant le cinquième projet d'OpenClassrooms, intutulé "Créez votre premier blog en PHP" ! Vous trouverez, ci-après, la procédure d'installation pour prendre en main le code, ainsi que la base de données et sa structure, conçue pour fonctionner avec.
 
-Vous trouverez, ci-après, la procédure d'installation pour prendre en main le code, ainsi que la base de données et sa structure, conçue pour fonctionner avec.
-
-Vous trouverez également, dans les dossiers "diagrammes", ainsi que "review", les autres livrables requis pour la validation de ce projet.
+Vous trouverez également, dans les dossiers "diagrams", ainsi que "review", les autres livrables requis pour la validation de ce projet.
 
 [![Preview site](https://img.shields.io/badge/Preview%20site--89bf54?style=for-the-badge&logo=InternetExplorer&logoColor=white)](https://florianjourde.com/)
 
@@ -28,7 +26,6 @@ Pour pouvoir installer ce projet, Composer doit être présent sur votre machine
 - Télécharger [Wamp](https://www.wampserver.com/) (Windows)
 - Télécharger [Mamp](https://www.wampserver.com/) (Mamp)
 
-
 ---
 
 ## Installation
@@ -37,6 +34,8 @@ Pour pouvoir installer ce projet, Composer doit être présent sur votre machine
 ```shell
 git clone https://github.com/FlorianJourde/OpenClassrooms-5-Create-your-first-blog-in-PHP.git
 ```
+
+
 
 2. À la racine de ce répertoire, lancez la commande suivante pour installer les dépendances Composer :
 ```shell

@@ -6,7 +6,6 @@
         --fs-small-title: 20px;
         --fs-big-text: 18px;
         --fs-regular-text: 14px;
-        --fs-small-text: 10px;
     }
 
     html {
@@ -15,6 +14,10 @@
 
     form {
         gap: 20px;
+    }
+
+    #content {
+        min-height: 200px;
     }
 
     .posts {

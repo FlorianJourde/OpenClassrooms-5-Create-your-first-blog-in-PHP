@@ -609,35 +609,48 @@ main.single .post .description a {
     color: var(--clr-very-dark-blue);
 }
 
-.markdown-tooltip {
+.has-tooltip {
     position: relative;
     cursor: pointer;
 }
 
-.markdown-tooltip:hover::before {
+.has-tooltip:hover .markdown-tooltip {
     opacity: 1;
     transform: translateY(0);
 }
 
-.markdown-tooltip::before {
-    content: "Heading : # H1 ## H2 ### H3 \A Blod : **bold text** \A Italic : *italicized text* \A Blockquote : > blockquote \A Ordered list : 1. First item \A Unordered list : - First item \A Code : `code` \A Horizontal rule : --- \A Link : [title](https://www.example.com) \A Image : ![alt text](image.jpg)";
-    text-transform: initial;
-    font-weight: 500;
-    white-space: pre;
-    background-color: var(--clr-white);
-    padding: 10px;
-    border-radius: 10px;
+.markdown-tooltip {
     position: absolute;
-    bottom: 30px;
-    max-width: 300px;
-    right: 0;
-    flex-grow: 1;
+    background-color: var(--clr-very-dark-grey);
+    color: var(--clr-white);
+    padding: 20px;
+    border-radius: 10px;
+    top: 50px;
+    right: 20px;
+    display: flex;
+    flex-direction: column;
+    font-size: var(--fs-small-text);
+    gap: 10px;
     box-shadow: var(--bs-secondary);
-    width: max-content;
+    transition: opacity .4s, transform .4s;
     opacity: 0;
-    transition: .4s;
+    transform: translateY(-5px);
     pointer-events: none;
-    transform: translateY(5px);
+}
+
+.markdown-tooltip > li {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    gap: 20px 40px;
+    max-width: 300px;
+}
+
+
+.markdown-tooltip ul li {
+    text-align: right;
+    font-weight: 500;
+    text-transform: initial;
 }
 
 /*.update-post .post .actions a, .update-post .post .infos, .add-post .post .actions a, .update-post .post .infos {*/

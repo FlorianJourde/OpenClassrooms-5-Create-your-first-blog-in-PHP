@@ -30,8 +30,70 @@
                   <div class="form-field">
                      <div class="header">
                         <h3 class="title"><label for="content"><i class="fas fa-pen-nib"></i>Contenu de l'article</label></h3>
-                        <div class="actions icon-spacing">
-                           <p class="markdown-tooltip"><i class="fas fa-question-circle"></i>Infos</p>
+                        <div class="actions has-tooltip icon-spacing">
+                           <p><i class="fas fa-question-circle"></i>Infos</p>
+                           <ul class="markdown-tooltip">
+                              <li>
+                                 <p>Heading</p>
+                                 <ul>
+                                    <li># H1</li>
+                                    <li>## H2</li>
+                                    <li>### H3</li>
+                                 </ul>
+                              </li>
+                              <li>
+                                 <p>Bold</p>
+                                 <ul>
+                                    <li>**bold text**</li>
+                                 </ul>
+                              </li>
+                              <li>
+                                 <p>Italic</p>
+                                 <ul>
+                                    <li>*italicized text*</li>
+                                 </ul>
+                              </li>
+                              <li>
+                                 <p>Blockquote</p>
+                                 <ul>
+                                    <li>> blockquote</li>
+                                 </ul>
+                              </li>
+                              <li>
+                                 <p>Ordered list</p>
+                                 <ul>
+                                    <li>1. First item</li>
+                                    <li>2. Second item</li>
+                                    <li>3. Third item</li>
+                                 </ul>
+                              </li>
+                              <li>
+                                 <p>Unordered list</p>
+                                 <ul>
+                                    <li>- First item</li>
+                                    <li>- Second item</li>
+                                    <li>- Third item</li>
+                                 </ul>
+                              </li>
+                              <li>
+                                 <p>Code</p>
+                                 <ul>
+                                    <li>`code`</li>
+                                 </ul>
+                              </li>
+                              <li>
+                                 <p>Link</p>
+                                 <ul>
+                                    <li>[title](https://www.example.com)</li>
+                                 </ul>
+                              </li>
+                              <li>
+                                 <p>Image</p>
+                                 <ul>
+                                    <li>![alt text](image.jpg)"</li>
+                                 </ul>
+                              </li>
+                           </ul>
                         </div>
                      </div>
                      <textarea id="content" name="content">{{ post.content }}</textarea>

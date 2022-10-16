@@ -28,11 +28,9 @@ class ManageComments
 
         $userRole = new CheckUserRole();
 
-        if ($userRole->isAuthenticated($_SESSION['token'] ?? '')) {
-            if ($userRole->isAdmin($_SESSION['role']) ?? 'Guest') {
-
+        if (($userRole->isAuthenticated($_SESSION['token'] ?? ''))
+        && ($userRole->isAdmin($_SESSION['role']) ?? 'Guest')) {
                 $hiddenComments = $commentRepository->getHiddenComments();
-
                 $posts = [];
 
                 foreach ($hiddenComments as $comment) {
@@ -54,8 +52,7 @@ class ManageComments
                         $hiddenComment->username = $userRepository->getUserFromId($hiddenComment->userId)->username;
                     }
                 }
-            }
-        } else {
+            } else {
             throw new \Exception('Vous n\'avez pas accès à cette page !');
         }
 

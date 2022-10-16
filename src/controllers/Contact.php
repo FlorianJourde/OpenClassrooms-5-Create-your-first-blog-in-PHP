@@ -19,7 +19,7 @@ class Contact
             $message .= "Email : " . $input['email'] . "\r\n";
             $message .= "Message : " . $input['message'] . "\r\n";
             $subject = "Nouveau message de florianjourde.com";
-            $headers = "From: contactd@florianjourde.com";
+            $headers = "From: contact@florianjourde.com";
 
             if (!empty($input['firstname']) & !empty($input['lastname']) & !empty($input['email']) & !empty($input['message']))
             if (mail($receiver, $subject, $message, $headers)) {

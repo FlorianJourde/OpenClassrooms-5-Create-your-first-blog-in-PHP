@@ -9,7 +9,7 @@
 
 ### À propos
 
-Bonjour est bienvenu sur le dépôt de mon travail concernant le cinquième projet d'OpenClassrooms, intutulé "Créez votre premier blog en PHP" ! Vous trouverez, ci-après, la procédure d'installation pour prendre en main le code, ainsi que la base de données et sa structure, conçue pour fonctionner avec.
+Bonjour et bienvenue sur le dépôt de mon travail, qui traite du cinquième projet d'OpenClassrooms, intutulé "Créez votre premier blog en PHP" ! Vous trouverez, ci-après, la procédure d'installation pour prendre en main le code du projet, ainsi que la base de données et sa structure, conçue pour fonctionner avec.
 
 Vous trouverez également, dans les dossiers "diagrams", ainsi que "review", les autres livrables requis pour la validation de ce projet.
 
@@ -21,7 +21,7 @@ Vous trouverez également, dans les dossiers "diagrams", ainsi que "review", les
 
 ## Remarque
 
-Pour pouvoir installer ce projet, Composer doit être présent sur votre machine, ainsi qu'un serveur local. Si vous ne disposez pas de ces outils, vous pourrez les télécharger et installer, en suivant ces liens :
+Pour pouvoir installer ce projet, le gestionnaire de dépendance "Composer" doit être présent sur votre machine, ainsi qu'un serveur local. Si vous ne disposez pas de ces outils, vous pourrez les télécharger et les installer, en suivant ces liens :
 - Télécharger [Composer](https://getcomposer.org/)
 - Télécharger [Wamp](https://www.wampserver.com/) (Windows)
 - Télécharger [Mamp](https://www.wampserver.com/) (Mamp)
@@ -30,7 +30,7 @@ Pour pouvoir installer ce projet, Composer doit être présent sur votre machine
 
 ## Installation
 
-1. À l'aide dans terminal, créer et rendez-vous dans le répertoire d'installation souhaité pour le projet, et lancez la commande suivante :
+1. À l'aide d'un terminal, créez un dossier à l'emplacement souhaité pour l'installation du projet. Lancez la commande suivante :
 ```shell
 git clone https://github.com/FlorianJourde/OpenClassrooms-5-Create-your-first-blog-in-PHP.git
 ```
@@ -40,7 +40,7 @@ git clone https://github.com/FlorianJourde/OpenClassrooms-5-Create-your-first-bl
 composer install
 ```
 
-3. Vous devez maintenant modifier le fichier `DatabaseConnection.php` situé dans `\5-Blog-en-PHP\src\lib\DatabaseConnection.php`. Remplacer `username`, `password`, ainsi qu'éventuellement `localhost` (si nécéssaire) par vos identifiants de base de données locale :
+3. Vous devez maintenant modifier le fichier `DatabaseConnection.php` situé dans `\5-Blog-en-PHP\src\lib`. Remplacez `username`, `password`, ainsi qu'éventuellement `localhost` (si nécéssaire) par vos identifiants de base de données locale :
 ```php
 <?php
 
@@ -61,9 +61,9 @@ class DatabaseConnection
 }
 ```
 
-4. Ensuite, importer simplement le fichier `florianjourde.sql`, présent à la racine du projet, dans votre base de données locale. Si toutes les informations ont correctement été renseignées, la connexion devrait pouvoir se faire sans problèmes.
+4. Ensuite, importez simplement le fichier `florianjourde.sql`, présent à la racine du projet, dans votre base de données SQL locale. Si toutes les informations ont correctement été renseignées, la connexion devrait se faire automatiquement.
 
-5. Créer votre hôte virtuel, pointant vers la racine du projet afin de pouvoir l'ouvrir avec une URL locale. 
+5. Créez votre hôte virtuel, pointant vers la racine du projet afin de pouvoir l'ouvrir avec une URL locale.
 
 6. Pour pouvoir tester les controllers, veuillez utiliser les identifiants par défaut :
 - Admin
@@ -74,8 +74,8 @@ class DatabaseConnection
     - MDP : 123456
     
 7. Si vous souhaitez pouvoir tester les emails directement depuis votre serveur local, il sera nécessaire d'utiliser [Fake Sendmail](https://www.glob.com.au/sendmail/). Je vous invite à suivre ce tutoriel, qui vous indiquera la procédure à suivre pour l'installer :
-- [Grafikart](https://grafikart.fr/blog/mail-local-wamp)
+- [Envoyer des mails en local avec Wamp](https://grafikart.fr/blog/mail-local-wamp)
 
-Veuillez prêter attention au second commentaire, laissé par `hamza.essamami.sio@gmail.com`, si vous utilisez Gmail et que vous rencontrez des problèmes de connexion au service.
+Si vous utilisez Gmail et que vous rencontrez des problèmes de connexion au service, veuillez prêter attention au second commentaire, laissé par `hamza.essamami.sio@gmail.com`.
 
 ### Merci pour votre attention !

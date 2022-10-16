@@ -88,17 +88,4 @@ class PostRepository
 
         return ($affectedLines > 0);
     }
-
-    public function addImage(int $userId, string $title, string $content, bool $status): bool
-    {
-        if (!is_int($userId)) { return false; }
-
-        $statement = $this->connection->getConnection()->prepare(
-            "INSERT INTO posts(user_id, title, content, creation_date, update_date, status) VALUES (?, ?, ?, NOW(), NOW(), ?)"
-        );
-
-        $affectedLines = $statement->execute([$userId,  $title, $content, $status]);
-
-        return ($affectedLines > 0);
-    }
 }

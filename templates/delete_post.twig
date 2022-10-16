@@ -25,7 +25,7 @@
                                 </div>
                             {% endif %}
                         </div>
-                        <p class="description">{{ post.content }}</p>
+                        <div class="description">{{ post.content | raw }}</div>
                         <div class="infos">
                             <h3><i class="fas fa-user"></i>{{ post.username }}</h3>
                             <p><i class="fas fa-calendar"></i>{{ post.creationDate }}</p>

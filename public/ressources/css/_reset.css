@@ -1,3 +1,8 @@
+::selection {
+    background-color: var(--clr-light-grey);
+    color: var(--clr-very-dark-grey);
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -62,6 +67,13 @@ ul {
     list-style-type: none;
 }
 
+
+hr {
+    height: 3px;
+    background-color: var(--clr-very-light-grey);
+    border: none;
+}
+
 .placeholder {
     font-family: var(--ff-tertiary);
 }
@@ -81,6 +93,10 @@ ul {
     flex-wrap: inherit;
     gap: inherit;
     z-index: inherit;
+}
+
+.wrapper-small {
+    max-width: 900px;
 }
 
 .page {

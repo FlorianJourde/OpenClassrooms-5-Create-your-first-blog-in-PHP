@@ -367,7 +367,8 @@ main.single .post .description {
     font-size: var(--fs-big-text);
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    /*align-items: center;*/
+    gap: 40px;
 }
 
 main.single .post .description a {
@@ -380,9 +381,17 @@ main.single .post .description a {
     border-radius: 10px;
 }
 
-.post .description.formated > * > * {
+.post .description.formated > * > *, .management .post .description > * > * {
     max-width: 100%;
     border-radius: 10px;
+}
+
+.post .description.formated > *:has(img) {
+    text-align: center;
+}
+
+.post .description.formated h2:not(:first-child) {
+    /*margin-top: 40px;*/
 }
 
 .description.formated p:has(code) {
@@ -403,23 +412,51 @@ main.single .post .description a {
     color: var(--clr-very-dark-grey);
 }
 
-.management .post > *:not(:last-child) {
-    /*margin-bottom: 30px;*/
+.management {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
 }
 
 .management .post .description {
     display: flex;
     flex-direction: column;
     gap: 20px;
+    max-height: 350px;
+    overflow: hidden;
+    position: relative;
+    transition: max-height .8s;
+}
+
+.management .post .description:hover {
+    max-height: 10000px;
+}
+
+.management .post .description:hover:after {
+    opacity: 0;
+}
+
+.management .post .description:after {
+    content: "";
+    width: 100%;
+    height: 50%;
+    bottom: 0;
+    left: 0;
+    opacity: 1;
+    background: linear-gradient(transparent, var(--clr-dark-purple));
+    position: absolute;
+    pointer-events: none;
+    transition: opacity .8s;
 }
 
 .management .single {
     border-radius: 30px;
     padding: 40px;
+    background-color: var(--clr-dark-purple);
 }
 
 .management .single:not(:last-child) {
-    margin-bottom: 50px;
+    /*margin-bottom: 50px;*/
 }
 
 .management .single .post {
@@ -431,7 +468,11 @@ main.single .post .description a {
 
 .management .single .post .description a {
     font-weight: 600;
-    color: var(--clr-very-dark-grey);
+    color: var(--clr-white);
+}
+
+.management .single .post .description hr {
+    background-color: #ffffff40;
 }
 
 .header {
@@ -455,6 +496,14 @@ main.single .post .description a {
 
 .delete-post .management .single {
     background-color: var(--clr-dark-pink);
+}
+
+.delete-post .management .post .description:after {
+    content: unset;
+}
+
+.delete-post .management .post .description {
+    max-height: unset;
 }
 
 .comments-section {
@@ -587,12 +636,7 @@ main.single .post .description a {
     box-shadow: var(--bs-secondary);
 }
 
-.register, .login {
-    /*padding-bottom: 50px;*/
-}
-
 .update-post .page, .add-post .page {
-    /*background-color: var(--clr-light-green);*/
     background-color: var(--clr-blue);
 }
 
@@ -601,7 +645,7 @@ main.single .post .description a {
     background-color: var(--clr-light-blue);
 }
 
-.update-comment {
+.update-comment, .update-comment a {
     color: var(--clr-very-dark-blue);
 }
 

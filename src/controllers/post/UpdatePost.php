@@ -34,15 +34,42 @@ class UpdatePost
             if ($input !== null) {
                 $content = null;
                 $title = null;
+                $image = null;
 
                 if (!empty($input['content']) && !empty($input['title'])) {
                     $title = $input['title'];
                     $content = Markdown::defaultTransform($input['content']);
+                    $image = $post->image;
+                    $file = $_FILES['file']['error'] !== 0 ? $image : $_FILES['file'];
+
+                    if ($file !== $image) {
+                        if ($post->image !== 'placeholder-min.jpg') {
+                            unlink('../public/ressources/images/posts/' . $post->image);
+                        };
+
+                        $tmpName = $_FILES['file']['tmp_name'];
+                        $name = $_FILES['file']['name'];
+                        $size = $_FILES['file']['size'];
+                        $error = $_FILES['file']['error'];
+
+                        $tabExtension = explode('.', $name);
+                        $extension = strtolower(end($tabExtension));
+
+                        $extensions = ['jpg', 'png', 'jpeg', 'gif'];
+                        $maxSize = 1000000;
+
+                        if (in_array($extension, $extensions) && $size <= $maxSize && $error == 0) {
+                            $uniqueName = uniqid('', true);
+                            $file = $uniqueName . "." . $extension;
+
+                            move_uploaded_file($tmpName, '../public/ressources/images/posts/' . $file);
+                        }
+                    }
                 } else {
                     throw new \Exception('Les données du formulaire sont invalides.');
                 }
 
-                $success = $postRepository->updatePost($identifier, $content, $title);
+                $success = $postRepository->updatePost($identifier, $content, $title, $file);
 
                 if (!$success) {
                     throw new \Exception('Impossible de modifier l\'article !');

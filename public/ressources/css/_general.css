@@ -367,7 +367,6 @@ main.single .post .description {
     font-size: var(--fs-big-text);
     display: flex;
     flex-direction: column;
-    /*align-items: center;*/
     gap: 40px;
 }
 
@@ -376,6 +375,31 @@ main.single .post .description a {
     color: var(--clr-orange);
 }
 
+main.single .post .description ul {
+    list-style-type: initial;
+}
+
+main.single .post .description ul li::marker {
+    color: var(--clr-blue);
+}
+
+main.single .post .description h1::before, main.single .post .description h2::before, main.single .post .description h3::before {
+    font-family: "Font Awesome 5 Free";
+    content: "\f10d";
+    margin-right: 20px;
+}
+
+main.single .post .description h1::before {
+    color: var(--clr-pink);
+}
+
+main.single .post .description h2::before {
+    color: var(--clr-yellow);
+}
+
+main.single .post .description h3::before {
+    color: var(--clr-green);
+}
 
 .post .description.formated > * {
     border-radius: 10px;

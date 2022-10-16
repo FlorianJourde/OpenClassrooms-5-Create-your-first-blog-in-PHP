@@ -26,38 +26,38 @@ class AddPost
 
         if ($userRole->isAdmin($user_role)) {
             if (!empty($input)) {
-            $title = null;
-            $content = null;
-            $file = $_FILES['file']['error'] !== 0 ? null : $_FILES['file'];
+                $title = null;
+                $content = null;
+                $file = $_FILES['file']['error'] !== 0 ? null : $_FILES['file'];
 
-            if(isset($file)) {
-                $tmpName = $_FILES['file']['tmp_name'];
-                $name = $_FILES['file']['name'];
-                $size = $_FILES['file']['size'];
-                $error = $_FILES['file']['error'];
+                if(isset($file)) {
+                    $tmpName = $_FILES['file']['tmp_name'];
+                    $name = $_FILES['file']['name'];
+                    $size = $_FILES['file']['size'];
+                    $error = $_FILES['file']['error'];
 
-                $tabExtension = explode('.', $name);
-                $extension = strtolower(end($tabExtension));
+                    $tabExtension = explode('.', $name);
+                    $extension = strtolower(end($tabExtension));
 
-                $extensions = ['jpg', 'png', 'jpeg', 'gif'];
-                $maxSize = 1000000;
+                    $extensions = ['jpg', 'png', 'jpeg', 'gif'];
+                    $maxSize = 1000000;
 
-                if (in_array($extension, $extensions) && $size <= $maxSize && $error == 0) {
-                    $uniqueName = uniqid('', true);
-                    $file = $uniqueName . "." . $extension;
+                    if (in_array($extension, $extensions) && $size <= $maxSize && $error == 0) {
+                        $uniqueName = uniqid('', true);
+                        $file = $uniqueName . "." . $extension;
 
-                    move_uploaded_file($tmpName, '../public/ressources/images/posts/' . $file);
+                        move_uploaded_file($tmpName, '../public/ressources/images/posts/' . $file);
+                    }
                 }
-            }
 
-            if (!empty($input['title']) && !empty($input['content'])) {
-                $title = $input['title'];
-                $content = Markdown::defaultTransform($input['content']);
-                $userId = $_SESSION['id'];
-                $status = true;
-            } else {
-                throw new \Exception('Les données du formulaire sont invalides.');
-            }
+                if (!empty($input['title']) && !empty($input['content'])) {
+                    $title = $input['title'];
+                    $content = Markdown::defaultTransform($input['content']);
+                    $userId = $_SESSION['id'];
+                    $status = true;
+                } else {
+                    throw new \Exception('Les données du formulaire sont invalides.');
+                }
 
             $postRepository = new PostRepository();
             $postRepository->connection = new DatabaseConnection();

@@ -15,7 +15,7 @@
       <div class="wrapper">
          <div class="page management">
             <div class="post icon-spacing">
-               <form action="?action=updatePost&id={{ post.identifier }}" method="post">
+               <form action="?action=updatePost&id={{ post.identifier }}" method="post" enctype="multipart/form-data">
                   <div class="form-field">
                      <div class="header">
                         <label class="title"><i class="fas fa-newspaper"></i>{{ post.title }}</label>
@@ -90,7 +90,7 @@
                               <li>
                                  <p>Image</p>
                                  <ul>
-                                    <li>![alt text](image.jpg)"</li>
+                                    <li>![alt text](image.jpg)</li>
                                  </ul>
                               </li>
                            </ul>
@@ -98,6 +98,7 @@
                      </div>
                      <textarea id="content" name="content">{{ post.content }}</textarea>
                   </div>
+                  <input class="input-file" type="file" name="file">
                   <div class="infos">
                      <h3><i class="fas fa-user"></i>{{ user }}</h3>
                      <p><i class="fas fa-calendar"></i>{{ post.creationDate }}</p>

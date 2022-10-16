@@ -63,15 +63,15 @@ class PostRepository
         return ($affectedLines > 0);
     }
 
-    public function updatePost(int $identifier, string $content, string $title): bool
+    public function updatePost(int $identifier, string $content, string $title, ?string $imageName): bool
     {
         if (!is_int($identifier)) { return false; }
 
         $statement = $this->connection->getConnection()->prepare(
-            'UPDATE posts SET content = ?, title = ? WHERE id = ?'
+            'UPDATE posts SET content = ?, title = ?, image = ? WHERE id = ?'
         );
 
-        $affectedLines = $statement->execute([$content, $title, $identifier]);
+        $affectedLines = $statement->execute([$content, $title, $imageName, $identifier]);
 
         return ($affectedLines > 0);
     }

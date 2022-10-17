@@ -15,6 +15,7 @@ export default function toggleMenu() {
 
     topPageButton.addEventListener('click', function() {
         beep.currentTime = 0;
+        beep.volume = 0.25;
         beep.play();
         topPageScroll();
     })

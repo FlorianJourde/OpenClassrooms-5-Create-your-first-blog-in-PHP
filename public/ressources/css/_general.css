@@ -45,6 +45,7 @@
     font-size: var(--fs-big-title);
     font-family: var(--ff-primary);
     color: var(--clr-white);
+    text-shadow: 0 10px 20px #00000040;
 }
   
 .banner::before {

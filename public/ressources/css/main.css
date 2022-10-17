@@ -1,3 +1,4 @@
+@import "_animations.css";
 @import "_buttons.css";
 @import "_footer.css";
 @import "_general.css";
@@ -6,4 +7,5 @@
 @import "_reset.css";
 @import "_root.css";
 @import "_responsive.css";
+@import "_responsive-animations.css";
 @import "_top-page.css";

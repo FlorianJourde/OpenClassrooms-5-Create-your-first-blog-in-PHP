@@ -11,6 +11,7 @@ export default function toggleMenu() {
             frame.classList.toggle('menu-open')
             mobileMenu.classList.toggle('menu-open');
             beep.currentTime = 0;
+            beep.volume = 0.25;
             beep.play();
         })
     })

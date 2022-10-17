@@ -401,25 +401,35 @@ main.single .post .description ul li::marker {
     color: var(--clr-blue);
 }
 
-main.single .post .description h1::before, main.single .post .description h2::before, main.single .post .description h3::before {
-    font-family: "Font Awesome 5 Free";
-    content: "\f10d";
-    margin-right: 20px;
+.single .post .description h1, .single .post .description h2, .single .post .description h3 {
+    padding-left: 20px;
 }
 
-main.single .post .description h1::before {
-    color: var(--clr-pink);
+.delete-post .single .post .description h1, .delete-post .single .post .description h2, .delete-post .single .post .description h3 {
+    border-left: 3px solid var(--clr-white);
 }
 
-main.single .post .description h2::before {
-    color: var(--clr-yellow);
+.single .post .description h1 {
+    border-left: 5px solid var(--clr-pink);
 }
 
-main.single .post .description h3::before {
-    color: var(--clr-green);
+.single .post .description h2 {
+    border-left: 5px solid var(--clr-yellow);
 }
 
-.post .description.formated > * {
+.single .post .description h3 {
+    border-left: 5px solid var(--clr-green);
+}
+
+/*main.single .post .description h2::before {*/
+/*    color: var(--clr-yellow);*/
+/*}*/
+
+/*main.single .post .description h3::before {*/
+/*    color: var(--clr-green);*/
+/*}*/
+
+.post .description.formated > *:has(img), .post .description.formated > *:has(code) {
     border-radius: 10px;
 }
 

@@ -35,12 +35,17 @@ Pour pouvoir installer ce projet, le gestionnaire de dépendance "Composer" doit
 git clone https://github.com/FlorianJourde/OpenClassrooms-5-Create-your-first-blog-in-PHP.git
 ```
 
-2. À la racine de ce répertoire, lancez la commande suivante pour installer les dépendances Composer :
+2. Lancez cette commande pour vous rendre dans le dossier adequat :
+```shell
+cd OpenClassrooms-5-Create-your-first-blog-in-PHP
+```
+
+3. À la racine de ce répertoire, lancez la commande suivante pour installer les dépendances Composer :
 ```shell
 composer install
 ```
 
-3. Vous devez maintenant modifier le fichier `DatabaseConnection.php` situé dans `\5-Blog-en-PHP\src\lib`. Remplacez `username`, `password`, ainsi qu'éventuellement `localhost` (si nécéssaire) par vos identifiants de base de données locale :
+4. Vous devez maintenant modifier le fichier `DatabaseConnection.php` situé dans `\5-Blog-en-PHP\src\lib`. Remplacez `username`, `password`, ainsi qu'éventuellement `localhost` (si nécéssaire) par vos identifiants de base de données locale :
 ```php
 <?php
 
@@ -61,11 +66,11 @@ class DatabaseConnection
 }
 ```
 
-4. Ensuite, importez simplement le fichier `florianjourde.sql`, présent à la racine du projet, dans votre base de données SQL locale. Si toutes les informations ont correctement été renseignées, la connexion devrait se faire automatiquement.
+5. Ensuite, importez simplement le fichier `florianjourde.sql`, présent à la racine du projet, dans votre base de données SQL locale. Si toutes les informations ont correctement été renseignées, la connexion devrait se faire automatiquement.
 
-5. Créez votre hôte virtuel, pointant vers la racine du projet afin de pouvoir l'ouvrir avec une URL locale.
+6. Créez votre hôte virtuel, pointant vers la racine du projet afin de pouvoir l'ouvrir avec une URL locale.
 
-6. Pour pouvoir tester les controllers, veuillez utiliser les identifiants par défaut :
+7. Pour pouvoir tester les controllers, veuillez utiliser les identifiants par défaut :
 - Admin
     - ID : admin@admin.com
     - MDP : 123456
@@ -73,7 +78,7 @@ class DatabaseConnection
     - ID : user@user.com
     - MDP : 123456
     
-7. Si vous souhaitez pouvoir tester les emails directement depuis votre serveur local, il sera nécessaire d'utiliser [Fake Sendmail](https://www.glob.com.au/sendmail/). Je vous invite à suivre ce tutoriel, qui vous indiquera la procédure à suivre pour l'installer :
+8. Si vous souhaitez pouvoir tester les emails directement depuis votre serveur local, il sera nécessaire d'utiliser [Fake Sendmail](https://www.glob.com.au/sendmail/). Je vous invite à suivre ce tutoriel, qui vous indiquera la procédure à suivre pour l'installer :
 - [Envoyer des mails en local avec Wamp](https://grafikart.fr/blog/mail-local-wamp)
 
 Si vous utilisez Gmail et que vous rencontrez des problèmes de connexion au service, veuillez prêter attention au second commentaire, laissé par `hamza.essamami.sio@gmail.com`.

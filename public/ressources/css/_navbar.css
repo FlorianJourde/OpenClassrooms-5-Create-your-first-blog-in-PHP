@@ -20,6 +20,9 @@ nav {
 
 .navbar .logo {
   flex-grow: 1;
+  display: flex;
+  /*align-items: center;*/
+  /*justify-content: flex-start;*/
 }
 
 .menu {
@@ -64,6 +67,7 @@ nav {
   font-size: var(--fs-small-title);
   line-height: 1em;
   color: var(--clr-black);
+  width: 200px;
 }
 
 .navbar-manager {

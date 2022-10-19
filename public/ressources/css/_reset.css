@@ -70,6 +70,7 @@ ul {
 
 hr {
     height: 3px;
+    min-height: 3px;
     background-color: var(--clr-very-light-grey);
     border: none;
 }

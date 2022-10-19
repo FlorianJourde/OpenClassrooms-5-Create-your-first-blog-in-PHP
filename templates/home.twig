@@ -52,15 +52,29 @@
             <div class="introduction">
                 <div class="title">
                     <h1><span style="font-weight: 400;">Développeur d'application</span> PHP/Symfony</h1>
-                    <p class="placeholder">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus elementum iaculis mauris. Suspendisse nec mauris elit.</p>
-                    <p class="placeholder">Fusce consectetur sem at risus vestibulum, gravida dapibus dolor tincidunt.</p>
+                    <p>Site vitrine, e-commerce, intégration programmation informatique, application web, responsive...</p>
+                    <p>...une solution <b>sur-mesure</b> adaptée à <b>chaque besoin</b> !</p>
                     <a href="/#partners" role="button"><i class="fas fa-arrow-down"></i></a>
                 </div>
                 <div class="box">
                     <h2>Voir la vie en <span style="font-size: var(--fs-very-big-title);">
                         <span style="color: var(--clr-orange)">M</span><span style="color: var(--clr-blue)">o</span><span style="color: var(--clr-pink)">n</span><span style="color: var(--clr-green)">o</span><span style="color: var(--clr-yellow)">k</span><span style="color: var(--clr-purple)">a</span><span style="color: var(--clr-orange)">i</span>
                      !</span></h2>
-                    <p class="placeholder">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus elementum dui sit amet felis condimentum auctor et ac tortor. Nullam eget iaculis mauris. Suspendisse nec mauris elit. Fusce consectetur sem at risus vestibulum, gravida dapibus dolor tincidunt. Etiam nisi turpis, consectetur vel consequat viverra, varius eu arcu.</p>
+                    <p>Actuellement en formation développeur <b>PHP/Symfony</b> sur <b>OpenClassrooms</b>, j'apprends le <b>développement web</b> dans le but d'obtenir un <b>titre RNCP</b> de <b>niveau 6</b>, équivalent à un <b>Bac+3/4.</b></p>
+                    <ul class="stats">
+                        <li class="stat">
+                            <i class="fas fa-code"></i>
+                            <p><b>+2</b> ans</p>
+                        </li>
+                        <li class="stat">
+                            <i class="fas fa-cogs"></i>
+                            <p><b>+30</b> projets</p>
+                        </li>
+                        <li class="stat">
+                            <i class="fas fa-users"></i>
+                            <p><b>+20</b> clients</p>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </div>
@@ -93,7 +107,7 @@
                         {% endif %}
                         <div class="content">
                             <h3 class="title">{{ post.title }}</h3>
-                            <p class="description placeholder">{{ post.content | striptags | slice(0, 100) ~ '...' }}</p>
+                            <p class="description">{{ post.content | striptags | slice(0, 100) ~ '...' }}</p>
                             <a class="button-secondary button-white" href="?action=post&id={{ post.identifier }}">Lire l'article<i class="fas fa-arrow-right"></i></a>
                         </div>
                     </div>
@@ -107,8 +121,8 @@
             <img class="profile-picture" src="/public/ressources/images/florian.jpg" alt="">
             <div class="presentation">
                 <h2>Bienvenue sur mon blog !</h2>
-                <p class="placeholder">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus elementum iaculis mauris. Suspendisse nec mauris elit.</p>
-                <p class="placeholder">Fusce consectetur sem at risus vestibulum, gravida dapibus dolor tincidunt.</p>
+                <p>Reconverti du milieu des <b>industries graphiques</b> vers le <b>développement web</b> depuis maintenant deux ans, mon parcours singulier m'a permis de développer des compétences en <b>design</b>, <b>marketing</b>, <b>communication</b>, <b>rédaction</b>...</p>
+                <p>Malgré mon appétence naturelle pour le <b>développement front-end</b> ainsi que l'<b>UX</b> et l'<b>UI</b> des interface numériques, je suis aujourd'hui déterminé à apprendre et consolider mes connaissances dans tout ce qui touche à la partie <b>back-end</b> des <b>sites internet</b>, dans l'optique de devenir un jour, je l'espère, <b>développeur full-stack</b>&nbsp!</p>
             </div>
         </div>
         <img class="vector-shape vector-shape-bottom" src="/public/ressources/images/vectors/vector-bottom-left-white.svg" alt="">

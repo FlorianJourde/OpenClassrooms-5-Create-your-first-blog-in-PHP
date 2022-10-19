@@ -74,12 +74,56 @@
     flex-direction: column;
     font-size: var(--fs-big-text);
     min-width: 350px;
-    gap: 20px;
+    gap: 30px;
 }
 
 .banner .introduction .title .fas {
     font-size: var(--fs-big-title);
     animation: up-down 3s infinite;
+    opacity: .5;
+    transition: .4s;
+}
+
+.banner .introduction .title .fas:hover {
+    opacity: 1;
+}
+
+.banner .introduction .stats {
+    display: flex;
+    gap: 60px;
+    /*margin-top: 20px;*/
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+.banner .introduction .stat {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    /*width: 100px;*/
+    text-align: center;
+}
+
+.banner .introduction .stat i{
+    font-size: var(--fs-title);
+}
+
+.banner .introduction .stat:nth-child(1) {
+    color: var(--clr-pink);
+}
+
+.banner .introduction .stat:nth-child(2) {
+    color: var(--clr-blue);
+}
+
+.banner .introduction .stat:nth-child(3) {
+    color: var(--clr-orange);
+}
+
+.banner .introduction .stat p {
+    font-size: var(--fs-small-text);
+    text-transform: uppercase;
+    font-weight: 600;
 }
 
 @keyframes up-down {
@@ -94,15 +138,24 @@
     }
 }
 
+.introduction .box {
+    gap: 40px;
+}
+
+.introduction .box h2 {
+    line-height: 1em;
+}
+
 .introduction .box h2 span {
     display: inline-block;
     /*animation: wave 2s infinite;*/
-    letter-spacing: 0.1em;
+    /* letter-spacing: 0.1em; */
 }
 
 .introduction .box h2 span span {
-    animation: wave 5s infinite;
-    margin-top: 20px;
+    animation: wave 2s infinite;
+    animation-timing-function: ease-in-out;
+    margin-top: 30px;
 }
 
 .introduction .box h2 span span {
@@ -135,14 +188,17 @@
     0% {
         transform:translateY(0px)
     }
-    20% {
-        transform:translateY(-25px) scale(1.1);
+    /*25% {*/
+    /*    transform:translateY(-20px);*/
+    /*}*/
+    50% {
+        transform:translateY(-10px);
     }
-    35% {
-        transform:translateY(0px);
-    }
+    /*75% {*/
+    /*    transform:translateY(10px);*/
+    /*}*/
     100% {
-        transform:translateY(0px)
+        /*transform:translateY(0px)*/
     }
 }
 
@@ -198,13 +254,14 @@
     background: linear-gradient(315deg, #0a4a52 0%, #51b8c4 50%, #206972 100%);
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    /*align-items: center;*/
     gap: 100px;
 }
 
 .portrait .profile-picture {
-    width: 100%;
-    min-width: 300px;
+    width: 30%;
+    /*min-width: 500px;*/
+    object-fit: contain;
     border-radius: 50px;
     box-shadow: var(--bs-secondary);
 }
@@ -333,7 +390,8 @@
     color: var(--clr-white);
     display: flex;
     flex-direction: column;
-    gap: 40px;
+    gap: 20px;
+    /*width: 50%;*/
 }
 
 .presentation h2 {
@@ -341,8 +399,8 @@
 }
 
 .presentation p {
-    font-size: var(--fs-small-title);
-    color: var(--clr-light-blue);
+    font-size: var(--fs-big-text);
+    /*color: var(--clr-light-blue);*/
 }
 
 .posts {
@@ -405,19 +463,19 @@ main.single .post .description ul li::marker {
     padding-left: 20px;
 }
 
-.delete-post .single .post .description h1, .delete-post .single .post .description h2, .delete-post .single .post .description h3 {
+.single .post .description h1, .single .post .description h2, .single .post .description h3 {
     border-left: 3px solid var(--clr-white);
 }
 
-.single .post .description h1 {
+main.single .post .description h1 {
     border-left: 5px solid var(--clr-pink);
 }
 
-.single .post .description h2 {
+main.single .post .description h2 {
     border-left: 5px solid var(--clr-yellow);
 }
 
-.single .post .description h3 {
+main.single .post .description h3 {
     border-left: 5px solid var(--clr-green);
 }
 
@@ -657,11 +715,24 @@ main.single .post .description ul li::marker {
 
 .comment {
     border-radius: 20px;
-    overflow: hidden;
+    /* overflow: hidden; */
     box-shadow: var(--bs-primary);
     width: 100%;
     padding: 40px;
     background-color: var(--clr-white);
+    position: relative;
+}
+
+.comment::before {
+    position: absolute;
+    content: "";
+    border-top: 10px solid transparent;
+    border-right: 10px solid var(--clr-white);
+    border-bottom: 10px solid transparent;
+    border-left: 10px solid transparent;
+    top: 40px;
+    left: -20px;
+    z-index: 5;
 }
 
 .comments {
@@ -887,7 +958,7 @@ input[type="file"] {
 
 .box h2 {
     font-size: var(--fs-title);
-    margin-bottom: 15px;
+    /*margin-bottom: 15px;*/
 }
 
 .box p, .box a {

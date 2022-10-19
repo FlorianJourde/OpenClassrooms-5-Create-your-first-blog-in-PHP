@@ -247,12 +247,12 @@
     }
     
     .comment::before {
-        border-top: 8px solid transparent;
-        border-right: 8px solid var(--clr-white);
-        border-bottom: 8px solid transparent;
-        border-left: 8px solid transparent;
-        top: 34px;
-        left: -16px;
+        /*border-top: 8px solid transparent;*/
+        /*border-right: 8px solid var(--clr-white);*/
+        /*border-bottom: 8px solid transparent;*/
+        /*border-left: 8px solid transparent;*/
+        /*top: 34px;*/
+        /*left: -16px;*/
     }
 }
 

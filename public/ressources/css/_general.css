@@ -714,7 +714,7 @@ main.single .post .description h3 {
 }
 
 .comment {
-    border-radius: 20px;
+    border-radius: 0 20px 20px 20px;
     /* overflow: hidden; */
     box-shadow: var(--bs-primary);
     width: 100%;
@@ -724,15 +724,15 @@ main.single .post .description h3 {
 }
 
 .comment::before {
-    position: absolute;
-    content: "";
-    border-top: 10px solid transparent;
-    border-right: 10px solid var(--clr-white);
-    border-bottom: 10px solid transparent;
-    border-left: 10px solid transparent;
-    top: 40px;
-    left: -20px;
-    z-index: 5;
+    /*position: absolute;*/
+    /*content: "";*/
+    /*border-top: 10px solid transparent;*/
+    /*border-right: 10px solid var(--clr-white);*/
+    /*border-bottom: 10px solid transparent;*/
+    /*border-left: 10px solid transparent;*/
+    /*top: 40px;*/
+    /*left: -20px;*/
+    /*z-index: 5;*/
 }
 
 .comments {

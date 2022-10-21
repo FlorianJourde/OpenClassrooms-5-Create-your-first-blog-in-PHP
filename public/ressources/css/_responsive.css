@@ -133,8 +133,8 @@
     }
 
     .navbar {
-        padding-bottom: 10px;
-        padding-top: 10px;
+        /* padding-bottom: 10px;
+        padding-top: 10px; */
     }
 
     .navbar .logo img {
@@ -146,8 +146,8 @@
     }
 
     .close-menu {
-        top: 10px;
-        right: 15px;
+        top: 20px;
+        right: 20px;
     }
 
     #content {

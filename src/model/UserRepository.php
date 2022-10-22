@@ -92,13 +92,13 @@ class UserRepository
         return $user;
     }
 
-    public function generateToken(string $token, $identifer): string
+    public function generateToken(string $token, string $lastAuthentication, $identifer): string
     {
         $statement = $this->connection->getConnection()->prepare(
-            "UPDATE users set token = ? WHERE id = ?"
+            "UPDATE users set token = ?, last_authentication = ? WHERE id = ?"
         );
 
-        $affectedLines = $statement->execute([$token, $identifer]);
+        $affectedLines = $statement->execute([$token, $lastAuthentication, $identifer]);
 
         return ($affectedLines > 0);
     }
@@ -122,7 +122,7 @@ class UserRepository
     public function deleteToken(string $identifer): string
     {
         $statement = $this->connection->getConnection()->prepare(
-            "UPDATE users set token = null WHERE id = ?"
+            "UPDATE users set token = null, last_authentication = null WHERE id = ?"
         );
 
         $affectedLines = $statement->execute([$identifer]);

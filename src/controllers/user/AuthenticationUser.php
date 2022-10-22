@@ -4,6 +4,7 @@ namespace Application\Controllers\User;
 
 use Application\Lib\DatabaseConnection;
 use Application\Model\UserRepository;
+use DateTimeImmutable;
 
 class AuthenticationUser
 {
@@ -26,9 +27,11 @@ class AuthenticationUser
             $_SESSION['username'] = $user->username;
             $_SESSION['email'] = $user->email;
             $_SESSION['role'] = $user->role;
-            $_SESSION['timeout'] = time();
+            $_SESSION['time'] = time();
+            $now = new DateTimeImmutable();
+            $_SESSION['last_authentication'] = $now->format('d/m/Y à H:i:s');
             $_SESSION['token'] = bin2hex(random_bytes(16));
-            $userRepository->generateToken($_SESSION['token'], $user->identifier);
+            $userRepository->generateToken($_SESSION['token'], $_SESSION['last_authentication'], $user->identifier);
 
             header('Location: /');
         }

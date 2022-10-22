@@ -38,11 +38,11 @@ class AddPost
 
                     $tabExtension = explode('.', $name);
                     $extension = strtolower(end($tabExtension));
-
-                    $extensions = ['jpg', 'png', 'jpeg', 'gif'];
+                    $mimeType = mime_content_type($tmpName);
+                    $extensions = ['image/jpeg', 'image/png', 'image/gif'];
                     $maxSize = 1000000;
 
-                    if (in_array($extension, $extensions) && $size <= $maxSize && $error == 0) {
+                    if (in_array($mimeType, $extensions) && $size <= $maxSize && $error == 0) {
                         $uniqueName = uniqid('', true);
                         $file = $uniqueName . "." . $extension;
 

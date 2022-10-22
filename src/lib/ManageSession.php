@@ -8,7 +8,9 @@ class ManageSession
     {
         session_start();
 
-        if(!empty($_SESSION) && $_SESSION['timeout'] < time() - 30 * 60){
+        $sessionDuration = 30;
+
+        if(!empty($_SESSION) && $_SESSION['time'] < time() - $sessionDuration * 60){
             session_unset();
             session_destroy();
         }

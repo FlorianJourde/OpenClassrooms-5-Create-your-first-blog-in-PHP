@@ -31,7 +31,7 @@ class AuthenticationUser
             $now = new DateTimeImmutable();
             $_SESSION['last_authentication'] = $now->format('d/m/Y à H:i:s');
             $_SESSION['token'] = bin2hex(random_bytes(16));
-            $userRepository->generateToken($_SESSION['token'], $_SESSION['last_authentication'], $user->identifier);
+            $userRepository->setToken($_SESSION['token'], $_SESSION['last_authentication'], $user->identifier);
 
             header('Location: /');
         }

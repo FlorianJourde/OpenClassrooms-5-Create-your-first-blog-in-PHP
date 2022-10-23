@@ -127,6 +127,12 @@
         gap: 20px;
     }
 
+    #top-page-button {
+        font-size: 14px;
+        width: 40px;
+        height: 40px;
+    }
+
     .navbar .logo img {
         height: 30px;
     }

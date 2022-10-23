@@ -13,7 +13,8 @@ class LogoutUser
         $userRepository = new UserRepository();
         $userRepository->connection = new DatabaseConnection();
 
-        $userRepository->deleteToken($_SESSION['id']);
+        $userRepository->setToken(null, $_SESSION['last_authentication'], $_SESSION['id']);
+        $userRepository->setLastAction(null, $_SESSION['id']);
 
         session_unset();
         session_destroy();

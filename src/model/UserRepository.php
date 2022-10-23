@@ -91,7 +91,7 @@ class UserRepository
         return $user;
     }
 
-    public function generateToken(string $token, string $lastAuthentication, $identifer): string
+    public function setToken(?string $token, string $lastAuthentication, int $identifer): string
     {
         $statement = $this->connection->getConnection()->prepare(
             "UPDATE users set token = ?, last_authentication = ? WHERE id = ?"
@@ -118,14 +118,24 @@ class UserRepository
         return new User();
     }
 
-    public function deleteToken(string $identifer): string
-    {
+    public function setLastAction(?int $datetime, int $identifier): int {
         $statement = $this->connection->getConnection()->prepare(
-            "UPDATE users set token = null, last_authentication = null WHERE id = ?"
+            "UPDATE users set last_action = ? WHERE id = ?"
         );
 
-        $affectedLines = $statement->execute([$identifer]);
+        $affectedLines = $statement->execute([$datetime, $identifier]);
 
         return ($affectedLines > 0);
+    }
+
+    public function getLastAction(int $identifier): ?int {
+        $statement = $this->connection->getConnection()->prepare(
+            "SELECT last_action FROM users WHERE id = ?"
+        );
+
+        $statement->execute([$identifier]);
+        $row = $statement->fetch();
+
+        return $row['last_action'];
     }
 }

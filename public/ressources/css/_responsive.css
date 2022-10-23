@@ -10,7 +10,6 @@
     }
 }
 
-
 @media (max-width: 1024px) {
     .posts {
         grid-template-columns: repeat(2, 1fr);

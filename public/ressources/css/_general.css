@@ -704,7 +704,6 @@ main.single .post .description h3 {
     background-color: var(--clr-blue);
 }
 
-
 .update-comment .page {
     background-color: var(--clr-light-blue);
 }
@@ -753,7 +752,6 @@ main.single .post .description h3 {
     gap: 20px 40px;
     max-width: 300px;
 }
-
 
 .markdown-tooltip ul li {
     text-align: right;

@@ -72,6 +72,14 @@
   color: var(--clr-white);
 }
 
+.button-secondary.rotate-icon i {
+  transition: transform .4s;
+}
+
+.button-secondary.rotate-icon:hover i {
+  transform: rotate(-360deg);
+}
+
 .button-small {
   padding: 6px 12px;
 }
@@ -152,7 +160,6 @@
   background-color: var(--clr-dark-pink);
   border: 3px solid var(--clr-dark-pink);
 }
-
 
 .button-primary.button-yellow {
   background-color: var(--clr-dark-yellow);

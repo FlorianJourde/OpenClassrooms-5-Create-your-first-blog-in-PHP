@@ -38,7 +38,6 @@
 .banner.home {
     padding-top: 100px;
     padding-bottom: 0;
-    /*background-image: url(/public/ressources/images/monokai/monokai-1.jpg);*/
     background-color: var(--clr-very-dark-grey);
     overflow: hidden;
     align-items: center;
@@ -61,7 +60,6 @@
     opacity: 0.25;
     background-color: var(--clr-dark-grey);
     pointer-events: none;
-    /*z-index: 1;*/
 }
 
 .banner.z-index-2::before {
@@ -91,7 +89,6 @@
 .banner .introduction .stats {
     display: flex;
     gap: 60px;
-    /*margin-top: 20px;*/
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
@@ -100,7 +97,6 @@
     display: flex;
     flex-direction: column;
     gap: 10px;
-    /*width: 100px;*/
     text-align: center;
 }
 
@@ -148,8 +144,6 @@
 
 .introduction .box h2 span {
     display: inline-block;
-    /*animation: wave 2s infinite;*/
-    /* letter-spacing: 0.1em; */
 }
 
 .introduction .box h2 span span {
@@ -188,17 +182,8 @@
     0% {
         transform:translateY(0px)
     }
-    /*25% {*/
-    /*    transform:translateY(-20px);*/
-    /*}*/
     50% {
         transform:translateY(-10px);
-    }
-    /*75% {*/
-    /*    transform:translateY(10px);*/
-    /*}*/
-    100% {
-        /*transform:translateY(0px)*/
     }
 }
 
@@ -206,7 +191,6 @@
     display: flex;
     justify-content: space-between;
     gap: 100px;
-    /*opacity: 0.1;*/
 }
 
 .introduction .box {
@@ -254,13 +238,11 @@
     background: linear-gradient(315deg, #0a4a52 0%, #51b8c4 50%, #206972 100%);
     display: flex;
     justify-content: space-between;
-    /*align-items: center;*/
     gap: 100px;
 }
 
 .portrait .profile-picture {
     width: 30%;
-    /*min-width: 500px;*/
     object-fit: contain;
     border-radius: 50px;
     box-shadow: var(--bs-secondary);
@@ -391,7 +373,6 @@
     display: flex;
     flex-direction: column;
     gap: 20px;
-    /*width: 50%;*/
 }
 
 .presentation h2 {
@@ -400,7 +381,6 @@
 
 .presentation p {
     font-size: var(--fs-big-text);
-    /*color: var(--clr-light-blue);*/
 }
 
 .posts {
@@ -409,10 +389,6 @@
     gap: 50px;
     grid-auto-rows: 1fr;
 }
-
-/*.posts .header {*/
-/*    margin-bottom: 1rem;*/
-/*}*/
 
 .post .title {
     font-size: var(--fs-small-title);
@@ -423,12 +399,7 @@
 }
 
 main.single {
-    /*padding-bottom: 100px;*/
     margin-bottom: -100px;
-}
-
-.single + .comments-section {
-    /*padding-top: 100px;*/
 }
 
 .single + footer {
@@ -479,14 +450,6 @@ main.single .post .description h3 {
     border-left: 5px solid var(--clr-green);
 }
 
-/*main.single .post .description h2::before {*/
-/*    color: var(--clr-yellow);*/
-/*}*/
-
-/*main.single .post .description h3::before {*/
-/*    color: var(--clr-green);*/
-/*}*/
-
 .post .description.formated > *:has(img), .post .description.formated > *:has(code) {
     border-radius: 10px;
 }
@@ -498,10 +461,6 @@ main.single .post .description h3 {
 
 .post .description.formated > *:has(img) {
     text-align: center;
-}
-
-.post .description.formated h2:not(:first-child) {
-    /*margin-top: 40px;*/
 }
 
 .description.formated p:has(code) {
@@ -565,10 +524,6 @@ main.single .post .description h3 {
     background-color: var(--clr-dark-purple);
 }
 
-.management .single:not(:last-child) {
-    /*margin-bottom: 50px;*/
-}
-
 .management .single .post {
     color: var(--clr-white);
     display: flex;
@@ -591,7 +546,6 @@ main.single .post .description h3 {
     justify-content: space-between;
     align-items: center;
     gap: 10px;
-    /*margin-bottom: 20px;*/
 }
 
 .form-field {
@@ -715,24 +669,11 @@ main.single .post .description h3 {
 
 .comment {
     border-radius: 0 20px 20px 20px;
-    /* overflow: hidden; */
     box-shadow: var(--bs-primary);
     width: 100%;
     padding: 40px;
     background-color: var(--clr-white);
     position: relative;
-}
-
-.comment::before {
-    /*position: absolute;*/
-    /*content: "";*/
-    /*border-top: 10px solid transparent;*/
-    /*border-right: 10px solid var(--clr-white);*/
-    /*border-bottom: 10px solid transparent;*/
-    /*border-left: 10px solid transparent;*/
-    /*top: 40px;*/
-    /*left: -20px;*/
-    /*z-index: 5;*/
 }
 
 .comments {
@@ -820,31 +761,11 @@ main.single .post .description h3 {
     text-transform: initial;
 }
 
-/*.update-post .post .actions a, .update-post .post .infos, .add-post .post .actions a, .update-post .post .infos {*/
-    /*color: var(--clr-dark-green);*/
-    /*color: var(--clr-blue);*/
-    /*color: var(--clr-very-dark-blue);*/
-/*}*/
-
-/*.update-comment .post .actions a, .update-comment .post .infos p {*/
-/*    color: var(--clr-dark-blue);*/
-/*}*/
-
-/*.register form label, .login form label, .add-post form label, .contact form label {*/
 .form-field .title {
     font-size: var(--fs-big-text);
-    /*margin-bottom: 10px;*/
     display: inline-block;
     font-weight: 500;
 }
-
-.add-post .page {
-    /*background-color: var(--clr-light-blue);*/
-}
-
-/*.add-post .actions a, .add-post .title {*/
-/*    color: var(--clr-very-dark-blue);*/
-/*}*/
 
 .login form {
     background-color: var(--clr-dark-purple);
@@ -861,16 +782,6 @@ input[type="file"] {
     border-radius: unset;
     box-shadow: unset;
 }
-
-/*.label-file {*/
-/*    cursor: pointer;*/
-/*    color: green;*/
-/*    font-weight: bold;*/
-/*}*/
-
-/*.input-file {*/
-/*    display: none;*/
-/*}*/
 
 .register form {
     background-color: var(--clr-very-light-orange);
@@ -958,7 +869,6 @@ input[type="file"] {
 
 .box h2 {
     font-size: var(--fs-title);
-    /*margin-bottom: 15px;*/
 }
 
 .box p, .box a {

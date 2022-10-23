@@ -77,7 +77,7 @@ try {
                 $input = $_POST;
             }
 
-            (new AddPost())->execute($_POST/* , $image */);
+            (new AddPost())->execute($_POST);
         } elseif ($_GET['action'] === 'updatePost') {
             if (isset($_GET['id']) && $_GET['id'] > 0) {
                 $identifier = $_GET['id'];

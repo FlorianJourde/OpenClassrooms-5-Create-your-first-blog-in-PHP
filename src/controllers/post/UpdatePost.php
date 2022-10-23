@@ -56,7 +56,6 @@ class UpdatePost
                         $extension = strtolower(end($tabExtension));
                         $mimeType = mime_content_type($tmpName);
                         $extensions = ['image/jpeg', 'image/png', 'image/gif'];
-//                        $extensions = ['jpg', 'png', 'jpeg', 'gif'];
                         $maxSize = 1000000;
 
                         if (in_array($mimeType, $extensions) && $size <= $maxSize && $error == 0) {

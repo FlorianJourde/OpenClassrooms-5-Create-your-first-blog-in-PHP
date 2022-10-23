@@ -1,6 +1,4 @@
 {% block navbar %}
-{{ dump(session) }}
-
   <nav>
     <div class="navbar">
         <div class="wrapper">
@@ -46,24 +44,4 @@
       </div>
   {% endif %}
   </nav>
-{#    <div id="mobile-menu" class="menu mobile-only">#}
-{#        <a type="button" class="close-menu"><i class="fas fa-times"></i></a>#}
-{#        <ul class="navigation-links">#}
-{#            {% if session.is_authenticated == true %}#}
-{#                <li style="color: var(--clr-grey)">Bonjour <span style="font-weight: 600;">{{ session.username }}</span> !</li>#}
-{#            {% endif %}#}
-{#            <li><a class="button-tertiary button-white" href="?action=archive">Articles</a></li>#}
-{#            <li><a class="button-tertiary button-white" href="?action=contact">Contact</a></li>#}
-{#        </ul>#}
-{#        {% if session.is_authenticated != true %}#}
-{#            <ul class="navigation-user">#}
-{#                <li><a class="button-secondary button-white" href="?action=register"><i class="fas fa-user-plus"></i>S'enregistrer</a></li>#}
-{#                <li><a class="button-primary button-white" href="?action=login"><i class="fas fa-sign-in-alt"></i>Se connecter</a></li>#}
-{#            </ul>#}
-{#        {% else %}#}
-{#            <ul class="navigation-user">#}
-{#                <li><a class="button-primary button-white" href="?action=logoutUser"><i class="fas fa-sign-out-alt"></i>Se déconnecter</a></li>#}
-{#            </ul>#}
-{#        {% endif %}#}
-{#    </div>#}
 {% endblock %}

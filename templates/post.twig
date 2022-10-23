@@ -36,7 +36,7 @@
                                     {% if (session.role == 'Admin') or (session.id == comment.userId) %}
                                         <div class="actions icon-spacing">
                                             {% if (session.role == 'Admin') %}
-                                                <a class="hide" href="?action=hideComment&id={{ comment.identifier }}"><i class="fas fa-eye"></i>Retirer</a>
+                                                <a class="hide" href="?action=hideComment&id={{ comment.identifier }}"><i class="fas fa-eye-slash"></i>Retirer</a>
                                             {% endif %}
                                             <a class="edit" href="?action=updateComment&id={{ comment.identifier }}"><i class="fas fa-edit"></i>Modifier</a>
                                             <a class="delete" href="?action=deleteComment&id={{ comment.identifier }}"><i class="fas fa-trash"></i>Supprimer</a>

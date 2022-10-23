@@ -12,17 +12,14 @@ use Application\Model\UserRepository;
 
 class ManageComments
 {
-    public function execute(/* int $identifier */)
+    public function execute()
     {
         $manageSession = new ManageSession();
         $manageSession->execute();
-
         $postRepository = new PostRepository();
         $postRepository->connection = new DatabaseConnection();
-
         $commentRepository = new CommentRepository();
         $commentRepository->connection = new DatabaseConnection();
-
         $userRepository = new UserRepository();
         $userRepository->connection = new DatabaseConnection();
 

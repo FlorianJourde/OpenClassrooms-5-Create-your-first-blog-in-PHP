@@ -49,6 +49,10 @@
     fill: #8f8001;
 }
 
+.fill-dark-gray path {
+    fill: #1a1a1a;
+}
+
 .fill-blue path {
     fill: #0bb3d8;
 }
@@ -133,6 +137,9 @@
 
 #dots-1 {
     height: 200px;
+    top: 120px;
+    margin-left: -200px;
+    transform: rotate(354deg);
 }
 
 #cross-1 {
@@ -211,9 +218,6 @@
     50% {
         transform: translateY(-40px);
     }
-    /*60% {*/
-    /*    transform: translateY(-40px);*/
-    /*}*/
     100% {
         transform: translateY(0);
     }

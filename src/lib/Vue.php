@@ -2,7 +2,7 @@
 
 namespace Application\Lib;
 
-class RenderFront
+class Vue
 {
     public function render(string $string, array $array = [])
     {

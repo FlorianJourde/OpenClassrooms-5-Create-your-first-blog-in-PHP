@@ -1,11 +1,11 @@
 <?php
 
-namespace Application\Controllers\Comment;
+namespace Application\Controllers;
 
 use Application\Lib\CheckUserRole;
 use Application\Lib\DatabaseConnection;
 use Application\Lib\ManageSession;
-use Application\Lib\RenderFront;
+use Application\Lib\Vue;
 use Application\Model\CommentRepository;
 use Application\Model\PostRepository;
 use Application\Model\UserRepository;
@@ -22,6 +22,14 @@ class ManageComments
         $commentRepository->connection = new DatabaseConnection();
         $userRepository = new UserRepository();
         $userRepository->connection = new DatabaseConnection();
+
+//        $input = null;
+
+//        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+//            $input = $_POST;
+//        }
+
+//        (new ManageComments())->execute();
 
         $userRole = new CheckUserRole();
 
@@ -53,7 +61,7 @@ class ManageComments
             throw new \Exception('Vous n\'avez pas accès à cette page !');
         }
 
-        $twig = new RenderFront();
+        $twig = new Vue();
         echo $twig->render('manage_comments.twig', ['posts' => $posts, 'session' => $_SESSION]);
     }
 }

@@ -3,14 +3,20 @@
 namespace Application\Controllers;
 
 use Application\Lib\ManageSession;
-use Application\Lib\RenderFront;
+use Application\Lib\Vue;
 
 class Contact
 {
-    public function execute(?array $input)
+    public function execute()
     {
         $manageSession = new ManageSession();
         $manageSession->execute();
+
+        $input = null;
+
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $input = $_POST;
+        }
 
         if (!empty($input)) {
             $receiver = "jourdeflorian@gmail.com";
@@ -41,7 +47,7 @@ class Contact
             }
         }
 
-        $twig = new RenderFront();
+        $twig = new Vue();
         echo $twig->render('contact.twig', ['session' => $_SESSION]);
     }
 }

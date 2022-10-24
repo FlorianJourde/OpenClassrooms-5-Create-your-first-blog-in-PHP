@@ -1,25 +1,32 @@
 <?php
 
-namespace Application\Controllers\Comment;
+namespace Application\Controllers;
 
 use Application\Lib\CheckUserRole;
 use Application\Lib\DatabaseConnection;
 use Application\Lib\ManageSession;
 use Application\Model\CommentRepository;
 use Application\Model\PostRepository;
+use Exception;
 
 class HideComment
 {
-    public function execute(int $identifier)
+    public function execute()
     {
         $manageSession = new ManageSession();
         $manageSession->execute();
-
         $commentRepository = new CommentRepository();
         $commentRepository->connection = new DatabaseConnection();
-
         $postRepository = new PostRepository();
         $postRepository->connection = new DatabaseConnection();
+
+        if (isset($_GET['id']) && $_GET['id'] > 0) {
+            $identifier = $_GET['id'];
+
+//            (new HideComment())->execute($identifier);
+        } else {
+            throw new Exception('Aucun identifiant de commentaire envoyé');
+        }
 
         $userRole = new CheckUserRole();
         $success = false;
@@ -31,11 +38,11 @@ class HideComment
                 $success = $commentRepository->hideComment($identifier);
             }
         } else {
-            throw new \Exception('Vous ne pouvez pas masquer ce commentaire !');
+            throw new Exception('Vous ne pouvez pas masquer ce commentaire !');
         }
 
         if (!$success) {
-            throw new \Exception('Impossible de masquer le commentaire !');
+            throw new Exception('Impossible de masquer le commentaire !');
         } else {
             header('Location: ?action=post&id=' . $postId);
         }

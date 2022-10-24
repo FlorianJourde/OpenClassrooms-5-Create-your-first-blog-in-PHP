@@ -5,7 +5,7 @@ namespace Application\Controllers;
 use Application\Lib\CheckUserRole;
 use Application\Lib\DatabaseConnection;
 use Application\Lib\ManageSession;
-use Application\Lib\RenderFront;
+use Application\Lib\Vue;
 use Application\Model\UserRepository;
 
 class Login
@@ -24,7 +24,7 @@ class Login
             header(sprintf('Location: /'));
         }
 
-        $twig = new RenderFront();
+        $twig = new Vue();
         echo $twig->render('login.twig');
     }
 }

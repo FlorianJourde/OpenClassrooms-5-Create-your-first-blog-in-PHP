@@ -5,7 +5,7 @@ namespace Application\Controllers;
 use Application\Lib\CheckUserRole;
 use Application\Lib\DatabaseConnection;
 use Application\Lib\ManageSession;
-use Application\Lib\RenderFront;
+use Application\Lib\Vue;
 use Application\Model\UserRepository;
 
 class Register
@@ -24,7 +24,7 @@ class Register
             header(sprintf('Location: /'));
         }
 
-        $twig = new RenderFront();
+        $twig = new Vue();
         echo $twig->render('register.twig', ['users' => $userRepository->getUsers()]);
     }
 }

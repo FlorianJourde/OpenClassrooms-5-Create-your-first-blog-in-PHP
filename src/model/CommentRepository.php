@@ -108,7 +108,7 @@ class CommentRepository
         if (!is_int($identifier)) { return false; }
 
         $statement = $this->connection->getConnection()->prepare(
-            'UPDATE comments SET content = ? WHERE id = ?'
+            'UPDATE comments SET content = ?, status = false WHERE id = ?'
         );
 
         $affectedLines = $statement->execute([$comment, $identifier]);

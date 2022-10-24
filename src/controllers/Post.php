@@ -4,14 +4,15 @@ namespace Application\Controllers;
 
 use Application\Lib\DatabaseConnection;
 use Application\Lib\ManageSession;
-use Application\Lib\RenderFront;
+use Application\Lib\Vue;
 use Application\Model\CommentRepository;
 use Application\Model\PostRepository;
 use Application\Model\UserRepository;
+use Exception;
 
 class Post
 {
-    public function execute(int $identifier)
+    public function execute()
     {
         $manageSession = new ManageSession();
         $manageSession->execute();
@@ -21,6 +22,12 @@ class Post
         $commentRepository->connection = new DatabaseConnection();
         $userRepository = new UserRepository();
         $userRepository->connection = new DatabaseConnection();
+
+        if (isset($_GET['id']) && $_GET['id'] > 0) {
+            $identifier = $_GET['id'];
+        } else {
+            throw new Exception('Aucun identifiant de billet envoyé');
+        }
 
         $post = $postRepository->getPost($identifier);
         $user = $userRepository->getUserFromId($post->userId);
@@ -37,7 +44,7 @@ class Post
             }
         }
 
-        $twig = new RenderFront();
+        $twig = new Vue();
         echo $twig->render('post.twig', ['post' => $post, 'comments' => array_reverse($visibleComments), 'session' => $_SESSION]);
     }
 }

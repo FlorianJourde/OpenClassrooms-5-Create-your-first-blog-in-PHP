@@ -67,7 +67,7 @@ class Rooter {
             $request = new Request(array_merge($_GET, $_POST));
 
             $controller = $this->createController($request);
-            var_dump($controller);
+//            var_dump($controller);
 //            $action = $this->createAction($request);
 
 //            $controller->executeAction($action);

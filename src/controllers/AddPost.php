@@ -54,6 +54,8 @@ class AddPost
                         $file = $uniqueName . "." . $extension;
 
                         move_uploaded_file($tmpName, '../public/ressources/images/posts/' . $file);
+                    } else {
+                        throw new \Exception('L\'image sélectionnée n\'est pas conforme.');
                     }
                 }
 
@@ -71,7 +73,7 @@ class AddPost
 
             $success = $postRepository->createPost($userId, $title, $content, $status, $file);
             
-            header(sprintf('Location: ?action=archive'));
+            header(sprintf('Location: /articles'));
             }
         } else {
             throw new \Exception('Vous n\'avez pas accès à cette page !');

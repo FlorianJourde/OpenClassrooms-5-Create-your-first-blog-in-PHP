@@ -48,7 +48,7 @@ class AddComment
         if (!$success) {
             throw new Exception('Impossible d\'ajouter le commentaire !');
         } else {
-            header('Location: ?action=post&id=' . $postId);
+            header('Location: /article/' . $postId);
         }
     }
 }

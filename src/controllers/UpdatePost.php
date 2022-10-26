@@ -76,6 +76,8 @@ class UpdatePost
                             $file = $uniqueName . "." . $extension;
 
                             move_uploaded_file($tmpName, '../public/ressources/images/posts/' . $file);
+                        } else {
+                            throw new \Exception('L\'image sélectionnée n\'est pas conforme.');
                         }
                     }
                 } else {
@@ -91,7 +93,7 @@ class UpdatePost
                     throw new Exception('L\'article concerné n\'existe pas !');
                 }
 
-                header(sprintf('Location: ?action=post&id=%d', $identifier));
+                header(sprintf('Location: /article/%d', $identifier));
             }
         } else {
             throw new Exception('Vous n\'avez pas accès à cette page !');

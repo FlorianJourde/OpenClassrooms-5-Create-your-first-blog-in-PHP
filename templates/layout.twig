@@ -49,13 +49,13 @@
             {% if session.is_authenticated == true %}
                 <li style="color: var(--clr-grey)">Bonjour <span style="font-weight: 600;">{{ session.username }}</span> !</li>
             {% endif %}
-            <li><a class="button-tertiary button-white" href="?action=archive">Articles</a></li>
-            <li><a class="button-tertiary button-white" href="?action=contact">Contact</a></li>
+            <li><a class="button-tertiary button-white" href="/articles">Articles</a></li>
+            <li><a class="button-tertiary button-white" href="/contact">Contact</a></li>
         </ul>
         {% if session.is_authenticated != true %}
             <ul class="navigation-user">
-                <li><a class="button-secondary button-white" href="?action=register"><i class="fas fa-user-plus"></i>S'enregistrer</a></li>
-                <li><a class="button-primary button-white" href="?action=login"><i class="fas fa-sign-in-alt"></i>Se connecter</a></li>
+                <li><a class="button-secondary button-white" href="/inscription"><i class="fas fa-user-plus"></i>S'enregistrer</a></li>
+                <li><a class="button-primary button-white" href="/connexion"><i class="fas fa-sign-in-alt"></i>Se connecter</a></li>
             </ul>
         {% else %}
             <ul class="navigation-user">

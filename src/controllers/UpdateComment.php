@@ -65,7 +65,7 @@ class UpdateComment
                     throw new Exception('Le commentaire concerné n\'existe pas !');
                 }
 
-                header(sprintf('Location: ?action=post&id=%d', $comment->postId));
+                header(sprintf('Location: /article/%d', $comment->postId));
             }
 
             if ($comment === null) {

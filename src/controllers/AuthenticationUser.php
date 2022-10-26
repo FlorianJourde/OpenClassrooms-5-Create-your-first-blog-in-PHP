@@ -22,7 +22,7 @@ class AuthenticationUser
 
         if ($success === null) {
             throw new \Exception('Authentification impossible !');
-            header('Location: ?action=login');
+            header('Location: /connexion');
         } else {
             $user = $userRepository->getUserFromEmail($email);
             $_SESSION['is_authenticated'] = true;

@@ -42,9 +42,9 @@ class DeletePost
                         if ($post->image !== 'placeholder-min.jpg') {
                             unlink('../public/ressources/images/posts/' . $post->image);
                         };
-                        header(sprintf('Location: ?action=archive'));
+                        header(sprintf('Location: /articles'));
                     } else {
-                        header(sprintf('Location: ?action=post&id=%d', $identifier));
+                        header(sprintf('Location: /article/%d', $identifier));
                     }
                 }
             }

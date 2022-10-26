@@ -44,7 +44,7 @@ class HideComment
         if (!$success) {
             throw new Exception('Impossible de masquer le commentaire !');
         } else {
-            header('Location: ?action=post&id=' . $postId);
+            header('Location: /article/' . $postId);
         }
     }
 }

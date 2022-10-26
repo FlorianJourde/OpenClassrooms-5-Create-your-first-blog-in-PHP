@@ -40,7 +40,7 @@ class ShowComment
         if (!$success) {
             throw new Exception('Impossible d\'afficher le commentaire !');
         } else {
-            header('Location: ?action=manageComments');
+            header('Location: /gestion-commentaires');
         }
     }
 }

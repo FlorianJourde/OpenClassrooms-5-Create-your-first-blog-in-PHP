@@ -49,9 +49,9 @@ class DeleteComment
             if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $success = $commentRepository->deleteComment($identifier);
 
-                header(sprintf('Location: ?action=post&id=%d', $comment->postId));
+                header(sprintf('Location: /article/%d', $comment->postId));
                 if (!$success) {
-                    header(sprintf('Location: ?action=post&id=%d', $comment->postId));
+                    header(sprintf('Location: /article/%d', $comment->postId));
                 }
             }
         } else {

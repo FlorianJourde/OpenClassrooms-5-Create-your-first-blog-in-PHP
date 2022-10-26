@@ -1,7 +1,5 @@
 {% extends 'layout.twig' %}
 
-{% import 'form.twig' as form %}
-
 {% block title %}Contact{% endblock %}
 
 {% block content %}
@@ -15,7 +13,7 @@
     </section>
     <section class="contact position-relative">
         <div class="wrapper wrapper-small">
-                <form class="page icon-spacing" action="?action=contact" method="post">
+                <form class="page icon-spacing" action="/contact" method="post">
                     <div class="form-field">
                         <div class="header">
                             <label for="firstname" class="title"><i class="fas fa-user"></i>Prénom</label><br />

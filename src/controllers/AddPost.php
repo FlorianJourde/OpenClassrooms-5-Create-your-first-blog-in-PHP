@@ -33,6 +33,7 @@ class AddPost
 
         if ($userRole->isAdmin($user_role)) {
             if (!empty($input)) {
+
                 $title = null;
                 $content = null;
                 $file = $_FILES['file']['error'] !== 0 ? null : $_FILES['file'];

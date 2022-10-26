@@ -53,5 +53,4 @@ class Request {
             throw new Exception("Paramètre '$name' absent de la requête");
         }
     }
-
 }

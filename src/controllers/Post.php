@@ -38,8 +38,12 @@ class Post
 
         foreach ($comments as $comment) {
             if($comment->status === true) {
-                $user = $userRepository->getUserFromId($comment->userId);
-                $comment->username = $user->username;
+                if ($userRepository->getUserFromId($comment->userId) !== null) {
+                    $user = $userRepository->getUserFromId($comment->userId);
+                    $comment->username = $user->username;
+                } else {
+                    $comment->username = 'Compte supprimé';
+                }
                 $visibleComments[] = $comment;
             }
         }

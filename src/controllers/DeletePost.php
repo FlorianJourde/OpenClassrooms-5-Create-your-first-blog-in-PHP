@@ -28,6 +28,7 @@ class DeletePost
         }
 
         $post = $postRepository->getPost($identifier);
+
         $userRole = new CheckUserRole();
 
         $post->image === null ? $post->image = 'placeholder-min.jpg' : $post->image;

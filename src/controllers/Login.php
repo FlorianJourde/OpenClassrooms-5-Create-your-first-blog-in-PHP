@@ -14,7 +14,6 @@ class Login
     {
         $manageSession = new ManageSession();
         $manageSession->execute();
-
         $userRepository = new UserRepository();
         $userRepository->connection = new DatabaseConnection();
 

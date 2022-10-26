@@ -13,36 +13,27 @@ class AddComment
     {
         $manageSession = new ManageSession();
         $manageSession->execute();
-
-//        var_dump($_GET['id']);
-//        die();
+        $commentRepository = new CommentRepository();
+        $commentRepository->connection = new DatabaseConnection();
 
         if (isset($_GET['id']) && $_GET['id'] > 0) {
             $postId = $_GET['id'];
-//            $userId = 0;
-//            $status = false;
-
-//            (new AddComment())->execute($postId, $_POST, $userId, $status);
         } else {
             throw new Exception('Aucun identifiant de billet envoyé');
         }
 
-//        $userId = null;
-//        $comment = null;
-
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $input = $_POST;
+        }
 
         if (!empty( $_POST['comment'])) {
             $userId = $_SESSION['id'];
             $comment = $_POST['comment'];
             $status = 0;
-
         } else {
             throw new Exception('Les données du formulaire sont invalides.');
         }
 
-        
-        $commentRepository = new CommentRepository();
-        $commentRepository->connection = new DatabaseConnection();
         $success = $commentRepository->createComment($postId, $comment, $userId, $status);
 
         if (!$success) {

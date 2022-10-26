@@ -53,7 +53,7 @@
                 {% endif %}
                 {% if session.role is defined %}
                     <h2 class="section-title">Ajouter un commentaire</h2>
-                    <form action="?action=addComment&id={{ post.identifier }}" method="post">
+                    <form action="/article/ajout-commentaire/{{ post.identifier }}" method="post">
                         <textarea id="comment" name="comment"></textarea>
                         <input class="button-form button-very-dark-grey" type="submit" />
                     </form>

@@ -13,17 +13,17 @@
                     {% if session.is_authenticated == true %}
                         <li>Bonjour <span style="font-weight: 600;">{{ session.username }}</span> !</li>
                     {% endif %}
-                        <li><a class="button-tertiary button-dark-yellow" href="?action=archive">Articles</a></li>
-                        <li><a class="button-tertiary button-dark-yellow" href="?action=contact">Contact</a></li>
+                        <li><a class="button-tertiary button-dark-yellow" href="/articles">Articles</a></li>
+                        <li><a class="button-tertiary button-dark-yellow" href="/contact">Contact</a></li>
                 </ul>
                 {% if session.is_authenticated != true %}
                     <ul class="navigation-user">
-                        <li><a class="button-secondary button-black" href="?action=register"><i class="fas fa-user-plus"></i>S'enregistrer</a></li>
-                        <li><a class="button-primary button-black" href="?action=login"><i class="fas fa-sign-in-alt"></i>Se connecter</a></li>
+                        <li><a class="button-secondary button-black" href="/inscription"><i class="fas fa-user-plus"></i>S'enregistrer</a></li>
+                        <li><a class="button-primary button-black" href="/connexion"><i class="fas fa-sign-in-alt"></i>Se connecter</a></li>
                     </ul>
                 {% else %}
                     <ul class="navigation-user">
-                        <li><a class="button-primary button-black" href="?action=logoutUser"><i class="fas fa-sign-out-alt"></i>Se déconnecter</a></li>
+                        <li><a class="button-primary button-black" href="/deconnexion"><i class="fas fa-sign-out-alt"></i>Se déconnecter</a></li>
                     </ul>
                 {% endif %}
             </div>
@@ -34,11 +34,11 @@
           <div class="wrapper">
               <ul>
                   {% if (post is not empty) and (post.identifier is not empty) %}
-                      <li><a href="?action=updatePost&id={{ post.identifier }}">Modifier l'article</a></li>
-                      <li><a href="?action=deletePost&id={{ post.identifier }}">Supprimer l'article</a></li>
+                      <li><a href="/article/modification/{{ post.identifier }}">Modifier l'article</a></li>
+                      <li><a href="/article/suppression/{{ post.identifier }}">Supprimer l'article</a></li>
                   {% endif %}
-                  <li><a class="button-tertiary button-white" href="?action=manageComments">Gestion des commentaires</a></li>
-                  <li><a class="button-tertiary button-white" href="?action=addPost">Ajouter un article</a></li>
+                  <li><a class="button-tertiary button-white" href="/gestion-commentaires">Gestion des commentaires</a></li>
+                  <li><a class="button-tertiary button-white" href="/ajout-article">Ajouter un article</a></li>
               </ul>
           </div>
       </div>

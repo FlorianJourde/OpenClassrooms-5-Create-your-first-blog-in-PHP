@@ -20,9 +20,9 @@
                             <h3 class="title icon-spacing"><i class="fas fa-newspaper"></i>{{ post.title }}</h3>
                             {% if session.role == 'Admin' %}
                                 <div class="actions icon-spacing white">
-                                    <a class="hide" href="?action=post&id={{ post.identifier }}"><i class="fas fa-eye"></i>Voir</a>
-                                    <a class="edit" href="?action=updatePost&id={{ post.identifier }}"><i class="fas fa-edit"></i>Modifier</a>
-                                    <a class="delete" href="?action=deletePost&id={{ post.identifier }}"><i class="fas fa-trash"></i>Supprimer</a>
+                                    <a class="hide" href="/article/{{ post.identifier }}"><i class="fas fa-eye"></i>Voir</a>
+                                    <a class="edit" href="/article/modification/{{ post.identifier }}"><i class="fas fa-edit"></i>Modifier</a>
+                                    <a class="delete" href="/article/suppression/{{ post.identifier }}"><i class="fas fa-trash"></i>Supprimer</a>
                                 </div>
                             {% endif %}
                         </div>
@@ -38,9 +38,9 @@
                                     <p class="username icon-spacing"><i class="fas fa-user"></i>{{ comment.username }}</p>
                                     {% if (session.role == 'Admin') or (session.id == comment.user_id) %}
                                         <div class="actions icon-spacing">
-                                            <a class="hide" href="?action=showComment&id={{ comment.identifier }}"><i class="fas fa-eye"></i>Accepter</a>
-                                            <a class="edit" href="?action=updateComment&id={{ comment.identifier }}"><i class="fas fa-edit"></i>Modifier</a>
-                                            <a class="delete" href="?action=deleteComment&id={{ comment.identifier }}"><i class="fas fa-trash"></i>Supprimer</a>
+                                            <a class="hide" href="/commentaire/validation/{{ comment.identifier }}"><i class="fas fa-eye"></i>Accepter</a>
+                                            <a class="edit" href="/commentaire/modification/{{ comment.identifier }}"><i class="fas fa-edit"></i>Modifier</a>
+                                            <a class="delete" href="/commentaire/suppression/{{ comment.identifier }}"><i class="fas fa-trash"></i>Supprimer</a>
                                         </div>
                                     {% endif %}
                                 </div>

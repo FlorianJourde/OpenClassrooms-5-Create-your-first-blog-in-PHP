@@ -93,14 +93,14 @@
                         <img class="thumbnail" src="/public/ressources/images/posts/{{ post.image }}" alt="">
                         {% if session.role == 'Admin' %}
                             <div class="actions icon-spacing white">
-                                <a href="?action=updatePost&id={{ post.identifier }}"><i class="fas fa-edit"></i>Modifier</a>
-                                <a href="?action=deletePost&id={{ post.identifier }}"><i class="fas fa-trash"></i>Supprimer</a>
+                                <a href="/article/modification/{{ post.identifier }}"><i class="fas fa-edit"></i>Modifier</a>
+                                <a href="/article/suppression/{{ post.identifier }}"><i class="fas fa-trash"></i>Supprimer</a>
                             </div>
                         {% endif %}
                         <div class="content">
                             <h3 class="title">{{ post.title }}</h3>
                             <p class="description">{{ post.content | striptags | slice(0, 100) ~ '...' }}</p>
-                            <a class="button-secondary rotate-icon button-white" href="?action=post&id={{ post.identifier }}">Lire l'article<i class="fas fa-arrow-right"></i></a>
+                            <a class="button-secondary rotate-icon button-white" href="/article/{{ post.identifier }}">Lire l'article<i class="fas fa-arrow-right"></i></a>
                         </div>
                     </div>
                 {% endfor %}

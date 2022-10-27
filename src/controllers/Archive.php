@@ -4,7 +4,7 @@ namespace Application\Controllers;
 
 use Application\Lib\DatabaseConnection;
 use Application\Lib\ManageSession;
-use Application\Lib\RenderFront;
+use Application\Lib\Vue;
 use Application\Model\PostRepository;
 use Application\Model\UserRepository;
 
@@ -27,7 +27,7 @@ class Archive
             $post->image === null ? $post->image = 'placeholder-min.jpg' : $post->image;
         }
 
-        $twig = new RenderFront();
+        $twig = new Vue();
         echo $twig->render('archive.twig', ['posts' => $posts, 'session' => $_SESSION]);
     }
 }

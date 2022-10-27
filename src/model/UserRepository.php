@@ -8,7 +8,7 @@ class UserRepository
 {
     public  DatabaseConnection $connection;
 
-    private function fetchUser($row): User
+    private function fetchUser($row): ?User
     {
         $user = new User();
         $user->identifier = $row['id'];
@@ -30,7 +30,13 @@ class UserRepository
         $statement->execute([$identifier]);
         $row = $statement->fetch();
 
-        return $this->fetchUser($row);
+        if ($row > 0) {
+            $result = $this->fetchUser($row);
+        } else {
+            $result = null;
+        }
+
+        return $result;
     }
 
     public function getUserFromEmail(string $email): User
@@ -42,7 +48,13 @@ class UserRepository
         $statement->execute([$email]);
         $row = $statement->fetch();
 
-        return $this->fetchUser($row);
+        if ($row > 0) {
+            $result = $this->fetchUser($row);
+        } else {
+            $result = null;
+        }
+
+        return $result;
     }
 
     public function getUsers(): array

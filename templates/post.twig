@@ -36,10 +36,10 @@
                                     {% if (session.role == 'Admin') or (session.id == comment.userId) %}
                                         <div class="actions icon-spacing">
                                             {% if (session.role == 'Admin') %}
-                                                <a class="hide" href="?action=hideComment&id={{ comment.identifier }}"><i class="fas fa-eye-slash"></i>Retirer</a>
+                                                <a class="hide" href="/commentaire/annulation/{{ comment.identifier }}"><i class="fas fa-eye-slash"></i>Retirer</a>
                                             {% endif %}
-                                            <a class="edit" href="?action=updateComment&id={{ comment.identifier }}"><i class="fas fa-edit"></i>Modifier</a>
-                                            <a class="delete" href="?action=deleteComment&id={{ comment.identifier }}"><i class="fas fa-trash"></i>Supprimer</a>
+                                            <a class="edit" href="/commentaire/modification/{{ comment.identifier }}"><i class="fas fa-edit"></i>Modifier</a>
+                                            <a class="delete" href="/commentaire/suppression/{{ comment.identifier }}"><i class="fas fa-trash"></i>Supprimer</a>
                                         </div>
                                     {% endif %}
                                 </div>
@@ -53,7 +53,7 @@
                 {% endif %}
                 {% if session.role is defined %}
                     <h2 class="section-title">Ajouter un commentaire</h2>
-                    <form action="?action=addComment&id={{ post.identifier }}" method="post">
+                    <form action="/article/ajout-commentaire/{{ post.identifier }}" method="post">
                         <textarea id="comment" name="comment"></textarea>
                         <input class="button-form button-very-dark-grey" type="submit" />
                     </form>

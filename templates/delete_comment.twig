@@ -21,7 +21,7 @@
                             <h3 class="title"><i class="fas fa-comment-alt"></i>Commentaire</h3>
                             {% if session.role == 'Admin' %}
                                 <div class="actions icon-spacing white">
-                                    <a class="hide" href="?action=post&id={{ post.identifier }}"><i class="fas fa-eye"></i>Voir</a>
+                                    <a class="hide" href="/article/{{ post.identifier }}"><i class="fas fa-eye"></i>Voir</a>
                                 </div>
                             {% endif %}
                         </div>
@@ -32,7 +32,7 @@
                         </div>
                     </div>
                 </div>
-                <form action="?action=deleteComment&id={{ comment.identifier }}" method="post">
+                <form action="delete-comment/{{ comment.identifier }}" method="post">
                     <input class="button-form button-dark-pink" type="submit" value="Supprimer" />
                 </form>
             </div>

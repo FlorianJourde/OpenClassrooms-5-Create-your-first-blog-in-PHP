@@ -5,19 +5,19 @@ RewriteEngine on
 Options +FollowSymlinks
 RewriteBase /
 
-RewriteRule ^articles   ?action=archive
-RewriteRule ^ajout-article   ?action=addPost
-RewriteRule ^contact    ?action=contact
-RewriteRule ^inscription    ?action=register
-RewriteRule ^connexion  ?action=login
-RewriteRule ^deconnexion    ?action=logoutUser
+RewriteRule ^articles   ?action=Archive
+RewriteRule ^ajout-article   ?action=AddPost
+RewriteRule ^contact    ?action=Contact
+RewriteRule ^inscription    ?action=Register
+RewriteRule ^connexion  ?action=Login
+RewriteRule ^deconnexion    ?action=LogoutUser
 RewriteRule ^authentification   ?action=AuthenticationUser
-RewriteRule ^gestion-commentaires   ?action=manageComments
-RewriteRule ^article/([0-9]+)   ?action=post&id=$1
-RewriteRule ^article/modification/([0-9]+)   ?action=updatePost&id=$1
-RewriteRule ^article/suppression/([0-9]+)   ?action=deletePost&id=$1
-RewriteRule ^article/ajout-commentaire/([0-9]+)   ?action=addComment&id=$1
-RewriteRule ^commentaire/suppression/([0-9]+)   ?action=deleteComment&id=$1
-RewriteRule ^commentaire/modification/([0-9]+)   ?action=updateComment&id=$1
-RewriteRule ^commentaire/validation/([0-9]+)   ?action=showComment&id=$1
-RewriteRule ^commentaire/annulation/([0-9]+)   ?action=hideComment&id=$1
+RewriteRule ^gestion-commentaires   ?action=ManageComments
+RewriteRule ^article/([0-9]+)   ?action=Post&id=$1
+RewriteRule ^article/modification/([0-9]+)   ?action=UpdatePost&id=$1
+RewriteRule ^article/suppression/([0-9]+)   ?action=DeletePost&id=$1
+RewriteRule ^article/ajout-commentaire/([0-9]+)   ?action=AddComment&id=$1
+RewriteRule ^commentaire/suppression/([0-9]+)   ?action=DeleteComment&id=$1
+RewriteRule ^commentaire/modification/([0-9]+)   ?action=UpdateComment&id=$1
+RewriteRule ^commentaire/validation/([0-9]+)   ?action=ShowComment&id=$1
+RewriteRule ^commentaire/annulation/([0-9]+)   ?action=HideComment&id=$1

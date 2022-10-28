@@ -7,7 +7,7 @@
 
 ![OpenClassrooms banneer](public/ressources/images/readme-header.jpg)
 
-[![Codacy Badge](https://img.shields.io/badge/code%20quality-D-yellow?style=flat-square&logo=codacy&logoColor=white/)](https://www.codacy.com/gh/FlorianJourde/OpenClassrooms-5-Create-your-first-blog-in-PHP/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=FlorianJourde/OpenClassrooms-5-Create-your-first-blog-in-PHP&amp;utm_campaign=Badge_Grade) [![PHP Badge](https://img.shields.io/badge/PHP-7.4-7a86b8?style=flat-square&logo=php&logoColor=white/)]() [![Twig](https://img.shields.io/badge/Twig-2-bacf29?style=flat-square&logo=symfony&logoColor=white/)]() [![Composer](https://img.shields.io/badge/Composer-2.4.1-6c3e22?style=flat-square&logo=composer&logoColor=white/)]()
+[![Codacy Badge](https://img.shields.io/badge/code%20quality-D-yellow?style=flat-square&logo=codacy&logoColor=white/)](https://www.codacy.com/gh/FlorianJourde/OpenClassrooms-5-Create-your-first-blog-in-PHP/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=FlorianJourde/OpenClassrooms-5-Create-your-first-blog-in-PHP&amp;utm_campaign=Badge_Grade) [![PHP Badge](https://img.shields.io/badge/PHP-7.4-7a86b8?style=flat-square&logo=php&logoColor=white/)](https://www.php.net/) [![Twig](https://img.shields.io/badge/Twig-2-bacf29?style=flat-square&logo=symfony&logoColor=white/)](https://twig.symfony.com/) [![Composer](https://img.shields.io/badge/Composer-2.4.1-6c3e22?style=flat-square&logo=composer&logoColor=white/)](https://getcomposer.org/)
 
 ### À propos
 

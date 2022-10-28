@@ -5,7 +5,7 @@ namespace Application\Controllers;
 use Application\Lib\DatabaseConnection;
 use Application\Model\UserRepository;
 
-class LogoutUser
+class Logout
 {
     public function execute()
     {

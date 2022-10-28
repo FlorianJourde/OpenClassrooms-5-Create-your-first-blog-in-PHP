@@ -12,8 +12,7 @@ RewriteRule ^ajout-article   ?action=AddPost
 RewriteRule ^contact    ?action=Contact
 RewriteRule ^inscription    ?action=Register
 RewriteRule ^connexion  ?action=Login
-RewriteRule ^deconnexion    ?action=LogoutUser
-RewriteRule ^authentification   ?action=AuthenticationUser
+RewriteRule ^deconnexion    ?action=Logout
 RewriteRule ^gestion-commentaires   ?action=ManageComments
 RewriteRule ^article/([0-9]+)   ?action=Post&id=$1
 RewriteRule ^article/modification/([0-9]+)   ?action=UpdatePost&id=$1

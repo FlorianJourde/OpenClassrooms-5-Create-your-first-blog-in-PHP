@@ -1,9 +1,8 @@
 <?php
 
-define("Application\\Lib\\Root", $_SERVER['DOCUMENT_ROOT']);
-use const Application\Lib\Root;
+define("ROOT", $_SERVER['DOCUMENT_ROOT']);
 
-require_once (Root . "/src/lib/Rooter.php");
+require_once (ROOT . "/src/lib/Rooter.php");
 
 use Application\Lib\Rooter;
 

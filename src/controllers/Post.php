@@ -23,6 +23,7 @@ class Post
         $userRepository = new UserRepository();
         $userRepository->connection = new DatabaseConnection();
 
+        // Check if parameter exist and is bigger than zero
         if (isset($_GET['id']) && $_GET['id'] > 0) {
             $identifier = $_GET['id'];
         } else {
@@ -36,6 +37,7 @@ class Post
         $visibleComments = [];
         $post->image === null ? $post->image = 'placeholder-min.jpg' : $post->image;
 
+        // Store comments in an array if their status is set on visible
         foreach ($comments as $comment) {
             if($comment->status === true) {
                 if ($userRepository->getUserFromId($comment->userId) !== null) {

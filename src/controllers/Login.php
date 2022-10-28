@@ -19,6 +19,7 @@ class Login
 
         $userRole = new CheckUserRole();
 
+        // Redirect user to homepage if already authenticated
         if ($userRole->isAuthenticated($_SESSION['token'] ?? '')) {
             header(sprintf('Location: /'));
         }

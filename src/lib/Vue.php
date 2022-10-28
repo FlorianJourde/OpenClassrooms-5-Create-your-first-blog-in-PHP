@@ -4,6 +4,7 @@ namespace Application\Lib;
 
 class Vue
 {
+    // Render page with Twig template engine
     public function render(string $string, array $array = [])
     {
         $loader = new \Twig\Loader\FilesystemLoader('../templates');

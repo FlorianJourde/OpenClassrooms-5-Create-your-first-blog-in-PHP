@@ -23,6 +23,7 @@ class UpdatePost
         $userRepository = new UserRepository();
         $userRepository->connection = new DatabaseConnection();
 
+        // Check if parameter exist and is bigger than zero
         if (isset($_GET['id']) && $_GET['id'] > 0) {
             $identifier = $_GET['id'];
             // It sets the input only when the HTTP method is POST (ie. the form is submitted).

@@ -16,9 +16,9 @@ class Register
         $manageSession->execute();
         $userRepository = new UserRepository();
         $userRepository->connection = new DatabaseConnection();
-
         $userRole = new CheckUserRole();
 
+        // Redirect user to homepage if already authenticated
         if ($userRole->isAuthenticated($_SESSION['token'] ?? '')) {
             header(sprintf('Location: /'));
         }

@@ -16,16 +16,14 @@ class AddComment
         $commentRepository = new CommentRepository();
         $commentRepository->connection = new DatabaseConnection();
 
+        // Check if parameter exist and is bigger than zero
         if (isset($_GET['id']) && $_GET['id'] > 0) {
             $postId = $_GET['id'];
         } else {
             throw new Exception('Aucun identifiant de billet envoyé');
         }
 
-        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $input = $_POST;
-        }
-
+        // Check if a comment have been sent
         if (!empty( $_POST['comment'])) {
             $userId = $_SESSION['id'];
             $comment = $_POST['comment'];

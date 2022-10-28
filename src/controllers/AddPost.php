@@ -15,29 +15,14 @@ class AddPost
     {
         $manageSession = new ManageSession();
         $manageSession->execute();
-
         $userRole = new CheckUserRole();
 
-        $input = null;
-        $image = $_FILES;
-
-        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $input = $_POST;
-        }
-
-        if (empty($_SESSION['role'])) {
-            $user_role = 'Guest';
-        } else {
-            $user_role = $_SESSION['role'];
-        }
-
-        if ($userRole->isAdmin($user_role)) {
-            if (!empty($input)) {
-
-                $title = null;
-                $content = null;
+        if ($userRole->isAuthenticated($_SESSION['token'] ?? '') && $userRole->isAdmin($_SESSION['role'] ?? 'Guest')) {
+            // Check if datas have been sent with post method
+            if (!empty($_POST)) {
                 $file = $_FILES['file']['error'] !== 0 ? null : $_FILES['file'];
 
+                // Check if an image have been sent
                 if(isset($file)) {
                     $tmpName = $_FILES['file']['tmp_name'];
                     $name = $_FILES['file']['name'];
@@ -60,9 +45,9 @@ class AddPost
                     }
                 }
 
-                if (!empty($input['title']) && !empty($input['content'])) {
-                    $title = $input['title'];
-                    $content = Markdown::defaultTransform($input['content']);
+                if (!empty($_POST['title']) && !empty($_POST['content'])) {
+                    $title = $_POST['title'];
+                    $content = Markdown::defaultTransform($_POST['content']);
                     $userId = $_SESSION['id'];
                     $status = true;
                 } else {

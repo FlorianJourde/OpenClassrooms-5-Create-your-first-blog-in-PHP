@@ -3,7 +3,6 @@
 namespace Application\Lib;
 
 require_once "Request.php";
-require_once "Controller.php";
 require_once ($_SERVER['DOCUMENT_ROOT'] . "/src/lib/Request.php");
 require_once ($_SERVER['DOCUMENT_ROOT'] . "/src/controllers/AddComment.php");
 require_once ($_SERVER['DOCUMENT_ROOT'] . "/src/controllers/DeleteComment.php");
@@ -26,10 +25,10 @@ require_once ($_SERVER['DOCUMENT_ROOT'] . "/src/controllers/Login.php");
 use Exception;
 
 class Rooter {
-    // Route une requête entrante : exécute l'action associée
+    // Root incoming request : execute associated action
     public function execute() {
         try {
-            // Fusion des paramètres GET et POST de la requête
+            // Merge GET & POST request parameters
             $request = new Request(array_merge($_GET, $_POST));
             $this->createController($request);
         }
@@ -38,18 +37,17 @@ class Rooter {
         }
     }
 
-    // Crée le contrôleur approprié en fonction de la requête reçue
+    // Create appropriated controller, depending on request
     private function createController(Request $request) {
-        $controller = "Homepage";  // Contrôleur par défaut
+        $controller = "Homepage";
         if ($request->existParameter('action')) {
             $controller = $request->getParameter('action');
         }
 
-        // Création du nom du fichier du contrôleur
+        // Controller filename creation
         $classController = $controller;
         $fileController = ($_SERVER['DOCUMENT_ROOT'] . "/src/controllers/" . $classController . ".php");
         if (file_exists($fileController)) {
-//            die();
             $className = "Application\\Controllers\\".$controller;
             return (new $className())->execute();
         } else {
@@ -57,7 +55,7 @@ class Rooter {
         }
     }
 
-    // Gère une erreur d'exécution (exception)
+    // Handle execution error (exception)
     private function catchError($exception) {
         $twig = new Vue();
         echo $twig->render('error.twig', ['errorMessage' => $exception, 'session' => $_SESSION]);

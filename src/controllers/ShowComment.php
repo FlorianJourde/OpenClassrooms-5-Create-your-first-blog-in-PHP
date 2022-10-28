@@ -20,6 +20,7 @@ class ShowComment
         $postRepository = new PostRepository();
         $postRepository->connection = new DatabaseConnection();
 
+        // Check if parameter exist and is bigger than zero
         if (isset($_GET['id']) && $_GET['id'] > 0) {
             $identifier = $_GET['id'];
         } else {

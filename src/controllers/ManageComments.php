@@ -25,40 +25,43 @@ class ManageComments
 
         $userRole = new CheckUserRole();
 
-        if (($userRole->isAuthenticated($_SESSION['token'] ?? ''))
-        && ($userRole->isAdmin($_SESSION['role']) ?? 'Guest')) {
-                $hiddenComments = $commentRepository->getHiddenComments();
-                $posts = [];
+        // Check if user is authenticated and administator
+        if (($userRole->isAuthenticated($_SESSION['token'] ?? '')) && ($userRole->isAdmin($_SESSION['role']) ?? 'Guest')) {
+            $hiddenComments = $commentRepository->getHiddenComments();
+            $posts = [];
 
-                foreach ($hiddenComments as $comment) {
-                    if ($userRepository->getUserFromId($comment->userId) !== null) {
-                        $comment->username = $userRepository->getUserFromId($comment->userId)->username;
+            foreach ($hiddenComments as $comment) {
+                // Check if comment author still exists
+                if ($userRepository->getUserFromId($comment->userId) !== null) {
+                    $comment->username = $userRepository->getUserFromId($comment->userId)->username;
+                } else {
+                    $comment->username = 'Compte supprimé';
+                }
+
+                $comment->post = $postRepository->getPost($comment->postId);
+
+                // Store comments with hidden status inside associated post array
+                if (!in_array($comment->post, $posts)) {
+                    $posts[] = $comment->post;
+                }
+            }
+
+            rsort($posts);
+
+            foreach ($posts as $post) {
+                $post->hiddenComments = $commentRepository->getHiddenCommentsFromId($post->identifier);
+                $post->username = $userRepository->getUserFromId($post->userId)->username;
+
+                // Check if comment author still exists
+                foreach ($post->hiddenComments as $hiddenComment) {
+                    if ($userRepository->getUserFromId($hiddenComment->userId) !== null) {
+                        $hiddenComment->username = $userRepository->getUserFromId($hiddenComment->userId)->username;
                     } else {
-                        $comment->username = 'Compte supprimé';
-                    }
-
-                    $comment->post = $postRepository->getPost($comment->postId);
-
-                    if (!in_array($comment->post, $posts)) {
-                        $posts[] = $comment->post;
+                        $hiddenComment->username = 'Compte supprimé';
                     }
                 }
-
-                rsort($posts);
-
-                foreach ($posts as $post) {
-                    $post->hiddenComments = $commentRepository->getHiddenCommentsFromId($post->identifier);
-                    $post->username = $userRepository->getUserFromId($post->userId)->username;
-                    
-                    foreach ($post->hiddenComments as $hiddenComment) {
-                        if ($userRepository->getUserFromId($hiddenComment->userId) !== null) {
-                            $hiddenComment->username = $userRepository->getUserFromId($hiddenComment->userId)->username;
-                        } else {
-                            $hiddenComment->username = 'Compte supprimé';
-                        }
-                    }
-                }
-            } else {
+            }
+        } else {
             throw new \Exception('Vous n\'avez pas accès à cette page !');
         }
 

@@ -20,6 +20,7 @@ class HideComment
         $postRepository = new PostRepository();
         $postRepository->connection = new DatabaseConnection();
 
+        // Check if parameter exist and is bigger than zero
         if (isset($_GET['id']) && $_GET['id'] > 0) {
             $identifier = $_GET['id'];
 
@@ -31,6 +32,7 @@ class HideComment
         $userRole = new CheckUserRole();
         $success = false;
 
+        // Check if user is authenticated and administator
         if ($userRole->isAuthenticated($_SESSION['token'] ?? '')) {
             if ($userRole->isAdmin($_SESSION['role']) ?? 'Guest') {
                 $comment = $commentRepository->getComment($identifier);

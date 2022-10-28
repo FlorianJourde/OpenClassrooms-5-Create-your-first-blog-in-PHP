@@ -24,6 +24,7 @@ class UpdateComment
         $userRepository = new UserRepository();
         $userRepository->connection = new DatabaseConnection();
 
+        // Check if parameter exist and is bigger than zero
         if (isset($_GET['id']) && $_GET['id'] > 0) {
             $identifier = $_GET['id'];
             // It sets the input only when the HTTP method is POST (ie. the form is submitted).
@@ -41,7 +42,13 @@ class UpdateComment
         $comment = $commentRepository->getComment($identifier);
         $post = $postRepository->getPost($comment->postId);
         $userRole = new CheckUserRole();
-        $comment->username = $userRepository->getUserFromId($comment->userId)->username;
+
+        // Check if comment author still exists
+        if ($userRepository->getUserFromId($comment->userId) !== null) {
+            $comment->username = $userRepository->getUserFromId($comment->userId)->username;
+        } else {
+            $comment->username = 'Compte supprimé';
+        }
 
         if ($userRole->isAuthenticated($_SESSION['token'] ?? '')
         && (($userRole->isAdmin($_SESSION['role'] ?? 'Guest')

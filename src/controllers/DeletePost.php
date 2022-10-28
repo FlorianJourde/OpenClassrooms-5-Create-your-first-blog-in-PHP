@@ -20,7 +20,9 @@ class DeletePost
         $postRepository->connection = new DatabaseConnection();
         $userRepository = new UserRepository();
         $userRepository->connection = new DatabaseConnection();
+        $userRole = new CheckUserRole();
 
+        // Check if parameter exist and is bigger than zero
         if (isset($_GET['id']) && $_GET['id'] > 0) {
             $identifier = $_GET['id'];
         } else {
@@ -29,27 +31,24 @@ class DeletePost
 
         $post = $postRepository->getPost($identifier);
 
-        $userRole = new CheckUserRole();
-
         $post->image === null ? $post->image = 'placeholder-min.jpg' : $post->image;
         $post->username = $userRepository->getUserFromId($post->userId)->username;
 
-        if ($userRole->isAuthenticated($_SESSION['token'] ?? '')) {
-            if ($userRole->isAdmin($_SESSION['role'] ?? 'Guest')) {
-                if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-                    $success = $postRepository->deletePost($identifier);
+        // Check if user is authenticated and administator
+        if ($userRole->isAuthenticated($_SESSION['token'] ?? '') && $userRole->isAdmin($_SESSION['role'] ?? 'Guest')) {
+            if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+                $success = $postRepository->deletePost($identifier);
 
-                    if ($success) {
-                        if ($post->image !== 'placeholder-min.jpg') {
-                            unlink('../public/ressources/images/posts/' . $post->image);
-                        };
-                        header(sprintf('Location: /articles'));
-                    } else {
-                        header(sprintf('Location: /article/%d', $identifier));
+                if ($success) {
+                    if ($post->image !== 'placeholder-min.jpg') {
+                        unlink('../public/ressources/images/posts/' . $post->image);
                     }
+                    header(sprintf('Location: /articles'));
+                } else {
+                    header(sprintf('Location: /article/%d', $identifier));
                 }
             }
-        } else {
+        }  else {
             throw new Exception('Vous n\'avez pas accès à cette page !');
         }
 

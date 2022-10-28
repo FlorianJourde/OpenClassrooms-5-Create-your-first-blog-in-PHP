@@ -10,6 +10,7 @@ class ManageSession
     {
         session_start();
 
+        // Set user timing informations in database
         if (!empty($_SESSION)) {
             $userRepository = new UserRepository();
             $userRepository->connection = new DatabaseConnection();

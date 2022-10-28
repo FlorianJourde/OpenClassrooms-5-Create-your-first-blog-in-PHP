@@ -23,16 +23,11 @@ class DeleteComment
         $commentRepository->connection = new DatabaseConnection();
         $userRepository = new UserRepository();
         $userRepository->connection = new DatabaseConnection();
+        $userRole = new CheckUserRole();
 
+        // Check if parameter exist and is bigger than zero
         if (isset($_GET['id']) && $_GET['id'] > 0) {
             $identifier = $_GET['id'];
-//            $input = null;
-//
-//            if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-//                $input = $_POST;
-//            }
-
-//            (new DeleteComment())->execute($identifier);
         } else {
             throw new Exception('Aucun identifiant de commentaire envoyé');
         }
@@ -40,9 +35,14 @@ class DeleteComment
         $comment = $commentRepository->getComment($identifier);
         $post = $postRepository->getPost($comment->postId);
 
-        $userRole = new CheckUserRole();
-        $comment->username = $userRepository->getUserFromId($comment->userId)->username;
+        // Check if comment author still exists
+        if ($userRepository->getUserFromId($comment->userId) !== null) {
+            $comment->username = $userRepository->getUserFromId($comment->userId)->username;
+        } else {
+            $comment->username = 'Compte supprimé';
+        }
 
+        // Check if user is authenticated and is comment author or administator
         if (($userRole->isAuthenticated($_SESSION['token'] ?? ''))
         && ($userRole->isAdmin(empty($_SESSION['role']) ? 'Guest' : $_SESSION['role'])
         || $userRole->isCurrentUser($comment->userId, $_SESSION['id'] ?? 0))) {
@@ -58,6 +58,7 @@ class DeleteComment
             throw new Exception('Vous n\'avez pas accès à cette page !');
         }
 
+        // Render vue with Twig
         $twig = new Vue();
         echo $twig->render('delete_comment.twig', ['comment' => $comment, 'post' => $post, 'session' => $_SESSION]);
     }

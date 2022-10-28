@@ -68,7 +68,7 @@ class DatabaseConnection
 
 5. Ensuite, importez simplement le fichier `florianjourde.sql`, présent à la racine du projet, dans votre base de données SQL locale. Si toutes les informations ont correctement été renseignées, la connexion devrait se faire automatiquement.
 
-6. Créez votre hôte virtuel, pointant vers la racine du projet afin de pouvoir l'ouvrir avec une URL locale.
+6. Créez votre hôte virtuel, pointant vers le dossier "public" du projet afin de pouvoir l'ouvrir avec une URL locale.
 
 7. Pour pouvoir tester les controllers, veuillez utiliser les identifiants par défaut :
 - Admin

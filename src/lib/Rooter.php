@@ -2,7 +2,6 @@
 
 namespace Application\Lib;
 
-require_once "Request.php";
 require_once (Root . "/src/lib/Request.php");
 require_once (Root . "/src/controllers/AddComment.php");
 require_once (Root . "/src/controllers/DeleteComment.php");

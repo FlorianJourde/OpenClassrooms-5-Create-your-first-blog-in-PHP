@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : ven. 28 oct. 2022 à 19:37
--- Version du serveur : 10.5.17-MariaDB-cll-lve
--- Version de PHP : 7.2.34
+-- Généré le : ven. 28 oct. 2022 à 20:42
+-- Version du serveur : 5.7.36
+-- Version de PHP : 7.4.26
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de données : `u718790758_florian_db`
+-- Base de données : `florianjourde`
 --
 
 -- --------------------------------------------------------
@@ -27,14 +27,16 @@ SET time_zone = "+00:00";
 -- Structure de la table `comments`
 --
 
-CREATE TABLE `comments` (
-  `id` int(11) NOT NULL,
+DROP TABLE IF EXISTS `comments`;
+CREATE TABLE IF NOT EXISTS `comments` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `user_id` int(11) NOT NULL,
   `post_id` int(11) NOT NULL,
   `content` text NOT NULL,
   `status` tinyint(1) DEFAULT NULL,
-  `creation_date` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `creation_date` datetime NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=175 DEFAULT CHARSET=utf8;
 
 --
 -- Déchargement des données de la table `comments`
@@ -60,16 +62,18 @@ INSERT INTO `comments` (`id`, `user_id`, `post_id`, `content`, `status`, `creati
 -- Structure de la table `posts`
 --
 
-CREATE TABLE `posts` (
-  `id` int(11) NOT NULL,
+DROP TABLE IF EXISTS `posts`;
+CREATE TABLE IF NOT EXISTS `posts` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `user_id` int(11) NOT NULL,
   `title` varchar(255) NOT NULL,
   `content` text NOT NULL,
   `creation_date` datetime NOT NULL,
   `update_date` datetime NOT NULL,
   `status` tinyint(1) NOT NULL,
-  `image` varchar(255) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `image` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=56 DEFAULT CHARSET=utf8;
 
 --
 -- Déchargement des données de la table `posts`
@@ -87,68 +91,26 @@ INSERT INTO `posts` (`id`, `user_id`, `title`, `content`, `creation_date`, `upda
 -- Structure de la table `users`
 --
 
-CREATE TABLE `users` (
-  `id` int(11) NOT NULL,
+DROP TABLE IF EXISTS `users`;
+CREATE TABLE IF NOT EXISTS `users` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `username` varchar(100) NOT NULL,
   `email` varchar(100) NOT NULL,
   `role` varchar(100) NOT NULL,
   `password` varchar(100) NOT NULL,
   `token` varchar(100) DEFAULT NULL,
   `last_authentication` varchar(100) DEFAULT NULL,
-  `last_action` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `last_action` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4;
 
 --
 -- Déchargement des données de la table `users`
 --
 
 INSERT INTO `users` (`id`, `username`, `email`, `role`, `password`, `token`, `last_authentication`, `last_action`) VALUES
-(1, 'Admin', 'admin@admin.com', 'Admin', '088dac69e0137b2f2ba5a270956ae8dc', NULL, '28/10/2022 à 15:18:04', NULL),
-(2, 'User', 'user@user.com', 'User', '088dac69e0137b2f2ba5a270956ae8dc', NULL, '23/10/2022 à 11:40:09', NULL);
-
---
--- Index pour les tables déchargées
---
-
---
--- Index pour la table `comments`
---
-ALTER TABLE `comments`
-  ADD PRIMARY KEY (`id`);
-
---
--- Index pour la table `posts`
---
-ALTER TABLE `posts`
-  ADD PRIMARY KEY (`id`);
-
---
--- Index pour la table `users`
---
-ALTER TABLE `users`
-  ADD PRIMARY KEY (`id`);
-
---
--- AUTO_INCREMENT pour les tables déchargées
---
-
---
--- AUTO_INCREMENT pour la table `comments`
---
-ALTER TABLE `comments`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=175;
-
---
--- AUTO_INCREMENT pour la table `posts`
---
-ALTER TABLE `posts`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=56;
-
---
--- AUTO_INCREMENT pour la table `users`
---
-ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+(1, 'Admin', 'admin@admin.com', 'Admin', 'e10adc3949ba59abbe56e057f20f883e', NULL, '28/10/2022 à 20:41:13', NULL),
+(2, 'User', 'user@user.com', 'User', 'e10adc3949ba59abbe56e057f20f883e', NULL, '28/10/2022 à 20:41:26', NULL);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

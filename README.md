@@ -7,11 +7,13 @@
 
 ![OpenClassrooms banneer](public/ressources/images/readme-header.jpg)
 
+[![Codacy Badge](https://img.shields.io/badge/code%20quality-D-yellow?style=flat-square&logo=codacy&logoColor=white/)](https://www.codacy.com/gh/FlorianJourde/OpenClassrooms-5-Create-your-first-blog-in-PHP/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=FlorianJourde/OpenClassrooms-5-Create-your-first-blog-in-PHP&amp;utm_campaign=Badge_Grade) [![PHP Badge](https://img.shields.io/badge/PHP-7.4-7a86b8?style=flat-square&logo=php&logoColor=white/)]() [![Twig](https://img.shields.io/badge/Twig-2-bacf29?style=flat-square&logo=symfony&logoColor=white/)]() [![Composer](https://img.shields.io/badge/Composer-2.4.1-6c3e22?style=flat-square&logo=composer&logoColor=white/)]()
+
 ### À propos
 
-Bonjour et bienvenue sur le dépôt de mon travail, qui traite du cinquième projet d'OpenClassrooms, intutulé "Créez votre premier blog en PHP" ! Vous trouverez, ci-après, la procédure d'installation pour prendre en main le code du projet, ainsi que la base de données et sa structure, conçue pour fonctionner avec.
+Bonjour et bienvenue sur le dépôt de mon travail, qui traite du cinquième projet d'OpenClassrooms, intutulé "**Créez votre premier blog en PHP**" ! Vous trouverez, ci-après, la procédure d'installation pour prendre en main le code du projet, ainsi que la base de données et sa structure, conçue pour fonctionner avec.
 
-Vous trouverez également, dans les dossiers "diagrams", ainsi que "review", les autres livrables requis pour la validation de ce projet.
+Vous trouverez également, dans le dossier "**diagrams**", les autres livrables requis pour la validation de ce projet.
 
 [![Preview site](https://img.shields.io/badge/Preview%20site--89bf54?style=for-the-badge&logo=InternetExplorer&logoColor=white)](https://florianjourde.com/)
 
@@ -21,7 +23,7 @@ Vous trouverez également, dans les dossiers "diagrams", ainsi que "review", les
 
 ## Remarque
 
-Pour pouvoir installer ce projet, le gestionnaire de dépendance "Composer" doit être présent sur votre machine, ainsi qu'un serveur local. Si vous ne disposez pas de ces outils, vous pourrez les télécharger et les installer, en suivant ces liens :
+Pour pouvoir installer ce projet, le gestionnaire de dépendance "**Composer**" doit être présent sur votre machine, ainsi qu'un serveur local. Si vous ne disposez pas de ces outils, vous pourrez les télécharger et les installer, en suivant ces liens :
 - Télécharger [Composer](https://getcomposer.org/)
 - Télécharger [Wamp](https://www.wampserver.com/) (Windows)
 - Télécharger [Mamp](https://www.wampserver.com/) (Mamp)
@@ -68,7 +70,7 @@ class DatabaseConnection
 
 5. Ensuite, importez simplement le fichier `florianjourde.sql`, présent à la racine du projet, dans votre base de données SQL locale. Si toutes les informations ont correctement été renseignées, la connexion devrait se faire automatiquement.
 
-6. Créez votre hôte virtuel, pointant vers le dossier "public" du projet afin de pouvoir l'ouvrir avec une URL locale.
+6. Créez votre hôte virtuel, pointant vers le dossier "**public**" du projet afin de pouvoir l'ouvrir avec une URL locale.
 
 7. Pour pouvoir tester les controllers, veuillez utiliser les identifiants par défaut :
 - Admin

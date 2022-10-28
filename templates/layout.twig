@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="Florian Jourde, développeur d'application PHP/Symfony en formation chez OpenClassrooms : site vitrine, e-commerce, intégration, programmation, informatique, application web, responsive...">
+    <meta property="og:title" content="Florian Jourde" />
+    <meta property="og:description" content="Développeur d'application PHP/Symfony" />
+    <meta property="og:url" content="https://florianjourde.com/" />
+    <meta property="og:image" content="/ressources/images/monokai/monokai-1.jpg" />
+    <link href="/ressources/css/main.css" type="text/css" rel="stylesheet" />
+    <link rel="icon" type="image/x-icon" href="/ressources/images/favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Flow+Rounded&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Flow+Circular&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/3297382b62.js" crossorigin="anonymous"></script>
+    <title>{% block title %}Portfolio{% endblock %} | Florian Jourde</title>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-TESYE1FEEC"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-TESYE1FEEC');
+    </script>
+</head>
+<body>
+    <div id="frame">
+        {% include 'partials/navbar.twig' %}
+        {% block content %}{% endblock %}
+        {% include 'partials/footer.twig' %}
+    </div>
+    {% include 'partials/top_page.twig' %}
+    <div id="mobile-menu" class="menu mobile-only">
+        <a type="button" class="close-menu"><i class="fas fa-times"></i></a>
+        <ul class="navigation-links">
+            {% if session.is_authenticated == true %}
+                <li style="color: var(--clr-grey)">Bonjour <span style="font-weight: 600;">{{ session.username }}</span> !</li>
+            {% endif %}
+            <li><a class="button-tertiary button-white" href="/articles">Articles</a></li>
+            <li><a class="button-tertiary button-white" href="/contact">Contact</a></li>
+        </ul>
+        {% if session.is_authenticated != true %}
+            <ul class="navigation-user">
+                <li><a class="button-secondary button-white" href="/inscription"><i class="fas fa-user-plus"></i>S'enregistrer</a></li>
+                <li><a class="button-primary button-white" href="/connexion"><i class="fas fa-sign-in-alt"></i>Se connecter</a></li>
+            </ul>
+        {% else %}
+            <ul class="navigation-user">
+                <li><a class="button-primary button-white" href="/deconnexion"><i class="fas fa-sign-out-alt"></i>Se déconnecter</a></li>
+            </ul>
+        {% endif %}
+    </div>
+    <script src="/ressources/js/main.js" type="module"></script>
+</body>
+</html>

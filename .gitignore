@@ -1,6 +1,6 @@
 .idea
-ressources/1-Cours-MVC
-ressources/2-Cours-POO
-ressources/documents
-ressources/db.sql
-ressources/tests
+/cache/*
+!/cache/.gitkeep
+/node_modules
+/tmp
+/vendor

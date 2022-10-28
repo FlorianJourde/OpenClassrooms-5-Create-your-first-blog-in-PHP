@@ -1,0 +1,262 @@
+@media (min-width: 1025px) {
+    .menu.mobile-only, .mobile-only {
+        display: none;
+    }
+}
+
+@media (max-width: 1200px) {
+    .portrait .profile-picture {
+        width: 40%;
+    }
+}
+
+@media (max-width: 1024px) {
+    .posts {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .achievements ul {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .skills ul {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .menu.mobile-only {
+        display: flex;
+    }
+
+    .menu.desktop-only {
+        display: none;
+    }
+
+    .introduction {
+        flex-direction: column;
+    }
+
+    .portrait {
+        flex-direction: column-reverse;
+    }
+
+    .menu {
+        position: fixed;
+        background-color: var(--clr-very-dark-grey);
+        transform: translateX(300px);
+        width: 300px;
+        height: 100vh;
+        right: 0;
+        top: 0;
+        padding: 15px;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 30px;
+        box-shadow: inset 10px 0 30px #00000020;
+        color: var(--clr-white);
+        font-size: var(--fs-big-text);
+        z-index: 100;
+    }
+
+    #frame {
+        transition: transform .4s;
+        position: relative;
+    }
+
+    #frame.menu-open {
+        transform: translateX(-300px);
+    }
+
+    #frame.menu-open::after {
+        opacity: 0.5;
+    }
+
+    #frame::after {
+        content: "";
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        background-color: var(--clr-black);
+        opacity: 0;
+        z-index: 1000;
+        position: absolute;
+        pointer-events: none;
+        transition: opacity .4s;
+    }
+
+    .menu.menu-open {
+        transform: translateX(0);
+    }
+
+    .navigation-links, .navigation-user {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .banner .introduction .title {
+        align-items: center;
+        text-align: center;
+        min-width: unset;
+    }
+
+    .banner.home {
+        padding-bottom: 150px;
+    }
+
+    .portrait .profile-picture {
+        width: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    :root {
+        --fs-very-big-title: 40px;
+        --fs-big-title: 30px;
+        --fs-title: 26px;
+        --fs-small-title: 20px;
+        --fs-big-text: 18px;
+        --fs-regular-text: 14px;
+    }
+
+    html {
+        scroll-padding-top: 50px;
+    }
+
+    form {
+        gap: 20px;
+    }
+
+    .navbar .logo img {
+        height: 30px;
+    }
+
+    .navbar .logo a {
+        width: unset;
+    }
+
+    .close-menu {
+        top: 20px;
+        right: 20px;
+    }
+
+    #content {
+        min-height: 200px;
+    }
+
+    .posts {
+        grid-template-columns: repeat(1, 1fr);
+        gap: 20px
+    }
+
+    .achievements ul {
+        grid-template-columns: repeat(1, 1fr);
+        gap: 20px;
+    }
+
+    .skills ul {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+
+    footer .bottom-section {
+        justify-content: center;
+    }
+
+    .box {
+        padding: 30px;
+        border-radius: 30px;
+    }
+
+    .banner {
+        padding-top: 100px;
+        padding-bottom: 200px;
+    }
+
+    .introduction {
+        gap: 50px;
+    }
+    
+    .vector-shape {
+        height: 50px;
+    }
+    
+    .work {
+        padding-top: 100px;
+    }
+    
+    .skills {
+        padding-top: 150px;
+    }
+    
+    .portrait {
+        gap: 50px;
+        padding-top: 150px;
+    }
+
+    .form-field {
+        gap: 10px;
+    }
+    
+    .partners {
+        padding-top: 100px;
+        padding-bottom: 100px;
+    }
+    
+    .partners ul {
+        gap: 50px;
+    }
+    
+    .partners img {
+        width: 150px;
+    }
+    
+    .archive {
+        padding-bottom: 50px;
+    }
+    
+    input, textarea, ::-webkit-file-upload-button {
+        padding: 10px 20px;
+    }
+    
+    .page {
+        padding: 30px;
+        border-radius: 30px;
+        gap: 20px;
+    }
+    
+    .button-form, ::-webkit-file-upload-button {
+        padding: 10px 20px;
+    }
+    
+    .comment {
+        padding: 30px;
+    }
+    
+    .comments-section {
+        padding-top: 200px;
+        padding-bottom: 100px;
+    }
+
+    .comments {
+        gap: 20px;
+    }
+    
+    .archive .post {
+        padding: 30px;
+    }
+    
+    .box .button-primary {
+        padding: 10px 20px;
+    }
+
+    .banner .introduction .stats {
+        gap: 30px;
+    }
+}
+
+@media (max-width: 380px) {
+    .skills ul {
+        grid-template-columns: repeat(1, 1fr);
+    }
+}

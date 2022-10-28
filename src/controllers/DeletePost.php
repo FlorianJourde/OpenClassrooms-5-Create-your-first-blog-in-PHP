@@ -41,7 +41,7 @@ class DeletePost
 
                 if ($success) {
                     if ($post->image !== 'placeholder-min.jpg') {
-                        unlink('../public/ressources/images/posts/' . $post->image);
+                        unlink(ROOT . '/public/ressources/images/posts/' . $post->image);
                     }
                     header(sprintf('Location: /articles'));
                 } else {

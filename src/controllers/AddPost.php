@@ -39,7 +39,7 @@ class AddPost
                         $uniqueName = uniqid('', true);
                         $file = $uniqueName . "." . $extension;
 
-                        move_uploaded_file($tmpName, '../public/ressources/images/posts/' . $file);
+                        move_uploaded_file($tmpName, ROOT . '/public/ressources/images/posts/' . $file);
                     } else {
                         throw new \Exception('L\'image sélectionnée n\'est pas conforme.');
                     }

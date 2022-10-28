@@ -58,7 +58,7 @@ class UpdatePost
 
                     if ($file !== $image) {
                         if ($post->image !== 'placeholder-min.jpg') {
-                            unlink('../public/ressources/images/posts/' . $post->image);
+                            unlink(ROOT . '/public/ressources/images/posts/' . $post->image);
                         };
 
                         $tmpName = $_FILES['file']['tmp_name'];
@@ -76,7 +76,7 @@ class UpdatePost
                             $uniqueName = uniqid('', true);
                             $file = $uniqueName . "." . $extension;
 
-                            move_uploaded_file($tmpName, '../public/ressources/images/posts/' . $file);
+                            move_uploaded_file($tmpName, ROOT . '/public/ressources/images/posts/' . $file);
                         } else {
                             throw new \Exception('L\'image sélectionnée n\'est pas conforme.');
                         }

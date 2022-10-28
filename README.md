@@ -5,7 +5,7 @@
 
 ## Créez votre premier blog en PHP
 
-![OpenClassrooms banneer](./public/ressources/images/readme-header.jpg)
+![OpenClassrooms banneer](public/ressources/images/readme-header.jpg)
 
 ### À propos
 

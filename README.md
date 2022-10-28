@@ -13,6 +13,7 @@ Bonjour et bienvenue sur le dépôt de mon travail, qui traite du cinquième pro
 
 Vous trouverez également, dans les dossiers "diagrams", ainsi que "review", les autres livrables requis pour la validation de ce projet.
 
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/72b77068be2b4153b90924bef259ab7d)](https://app.codacy.com/gh/FlorianJourde/OpenClassrooms-5-Create-your-first-blog-in-PHP?utm_source=github.com&utm_medium=referral&utm_content=FlorianJourde/OpenClassrooms-5-Create-your-first-blog-in-PHP&utm_campaign=Badge_Grade_Settings)
 [![Preview site](https://img.shields.io/badge/Preview%20site--89bf54?style=for-the-badge&logo=InternetExplorer&logoColor=white)](https://florianjourde.com/)
 
 **PHP • Twig • JS • CSS • MVC • POO**

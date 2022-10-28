@@ -4,7 +4,7 @@ export default function toggleMenu() {
     let mobileMenu = document.querySelector('#mobile-menu');
     let frame = document.querySelector('#frame');
     let buttons = [openMenu, closeMenu];
-    let beep = new Audio('/public/ressources/media/button-click-1.wav');
+    let beep = new Audio('/ressources/media/button-click-1.wav');
 
     buttons.forEach(function(button) {
         button.addEventListener('click', function() {

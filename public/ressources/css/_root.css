@@ -31,7 +31,7 @@
   --clr-grey: #777;
   --clr-dark-grey: #333333;
   --clr-very-dark-grey: #262626;
-  --clr-radial-very-dark-grey: radial-gradient(at top, #3c3c3c 0%, #252424 75%);
+  --clr-radial-very-dark-grey: radial-gradient(at top, #3c3c3c 0%, #252424 100%);
   --clr-transparent-grey: hsla(0, 0%, 0%, 0.25);
   --clr-transparent: hsla(0, 0%, 0%, 0);
   --ff-primary: Roboto, sans-serif;

@@ -110,7 +110,7 @@ hr {
 }
 
 .box {
-    padding: 80px;
+    padding: 60px;
     background-color: var(--clr-white);
     border-radius: 40px;
     box-shadow: var(--bs-secondary);

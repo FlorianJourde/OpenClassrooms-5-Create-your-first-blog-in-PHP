@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : jeu. 27 oct. 2022 à 00:57
+-- Généré le : ven. 28 oct. 2022 à 19:37
 -- Version du serveur : 10.5.17-MariaDB-cll-lve
 -- Version de PHP : 7.2.34
 
@@ -103,7 +103,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `username`, `email`, `role`, `password`, `token`, `last_authentication`, `last_action`) VALUES
-(1, 'Admin', 'admin@admin.com', 'Admin', '088dac69e0137b2f2ba5a270956ae8dc', '3b76a8c813c8c1f09091076630f80d5e', '27/10/2022 à 00:53:12', 1666832196),
+(1, 'Admin', 'admin@admin.com', 'Admin', '088dac69e0137b2f2ba5a270956ae8dc', NULL, '28/10/2022 à 15:18:04', NULL),
 (2, 'User', 'user@user.com', 'User', '088dac69e0137b2f2ba5a270956ae8dc', NULL, '23/10/2022 à 11:40:09', NULL);
 
 --

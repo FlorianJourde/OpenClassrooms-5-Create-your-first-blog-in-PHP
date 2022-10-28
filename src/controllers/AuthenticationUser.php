@@ -15,8 +15,19 @@ class AuthenticationUser
         $userRepository = new UserRepository();
         $userRepository->connection = new DatabaseConnection();
 
-        $email = $_POST['email'];
-        $password = $_POST['password'];
+        // Secure datas before sending them to database
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            if (is_string($_POST['email'])) {
+                // Check if valid email address
+                if (filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
+                    $email = strip_tags($_POST['email']);
+                }
+            }
+
+            if (is_string($_POST['password'])) {
+                $password = strip_tags($_POST['password']);
+            }
+        }
 
         $success = $userRepository->login($email, $password);
 

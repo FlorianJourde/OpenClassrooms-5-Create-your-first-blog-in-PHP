@@ -12,23 +12,37 @@ class Contact
         $manageSession = new ManageSession();
         $manageSession->execute();
 
-        $input = null;
-
+        // Secure datas before sending them to database
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $input = $_POST;
-        }
+            if (is_string($_POST['firstname'])) {
+                $firstname = strip_tags($_POST['firstname']);
+            }
 
-        if (!empty($input)) {
+            if (is_string($_POST['lastname'])) {
+                $lastname = strip_tags($_POST['lastname']);
+            }
+
+            if (is_string($_POST['email'])) {
+                // Check if valid email address
+                if (filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
+                    $email = strip_tags($_POST['email']);
+                }
+            }
+
+            if (is_string($_POST['message'])) {
+                $message = strip_tags($_POST['message']);
+            }
+
             $receiver = "jourdeflorian@gmail.com";
-            $message = "Prénom : " . $input['firstname'] . "\r\n";
-            $message .= "Nom : " . $input['lastname'] . "\r\n";
-            $message .= "Email : " . $input['email'] . "\r\n";
-            $message .= "Message : " . $input['message'] . "\r\n";
+            $emailMessage = "Prénom : " . $firstname . "\r\n";
+            $emailMessage .= "Nom : " . $lastname . "\r\n";
+            $emailMessage .= "Email : " . $email . "\r\n";
+            $emailMessage .= "Message : " . $message . "\r\n";
             $subject = "Nouveau message de florianjourde.com";
             $headers = "From: contact@florianjourde.com";
 
-            if (!empty($input['firstname']) & !empty($input['lastname']) & !empty($input['email']) & !empty($input['message']))
-            if (mail($receiver, $subject, $message, $headers)) {
+            if (!empty($firstname) & !empty($lastname) & !empty($email) & !empty($message))
+            if (mail($receiver, $subject, $emailMessage, $headers)) {
                 ?>
                 <section class="navbar-notification navbar-notification-success">
                     <div class="wrapper">

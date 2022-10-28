@@ -1,8 +1,10 @@
 #Alternate default index page
-DirectoryIndex /public/index.php
+DirectoryIndex /index.php
+
+Options +FollowSymlinks
+Options -Indexes
 
 RewriteEngine on
-Options +FollowSymlinks
 RewriteBase /
 
 RewriteRule ^articles   ?action=Archive

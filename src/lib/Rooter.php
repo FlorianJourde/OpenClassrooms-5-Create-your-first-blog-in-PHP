@@ -47,7 +47,7 @@ class Rooter {
         $classController = $controller;
         $fileController = (ROOT . "/src/controllers/" . $classController . ".php");
         if (file_exists($fileController)) {
-            $className = "Application\\Controllers\\".$controller;
+            $className = "Application\\Controllers\\" . $controller;
             return (new $className())->execute();
         } else {
             throw new Exception("Fichier '$fileController' introuvable");

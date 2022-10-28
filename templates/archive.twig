@@ -3,20 +3,20 @@
 {% block title %}Tous les articles{% endblock %}
 
 {% block content %}
-    <section class="banner offset-next-element" style="background-image: url('/public/ressources/images/monokai/monokai-3.jpg');">
+    <section class="banner offset-next-element" style="background-image: url('/ressources/images/monokai/monokai-3.jpg');">
         <div class="wrapper">
             <div class="title">
                 <h1>Tous les articles</h1>
             </div>
         </div>
-        <img class="vector-shape vector-shape-bottom" src="/public/ressources/images/vectors/vector-bottom-right-white.svg" alt="">
+        <img class="vector-shape vector-shape-bottom" src="/ressources/images/vectors/vector-bottom-right-white.svg" alt="">
     </section>
     <main class="archive offset-next-element">
         <div class="wrapper">
             <div class="posts">
                 {% for post in posts %}
                     <div class="post">
-                        <img class="thumbnail" src="/public/ressources/images/posts/{{ post.image }}" alt="">
+                        <img class="thumbnail" src="/ressources/images/posts/{{ post.image }}" alt="">
                             {% if session.role == 'Admin' %}
                                 <div class="actions icon-spacing white">
                                     <a href="/article/modification/{{ post.identifier }}"><i class="fas fa-edit"></i>Modifier</a>

@@ -10,4 +10,6 @@ class User
     public string $role;
     public string $password;
     public ?string $token;
+    public string $lastAuthentication;
+    public int $lastAction;
 }

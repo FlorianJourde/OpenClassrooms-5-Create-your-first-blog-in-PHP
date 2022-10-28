@@ -7,8 +7,9 @@ class Post
     public int $identifier;
     public int $userId;
     public string $title;
-    public string $creationDate;
     public string $content;
+    public string $creationDate;
+    public string $updateDate;
     public string $username;
     public ?string $image;
 }

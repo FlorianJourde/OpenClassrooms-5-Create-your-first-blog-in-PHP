@@ -52,6 +52,7 @@ body {
     font-family: var(--ff-primary);
     background-color: var(--clr-white);
     color: var(--clr-very-dark-grey);
+    word-break: break-word;
 }
 
 a, input {

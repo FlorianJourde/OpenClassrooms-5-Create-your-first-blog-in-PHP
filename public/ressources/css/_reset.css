@@ -52,6 +52,7 @@ body {
     font-family: var(--ff-primary);
     background-color: var(--clr-white);
     color: var(--clr-very-dark-grey);
+    word-break: break-word;
 }
 
 a, input {
@@ -110,7 +111,7 @@ hr {
 }
 
 .box {
-    padding: 60px;
+    padding: 80px;
     background-color: var(--clr-white);
     border-radius: 40px;
     box-shadow: var(--bs-secondary);

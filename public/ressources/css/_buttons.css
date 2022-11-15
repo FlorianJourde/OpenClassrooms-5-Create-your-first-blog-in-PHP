@@ -62,6 +62,14 @@
   color: var(--clr-yellow);
 }
 
+.button-tertiary.button-black {
+  color: var(--clr-black);
+}
+
+.button-tertiary.button-black:hover {
+  color: var(--clr-dark-yellow);
+}
+
 .button-primary.button-black:hover {
   background-color: var(--clr-dark-yellow);
   border: 3px solid var(--clr-dark-yellow);

@@ -7,6 +7,9 @@ Options -Indexes
 RewriteEngine on
 RewriteBase /
 
+ErrorDocument 404 https://florianjourde.com/erreur
+
+RewriteRule ^erreur   ?action=Error
 RewriteRule ^articles   ?action=Archive
 RewriteRule ^ajout-article   ?action=AddPost
 RewriteRule ^contact    ?action=Contact

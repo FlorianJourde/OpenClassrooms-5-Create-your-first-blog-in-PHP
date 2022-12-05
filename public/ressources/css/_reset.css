@@ -17,6 +17,10 @@ input, button, textarea, select {
     font: inherit;
 }
 
+#frame {
+    width: 100%;
+}
+
 #content {
     min-height: 400px;
 }

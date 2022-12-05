@@ -52,10 +52,17 @@
         align-items: center;
         justify-content: center;
         gap: 30px;
-        box-shadow: inset 10px 0 30px #00000020;
         color: var(--clr-white);
         font-size: var(--fs-big-text);
         z-index: 100;
+    }
+
+    .menu.menu-open.menu-open-translated {
+        box-shadow: inset 10px 0 30px #00000020;
+    }
+
+    .menu.menu-open {
+        box-shadow: 0 0 100px 0 #00000080;
     }
 
     #frame {
@@ -63,15 +70,15 @@
         position: relative;
     }
 
-    #frame.menu-open {
+    #frame.menu-open-translated, nav.menu-open-translated {
         transform: translateX(-300px);
     }
 
-    #frame.menu-open::after {
+    #frame.menu-open::after, nav.menu-open::after {
         opacity: 0.5;
     }
 
-    #frame::after {
+    #frame::after, nav::after {
         content: "";
         width: 100%;
         height: 100%;
@@ -105,6 +112,10 @@
     }
 
     .portrait .profile-picture {
+        width: 100%;
+    }
+
+    .portrait .presentation {
         width: 100%;
     }
 }

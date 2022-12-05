@@ -373,6 +373,7 @@
     display: flex;
     flex-direction: column;
     gap: 20px;
+    width: 70%;
 }
 
 .presentation h2 {
@@ -794,11 +795,11 @@ input[type="file"] {
 }
 
 .vector-shape-bottom {
-    bottom: 0;
+    bottom: -1px;
 }
 
 .vector-shape-top {
-    top: 0;
+    top: -1px;
 }
 
 .position-relative {

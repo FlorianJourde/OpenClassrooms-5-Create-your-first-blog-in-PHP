@@ -75,14 +75,19 @@
     gap: 30px;
 }
 
-.banner .introduction .title .fas {
+#scroll-to-partners {
     font-size: var(--fs-big-title);
     animation: up-down 3s infinite;
     opacity: .5;
     transition: .4s;
+    cursor: pointer;
+    background-color: unset;
+    border: none;
+    outline: none;
+    color: var(--clr-white);
 }
 
-.banner .introduction .title .fas:hover {
+#scroll-to-partners:hover {
     opacity: 1;
 }
 
@@ -739,6 +744,7 @@ main.single .post .description h3 {
     opacity: 0;
     transform: translateY(-5px);
     pointer-events: none;
+    word-break: initial;
 }
 
 .markdown-tooltip > li {

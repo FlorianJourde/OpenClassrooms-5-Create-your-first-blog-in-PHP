@@ -57,7 +57,7 @@ class AddPost
             $postRepository = new PostRepository();
             $postRepository->connection = new DatabaseConnection();
 
-            $postRepository->createPost($userId, $title, $content, $status, $file);
+            $success = $postRepository->createPost($userId, $title, $content, $status, $file);
             
             header(sprintf('Location: /articles'));
             }

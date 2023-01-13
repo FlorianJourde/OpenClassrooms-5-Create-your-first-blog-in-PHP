@@ -1,5 +1,7 @@
+import momentumScroll from "/ressources/js/_momentum-scroll.js";
 import toggleMenu from "/ressources/js/_menu.js";
-import topPage from "/ressources/js/_top-page.js";
+import scrollTo from "/ressources/js/_scroll-to.js";
 
+momentumScroll();
 toggleMenu();
-topPage();
+scrollTo();

@@ -9,11 +9,11 @@ export default function toggleMenu() {
 
     buttons.forEach(function(button) {
         button.addEventListener('click', function() {
-            if (!(navigator.platform.indexOf('Win') > -1)) {
+            // if ((navigator.platform.indexOf('Win') > -1)) {
                 frame.classList.toggle('menu-open-translated');
                 navbar.classList.toggle('menu-open-translated');
                 mobileMenu.classList.toggle('menu-open-translated');
-            }
+            // }
 
             frame.classList.toggle('menu-open');
             navbar.classList.toggle('menu-open');

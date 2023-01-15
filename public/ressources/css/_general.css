@@ -305,6 +305,15 @@
     opacity: 0;
 }
 
+.achievements .reference.annotations {
+    top: 70px;
+    font-size: var(--fs-small-text);
+    transition-delay: .2s;
+    background-color: var(--clr-dark-yellow);
+    padding: 7px 14px;
+    border-radius: 6px;
+}
+
 .achievements .description {
     position: absolute;
     bottom: 0;

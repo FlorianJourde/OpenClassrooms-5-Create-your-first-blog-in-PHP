@@ -6,7 +6,10 @@
 
 @media (max-width: 1200px) {
     .portrait .profile-picture {
-        width: 40%;
+        /* width: 40%; */
+    }
+    .portrait {
+        /* padding-bottom: 150px; */
     }
 }
 
@@ -38,10 +41,6 @@
     .introduction .box {
         margin-left: 100px;
         margin-right: 100px;
-    }
-
-    .portrait {
-        flex-direction: column-reverse;
     }
 
     .menu {
@@ -116,12 +115,21 @@
         padding-bottom: 150px;
     }
 
+    .portrait {
+        padding-bottom: 250px;
+        /* padding-top: 300px;
+        padding-bottom: 200px;
+        gap: 50px; */
+    }
+
     .portrait .profile-picture {
-        width: 100%;
+        /* width: 40%; */
+        margin: 0 50px 30px 0;
+        max-width: 250px;
     }
 
     .portrait .presentation {
-        width: 100%;
+        /* width: 60%; */
     }
 }
 
@@ -209,11 +217,6 @@
     .skills {
         padding-top: 150px;
     }
-    
-    .portrait {
-        gap: 50px;
-        padding-top: 150px;
-    }
 
     .form-field {
         gap: 10px;
@@ -273,6 +276,29 @@
 
     .banner .introduction .stats {
         gap: 30px;
+    }
+
+    .portrait {
+        /* display: flex; */
+        gap: 50px;
+        padding-top: 150px;
+        padding-bottom: 100px;
+        /* flex-direction: column-reverse; */
+    }
+
+    .presentation {
+        display: flex;
+        padding-bottom: unset;
+        flex-direction: column;
+    }
+
+    .portrait .profile-picture {
+        /* width: 100%; */
+        margin: 0 0 30px 0;
+    }
+
+    .portrait .presentation {
+        /* width: 100%; */
     }
 }
 

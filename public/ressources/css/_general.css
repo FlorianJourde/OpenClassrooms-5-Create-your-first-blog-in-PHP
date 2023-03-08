@@ -20,6 +20,7 @@
     position: absolute;
     pointer-events: none;
 }
+
 .banner {
     width: 100%;
     padding-top: 150px;
@@ -243,18 +244,47 @@
 
 .portrait {
     padding-top: 250px;
-    padding-bottom: 100px;
+    padding-bottom: 50px;
     background: linear-gradient(315deg, #0a4a52 0%, #51b8c4 50%, #206972 100%);
-    display: flex;
+    /* display: flex;
     justify-content: space-between;
-    gap: 100px;
+    gap: 100px; */
+}
+
+.presentation {
+    color: var(--clr-white);
+    /* display: flex;
+    flex-direction: column; */
+    /* gap: 20px; */
+    /* width: 70%; */
+}
+
+.presentation > *:not(:first-child) {
+    margin-top: 20px;
+}
+
+.presentation h2 {
+    font-size: var(--fs-big-title);
+}
+
+.presentation p {
+    font-size: var(--fs-big-text);
 }
 
 .portrait .profile-picture {
-    width: 30%;
-    object-fit: contain;
+    max-width: 400px;
+    float: left;
+    margin: 0 100px 50px 0;
+    /* object-fit: cover; */
+    height: fit-content;
     border-radius: 50px;
     box-shadow: var(--bs-secondary);
+}
+
+.portrait .presentation::after {
+    content: "";
+    display: block;
+    clear: both;
 }
 
 .achievements ul {
@@ -384,22 +414,6 @@
     width: 100%;
     height: 50px;
     object-fit: contain;
-}
-
-.presentation {
-    color: var(--clr-white);
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    width: 70%;
-}
-
-.presentation h2 {
-    font-size: var(--fs-big-title);
-}
-
-.presentation p {
-    font-size: var(--fs-big-text);
 }
 
 .posts {
@@ -784,6 +798,10 @@ main.single .post .description h3 {
 .contact form {
     background-color: var(--clr-dark-yellow);
     color: var(--clr-white);
+}
+
+.contact form .subject-field {
+    display: none;
 }
 
 input[type="file"] {

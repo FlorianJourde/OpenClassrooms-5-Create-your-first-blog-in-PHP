@@ -41,8 +41,16 @@ class Contact
             $subject = "Nouveau message de florianjourde.com";
             $headers = "From: contact@florianjourde.com";
 
-            if (!empty($firstname) & !empty($lastname) & !empty($email) & !empty($message))
-            if (mail($receiver, $subject, $emailMessage, $headers)) {
+            if (!empty($firstname) & !empty($lastname) & !empty($email) & !empty($message) & empty($_POST['subject'])) {
+                mail($receiver, $subject, $emailMessage, $headers);
+                ?>
+                <section class="navbar-notification navbar-notification-success">
+                    <div class="wrapper">
+                        Votre message a bien été envoyé !
+                    </div>
+                </section>
+                <?php
+            } elseif (!empty($firstname) & !empty($lastname) & !empty($email) & !empty($message) & !empty($_POST['subject'])) {
                 ?>
                 <section class="navbar-notification navbar-notification-success">
                     <div class="wrapper">

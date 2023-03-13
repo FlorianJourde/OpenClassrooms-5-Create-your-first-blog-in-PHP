@@ -148,17 +148,15 @@
     line-height: 1em;
 }
 
-.introduction .box h2 span {
-    display: inline-block;
+.introduction .box h2 > span {
+  display: block;
 }
 
 .introduction .box h2 span span {
+    display: inline-block;
     animation: wave 2s infinite;
     animation-timing-function: ease-in-out;
     margin-top: 30px;
-}
-
-.introduction .box h2 span span {
     filter: drop-shadow(2px 2px 0 #00000010);
 }
 
@@ -240,6 +238,47 @@
 .partners a:hover img {
     filter: saturate(1);
     transform: translateY(-5px);
+}
+
+.partners .copy-text {
+  position: relative;
+}
+
+.partners .copy-text::before {
+  content: attr(data-content);
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -0%);
+  min-width: 100%;
+  min-height: 100%;
+  border-radius: 10px;
+  background-color: var(--clr-white);
+  box-shadow: var(--bs-secondary);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+  font-size: var(--fs-regular-text);
+  opacity: 0;
+  transition: opacity .4s, transform .4s;
+  font-family: var(--ff-secondary);
+  cursor: pointer;
+  padding: 3px;
+}
+
+.partners .copy-text:hover::before {
+  opacity: 1;
+  transform: translate(-50%, -50%);
+}
+
+.partners .copy-text a:hover img {
+  /*filter: unset;*/
+  transform: unset;
+}
+
+.partners .copy-text:hover img {
+  filter: saturate(1);
 }
 
 .portrait {

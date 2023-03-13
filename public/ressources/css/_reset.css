@@ -27,10 +27,6 @@
     box-sizing: border-box;
 }
 
-html {
-    /*scroll-behavior: smooth;*/
-}
-
 input, button, textarea, select {
     font: inherit;
     caret-color: var(--clr-blue);

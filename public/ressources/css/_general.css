@@ -265,6 +265,7 @@
   font-family: var(--ff-secondary);
   cursor: pointer;
   padding: 3px;
+  font-weight: 600;
 }
 
 .partners .copy-text:hover::before {
@@ -273,7 +274,6 @@
 }
 
 .partners .copy-text a:hover img {
-  /*filter: unset;*/
   transform: unset;
 }
 
@@ -285,17 +285,10 @@
     padding-top: 250px;
     padding-bottom: 50px;
     background: linear-gradient(315deg, #0a4a52 0%, #51b8c4 50%, #206972 100%);
-    /* display: flex;
-    justify-content: space-between;
-    gap: 100px; */
 }
 
 .presentation {
     color: var(--clr-white);
-    /* display: flex;
-    flex-direction: column; */
-    /* gap: 20px; */
-    /* width: 70%; */
 }
 
 .presentation > *:not(:first-child) {
@@ -314,7 +307,6 @@
     max-width: 400px;
     float: left;
     margin: 0 100px 50px 0;
-    /* object-fit: cover; */
     height: fit-content;
     border-radius: 50px;
     box-shadow: var(--bs-secondary);

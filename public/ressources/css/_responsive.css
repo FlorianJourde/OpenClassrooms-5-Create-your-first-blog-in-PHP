@@ -217,6 +217,10 @@
     .partners img {
         width: 150px;
     }
+
+    .partners .copy-text::before {
+      background-image: unset;
+    }
     
     .archive {
         padding-bottom: 50px;

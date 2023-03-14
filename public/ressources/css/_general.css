@@ -266,6 +266,10 @@
   cursor: pointer;
   padding: 3px;
   font-weight: 600;
+  background-image: url('../images/icons/clipboard-icon.png');
+  background-repeat: no-repeat;
+  background-position: bottom 50% right 25px;
+  background-size: 15px;
 }
 
 .partners .copy-text:hover::before {

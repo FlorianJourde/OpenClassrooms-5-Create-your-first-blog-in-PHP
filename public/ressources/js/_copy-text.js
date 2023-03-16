@@ -8,9 +8,11 @@ export default function copyText() {
 
         navigator.clipboard.writeText(textLink).then(() => {
             divContent.setAttribute('data-content', 'Copié !');
+            divContent.classList.add('no-background');
 
             setTimeout(() => {
                 divContent.setAttribute('data-content', textLink);
+                divContent.classList.remove('no-background');
             }, 2000);
         },() => {
             console.error('La copie du texte a échoué');

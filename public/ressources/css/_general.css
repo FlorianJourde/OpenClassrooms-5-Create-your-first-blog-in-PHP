@@ -280,6 +280,10 @@
   background-size: 15px;
 }
 
+.partners .copy-text.no-background::before {
+  background-image: unset;
+}
+
 .partners .copy-text:hover::before {
   opacity: 1;
   transform: translate(-50%, -50%);

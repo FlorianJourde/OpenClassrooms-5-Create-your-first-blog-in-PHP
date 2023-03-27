@@ -50,6 +50,7 @@ input, textarea, ::-webkit-file-upload-button {
 
 textarea {
   min-height: 120px;
+  resize: vertical;
 }
 
 ::-webkit-file-upload-button {
@@ -139,4 +140,8 @@ hr {
   justify-content: space-between;
   align-items: center;
   gap: 40px;
+}
+
+.center-text {
+  text-align: center;
 }

@@ -15,7 +15,7 @@
         <div class="wrapper">
             <div class="posts">
                 {% for post in posts %}
-                    <div class="post">
+                    <div class="post fade-in-up">
                         <img class="thumbnail" src="/ressources/images/posts/{{ post.image }}" alt="">
                             {% if session.role == 'Admin' %}
                                 <div class="actions icon-spacing white">

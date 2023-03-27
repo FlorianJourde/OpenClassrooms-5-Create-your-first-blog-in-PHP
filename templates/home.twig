@@ -75,7 +75,7 @@
                     <p>...une solution <b>sur-mesure</b> adaptée à <b>chaque besoin</b> !</p>
                     <button id="scroll-to-partners" role="button"><i class="fas fa-arrow-down"></i></button>
                 </div>
-                <div class="box">
+                <div class="box fade-in-up">
                     <h2>Voir la vie en <span style="font-size: var(--fs-very-big-title);">
                         <span style="color: var(--clr-orange)">M</span><span style="color: var(--clr-blue)">o</span><span style="color: var(--clr-pink)">n</span><span style="color: var(--clr-green)">o</span><span style="color: var(--clr-yellow)">k</span><span style="color: var(--clr-purple)">a</span><span style="color: var(--clr-orange)">i</span>
                      !</span></h2>
@@ -116,7 +116,7 @@
             <h2 class="section-title">Derniers articles</h2>
             <div class="posts">
                 {% for post in posts %}
-                    <div class="post">
+                    <div class="post fade-in-up">
                         <img loading="lazy" class="thumbnail" src="/ressources/images/posts/{{ post.image }}" alt="">
                         {% if session.role == 'Admin' %}
                             <div class="actions icon-spacing white">
@@ -151,7 +151,7 @@
         <div class="wrapper">
             <h2 class="section-title">Réalisations</h2>
             <ul>
-                <li>
+                <li class="fade-in-up">
                     <img loading="lazy" src="/ressources/images/thumbnails/chalets-et-caviar.jpg" alt="">
                     <a href="https://openclassrooms.com/fr/" target="_blank" class="reference">OpenClassrooms</a>
                     <span class="reference annotations">Wordpress</span>
@@ -163,7 +163,7 @@
                         </div>
                     </div>
                 </li>
-                <li>
+                <li class="fade-in-up">
                     <img loading="lazy" src="/ressources/images/thumbnails/les-films-de-plein-air.jpg" alt="">
                     <a href="https://openclassrooms.com/fr/" target="_blank" class="reference">OpenClassrooms</a>
                     <span class="reference annotations">HTML • CSS</span>
@@ -175,7 +175,7 @@
                         </div>
                     </div>
                 </li>
-                <li>
+                <li class="fade-in-up">
                     <img loading="lazy" src="/ressources/images/thumbnails/snowtricks.jpg" alt="">
                     <a href="https://openclassrooms.com/fr/" target="_blank" class="reference">OpenClassrooms</a>
                     <span class="reference annotations">Symfony</span>
@@ -187,7 +187,7 @@
                         </div>
                     </div>
                 </li>
-                <li>
+                <li class="fade-in-up">
                     <img loading="lazy" src="/ressources/images/thumbnails/todo-and-co.jpg" alt="">
                     <a href="https://openclassrooms.com/fr/" target="_blank" class="reference">OpenClassrooms</a>
                     <span class="reference annotations">Symfony</span>
@@ -199,7 +199,7 @@
                         </div>
                     </div>
                 </li>
-                <li>
+                <li class="fade-in-up">
                     <img loading="lazy" src="/ressources/images/thumbnails/sunnyside.jpg" alt="">
                     <a href="https://www.frontendmentor.io/home" target="_blank" class="reference">Frontend Mentor</a>
                     <span class="reference annotations">HTML • CSS • JS</span>
@@ -211,7 +211,7 @@
                         </div>
                     </div>
                 </li>
-                <li>
+                <li class="fade-in-up">
                     <img loading="lazy" src="/ressources/images/thumbnails/blogr.jpg" alt="">
                     <a href="https://www.frontendmentor.io/home" target="_blank" class="reference">Frontend Mentor</a>
                     <span class="reference annotations">HTML • CSS • JS</span>
@@ -223,7 +223,7 @@
                         </div>
                     </div>
                 </li>
-                <li>
+                <li class="fade-in-up">
                     <img loading="lazy" src="/ressources/images/thumbnails/splitter.jpg" alt="">
                     <a href="https://www.frontendmentor.io/home" target="_blank" class="reference">Frontend Mentor</a>
                     <span class="reference annotations">HTML • CSS • JS</span>
@@ -235,7 +235,7 @@
                         </div>
                     </div>
                 </li>
-                <li>
+                <li class="fade-in-up">
                     <img loading="lazy" src="/ressources/images/thumbnails/base-apparel.jpg" alt="">
                     <a href="https://www.frontendmentor.io/home" target="_blank" class="reference">Frontend Mentor</a>
                     <span class="reference annotations">HTML • CSS • JS</span>
@@ -247,7 +247,7 @@
                         </div>
                     </div>
                 </li>
-                <li>
+                <li class="fade-in-up">
                     <img loading="lazy" src="/ressources/images/thumbnails/time-tracker.jpg" alt="">
                     <a href="https://www.frontendmentor.io/home" target="_blank" class="reference">Frontend Mentor</a>
                     <span class="reference annotations">HTML • CSS • JS</span>
@@ -267,21 +267,21 @@
         <div class="wrapper">
             <h2 class="section-title">Compétences</h2>
             <ul>
-                <li><img loading="lazy" src="/ressources/images/logos/html-logo.png" alt=""><h3 style="color: #e44d26;">HTML</h3></li>
-                <li><img loading="lazy" src="/ressources/images/logos/sass-logo.png" alt=""><h3 style="color: #cd6799;">Sass</h3></li>
-                <li><img loading="lazy" src="/ressources/images/logos/javascript-logo.png" alt=""><h3 style="color: #000000;">Javascript</h3></li>
-                <li><img loading="lazy" src="/ressources/images/logos/mysql-logo.png" alt=""><h3 style="color: #00758f;">MySQL</h3></li>
-                <li><img loading="lazy" src="/ressources/images/logos/php-logo.png" alt=""><h3 style="color: #8993be;">PHP</h3></li>
-                <li><img loading="lazy" src="/ressources/images/logos/symfony-logo.png" alt=""><h3 style="color: #1a171b;">Symfony</h3></li>
-                <li><img loading="lazy" src="/ressources/images/logos/git-logo.png" alt=""><h3 style="color: #de4c36;">Git</h3></li>
-                <li><img loading="lazy" src="/ressources/images/logos/wordpress-logo.png" alt=""><h3 style="color: #32373c;">Wordpress</h3></li>
-                <li><img loading="lazy" src="/ressources/images/logos/twig-logo.png" alt=""><h3 style="color: #52820f;">Twig</h3></li>
-                <li><img loading="lazy" src="/ressources/images/logos/photoshop-logo.png" alt=""><h3 style="color: #31a8ff;">Photoshop</h3></li>
-                <li><img loading="lazy" src="/ressources/images/logos/illustrator-logo.png" alt=""><h3 style="color: #df8600;">Illustrator</h3></li>
-                <li><img loading="lazy" src="/ressources/images/logos/indesign-logo.png" alt=""><h3 style="color: #ff3068;">InDesign</h3></li>
-                <li><img loading="lazy" src="/ressources/images/logos/jquery-logo.png" alt=""><h3 style="color: #1266a9;">jQuery</h3></li>
-                <li><img loading="lazy" src="/ressources/images/logos/vue-js-logo.png" alt=""><h3 style="color: #41b883;">Vue.js</h3></li>
-                <li><img loading="lazy" src="/ressources/images/logos/figma-logo.png" alt=""><h3 style="color: #a259ff;">Figma</h3></li>
+                <li class="fade-in-up"><img loading="lazy" src="/ressources/images/logos/html-logo.png" alt=""><h3 style="color: #e44d26;">HTML</h3></li>
+                <li class="fade-in-up"><img loading="lazy" src="/ressources/images/logos/sass-logo.png" alt=""><h3 style="color: #cd6799;">Sass</h3></li>
+                <li class="fade-in-up"><img loading="lazy" src="/ressources/images/logos/javascript-logo.png" alt=""><h3 style="color: #000000;">Javascript</h3></li>
+                <li class="fade-in-up"><img loading="lazy" src="/ressources/images/logos/mysql-logo.png" alt=""><h3 style="color: #00758f;">MySQL</h3></li>
+                <li class="fade-in-up"><img loading="lazy" src="/ressources/images/logos/php-logo.png" alt=""><h3 style="color: #8993be;">PHP</h3></li>
+                <li class="fade-in-up"><img loading="lazy" src="/ressources/images/logos/symfony-logo.png" alt=""><h3 style="color: #1a171b;">Symfony</h3></li>
+                <li class="fade-in-up"><img loading="lazy" src="/ressources/images/logos/git-logo.png" alt=""><h3 style="color: #de4c36;">Git</h3></li>
+                <li class="fade-in-up"><img loading="lazy" src="/ressources/images/logos/wordpress-logo.png" alt=""><h3 style="color: #32373c;">Wordpress</h3></li>
+                <li class="fade-in-up"><img loading="lazy" src="/ressources/images/logos/twig-logo.png" alt=""><h3 style="color: #52820f;">Twig</h3></li>
+                <li class="fade-in-up"><img loading="lazy" src="/ressources/images/logos/photoshop-logo.png" alt=""><h3 style="color: #31a8ff;">Photoshop</h3></li>
+                <li class="fade-in-up"><img loading="lazy" src="/ressources/images/logos/illustrator-logo.png" alt=""><h3 style="color: #df8600;">Illustrator</h3></li>
+                <li class="fade-in-up"><img loading="lazy" src="/ressources/images/logos/indesign-logo.png" alt=""><h3 style="color: #ff3068;">InDesign</h3></li>
+                <li class="fade-in-up"><img loading="lazy" src="/ressources/images/logos/jquery-logo.png" alt=""><h3 style="color: #1266a9;">jQuery</h3></li>
+                <li class="fade-in-up"><img loading="lazy" src="/ressources/images/logos/vue-js-logo.png" alt=""><h3 style="color: #41b883;">Vue.js</h3></li>
+                <li class="fade-in-up"><img loading="lazy" src="/ressources/images/logos/figma-logo.png" alt=""><h3 style="color: #a259ff;">Figma</h3></li>
             </ul>
         </div>
     </section>

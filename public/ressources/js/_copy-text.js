@@ -1,21 +1,21 @@
 export default function copyText() {
-    let copyTextButton = document.querySelector('.partners .copy-text');
+  let copyTextButton = document.querySelector('.partners .copy-text');
 
-    copyTextButton.addEventListener('click', function(e) {
-        e.preventDefault();
-        let textLink = e.target.querySelector('a').getAttribute('href');
-        let divContent = e.target;
+  copyTextButton.addEventListener('click', function (e) {
+    e.preventDefault();
+    let textLink = e.target.querySelector('a').getAttribute('href');
+    let divContent = e.target;
 
-        navigator.clipboard.writeText(textLink).then(() => {
-            divContent.setAttribute('data-content', 'Copié !');
-            divContent.classList.add('no-background');
+    navigator.clipboard.writeText(textLink).then(() => {
+      divContent.setAttribute('data-content', 'Copié !');
+      divContent.classList.add('no-background');
 
-            setTimeout(() => {
-                divContent.setAttribute('data-content', textLink);
-                divContent.classList.remove('no-background');
-            }, 2000);
-        },() => {
-            console.error('La copie du texte a échoué');
-        });
-    })
+      setTimeout(() => {
+        divContent.setAttribute('data-content', textLink);
+        divContent.classList.remove('no-background');
+      }, 2000);
+    }, () => {
+      console.error('La copie du texte a échoué');
+    });
+  })
 }

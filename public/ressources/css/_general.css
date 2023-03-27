@@ -1,3 +1,14 @@
+.fade-in-up {
+  transform: translateY(20px);
+  opacity: 0;
+  transition: opacity .4s, transform .4s;
+}
+
+.fade-in-up.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 .section-title {
   position: relative;
   display: inline-block;

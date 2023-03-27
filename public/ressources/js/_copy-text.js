@@ -1,6 +1,8 @@
 export default function copyText() {
   let copyTextButton = document.querySelector('.partners .copy-text');
 
+  if (!copyTextButton) return false;
+
   copyTextButton.addEventListener('click', function (e) {
     e.preventDefault();
     let textLink = e.target.querySelector('a').getAttribute('href');

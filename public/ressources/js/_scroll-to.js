@@ -28,7 +28,7 @@ export default function scrollTo() {
 
 function playBeep() {
   beep.currentTime = 0;
-  beep.volume = 0.5;
+  beep.volume = 1;
   beep.play();
 }
 

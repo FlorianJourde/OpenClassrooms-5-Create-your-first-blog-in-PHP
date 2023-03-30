@@ -19,7 +19,7 @@ export default function toggleMenu() {
       navbar.classList.toggle('menu-open');
       mobileMenu.classList.toggle('menu-open');
       beep.currentTime = 0;
-      beep.volume = 0.5;
+      beep.volume = 1;
       beep.play();
     })
   })

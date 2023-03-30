@@ -15,7 +15,7 @@ function showItems(counter) {
 
   hiddenItems.forEach(function (item) {
     if (checkVisible(item)) {
-      item.style.transitionDelay = (counter * .1) + "s";
+      item.style.transitionDelay = (counter * .1) + .2 + "s";
       item.classList.add('show');
       counter++;
 

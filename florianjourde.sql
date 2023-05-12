@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : ven. 28 oct. 2022 à 20:42
--- Version du serveur : 5.7.36
--- Version de PHP : 7.4.26
+-- Généré le : ven. 12 mai 2023 à 21:47
+-- Version du serveur : 10.5.19-MariaDB-cll-lve
+-- Version de PHP : 7.2.34
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de données : `florianjourde`
+-- Base de données : `u718790758_florian_db`
 --
 
 -- --------------------------------------------------------
@@ -27,16 +27,14 @@ SET time_zone = "+00:00";
 -- Structure de la table `comments`
 --
 
-DROP TABLE IF EXISTS `comments`;
-CREATE TABLE IF NOT EXISTS `comments` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `comments` (
+  `id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
   `post_id` int(11) NOT NULL,
   `content` text NOT NULL,
   `status` tinyint(1) DEFAULT NULL,
-  `creation_date` datetime NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=175 DEFAULT CHARSET=utf8;
+  `creation_date` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Déchargement des données de la table `comments`
@@ -52,9 +50,10 @@ INSERT INTO `comments` (`id`, `user_id`, `post_id`, `content`, `status`, `creati
 (169, 2, 54, 'Sympa, plus qu\'à les appliquer, maintenant...', 1, '2022-10-16 15:22:43'),
 (170, 2, 54, 'Comme pour chaque syntaxe, il y a un temps d\'adaptation.', 1, '2022-10-16 15:23:19'),
 (171, 2, 53, 'J\'aime bien l\'esprit minimaliste du dernier bureau', 1, '2022-10-16 15:23:45'),
-(172, 2, 53, 'Ils sont tous très cools !', 0, '2022-10-16 15:24:04'),
+(172, 2, 53, 'Ils sont tous très cools !', 1, '2022-10-16 15:24:04'),
 (173, 1, 53, 'Wow !', 0, '2022-10-16 15:32:52'),
-(174, 1, 52, 'Qui est l\'auteur de cet article ?', 0, '2022-10-16 15:33:06');
+(174, 1, 52, 'Qui est l\'auteur de cet article ?', 1, '2022-10-16 15:33:06'),
+(175, 9, 53, 'Très joli !', 1, '2023-01-23 17:28:50');
 
 -- --------------------------------------------------------
 
@@ -62,18 +61,16 @@ INSERT INTO `comments` (`id`, `user_id`, `post_id`, `content`, `status`, `creati
 -- Structure de la table `posts`
 --
 
-DROP TABLE IF EXISTS `posts`;
-CREATE TABLE IF NOT EXISTS `posts` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `posts` (
+  `id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
   `title` varchar(255) NOT NULL,
   `content` text NOT NULL,
   `creation_date` datetime NOT NULL,
   `update_date` datetime NOT NULL,
   `status` tinyint(1) NOT NULL,
-  `image` varchar(255) DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=56 DEFAULT CHARSET=utf8;
+  `image` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Déchargement des données de la table `posts`
@@ -91,26 +88,75 @@ INSERT INTO `posts` (`id`, `user_id`, `title`, `content`, `creation_date`, `upda
 -- Structure de la table `users`
 --
 
-DROP TABLE IF EXISTS `users`;
-CREATE TABLE IF NOT EXISTS `users` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `users` (
+  `id` int(11) NOT NULL,
   `username` varchar(100) NOT NULL,
   `email` varchar(100) NOT NULL,
   `role` varchar(100) NOT NULL,
   `password` varchar(100) NOT NULL,
   `token` varchar(100) DEFAULT NULL,
   `last_authentication` varchar(100) DEFAULT NULL,
-  `last_action` int(11) DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4;
+  `last_action` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Déchargement des données de la table `users`
 --
 
 INSERT INTO `users` (`id`, `username`, `email`, `role`, `password`, `token`, `last_authentication`, `last_action`) VALUES
-(1, 'Admin', 'admin@admin.com', 'Admin', 'e10adc3949ba59abbe56e057f20f883e', NULL, '28/10/2022 à 20:41:13', NULL),
-(2, 'User', 'user@user.com', 'User', 'e10adc3949ba59abbe56e057f20f883e', NULL, '28/10/2022 à 20:41:26', NULL);
+(1, 'Admin', 'admin@florianjourde.com', 'Admin', '088dac69e0137b2f2ba5a270956ae8dc', '0a27731e4522e26be335e28b175e321b', '12/05/2023 à 21:47:17', 1683928055),
+(2, 'User', 'user@florianjourde.com', 'User', '088dac69e0137b2f2ba5a270956ae8dc', NULL, '23/10/2022 à 11:40:09', NULL),
+(7, 'NufhedjiwidjwjdwihdisjadhuijdaodejguhweikabfdJIDHWIAUFAWFAWHFAAJDIHIjifheifjeifhwodjssfhuiifiwswhdus', 'g.e.ra.l.d.k.um.s.er.t@gmail.com', 'User', '6c53178e7f87f63ba447a22b0985bf21', NULL, NULL, NULL),
+(8, 'Hello World! https://493z32.com?hs=60c870b671e7186281580780d8906d85&', 'l49v1x@mailto.plus', 'User', '1ce9431144c855e51b1fc701a2cde50e', NULL, NULL, NULL),
+(9, 'Madame I.', 'ideleron.gemap@wanadoo.fr', 'User', '47804633b98d2199fe7877f60e00aea3', 'd9aff7a232b4f904362414744bf63089', '23/01/2023 à 17:25:13', 1674494946),
+(10, 'Hello World! https://apel.top/go/gu4winrshe5dgoju?hs=60c870b671e7186281580780d8906d85&', 'ayfkuh@tofeat.com', 'User', '8e332407c905be7601f2e32053a61f8e', NULL, NULL, NULL),
+(11, 'Donaldmaync', 'adamch95@handheld-3dscan-fg.com', 'User', '29b0b59b0eeb60e4c58bc6a7160b2da9', NULL, NULL, NULL),
+(12, 'sharafvip3', 'sharafvip3@gmail.com', 'User', '2e6e6e6bca4aef90f463f6c96ad7ae10', NULL, '25/04/2023 à 19:24:59', NULL),
+(13, 'Opfkeodjwihefjwdwhf ifefkqwjioehfuewfwejfksfhweo ifoejkfdpwjfweoihfiewfowfowejfi fjewifjweighjvmhfew', 'a.l.b.er.thans.hin4.9@gmail.com', 'User', '15528987a1f173057778516523528a6e', NULL, NULL, NULL);
+
+--
+-- Index pour les tables déchargées
+--
+
+--
+-- Index pour la table `comments`
+--
+ALTER TABLE `comments`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Index pour la table `posts`
+--
+ALTER TABLE `posts`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Index pour la table `users`
+--
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- AUTO_INCREMENT pour les tables déchargées
+--
+
+--
+-- AUTO_INCREMENT pour la table `comments`
+--
+ALTER TABLE `comments`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=176;
+
+--
+-- AUTO_INCREMENT pour la table `posts`
+--
+ALTER TABLE `posts`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=56;
+
+--
+-- AUTO_INCREMENT pour la table `users`
+--
+ALTER TABLE `users`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

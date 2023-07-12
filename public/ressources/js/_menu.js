@@ -5,7 +5,8 @@ export default function toggleMenu() {
   let frame = document.querySelector('#frame');
   let navbar = document.querySelector('nav');
   let buttons = [openMenu, closeMenu];
-  let beep = new Audio('/ressources/media/woosh-2.wav');
+//   let beep = new Audio('/ressources/media/woosh-2.wav');
+  let beep = new Audio('/ressources/media/button-click-3.wav');
 
   buttons.forEach(function (button) {
     button.addEventListener('click', function () {

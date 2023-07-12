@@ -2,7 +2,8 @@ let windowHeight;
 let scrollToTopButton = document.querySelector('#top-page-button');
 let scrollToPartnersButton = document.querySelector('#scroll-to-partners');
 let partnersSection = document.querySelector('#partners');
-let beep = new Audio('/ressources/media/woosh-2.wav');
+//   let beep = new Audio('/ressources/media/woosh-2.wav');
+let beep = new Audio('/ressources/media/button-click-3.wav');
 
 export default function scrollTo() {
   windowHeight = window.innerHeight / 2;

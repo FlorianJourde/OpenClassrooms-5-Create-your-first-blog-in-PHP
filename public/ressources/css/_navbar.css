@@ -16,6 +16,7 @@ nav {
   padding-bottom: 20px;
   padding-top: 20px;
   align-items: center;
+  box-shadow: var(--bs-secondary);
 }
 
 .navbar .logo {

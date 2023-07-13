@@ -213,6 +213,7 @@
   display: flex;
   justify-content: space-between;
   gap: 100px;
+  max-width: 100%;
 }
 
 .introduction .box {

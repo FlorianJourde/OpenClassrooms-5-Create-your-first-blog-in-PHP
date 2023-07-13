@@ -20,7 +20,34 @@
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Flow+Rounded&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Flow+Circular&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"/>
     <script src="https://kit.fontawesome.com/3297382b62.js" crossorigin="anonymous"></script>
+    <style>
+      .swiper {
+        /*width: 600px;*/
+        /*height: 300px;*/
+        /*width: 100% !important;*/
+        /*height: 100% !important;*/
+      }
+
+      .swiper-slide {
+        /*width: 100% !important;*/
+        /*max-width: 100%;*/
+      }
+
+      .box.swiper-slide {
+        margin-right: 20px;
+        margin-left: 20px;
+        /*width: 100% !important;*/
+      }
+
+
+      .box.swiper-slide {
+        /*max-width: calc(100vw - 40px);*/
+      }
+    </style>
+
+{#    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>#}
     <title>{% block title %}Portfolio{% endblock %} | Florian Jourde</title>
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-TESYE1FEEC"></script>
     <script>
@@ -58,6 +85,25 @@
             </ul>
         {% endif %}
     </div>
+
+    <script type="module">
+      import Swiper from 'https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.mjs'
+
+      const swiper = new Swiper('.swiper', {
+        direction: 'horizontal',
+        loop: true,
+        // spaceBetween: 30,
+        slidesPerView:'auto',
+        speed: 1000,
+        centeredSlides: true,
+        autoplay: {
+          enabled: true,
+          delay: 5000,
+          disableOnInteraction: false
+        },
+      });
+    </script>
+
     <script src="/ressources/js/_locomotive-scroll.js"></script>
     <script src="/ressources/js/main.js" type="module"></script>
 </body>

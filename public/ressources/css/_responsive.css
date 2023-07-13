@@ -27,11 +27,12 @@
 
     .introduction {
         flex-direction: column;
+        /*max-width: unset;*/
     }
 
     .introduction .box {
-        margin-left: 100px;
-        margin-right: 100px;
+        /*margin-left: 100px;*/
+        /*margin-right: 100px;*/
     }
 
     .menu {
@@ -185,8 +186,8 @@
     }
 
     .introduction .box {
-        margin-left: 50px;
-        margin-right: 50px;
+        /*margin-left: 50px;*/
+        /*margin-right: 50px;*/
     }
     
     .vector-shape {
@@ -283,13 +284,28 @@
 }
 
 @media (max-width: 480px) {
-    .introduction .box {
-        /*margin-left: 0;*/
-        /*margin-left: 100px;*/
-        margin-right: 0;
-        margin-left: -50px;
-        padding-left: 60px;
-    }
+  .introduction .box {
+    /*margin-left: 0;*/
+    /*margin-left: 100px;*/
+    /*margin-right: 0;*/
+    /*margin-left: -50px;*/
+    /*padding-left: 60px;*/
+    /*max-width: calc(100vw - 30px);*/
+  }
+
+  .swiper {
+    margin-left: -20px !important;
+    width: 100vw !important;
+  }
+  .box.swiper-slide {
+
+    /*margin-right: 0 !important;*/
+    /*margin-left: 0 !important;*/
+    max-width: calc(100vw - 40px);
+  }
+  /*.swiper {*/
+  /*  margin-left: -20px;*/
+  /*}*/
 }
 
 @media (max-width: 380px) {

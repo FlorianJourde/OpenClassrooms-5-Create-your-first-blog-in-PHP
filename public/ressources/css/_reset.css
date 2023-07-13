@@ -148,7 +148,7 @@ hr {
   background-color: var(--clr-white);
   border-radius: 40px;
   box-shadow: var(--bs-secondary);
-  display: flex;
+  display: flex !important;
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;

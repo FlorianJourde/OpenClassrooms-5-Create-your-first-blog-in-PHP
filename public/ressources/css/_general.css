@@ -219,7 +219,6 @@
   align-items: center;
   justify-content: center;
   flex-grow: 1;
-  /*background: radial-gradient(at top, #ffffff 0%, #ededed 100%);*/
   box-shadow: unset;
 }
 

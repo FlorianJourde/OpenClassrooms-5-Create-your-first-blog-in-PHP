@@ -204,22 +204,6 @@
         max-width: calc(100vw - 100px);
     }
 
-
-  .swiper-button-next {
-    /*left: 140px !important;*/
-  }
-
-    .introduction .box {
-        /*margin-left: 50px;*/
-        /*margin-right: 50px;*/
-    }
-    
-    .introduction .box .content {
-        /* margin-left: 50px; */
-        /* margin-right: 50px; */
-    }
-
-
   .introduction .box.box-very-light-blue,
   .introduction .box.box-very-light-pink,
   .introduction .box.box-very-light-yellow {
@@ -321,17 +305,6 @@
 }
 
 @media (max-width: 480px) {
-    .introduction .box {
-        /*margin-left: 0;*/
-        /*margin-left: 100px;*/
-        /*margin-right: 0;*/
-
-      /*margin-left: 20px;*/
-      /*margin-right: 20px;*/
-        /* margin-left: -50px; */
-        /* padding-left: 60px; */
-    }
-    
     .swiper {
         max-width: calc(100vw - 40px);
     }

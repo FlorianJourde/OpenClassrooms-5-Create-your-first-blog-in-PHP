@@ -6,6 +6,10 @@
     .introduction {
         width: 100%;
     }
+
+    .swiper {
+      max-width: calc(100% - 350px - 100px);
+    }
 }
 
 @media (max-width: 1024px) {

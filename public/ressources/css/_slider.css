@@ -24,7 +24,7 @@
 }
 
 .swiper-button-next::after {
-  content: unset;
+  content: unset !important;
 }
 
 .swiper-button-next img {

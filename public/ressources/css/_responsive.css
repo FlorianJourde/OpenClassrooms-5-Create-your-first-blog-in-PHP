@@ -4,11 +4,7 @@
     }
     
     .introduction {
-        max-width: 100%;
-    }
-    
-    .swiper {
-        max-width: calc((100vw / 2) - 250px - 100px)
+        width: 100%;
     }
 }
 
@@ -42,9 +38,17 @@
     }
 
     .introduction .box {
-        margin-left: 100px;
-        margin-right: 100px;
+        /*margin-left: 100px;*/
+        /*margin-right: 100px;*/
+
+      margin-left: 20px;
+      margin-right: 20px;
     }
+
+  .swiper-button-next {
+    left: 180px !important;
+    bottom: -25px !important;
+  }
 
     .menu {
         position: fixed;
@@ -200,15 +204,28 @@
         max-width: calc(100vw - 100px);
     }
 
+
+  .swiper-button-next {
+    /*left: 140px !important;*/
+  }
+
     .introduction .box {
-        margin-left: 50px;
-        margin-right: 50px;
+        /*margin-left: 50px;*/
+        /*margin-right: 50px;*/
     }
     
     .introduction .box .content {
         /* margin-left: 50px; */
         /* margin-right: 50px; */
     }
+
+
+  .introduction .box.box-very-light-blue,
+  .introduction .box.box-very-light-pink,
+  .introduction .box.box-very-light-yellow {
+    background-position: bottom 20px right 20px;
+    background-size: 250px;
+  }
     
     .vector-shape {
         height: 50px;
@@ -307,7 +324,10 @@
     .introduction .box {
         /*margin-left: 0;*/
         /*margin-left: 100px;*/
-        margin-right: 0;
+        /*margin-right: 0;*/
+
+      /*margin-left: 20px;*/
+      /*margin-right: 20px;*/
         /* margin-left: -50px; */
         /* padding-left: 60px; */
     }
@@ -315,6 +335,10 @@
     .swiper {
         max-width: calc(100vw - 40px);
     }
+
+  .swiper-button-next {
+    left: 80px !important;
+  }
 }
 
 @media (max-width: 380px) {

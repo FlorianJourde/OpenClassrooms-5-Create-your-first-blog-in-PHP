@@ -22,39 +22,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Flow+Circular&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"/>
     <script src="https://kit.fontawesome.com/3297382b62.js" crossorigin="anonymous"></script>
-    <style>
-      .swiper {
-        /*width: 600px;*/
-        /*height: 300px;*/
-        /*width: 100% !important;*/
-        /*height: 100% !important;*/
-        /*max-width: calc(100vw - 40px);*/
-      }
-
-      .swiper-slide {
-        /*width: 100% !important;*/
-        /*max-width: 100%;*/
-      }
-
-      .box.swiper-slide {
-        margin-right: 20px;
-        margin-left: 20px;
-        height: auto;
-        /* padding: unset; */
-        /*width: 100% !important;*/
-      }
-      
-      .box.swiper-slide .content {
-          /* padding: 80px; */
-      }
-
-
-      .box.swiper-slide {
-        /*max-width: calc(100vw - 40px);*/
-      }
-    </style>
-
-{#    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>#}
     <title>{% block title %}Portfolio{% endblock %} | Florian Jourde</title>
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-TESYE1FEEC"></script>
     <script>
@@ -106,7 +73,11 @@
         autoplay: {
           enabled: true,
           delay: 5000,
-          disableOnInteraction: false
+          disableOnInteraction: false,
+          pauseOnMouseEnter: true,
+        },
+        navigation: {
+          nextEl: '.swiper-button-next',
         },
       });
     </script>

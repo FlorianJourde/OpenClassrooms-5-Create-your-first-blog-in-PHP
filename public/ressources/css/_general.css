@@ -244,7 +244,6 @@
   line-height: unset;
 }
 
-
 .introduction .box.box-very-light-blue h2>span,
 .introduction .box.box-very-light-pink h2>span,
 .introduction .box.box-very-light-yellow h2>span {
@@ -258,29 +257,29 @@
 }
 
 .introduction .box.box-very-light-blue {
-  background-color: var(--clr-very-light-blue);
+  background-color: var(--clr-very-light-grey);
   background-image: url('../images/background/digit-background-blue.png');
 }
 
-.introduction .box.box-very-light-blue p {
-  color: var(--clr-very-dark-blue);
+.introduction .box.box-very-light-blue h2>span {
+  color: var(--clr-blue);
 }
 
 .introduction .box.box-very-light-pink {
-  background-color: var(--clr-very-light-pink);
+  background-color: var(--clr-very-light-grey);
   background-image: url('../images/background/newspaper-background-pink.png');
 }
 
-.introduction .box.box-very-light-pink p {
-  color: var(--clr-very-dark-pink);
+.introduction .box.box-very-light-pink h2>span {
+  color: var(--clr-pink);
 }
 .introduction .box-very-light-yellow {
-  background-color: var(--clr-very-light-yellow);
+  background-color: var(--clr-very-light-grey);
   background-image: url('../images/background/glass-background-yellow.png');
 }
 
-.introduction .box-very-light-yellow p {
-  color: var(--clr-very-dark-yellow);
+.introduction .box-very-light-yellow h2>span {
+  color: var(--clr-yellow);
 }
 
 .introduction .box h2 {

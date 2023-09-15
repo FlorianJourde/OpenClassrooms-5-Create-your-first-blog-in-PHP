@@ -16,6 +16,20 @@
                         <li><a class="button-tertiary button-black" href="/articles">Articles</a></li>
                         <li><a class="button-tertiary button-black" href="/contact">Contact</a></li>
                 </ul>
+
+                <button id="theme-toggle-button">Basculer le thème</button>
+
+{#                <div id="styleswitch" class="lamp">#}
+{#                    <ul>#}
+{#                        <li>#}
+{#                            <a class="lampdark" href="javascript:setStyle('default');">On</a>#}
+{#                        </li>#}
+{#                        <li>#}
+{#                            <a class="lamplight" href="javascript:setStyle('light')">Off</a>#}
+{#                        </li>#}
+{#                    </ul>#}
+{#                </div>#}
+
                 {% if session.is_authenticated != true %}
                     <ul class="navigation-user">
                         <li><a class="button-secondary button-black" href="/inscription"><i class="fas fa-user-plus"></i>S'enregistrer</a></li>

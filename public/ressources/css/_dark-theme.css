@@ -1,0 +1,6 @@
+body.dark {
+  background-color: var(--clr-black);
+}
+body.dark .vector-shape use {
+  fill: var(--clr-blue);
+}

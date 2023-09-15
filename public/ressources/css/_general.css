@@ -948,6 +948,10 @@ input[type="file"] {
   position: absolute;
 }
 
+.vector-shape.fill-white use {
+  fill: var(--clr-white);
+}
+
 .vector-shape-bottom {
   bottom: -1px;
 }

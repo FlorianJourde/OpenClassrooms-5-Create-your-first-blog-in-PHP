@@ -27,7 +27,7 @@
   --clr-dark-pink: #7f2e40;
   --clr-very-dark-pink: #61202e;
   --clr-white: white;
-  --clr-black: black;
+  --clr-black: rgba(0, 0, 0, 0.94);
   --clr-light-grey: #ccc;
   --clr-very-light-grey: #eee;
   --clr-grey: #777;

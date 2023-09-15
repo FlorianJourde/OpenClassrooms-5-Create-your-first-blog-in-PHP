@@ -1,0 +1,21 @@
+#loader {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--clr-very-dark-grey);
+  z-index: 999;
+}
+
+#loader.transition {
+  transition: ease .4s;
+}
+
+#loader.hide-left {
+   transform: translateX(-100%);
+}
+
+#loader.hide-right {
+   transform: translateX(100%);
+}

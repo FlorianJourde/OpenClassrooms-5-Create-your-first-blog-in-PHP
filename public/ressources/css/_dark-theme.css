@@ -1,6 +1,99 @@
 body.dark {
-  background-color: var(--clr-black);
+  --clr-text-purple: #9e91d0;
+  --clr-background-very-light-purple: #453980;
+  --clr-text-very-light-purple: #b7aee2;
+  --clr-background-very-dark-purple: #383356;
+  --clr-background-light-blue: #b4f7ff;
+  --clr-text-blue: #86c9d5;
+  --clr-background-blue: #205760;
+  --clr-background-dark-blue: #2b767f;
+  --clr-text-dark-blue: #81cad5;
+  --clr-text-very-dark-blue: #bce2e7;
+  --clr-background-very-dark-blue: #194145;
+  --clr-text-green: #acd98a;
+  --clr-background-green: #89bf54;
+  --clr-background-dark-green: #557337;
+  --clr-background-very-dark-green: #363f29;
+  --clr-background-light-yellow: #e2c080;
+  --clr-text-yellow: #dcbe83;
+  --clr-background-dark-yellow: #5e4802;
+  --clr-text-dark-yellow: #efdfac;
+  --clr-background-very-dark-yellow: #715b1a;
+  --clr-background-very-light-orange: #473023;
+  --clr-text-orange: #e09b78;
+  --clr-background-dark-orange: #a15f3b;
+  --clr-text-dark-orange: #ffd2ba;
+  --clr-text-pink: #de8ba4;
+  --clr-background-dark-pink: #491621;
+  --clr-text-dark-pink: #db96a4;
+  --clr-text-white: white;
+  --clr-background-white: #0f0f0f;
+  --clr-background-black: #0f0f0f;
+  --clr-text-black: white;
+  --clr-background-light-grey: #ccc;
+  --clr-background-very-light-grey: #1d1d1d;
+  --clr-text-grey: #bebebe;
+  --clr-background-dark-grey: #333333;
+  --clr-text-very-dark-grey: white;
+  --clr-background-very-dark-grey: #262626;
+  --clr-border-very-dark-grey: #444444;
 }
+
+body.dark .introduction .box.box-light-radial{
+  /*background-color: var(--clr-background-black);*/
+  background: radial-gradient(at top, #0f0f0f 0%, #1c1c1c 100%);
+}
+
+body.dark .navbar .logo a img {
+  filter: invert(1) hue-rotate(180deg);
+}
+
+body.dark .partners img {
+  filter: invert(1) hue-rotate(180deg) saturate(0);
+}
+
+body.dark .partners a:hover img {
+  filter: invert(1) hue-rotate(180deg) saturate(1);
+}
+
+body.dark .work {
+  background: linear-gradient(45deg, #2b2001 0%, #584711 50%, #413104 100%);
+}
+
+body.dark .portrait {
+ background: linear-gradient(315deg, #011517 0%, #10464c 50%, #05353b 100%);
+}
+
 body.dark .vector-shape use {
-  fill: var(--clr-blue);
+  /*fill: var(--clr-background-black);*/
+}
+
+.theme-toggle-button {
+  background-color: var(--clr-background-very-dark-grey);
+  width: 60px;
+  height: 40px;
+  border-radius: 10px;
+  border: unset;
+  cursor: pointer;
+  /*padding: 10px;*/
+  position: relative;
+  transition: .4s;
+}
+
+.theme-toggle-button::before {
+  content: '';
+  display: flex;
+  width: 20px;
+  height: 20px;
+  border-radius: 6px;
+  background-color: var(--clr-text-white);
+  position: absolute;
+  top: 50%;
+  left: calc(50% - 8px);
+  transform: translate(-50%, -50%);
+  transition: .4s;
+}
+
+.theme-toggle-button.dark::before {
+  left: calc(50% + 8px);
 }

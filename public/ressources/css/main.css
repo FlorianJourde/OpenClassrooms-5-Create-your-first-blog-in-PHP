@@ -1,3 +1,4 @@
+@import "_root.css";
 @import "_loader.css";
 @import "_animations.css";
 @import "_buttons.css";
@@ -7,7 +8,6 @@
 @import "_navbar.css";
 @import "_post.css";
 @import "_reset.css";
-@import "_root.css";
 @import "_slider.css";
 @import "_top-page.css";
 @import "_responsive.css";

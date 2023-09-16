@@ -13,7 +13,7 @@
 /*}*/
 
 /**::-webkit-scrollbar-thumb {*/
-/*  background-color: var(--clr-very-dark-grey);*/
+/*  background-color: var(--clr-text-very-dark-grey);*/
 /*}*/
 
 ::-webkit-scrollbar {
@@ -26,13 +26,13 @@
 
 ::-webkit-scrollbar-thumb {
   border-radius: 10px;
-  background: var(--clr-very-dark-grey);
+  background: var(--clr-background-very-dark-grey);
   border: 3px solid #ffffff;
 }
 
 ::selection {
-  background-color: var(--clr-light-grey);
-  color: var(--clr-very-dark-grey);
+  background-color: var(--clr-background-light-grey);
+  color: var(--clr-text-very-dark-grey);
 }
 * {
   margin: 0;
@@ -42,7 +42,8 @@
 
 input, button, textarea, select {
   font: inherit;
-  caret-color: var(--clr-blue);
+  caret-color: var(--clr-text-blue);
+  transition: .4s;
 }
 
 #frame {
@@ -59,6 +60,8 @@ input, textarea, ::-webkit-file-upload-button {
   border-radius: 20px;
   border: none;
   box-shadow: var(--bs-primary);
+  /*background-color: var(--clr-background-white);*/
+  /*color: var(--clr-text-white);*/
 }
 
 textarea {
@@ -68,7 +71,7 @@ textarea {
 
 ::-webkit-file-upload-button {
   margin-right: 20px;
-  background-color: var(--clr-dark-blue);
+  background-color: var(--clr-background-dark-blue);
 }
 
 form {
@@ -83,8 +86,8 @@ body {
   position: relative;
   width: 100%;
   font-family: var(--ff-primary);
-  background-color: var(--clr-white);
-  color: var(--clr-very-dark-grey);
+  background-color: var(--clr-background-white);
+  color: var(--clr-text-very-dark-grey);
   word-break: break-word;
 }
 
@@ -104,8 +107,12 @@ ul {
 hr {
   height: 3px;
   min-height: 3px;
-  background-color: var(--clr-very-light-grey);
+  background-color: var(--clr-background-very-light-grey);
   border: none;
+}
+
+section, body, .navbar {
+  transition: background-color .4s;
 }
 
 .placeholder {
@@ -136,16 +143,17 @@ hr {
 .page {
   border-radius: 40px;
   padding: 40px;
-  background-color: var(--clr-white);
+  background-color: var(--clr-background-white);
   display: flex;
   flex-direction: column;
   gap: 40px;
   box-shadow: var(--bs-primary);
+  transition: .4s;
 }
 
 .box {
   padding: 80px;
-  background-color: var(--clr-white);
+  background-color: var(--clr-background-white);
   border-radius: 40px;
   box-shadow: var(--bs-secondary);
   display: flex !important;
@@ -153,6 +161,11 @@ hr {
   justify-content: space-between;
   align-items: center;
   gap: 40px;
+  transition: .4s;
+}
+
+.swiper-slide {
+  transition: .4s !important;
 }
 
 .center-text {

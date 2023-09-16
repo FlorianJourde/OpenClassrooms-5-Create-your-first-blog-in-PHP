@@ -2,8 +2,8 @@ footer {
   width: 100%;
   padding-top: 50px;
   padding-bottom: 50px;
-  background-color: var(--clr-very-dark-grey);
-  color: var(--clr-white);
+  background-color: var(--clr-background-very-dark-grey);
+  color: var(--clr-text-white);
 }
 
 footer .logo img {
@@ -26,7 +26,7 @@ footer .logo p {
 }
 
 footer a {
-  color: var(--clr-white);
+  color: var(--clr-text-white);
 }
 
 footer .legal {
@@ -35,7 +35,7 @@ footer .legal {
 }
 
 footer .rights {
-  color: var(--clr-grey);
+  color: var(--clr-text-grey);
 }
 
 footer .links i {
@@ -44,7 +44,7 @@ footer .links i {
 
 footer .links a:hover i {
   transform: translateY(-5px);
-  color: var(--clr-yellow);
+  color: var(--clr-text-yellow);
 }
 
 footer .top-section {
@@ -56,7 +56,7 @@ footer .bottom-section {
   flex-wrap: wrap;
   justify-content: space-between;
   padding-top: 50px;
-  border-top: 3px solid var(--clr-dark-grey);
+  border-top: 3px solid var(--clr-background-dark-grey);
   gap: 30px 50px;
   align-items: center;
 }

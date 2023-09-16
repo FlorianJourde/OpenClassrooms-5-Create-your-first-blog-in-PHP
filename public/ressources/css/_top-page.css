@@ -8,7 +8,7 @@
     z-index: 99;
     border: none;
     outline: none;
-    background-color: var(--clr-dark-yellow);
+    background-color: var(--clr-background-dark-yellow);
     color: white;
     cursor: pointer;
     font-size: 18px;
@@ -19,7 +19,7 @@
 }
 
 #top-page-button:hover {
-    background-color: var(--clr-very-dark-grey);
+    background-color: var(--clr-background-very-dark-grey);
 }
 
 #top-page-button.appear {

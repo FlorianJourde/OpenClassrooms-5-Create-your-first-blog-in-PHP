@@ -25,11 +25,12 @@
   top: -15px;
   left: -30px;
   border-radius: 100px;
-  background-color: var(--clr-black);
+  background-color: var(--clr-text-black);
   opacity: 0.05;
   z-index: -1;
   position: absolute;
   pointer-events: none;
+  transition: .4s;
 }
 
 .banner {
@@ -41,7 +42,7 @@
   display: flex;
   flex-direction: column;
   position: relative;
-  background-color: var(--clr-very-dark-grey);
+  background-color: var(--clr-background-very-dark-grey);
 }
 
 .offset-next-element + * {
@@ -58,7 +59,7 @@
 .banner .title {
   font-size: var(--fs-big-title);
   font-family: var(--ff-primary);
-  color: var(--clr-white);
+  color: var(--clr-text-white);
   text-shadow: 0 10px 20px #00000040;
 }
 
@@ -70,7 +71,7 @@
   left: 0;
   position: absolute;
   opacity: 0.25;
-  background-color: var(--clr-dark-grey);
+  background-color: var(--clr-background-dark-grey);
   pointer-events: none;
 }
 
@@ -96,7 +97,7 @@
   background-color: unset;
   border: none;
   outline: none;
-  color: var(--clr-white);
+  color: var(--clr-text-white);
 }
 
 #scroll-to-partners:hover {
@@ -123,15 +124,15 @@
 }
 
 .banner .introduction .stat:nth-child(1) {
-  color: var(--clr-pink);
+  color: var(--clr-text-pink);
 }
 
 .banner .introduction .stat:nth-child(2) {
-  color: var(--clr-blue);
+  color: var(--clr-text-blue);
 }
 
 .banner .introduction .stat:nth-child(3) {
-  color: var(--clr-orange);
+  color: var(--clr-text-orange);
 }
 
 .banner .introduction .stat p {
@@ -257,29 +258,29 @@
 }
 
 .introduction .box.box-very-light-blue {
-  background-color: var(--clr-very-light-grey);
+  background-color: var(--clr-background-very-light-grey);
   background-image: url('../images/background/digit-background-blue.png');
 }
 
 .introduction .box.box-very-light-blue h2>span {
-  color: var(--clr-blue);
+  color: var(--clr-text-blue);
 }
 
 .introduction .box.box-very-light-pink {
-  background-color: var(--clr-very-light-grey);
+  background-color: var(--clr-background-very-light-grey);
   background-image: url('../images/background/newspaper-background-pink.png');
 }
 
 .introduction .box.box-very-light-pink h2>span {
-  color: var(--clr-pink);
+  color: var(--clr-text-pink);
 }
 .introduction .box-very-light-yellow {
-  background-color: var(--clr-very-light-grey);
+  background-color: var(--clr-background-very-light-grey);
   background-image: url('../images/background/glass-background-yellow.png');
 }
 
 .introduction .box-very-light-yellow h2>span {
-  color: var(--clr-yellow);
+  color: var(--clr-text-yellow);
 }
 
 .introduction .box h2 {
@@ -292,7 +293,7 @@
 .partners {
   padding-top: 150px;
   padding-bottom: 150px;
-  background-color: var(--clr-white);
+  background-color: var(--clr-background-white);
   margin-top: -1px;
   position: relative;
   z-index: 2;
@@ -331,7 +332,7 @@
   min-width: 100%;
   min-height: 100%;
   border-radius: 10px;
-  background-color: var(--clr-white);
+  background-color: var(--clr-background-white);
   box-shadow: var(--bs-secondary);
   display: flex;
   justify-content: center;
@@ -374,7 +375,7 @@
 }
 
 .presentation {
-  color: var(--clr-white);
+  color: var(--clr-text-white);
 }
 
 .presentation > *:not(:first-child) {
@@ -427,7 +428,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: var(--clr-black);
+  background-color: var(--clr-background-black);
   opacity: 0;
   position: absolute;
   border-radius: 20px;
@@ -445,8 +446,8 @@
   top: 20px;
   padding: 10px 20px;
   border-radius: 10px;
-  color: var(--clr-white);
-  background-color: var(--clr-very-dark-grey);
+  color: var(--clr-text-white);
+  background-color: var(--clr-background-very-dark-grey);
   box-shadow: 0 10px 20px #00000010;
   transition: opacity .4s;
   opacity: 0;
@@ -456,7 +457,7 @@
   top: 70px;
   font-size: var(--fs-small-text);
   transition-delay: .2s;
-  background-color: var(--clr-dark-yellow);
+  background-color: var(--clr-background-dark-yellow);
   padding: 7px 14px;
   border-radius: 6px;
 }
@@ -467,8 +468,8 @@
   left: 0;
   width: 100%;
   padding: 20px;
-  color: var(--clr-white);
-  background-color: var(--clr-very-dark-grey);
+  color: var(--clr-text-white);
+  background-color: var(--clr-background-very-dark-grey);
   border-radius: 20px 20px 0 0;
   transform: translateY(58px);
   transition: transform .4s;
@@ -506,7 +507,7 @@
 
 .skills {
   padding-top: 300px;
-  background-color: var(--clr-very-light-grey);
+  background-color: var(--clr-background-very-light-grey);
 }
 
 .skills ul {
@@ -524,7 +525,7 @@
   display: flex;
   flex-direction: column;
   gap: 15px;
-  background-color: var(--clr-white);
+  background-color: var(--clr-background-white);
 }
 
 .skills li img {
@@ -557,7 +558,7 @@ main.single {
 }
 
 main.single .post .infos p {
-  color: var(--clr-grey);
+  color: var(--clr-text-grey);
 }
 
 main.single .post .description {
@@ -569,7 +570,7 @@ main.single .post .description {
 
 main.single .post .description a {
   font-weight: 600;
-  color: var(--clr-orange);
+  color: var(--clr-text-orange);
 }
 
 main.single .post .description ul {
@@ -577,7 +578,7 @@ main.single .post .description ul {
 }
 
 main.single .post .description ul li::marker {
-  color: var(--clr-blue);
+  color: var(--clr-text-blue);
 }
 
 .single .post .description h1, .single .post .description h2, .single .post .description h3 {
@@ -585,19 +586,19 @@ main.single .post .description ul li::marker {
 }
 
 .single .post .description h1, .single .post .description h2, .single .post .description h3 {
-  border-left: 3px solid var(--clr-white);
+  border-left: 3px solid var(--clr-text-white);
 }
 
 main.single .post .description h1 {
-  border-left: 5px solid var(--clr-pink);
+  border-left: 5px solid var(--clr-text-pink);
 }
 
 main.single .post .description h2 {
-  border-left: 5px solid var(--clr-yellow);
+  border-left: 5px solid var(--clr-text-yellow);
 }
 
 main.single .post .description h3 {
-  border-left: 5px solid var(--clr-green);
+  border-left: 5px solid var(--clr-background-green);
 }
 
 .post .description.formated > *:has(img), .post .description.formated > *:has(code) {
@@ -614,21 +615,21 @@ main.single .post .description h3 {
 }
 
 .description.formated p:has(code) {
-  background-color: var(--clr-dark-grey);
-  color: var(--clr-white);
+  background-color: var(--clr-background-dark-grey);
+  color: var(--clr-text-white);
   padding: 10px 20px;
 }
 
 .actions.white a {
-  color: var(--clr-white);
+  color: var(--clr-text-white);
 }
 
 .actions.white a:hover {
-  color: var(--clr-yellow);
+  color: var(--clr-text-yellow);
 }
 
 .actions a:hover {
-  color: var(--clr-very-dark-grey);
+  color: var(--clr-text-very-dark-grey);
 }
 
 .management {
@@ -653,7 +654,7 @@ main.single .post .description h3 {
   bottom: 0;
   left: 0;
   opacity: 1;
-  background: linear-gradient(transparent, var(--clr-dark-purple));
+  background: linear-gradient(transparent, var(--clr-background-very-light-purple));
   position: absolute;
   pointer-events: none;
   transition: opacity .8s;
@@ -662,11 +663,11 @@ main.single .post .description h3 {
 .management .single {
   border-radius: 30px;
   padding: 40px;
-  background-color: var(--clr-dark-purple);
+  background-color: var(--clr-background-very-light-purple);
 }
 
 .management .single .post {
-  color: var(--clr-white);
+  color: var(--clr-text-white);
   display: flex;
   flex-direction: column;
   gap: 30px;
@@ -674,7 +675,7 @@ main.single .post .description h3 {
 
 .management .single .post .description a {
   font-weight: 600;
-  color: var(--clr-white);
+  color: var(--clr-text-white);
 }
 
 .management .single .post .description hr {
@@ -696,11 +697,11 @@ main.single .post .description h3 {
 }
 
 .delete-post .page > .title {
-  color: var(--clr-dark-pink);
+  color: var(--clr-text-dark-pink);
 }
 
 .delete-post .management .single {
-  background-color: var(--clr-dark-pink);
+  background-color: var(--clr-background-dark-pink);
 }
 
 .delete-post .management .post .description:after {
@@ -714,11 +715,11 @@ main.single .post .description h3 {
 .comments-section {
   padding-top: 300px;
   padding-bottom: 150px;
-  background-color: var(--clr-very-light-grey);
+  background-color: var(--clr-background-very-light-grey);
 }
 
 .comment .title {
-  background-color: var(--clr-dark-green);
+  background-color: var(--clr-background-dark-green);
 }
 
 .comment .header {
@@ -735,7 +736,7 @@ main.single .post .description h3 {
 }
 
 .comment .date {
-  color: var(--clr-grey);
+  color: var(--clr-text-grey);
 }
 
 .comment > *:not(:last-child) {
@@ -747,19 +748,19 @@ main.single .post .description h3 {
 }
 
 .comment .hide {
-  color: var(--clr-dark-purple);
+  color: var(--clr-text-very-light-purple);
 }
 
 .comment .edit {
-  color: var(--clr-dark-blue);
+  color: var(--clr-text-dark-blue);
 }
 
 .comment .delete {
-  color: var(--clr-dark-pink);
+  color: var(--clr-text-dark-pink);
 }
 
 .title a {
-  color: var(--clr-white);
+  color: var(--clr-text-white);
 }
 
 .archive .post .content, .comment .content {
@@ -813,7 +814,7 @@ main.single .post .description h3 {
   box-shadow: var(--bs-primary);
   width: 100%;
   padding: 40px;
-  background-color: var(--clr-white);
+  background-color: var(--clr-background-white);
   position: relative;
 }
 
@@ -837,24 +838,24 @@ main.single .post .description h3 {
   border-radius: 20px;
   padding: 40px;
   background: var(--clr-radial-very-dark-grey);
-  color: var(--clr-white);
+  color: var(--clr-text-white);
   box-shadow: var(--bs-secondary);
 }
 
 .update-post .page, .add-post .page {
-  background-color: var(--clr-blue);
+  background-color: var(--clr-background-blue);
 }
 
 .update-comment .page {
-  background-color: var(--clr-light-blue);
+  background-color: var(--clr-background-light-blue);
 }
 
 .update-comment, .update-comment a {
-  color: var(--clr-very-dark-blue);
+  color: var(--clr-text-very-dark-blue);
 }
 
 .update-post, .add-post, .update-post .actions a, .add-post .actions a {
-  color: var(--clr-very-dark-blue);
+  color: var(--clr-text-very-dark-blue);
 }
 
 .has-tooltip {
@@ -869,8 +870,8 @@ main.single .post .description h3 {
 
 .markdown-tooltip {
   position: absolute;
-  background-color: var(--clr-very-dark-grey);
-  color: var(--clr-white);
+  background-color: var(--clr-background-very-dark-grey);
+  color: var(--clr-text-white);
   padding: 20px;
   border-radius: 10px;
   top: 50px;
@@ -908,13 +909,13 @@ main.single .post .description h3 {
 }
 
 .login form {
-  background-color: var(--clr-dark-purple);
-  color: var(--clr-white);
+  background-color: var(--clr-background-very-light-purple);
+  color: var(--clr-text-white);
 }
 
 .contact form {
-  background-color: var(--clr-dark-yellow);
-  color: var(--clr-white);
+  background-color: var(--clr-background-dark-yellow);
+  color: var(--clr-text-white);
 }
 
 .contact form .subject-field {
@@ -928,8 +929,8 @@ input[type="file"] {
 }
 
 .register form {
-  background-color: var(--clr-very-light-orange);
-  color: var(--clr-dark-orange);
+  background-color: var(--clr-background-very-light-orange);
+  color: var(--clr-text-dark-orange);
 }
 
 .actions {
@@ -948,9 +949,29 @@ input[type="file"] {
   position: absolute;
 }
 
-.vector-shape.fill-white use {
-  fill: var(--clr-white);
+.vector-shape use {
+  transition: .4s;
 }
+
+.vector-shape.fill-white use {
+  fill: var(--clr-background-white);
+}
+
+.vector-shape.fill-very-light-grey use {
+  fill: var(--clr-background-very-light-grey);
+}
+
+.vector-shape.fill-very-dark-grey use {
+  fill: var(--clr-background-very-dark-grey);
+}
+
+.vector-shape.fill-dark-pink use {
+  fill: var(--clr-background-dark-pink);
+}
+
+/*.vector-shape.fill-dark-grey use {*/
+/*  fill: var(--clr-background-dark-grey);*/
+/*}*/
 
 .vector-shape-bottom {
   bottom: -1px;
@@ -988,7 +1009,7 @@ input[type="file"] {
 }
 
 .error {
-  background-color: var(--clr-dark-pink);
+  background-color: var(--clr-background-dark-pink);
 }
 
 .error .box {
@@ -997,7 +1018,7 @@ input[type="file"] {
 }
 
 .work {
-  color: var(--clr-dark-yellow);
+  color: var(--clr-text-dark-yellow);
 }
 
 .box .question {
@@ -1008,15 +1029,15 @@ input[type="file"] {
 }
 
 .work .fas, .work p {
-  color: var(--clr-yellow);
+  color: var(--clr-text-yellow);
 }
 
 .error .fas, .error p {
-  color: var(--clr-pink);
+  color: var(--clr-text-pink);
 }
 
 .management .box.error .fas, .management .box.error p {
-  color: var(--clr-blue);
+  color: var(--clr-text-blue);
 }
 
 .box .fas {

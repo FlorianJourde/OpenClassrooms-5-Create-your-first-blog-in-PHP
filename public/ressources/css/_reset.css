@@ -1,20 +1,7 @@
 * {
-  /*scrollbar-width: auto;*/
   scrollbar-color: #262626 #ffffff;
   scrollbar-width: thin;
 }
-
-/**::-webkit-scrollbar {*/
-/*  width: 8px;*/
-/*}*/
-
-/**::-webkit-scrollbar-track {*/
-/*  background: #ffffff;*/
-/*}*/
-
-/**::-webkit-scrollbar-thumb {*/
-/*  background-color: var(--clr-text-very-dark-grey);*/
-/*}*/
 
 ::-webkit-scrollbar {
   width: 12px;
@@ -60,8 +47,6 @@ input, textarea, ::-webkit-file-upload-button {
   border-radius: 20px;
   border: none;
   box-shadow: var(--bs-primary);
-  /*background-color: var(--clr-background-white);*/
-  /*color: var(--clr-text-white);*/
 }
 
 textarea {

@@ -828,10 +828,6 @@ main.single .post .description h3 {
   margin-top: 100px;
 }
 
-.introduction, .archive, .achievements, .skills {
-  /*z-index: 2;*/
-}
-
 .archive .post {
   display: flex;
   flex-direction: column;
@@ -968,10 +964,6 @@ input[type="file"] {
 .vector-shape.fill-dark-pink use {
   fill: var(--clr-background-dark-pink);
 }
-
-/*.vector-shape.fill-dark-grey use {*/
-/*  fill: var(--clr-background-dark-grey);*/
-/*}*/
 
 .vector-shape-bottom {
   bottom: -1px;

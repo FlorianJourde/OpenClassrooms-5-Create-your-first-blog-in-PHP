@@ -145,7 +145,7 @@
 }
 
 .button-blue {
-  background-color: var(--clr-text-blue);
+  background-color: var(--clr-background-blue);
   color: var(--clr-text-white);
 }
 

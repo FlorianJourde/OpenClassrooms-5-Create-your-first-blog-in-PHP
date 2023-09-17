@@ -3,13 +3,13 @@ body.dark {
   --clr-background-very-light-purple: #453980;
   --clr-text-very-light-purple: #b7aee2;
   --clr-background-very-dark-purple: #383356;
-  --clr-background-light-blue: #b4f7ff;
+  --clr-background-light-blue: #17626b;
   --clr-text-blue: #86c9d5;
-  --clr-background-blue: #205760;
+  --clr-background-blue: #1a454b;
   --clr-background-dark-blue: #2b767f;
   --clr-text-dark-blue: #81cad5;
-  --clr-text-very-dark-blue: #bce2e7;
-  --clr-background-very-dark-blue: #194145;
+  --clr-text-very-dark-blue: #a4f2fc;
+  --clr-background-very-dark-blue: #101a1b;
   --clr-text-green: #acd98a;
   --clr-background-green: #89bf54;
   --clr-background-dark-green: #557337;
@@ -24,7 +24,7 @@ body.dark {
   --clr-background-dark-orange: #a15f3b;
   --clr-text-dark-orange: #ffd2ba;
   --clr-text-pink: #de8ba4;
-  --clr-background-dark-pink: #491621;
+  --clr-background-dark-pink: #4c121f;
   --clr-text-dark-pink: #db96a4;
   --clr-text-white: white;
   --clr-background-white: #0f0f0f;
@@ -40,7 +40,6 @@ body.dark {
 }
 
 body.dark .introduction .box.box-light-radial{
-  /*background-color: var(--clr-background-black);*/
   background: radial-gradient(at top, #0f0f0f 0%, #1c1c1c 100%);
 }
 
@@ -64,8 +63,8 @@ body.dark .portrait {
  background: linear-gradient(315deg, #011517 0%, #10464c 50%, #05353b 100%);
 }
 
-body.dark .vector-shape use {
-  /*fill: var(--clr-background-black);*/
+body.dark .skills li img {
+  filter: invert(1) hue-rotate(180deg);
 }
 
 .theme-toggle-button {
@@ -75,7 +74,6 @@ body.dark .vector-shape use {
   border-radius: 10px;
   border: unset;
   cursor: pointer;
-  /*padding: 10px;*/
   position: relative;
   transition: .4s;
 }

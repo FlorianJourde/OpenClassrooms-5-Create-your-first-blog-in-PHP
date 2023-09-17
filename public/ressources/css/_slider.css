@@ -5,7 +5,7 @@
 }
 
 .swiper-button-next {
-  background-color: var(--clr-very-dark-grey);
+  background-color: var(--clr-background-very-dark-grey);
   width: 50px !important;
   height: 50px !important;
   border-radius: 50%;
@@ -19,7 +19,7 @@
 }
 
 .swiper-button-next:hover {
-  background-color: var(--clr-dark-yellow);
+  background-color: var(--clr-background-dark-yellow);
   transform: rotate(-360deg);
 }
 

@@ -97,7 +97,7 @@ hr {
 }
 
 section, body, .navbar {
-  transition: background-color .4s;
+  transition: background-color .4s, border .4s;
 }
 
 .placeholder {

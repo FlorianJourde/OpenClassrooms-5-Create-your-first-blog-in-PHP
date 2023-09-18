@@ -16,6 +16,7 @@ body.dark {
   --clr-background-very-dark-green: #363f29;
   --clr-background-light-yellow: #e2c080;
   --clr-text-yellow: #dcbe83;
+  --clr-text-light-yellow: #f3d584;
   --clr-background-dark-yellow: #5e4802;
   --clr-text-dark-yellow: #efdfac;
   --clr-background-very-dark-yellow: #715b1a;
@@ -68,14 +69,25 @@ body.dark .skills li img {
 }
 
 .theme-toggle-button {
-  background-color: var(--clr-background-very-dark-grey);
-  width: 60px;
+  /*background-color: var(--clr-background-very-dark-grey);*/
+  background-color: var(--clr-background-blue);
+  width: 70px;
   height: 40px;
   border-radius: 10px;
   border: unset;
   cursor: pointer;
   position: relative;
   transition: .4s;
+  /*box-shadow: inset 0 0 10px #20374b80;*/
+  overflow: hidden;
+}
+
+.theme-toggle-button.dark {
+  background-color: var(--clr-background-very-light-purple);
+}
+
+.theme-toggle-button svg use {
+  fill: white;
 }
 
 .theme-toggle-button::before {
@@ -84,14 +96,47 @@ body.dark .skills li img {
   width: 20px;
   height: 20px;
   border-radius: 6px;
-  background-color: var(--clr-text-white);
+  background-color: var(--clr-text-light-yellow);
   position: absolute;
   top: 50%;
-  left: calc(50% - 8px);
+  left: calc(50% - 12px);
   transform: translate(-50%, -50%);
+  transition: .4s;
+  z-index: 1;
+}
+
+
+.theme-toggle-button.dark::before {
+  background-color: var(--clr-text-white);
+}
+
+.theme-toggle-button .cloud {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: -12%;
+  opacity: 1;
   transition: .4s;
 }
 
-.theme-toggle-button.dark::before {
-  left: calc(50% + 8px);
+.theme-toggle-button.dark .cloud {
+  opacity: 0;
 }
+
+.theme-toggle-button .stars {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 14%;
+  opacity: 0;
+  transition: .4s;
+}
+
+.theme-toggle-button.dark .stars {
+  opacity: 1;
+}
+
+.theme-toggle-button.dark::before {
+  left: calc(50% + 12px);
+}
+

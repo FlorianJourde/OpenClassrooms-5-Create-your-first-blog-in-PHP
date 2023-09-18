@@ -949,19 +949,19 @@ input[type="file"] {
   transition: .4s;
 }
 
-.vector-shape.fill-white use {
+svg.fill-white use {
   fill: var(--clr-background-white);
 }
 
-.vector-shape.fill-very-light-grey use {
+svg.fill-very-light-grey use {
   fill: var(--clr-background-very-light-grey);
 }
 
-.vector-shape.fill-very-dark-grey use {
+svg.fill-very-dark-grey use {
   fill: var(--clr-background-very-dark-grey);
 }
 
-.vector-shape.fill-dark-pink use {
+svg.fill-dark-pink use {
   fill: var(--clr-background-dark-pink);
 }
 

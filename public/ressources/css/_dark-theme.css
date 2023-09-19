@@ -61,11 +61,15 @@ body.dark .work {
 }
 
 body.dark .portrait {
- background: linear-gradient(315deg, #011517 0%, #10464c 50%, #05353b 100%);
+  background: linear-gradient(315deg, #011517 0%, #10464c 50%, #05353b 100%);
 }
 
 body.dark .skills li img {
   filter: invert(1) hue-rotate(180deg);
+}
+
+body.dark .navbar {
+  border-color: var(--clr-background-very-dark-grey);
 }
 
 .theme-toggle-button {
@@ -105,7 +109,6 @@ body.dark .skills li img {
   z-index: 1;
 }
 
-
 .theme-toggle-button.dark::before {
   background-color: var(--clr-text-white);
 }
@@ -113,27 +116,25 @@ body.dark .skills li img {
 .theme-toggle-button .cloud {
   position: absolute;
   top: 50%;
-  transform: translateY(-50%);
+  transform: translate(0, -50%);
   right: -12%;
-  opacity: 1;
   transition: .4s;
 }
 
 .theme-toggle-button.dark .cloud {
-  opacity: 0;
+  transform: translate(50px, -50%);
 }
 
 .theme-toggle-button .stars {
   position: absolute;
   top: 50%;
-  transform: translateY(-50%);
+  transform: translate(-50px, -50%);
   left: 14%;
-  opacity: 0;
   transition: .4s;
 }
 
 .theme-toggle-button.dark .stars {
-  opacity: 1;
+  transform: translate(0, -50%);
 }
 
 .theme-toggle-button.dark::before {

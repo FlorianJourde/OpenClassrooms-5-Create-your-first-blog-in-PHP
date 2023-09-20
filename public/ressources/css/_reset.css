@@ -21,6 +21,7 @@
   background-color: var(--clr-background-light-grey);
   color: var(--clr-text-very-dark-grey);
 }
+
 * {
   margin: 0;
   padding: 0;

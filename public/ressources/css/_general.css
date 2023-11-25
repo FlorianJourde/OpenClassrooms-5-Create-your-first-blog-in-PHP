@@ -455,12 +455,16 @@
 }
 
 .achievements .reference.annotations {
-  top: 70px;
+  top: 20px;
   font-size: var(--fs-small-text);
   transition-delay: .2s;
   background-color: var(--clr-background-dark-yellow);
   padding: 7px 14px;
   border-radius: 6px;
+}
+
+.achievements .reference+.reference.annotations {
+  top: 70px;
 }
 
 .achievements .description {

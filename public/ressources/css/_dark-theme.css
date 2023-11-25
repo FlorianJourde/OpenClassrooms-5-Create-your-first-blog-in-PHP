@@ -38,6 +38,8 @@ body.dark {
   --clr-text-very-dark-grey: white;
   --clr-background-very-dark-grey: #262626;
   --clr-border-very-dark-grey: #444444;
+  --bs-primary: 0 0 0 1px #ffffff20;
+  --bs-secondary: 0 0 0 1px #ffffff20;
 }
 
 body.dark .introduction .box.box-light-radial{
@@ -69,7 +71,7 @@ body.dark .skills li img {
 }
 
 body.dark .navbar {
-  border-color: var(--clr-background-very-dark-grey);
+  /*border-color: var(--clr-background-very-dark-grey);*/
 }
 
 .theme-toggle-button {

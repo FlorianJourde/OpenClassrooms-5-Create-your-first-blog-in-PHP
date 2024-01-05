@@ -1,4 +1,4 @@
-body.dark {
+html.dark {
   --clr-text-purple: #9e91d0;
   --clr-background-very-light-purple: #453980;
   --clr-text-very-light-purple: #b7aee2;
@@ -42,35 +42,50 @@ body.dark {
   --bs-secondary: 0 0 0 1px #ffffff20;
 }
 
-body.dark .introduction .box.box-light-radial{
+html.dark::-webkit-scrollbar {
+  width: 12px;
+}
+ 
+html.dark::-webkit-scrollbar-track {
+  background: var(--clr-background-white);
+}
+
+html.dark::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background: #ffffff;
+  border: 3px solid var(--clr-background-white);
+}
+
+
+html.dark .introduction .box.box-light-radial{
   background: radial-gradient(at top, #0f0f0f 0%, #1c1c1c 100%);
 }
 
-body.dark .navbar .logo a img {
+html.dark .navbar .logo a img {
   filter: invert(1) hue-rotate(180deg);
 }
 
-body.dark .partners img {
+html.dark .partners img {
   filter: invert(1) hue-rotate(180deg) saturate(0);
 }
 
-body.dark .partners a:hover img {
+html.dark .partners a:hover img {
   filter: invert(1) hue-rotate(180deg) saturate(1);
 }
 
-body.dark .work {
+html.dark .work {
   background: linear-gradient(45deg, #2b2001 0%, #584711 50%, #413104 100%);
 }
 
-body.dark .portrait {
+html.dark .portrait {
   background: linear-gradient(315deg, #011517 0%, #10464c 50%, #05353b 100%);
 }
 
-body.dark .skills li img {
+html.dark .skills li img {
   filter: invert(1) hue-rotate(180deg);
 }
 
-body.dark .navbar {
+html.dark .navbar {
   /*border-color: var(--clr-background-very-dark-grey);*/
 }
 

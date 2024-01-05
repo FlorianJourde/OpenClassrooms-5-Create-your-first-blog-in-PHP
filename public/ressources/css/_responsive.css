@@ -78,7 +78,7 @@
     }
 
     #frame {
-        transition: transform .4s;
+        /*transition: transform .4s;*/
         position: relative;
     }
 

@@ -71,7 +71,8 @@
   left: 0;
   position: absolute;
   opacity: 0.25;
-  background-color: var(--clr-background-dark-grey);
+  /*background-color: var(--clr-background-dark-grey);*/
+  background-color: var(--clr-background-black);
   pointer-events: none;
 }
 

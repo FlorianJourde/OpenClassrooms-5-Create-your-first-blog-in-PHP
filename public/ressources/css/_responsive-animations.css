@@ -244,18 +244,48 @@
 
 @media (max-width: 480px) {
     #circle-border-1, #dash-1, #dash-2, #dash-3, #dash-4, #cross-1, #triangle-4 {
-        display: none;
+        /*display: none;*/
     }
 
     #dash-border-1 {
-        left: -30px;
-        top: -70px;
+        left: 100px;
+        top: 120px;
+        width: 150px;
+    }
+    
+    #dash-1 {
+        left: -60px;
+        top: 320px;
+        width: 150px;
+    }
+    
+    #dash-2 {
+        left: -90px;
+        top: 280px;
+        width: 150px;
+    }
+    
+    #dash-3 {
+        top: 80px;
+    }
+    
+    #dash-4 {
+        right: 5px;
+        top: 50px;
+    }
+    
+    #dash-3, #dash-4 {
+        width: 50px;
+    }
+    
+    #half-circle-1 {
+        width: 280px;
     }
 
     #half-circle-2 {
-        width: 150px;
-        left: 200px;
-        top: -80px;
+        width: 120px;
+        left: 220px;
+        top: -90px;
     }
 
     #half-circle-3 {
@@ -263,11 +293,55 @@
         bottom: 60px;
         right: -150px;
     }
+    
+    #half-circle-3 {
+        bottom: 90px;
+        right: -30px;
+        width: 100px;
+    }
+    
+    #circle-border-1 {
+        width: 150px;
+        left: -50px;
+        top: -70px;
+    }
+    
+    #circle-1 {
+        width: 150px;
+        top: 440px;
+        left: -80px;
+    }
+    
+    #circle-2 {
+        right: -40px;
+        width: 120px;
+    }
+
+    #circle-3 {
+        width: 200px;
+        left: 120px;
+        bottom: 280px;
+    }
 
     #circle-4 {
         width: 500px;
         right: -230px;
         top: -400px;
+    }
+    
+    #cross-2 {
+        width: 25px;
+    }
+    
+    #triangle-1 {
+        width: 150px;
+        left: -80px;
+    }
+    
+    #triangle-2 {
+        width: 150px;
+        right: -50px;
+        top: 370px;
     }
 
     #triangle-3 {
@@ -287,16 +361,5 @@
         bottom: 170px;
         left: unset;
         right: -70px;
-    }
-
-    #circle-2 {
-        right: -120px;
-    }
-
-    #circle-3 {
-        width: 320px;
-        margin-right: 0;
-        left: -120px;
-        bottom: -200px;
     }
 }

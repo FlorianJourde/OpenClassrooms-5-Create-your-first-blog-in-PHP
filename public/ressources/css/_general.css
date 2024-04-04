@@ -45,7 +45,7 @@
   background-color: var(--clr-background-very-dark-grey);
 }
 
-.offset-next-element + * {
+.offset-next-element+* {
   margin-top: -100px;
 }
 
@@ -146,9 +146,11 @@
   0% {
     transform: translateY(0px);
   }
+
   50% {
     transform: translateY(10px);
   }
+
   100% {
     transform: translateY(0px);
   }
@@ -162,7 +164,7 @@
   line-height: 1em;
 }
 
-.introduction .box h2 > span {
+.introduction .box h2>span {
   display: block;
 }
 
@@ -206,6 +208,7 @@
   0% {
     transform: translateY(0px)
   }
+
   50% {
     transform: translateY(-10px);
   }
@@ -239,9 +242,9 @@
   background-size: 350px;
 }
 
-.introduction .box.box-very-light-blue > *,
-.introduction .box.box-very-light-yellow > *,
-.introduction .box.box-very-light-pink > * {
+.introduction .box.box-very-light-blue>*,
+.introduction .box.box-very-light-yellow>*,
+.introduction .box.box-very-light-pink>* {
   text-align: left;
   line-height: unset;
 }
@@ -275,6 +278,7 @@
 .introduction .box.box-very-light-pink h2>span {
   color: var(--clr-text-pink);
 }
+
 .introduction .box-very-light-yellow {
   background-color: var(--clr-background-very-light-grey);
   background-image: url('../images/background/glass-background-yellow.png');
@@ -380,7 +384,7 @@
   color: var(--clr-text-white);
 }
 
-.presentation > *:not(:first-child) {
+.presentation>*:not(:first-child) {
   margin-top: 20px;
 }
 
@@ -520,7 +524,7 @@
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   gap: 40px;
-  grid-auto-rows: 1fr;
+  /*grid-auto-rows: 1fr;*/
 }
 
 .skills li {
@@ -540,6 +544,43 @@
   object-fit: contain;
 }
 
+.testimonials {
+  padding-top: 150px;
+  padding-bottom: 150px;
+}
+
+.testimonials .swiper {
+  /* max-width: calc(100% - 200px - 100px); */
+  max-width: calc(100% - 100px);
+  max-width: unset;
+  padding-right: 100px;
+}
+
+.testimonials .swiper-slide {
+  background-color: var(--clr-background-very-light-grey);
+  /* width: auto; */
+  margin-left: unset !important;
+  margin-right: 200px !important;
+  box-shadow: unset;
+  flex-wrap: unset !important;
+}
+
+.testimonials .box {
+  gap: 40px;
+}
+
+.testimonials .testimonial-profile {
+  max-width: 400px;
+  height: fit-content;
+  margin-right: -200px;
+}
+
+.testimonials .testimonial-profile img {
+  width: 100%;
+  border-radius: 50px;
+  box-shadow: var(--bs-secondary);
+}
+
 .posts {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -551,7 +592,7 @@
   font-size: var(--fs-small-title);
 }
 
-.post .infos > *:not(:last-child) {
+.post .infos>*:not(:last-child) {
   margin-bottom: 20px;
 }
 
@@ -559,7 +600,7 @@ main.single {
   margin-bottom: -100px;
 }
 
-.single + footer {
+.single+footer {
   margin-top: 200px;
 }
 
@@ -587,11 +628,15 @@ main.single .post .description ul li::marker {
   color: var(--clr-text-blue);
 }
 
-.single .post .description h1, .single .post .description h2, .single .post .description h3 {
+.single .post .description h1,
+.single .post .description h2,
+.single .post .description h3 {
   padding-left: 20px;
 }
 
-.single .post .description h1, .single .post .description h2, .single .post .description h3 {
+.single .post .description h1,
+.single .post .description h2,
+.single .post .description h3 {
   border-left: 3px solid var(--clr-text-white);
 }
 
@@ -607,16 +652,18 @@ main.single .post .description h3 {
   border-left: 5px solid var(--clr-background-green);
 }
 
-.post .description.formated > *:has(img), .post .description.formated > *:has(code) {
+.post .description.formated>*:has(img),
+.post .description.formated>*:has(code) {
   border-radius: 10px;
 }
 
-.post .description.formated > * > *, .management .post .description > * > * {
+.post .description.formated>*>*,
+.management .post .description>*>* {
   max-width: 100%;
   border-radius: 10px;
 }
 
-.post .description.formated > *:has(img) {
+.post .description.formated>*:has(img) {
   text-align: center;
 }
 
@@ -702,7 +749,7 @@ main.single .post .description h3 {
   gap: 10px;
 }
 
-.delete-post .page > .title {
+.delete-post .page>.title {
   color: var(--clr-text-dark-pink);
 }
 
@@ -745,7 +792,7 @@ main.single .post .description h3 {
   color: var(--clr-text-grey);
 }
 
-.comment > *:not(:last-child) {
+.comment>*:not(:last-child) {
   margin-bottom: 10px;
 }
 
@@ -769,7 +816,8 @@ main.single .post .description h3 {
   color: var(--clr-text-white);
 }
 
-.archive .post .content, .comment .content {
+.archive .post .content,
+.comment .content {
   margin-top: 0;
 }
 
@@ -790,7 +838,7 @@ main.single .post .description h3 {
   border-radius: 10px;
 }
 
-.archive .post > *:not(:first-child) {
+.archive .post>*:not(:first-child) {
   margin-top: 20px;
 }
 
@@ -830,7 +878,7 @@ main.single .post .description h3 {
   gap: 40px;
 }
 
-.comments + * {
+.comments+* {
   margin-top: 100px;
 }
 
@@ -844,7 +892,8 @@ main.single .post .description h3 {
   box-shadow: var(--bs-secondary);
 }
 
-.update-post .page, .add-post .page {
+.update-post .page,
+.add-post .page {
   background-color: var(--clr-background-blue);
 }
 
@@ -852,11 +901,15 @@ main.single .post .description h3 {
   background-color: var(--clr-background-light-blue);
 }
 
-.update-comment, .update-comment a {
+.update-comment,
+.update-comment a {
   color: var(--clr-text-very-dark-blue);
 }
 
-.update-post, .add-post, .update-post .actions a, .add-post .actions a {
+.update-post,
+.add-post,
+.update-post .actions a,
+.add-post .actions a {
   color: var(--clr-text-very-dark-blue);
 }
 
@@ -890,7 +943,7 @@ main.single .post .description h3 {
   word-break: initial;
 }
 
-.markdown-tooltip > li {
+.markdown-tooltip>li {
   display: flex;
   justify-content: space-between;
   width: 100%;
@@ -1026,15 +1079,18 @@ svg.fill-dark-pink use {
   gap: 10px;
 }
 
-.work .fas, .work p {
+.work .fas,
+.work p {
   color: var(--clr-text-yellow);
 }
 
-.error .fas, .error p {
+.error .fas,
+.error p {
   color: var(--clr-text-pink);
 }
 
-.management .box.error .fas, .management .box.error p {
+.management .box.error .fas,
+.management .box.error p {
   color: var(--clr-text-blue);
 }
 
@@ -1046,7 +1102,8 @@ svg.fill-dark-pink use {
   font-size: var(--fs-title);
 }
 
-.box p, .box a {
+.box p,
+.box a {
   font-size: var(--fs-big-text);
 }
 

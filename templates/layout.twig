@@ -63,7 +63,7 @@
     <script type="module">
       import Swiper from 'https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.mjs'
 
-      const swiper = new Swiper('.swiper', {
+      const swiperIntroduction = new Swiper('.swiper-introduction', {
         direction: 'horizontal',
         loop: true,
         slidesPerView:'auto',
@@ -79,6 +79,28 @@
           nextEl: '.swiper-button-next',
         },
       });
+      
+      const swiperTestimonials = new Swiper('.swiper-testimonials', {
+        loop: true,
+        speed: 1000,
+        // centeredSlides: true,
+        slidesPerView: 1,
+        spaceBetween: 180,
+        // direction: 'horizontal',
+        // slidesPerView: 'auto',
+        // slidesPerView: 1,
+        // loopedSlides: 4,
+        // autoplay: {
+        //   enabled: true,
+        //   delay: 5000,
+        //   disableOnInteraction: false,
+        //   pauseOnMouseEnter: true,
+        // },
+        // navigation: {
+        //   nextEl: '.swiper-button-next.testimonials-navigation',
+        // },
+      });
+      
     </script>
 
     <script src="/ressources/js/_locomotive-scroll.js"></script>

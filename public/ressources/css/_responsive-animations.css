@@ -248,9 +248,9 @@
     }
 
     #dash-border-1 {
-        left: 100px;
-        top: 120px;
-        width: 150px;
+        left: 130px;
+        top: 90px;
+        width: 220px;
     }
     
     #dash-1 {
@@ -266,12 +266,12 @@
     }
     
     #dash-3 {
-        top: 80px;
+        top: 30px;
     }
     
     #dash-4 {
         right: 5px;
-        top: 50px;
+        top: 0px;
     }
     
     #dash-3, #dash-4 {
@@ -283,9 +283,9 @@
     }
 
     #half-circle-2 {
-        width: 120px;
-        left: 220px;
-        top: -90px;
+        width: 60px;
+        left: 130px;
+        top: 120px;
     }
 
     #half-circle-3 {

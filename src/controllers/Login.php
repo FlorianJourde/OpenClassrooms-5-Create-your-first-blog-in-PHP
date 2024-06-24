@@ -19,11 +19,6 @@ class Login
         $userRepository->connection = new DatabaseConnection();
         $userRole = new CheckUserRole();
 
-        // Redirect user to homepage if already authenticated
-        if ($userRole->isAuthenticated($_SESSION['token'] ?? '')) {
-            header(sprintf('Location: /'));
-        }
-
         // Secure datas before sending them to database
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             if (is_string($_POST['email'])) {
@@ -57,6 +52,11 @@ class Login
 
                 header('Location: /');
             }
+        }
+
+        // Redirect user to homepage if already authenticated
+        if ($userRole->isAuthenticated($_SESSION['token'] ?? '')) {
+            header(sprintf('Location: /'));
         }
 
         $twig = new Vue();

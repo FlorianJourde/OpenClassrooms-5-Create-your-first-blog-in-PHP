@@ -1,8 +1,10 @@
 let windowHeight;
 let scrollToTopButton = document.querySelector('#top-page-button');
 let scrollToPartnersButton = document.querySelector('#scroll-to-partners');
+let swiperNextButton = document.querySelector('.swiper-button-next');
+// let toggleThemeButton = document.querySelector('.theme-toggle-button');
 let partnersSection = document.querySelector('#partners');
-//   let beep = new Audio('/ressources/media/woosh-2.wav');
+// let woosh = new Audio('/ressources/media/woosh-2.wav');
 let beep = new Audio('/ressources/media/button-click-3.wav');
 
 export default function scrollTo() {
@@ -14,6 +16,19 @@ export default function scrollTo() {
       scrollToPartners();
     })
   }
+  
+  if (swiperNextButton !== null) {
+    swiperNextButton.addEventListener('click', function () {
+      playBeep();
+    })
+  }
+  
+//   if (toggleThemeButton !== null) {
+//     toggleThemeButton.addEventListener('click', function () {
+//         console.log(toggleThemeButton)
+//       playWoosh();
+//     })
+//   }
 
   if (scrollToTopButton !== null) {
     window.onscroll = function () {
@@ -32,6 +47,12 @@ function playBeep() {
   beep.volume = 1;
   beep.play();
 }
+
+// function playWoosh() {
+//   woosh.currentTime = 0;
+//   woosh.volume = 1;
+//   woosh.play();
+// }
 
 function topPageAppear() {
   if (document.body.scrollTop > windowHeight || document.documentElement.scrollTop > windowHeight) {

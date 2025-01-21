@@ -24,7 +24,7 @@ class PostRepository
     public function getPosts(): array
     {
         $statement = $this->connection->getConnection()->query(
-            "SELECT id, title, content, user_id, DATE_FORMAT(creation_date, '%d/%m/%Y à %H:%i:%s') AS creation_date, image FROM posts ORDER BY id DESC"
+            "SELECT id, title, content, user_id, DATE_FORMAT(creation_date, '%d/%m/%Y à %H:%i') AS creation_date, image FROM posts ORDER BY id DESC"
         );
 
         $posts = [];
@@ -40,7 +40,7 @@ class PostRepository
     public function getPost(int $identifier): Post
     {
         $statement = $this->connection->getConnection()->prepare(
-            "SELECT id, user_id, title, content, DATE_FORMAT(creation_date, '%d/%m/%Y à %H:%i:%s') AS creation_date, image FROM posts WHERE id = ?"
+            "SELECT id, user_id, title, content, DATE_FORMAT(creation_date, '%d/%m/%Y à %H:%i') AS creation_date, image FROM posts WHERE id = ?"
         );
 
         $statement->execute([$identifier]);

@@ -40,15 +40,19 @@
     .swiper {
         max-width: calc(100vw - 200px);
     }
-
-    .introduction .box {
-      margin-left: 20px;
-      margin-right: 20px;
+    
+    .testimonials .testimonial-profile {
+        /*width: 200px;*/
+        right: 80px;
     }
 
   .swiper-button-next {
     left: 180px !important;
     bottom: -25px !important;
+  }
+  
+  .testimonials .swiper-slide .box {
+      max-width: calc(100% - 200px);
   }
 
   .menu {
@@ -215,12 +219,47 @@
         max-width: calc(100vw - 100px);
     }
 
+    .introduction .box {
+      margin-left: 10px;
+      margin-right: 10px;
+    }
+
   .introduction .box.box-very-light-blue,
   .introduction .box.box-very-light-pink,
   .introduction .box.box-very-light-yellow {
     background-position: bottom 20px right 20px;
     background-size: 250px;
   }
+  
+  
+  
+    .testimonials .testimonial-profile {
+        /*width: 200px;*/
+        right: 40px;
+        width: 160px;
+    }
+
+  
+  
+.testimonials .swiper-slide .box {
+    
+    /*@media (max-width: 1024px) {*/
+        /*.testimonials .box {*/
+          /*flex-direction: column-reverse;*/
+        /*}*/
+    /*}*/
+    
+    /*@media (max-width: 768px) {*/
+        /*.testimonials .box {*/
+          /*flex-direction: column-reverse;*/
+          max-width: calc(100% - 100px);
+          
+  background-size: 200px, 200px;
+  padding-top: 120px;
+  margin-top: 85px;
+        /*}*/
+    /*}*/
+}
     
     .vector-shape {
         height: 50px;
@@ -329,6 +368,21 @@
   .swiper-button-next {
     left: 80px !important;
   }
+  
+  
+.testimonials  .swiper-slide .box {
+    max-width: unset;
+    padding-top: 100px;
+    
+  background-size: 150px, 150px;
+}
+
+
+    .testimonials .testimonial-profile {
+        /*width: 200px;*/
+        /*right: 40px;*/
+        width: 150px;
+    }
 }
 
 @media (max-width: 380px) {

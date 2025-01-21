@@ -77,6 +77,7 @@ html.dark .work {
 }
 
 html.dark .portrait {
+  /*background: linear-gradient(315deg, #35030d 0%, #7c0f27 50%, #470716 100%);*/
   background: linear-gradient(315deg, #011517 0%, #10464c 50%, #05353b 100%);
 }
 

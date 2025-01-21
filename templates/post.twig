@@ -22,6 +22,7 @@
                 <div class="infos icon-spacing">
                     <h3><i class="fas fa-user"></i>{{ post.username }}</h3>
                     <p><i class="fas fa-calendar"></i>{{ post.creationDate }}</p>
+                    {#<p><i class="fas fa-calendar"></i>{{ post.published_at|date("d/m/Y") }} <i class="fa fa-clock-o"></i>{{ post.published_at|date("H:i") }}</p>#}
                 </div>
             </div>
         </div>
@@ -38,11 +39,11 @@
                     <h2 class="section-title">Commentaires</h2>
                     <div class="comments">
                         {% for comment in comments %}
-                            <div class="comment">
+                            <div class="comment icon-spacing">
                                 <div class="header">
                                     <p class="username icon-spacing"><i class="fas fa-user"></i>{{ comment.username }}</p>
                                     {% if (session.role == 'Admin') or (session.id == comment.userId) %}
-                                        <div class="actions icon-spacing">
+                                        <div class="actions">
                                             {% if (session.role == 'Admin') %}
                                                 <a class="hide" href="/commentaire/annulation/{{ comment.identifier }}"><i class="fas fa-eye-slash"></i>Retirer</a>
                                             {% endif %}
@@ -51,7 +52,9 @@
                                         </div>
                                     {% endif %}
                                 </div>
-                                <p class="date">{{ comment.creationDate }}</p>
+                                <p class="date"><i class="fas fa-calendar"></i>{{ comment.creationDate }}</p>
+                                {#<p class="date">{{ comment.published_at|date("d/m/Y à H:i") }}</p>#}
+                                {#<p class="date"><i class="fas fa-calendar"></i>{{ comment.published_at|date("d/m/Y") }} <i class="fa fa-clock-o"></i>{{ comment.published_at|date("H:i") }}</p>#}
                                 <div class="content">
                                     <p>{{ comment.comment }}</p>
                                 </div>

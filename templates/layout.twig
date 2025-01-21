@@ -18,6 +18,9 @@
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Flow+Rounded&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Flow+Circular&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Onest:wght@100..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"/>
     <script src="https://kit.fontawesome.com/3297382b62.js" crossorigin="anonymous"></script>
     <title>{% block title %}Portfolio{% endblock %} | Florian Jourde</title>
@@ -60,6 +63,8 @@
             </ul>
         {% endif %}
     </div>
+    
+    <img class="noise-texture" src="/ressources/images/background/noise-texture.jpg" alt="">
 
     <script type="module">
       import Swiper from 'https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.mjs'
@@ -72,7 +77,7 @@
         centeredSlides: true,
         autoplay: {
           enabled: true,
-          delay: 5000,
+          delay: 10000,
           disableOnInteraction: false,
           pauseOnMouseEnter: true,
         },
@@ -84,19 +89,20 @@
       const swiperTestimonials = new Swiper('.swiper-testimonials', {
         loop: true,
         speed: 1000,
-        // centeredSlides: true,
+        centeredSlides: true,
         slidesPerView: 1,
-        spaceBetween: 180,
+        spaceBetween: 20,
+        // spaceBetween: 100,
         // direction: 'horizontal',
         // slidesPerView: 'auto',
         // slidesPerView: 1,
         // loopedSlides: 4,
-        // autoplay: {
-        //   enabled: true,
-        //   delay: 5000,
-        //   disableOnInteraction: false,
-        //   pauseOnMouseEnter: true,
-        // },
+        autoplay: {
+          enabled: true,
+          delay: 15000,
+          disableOnInteraction: false,
+          pauseOnMouseEnter: true,
+        },
         // navigation: {
         //   nextEl: '.swiper-button-next.testimonials-navigation',
         // },

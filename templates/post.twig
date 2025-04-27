@@ -21,7 +21,8 @@
                 <div class="description formated">{{ post.content | raw }}</div>
                 <div class="infos icon-spacing">
                     <h3><i class="fas fa-user"></i>{{ post.username }}</h3>
-                    <p><i class="fas fa-calendar"></i>{{ post.creationDate }}</p>
+                    <p><i class="fas fa-calendar"></i>{{ post.creationDate }} <i class="fa fa-clock-o"></i>{{ post.creationTime }}</p>
+                    {#<p><i class="fas fa-calendar"></i>{{ post.creationDate }}</p>#}
                     {#<p><i class="fas fa-calendar"></i>{{ post.published_at|date("d/m/Y") }} <i class="fa fa-clock-o"></i>{{ post.published_at|date("H:i") }}</p>#}
                 </div>
             </div>
@@ -52,9 +53,10 @@
                                         </div>
                                     {% endif %}
                                 </div>
-                                <p class="date"><i class="fas fa-calendar"></i>{{ comment.creationDate }}</p>
+                                {#<p class="date"><i class="fas fa-calendar"></i>{{ comment.creationDate }}</p>#}
                                 {#<p class="date">{{ comment.published_at|date("d/m/Y à H:i") }}</p>#}
                                 {#<p class="date"><i class="fas fa-calendar"></i>{{ comment.published_at|date("d/m/Y") }} <i class="fa fa-clock-o"></i>{{ comment.published_at|date("H:i") }}</p>#}
+                                <p class="date"><i class="fas fa-calendar"></i>{{ comment.creationDate }} <i class="fa fa-clock-o"></i>{{ comment.creationTime }}</p>
                                 <div class="content">
                                     <p>{{ comment.comment }}</p>
                                 </div>

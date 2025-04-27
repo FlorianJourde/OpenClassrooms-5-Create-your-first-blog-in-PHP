@@ -78,6 +78,7 @@ body {
   position: relative;
   width: 100%;
   font-family: var(--ff-primary);
+  font-size: var(--fs-regular-text);
   background-color: var(--clr-background-very-dark-grey);
   color: var(--clr-text-very-dark-grey);
   word-break: break-word;
@@ -168,4 +169,8 @@ section, body, .navbar, #frame {
 
 .center-text {
   text-align: center;
+}
+
+.fs-regular-text p, .fs-regular-text a {
+    font-size: var(--fs-regular-text);
 }

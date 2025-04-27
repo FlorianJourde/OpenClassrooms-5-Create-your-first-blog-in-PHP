@@ -72,6 +72,15 @@ html.dark .partners a:hover img {
   filter: invert(1) hue-rotate(180deg) saturate(1);
 }
 
+html.dark .partners a .additional-picto {
+  filter: invert(1) hue-rotate(180deg) saturate(0) blur(5px);
+}
+
+html.dark .partners a:hover .additional-picto {
+    
+  filter: invert(1) hue-rotate(180deg) saturate(1) blur(0);
+}
+
 html.dark .work {
   background: linear-gradient(45deg, #2b2001 0%, #584711 50%, #413104 100%);
 }
@@ -95,6 +104,7 @@ html.dark .navbar {
   width: 70px;
   height: 40px;
   border-radius: 10px;
+  /*border-radius: 20px;*/
   border: unset;
   cursor: pointer;
   position: relative;
@@ -116,7 +126,7 @@ html.dark .navbar {
   display: flex;
   width: 20px;
   height: 20px;
-  border-radius: 6px;
+  border-radius: 10px;
   background-color: var(--clr-text-light-yellow);
   position: absolute;
   top: 50%;

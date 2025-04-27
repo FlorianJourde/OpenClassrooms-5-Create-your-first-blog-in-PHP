@@ -1,7 +1,7 @@
 let windowHeight;
 let scrollToTopButton = document.querySelector('#top-page-button');
 let scrollToPartnersButton = document.querySelector('#scroll-to-partners');
-let swiperNextButton = document.querySelector('.swiper-button-next');
+let swiperNextButtons = document.querySelectorAll('.swiper-button-next');
 // let toggleThemeButton = document.querySelector('.theme-toggle-button');
 let partnersSection = document.querySelector('#partners');
 // let woosh = new Audio('/ressources/media/woosh-2.wav');
@@ -17,9 +17,12 @@ export default function scrollTo() {
     })
   }
   
-  if (swiperNextButton !== null) {
-    swiperNextButton.addEventListener('click', function () {
-      playBeep();
+  if (swiperNextButtons !== null) {
+      
+    swiperNextButtons.forEach(function(button) {
+        button.addEventListener('click', function() {
+          playBeep();
+        })
     })
   }
   

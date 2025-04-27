@@ -27,6 +27,25 @@
   transform: rotate(-360deg);
 }
 
+.swiper-button-next.testimonials-navigation {
+    top: 50% !important;
+    transform: translateY(-50%);
+    right: 25px !important;
+    left: auto !important;
+    /*background-color: var(--clr-background-very-light-grey);*/
+    background-color: var(--clr-background-dark-grey);
+    opacity: .5;
+}
+
+.swiper-button-next.testimonials-navigation:hover {
+  transform: translateY(-50%) rotate(-360deg);
+}
+
+
+.swiper-button-next.testimonials-navigation img {
+    /*filter: invert(1);*/
+}
+
 .swiper-button-next::after {
   content: unset !important;
 }

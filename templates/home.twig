@@ -1,6 +1,6 @@
 {% extends 'layout.twig' %}
 
-{% block title %}Développeur web backend & frontend{% endblock %}
+{% block title %}Développeur fullstack & a11y{% endblock %}
 
 {% block content %}
 
@@ -12,14 +12,17 @@
                 <li><a target="_blank" href="https://github.com/FlorianJourde"><img src="/ressources/images/logos/github.png" loading="lazy" alt=""></a></li>
                 <li><a target="_blank" href="https://x.com/Ctrl_FJ"><img src="/ressources/images/logos/x-logo.png" loading="lazy" alt=""></a></li>
                 <li><a target="_blank" href="https://www.linkedin.com/in/florianjourde/"><img src="/ressources/images/logos/linkedin.png" loading="lazy" alt=""></a></li>
-                {#<li><a target="_blank" href="https://www.codewars.com/users/FlorianJourde"><img src="/ressources/images/logos/codewars.png" loading="lazy" alt=""></a></li>#}
-                <li><a target="_blank" href="https://www.youtube.com/@ctrlzjams"><img src="/ressources/images/logos/youtube-logo.png" loading="lazy" alt=""></a></li>
+                <li><a target="_blank" href="https://www.codewars.com/users/FlorianJourde"><img src="/ressources/images/logos/codewars.png" loading="lazy" alt=""><img class="additional-picto" src="/ressources/images/icons/4-kyu.png" loading="lazy" alt=""></a></li>
+                {#<li><a target="_blank" href="https://www.youtube.com/@ctrlzjams"><img src="/ressources/images/logos/youtube-logo.png" loading="lazy" alt=""></a></li>#}
                 {#<li><a target="_blank" href="https://www.frontendmentor.io/profile/FlorianJourde"><img src="/ressources/images/logos/frontend-mentor.png" loading="lazy" alt=""></a></li>#}
                 <li><a target="_blank" href="https://www.frontendmentor.io/profile/FlorianJourde"><img src="/ressources/images/logos/frontend-mentor-logo.png" loading="lazy" alt=""></a></li>
                 <li class="copy-text" data-content="florianjourde"><a target="_blank" href="florianjourde"><img src="/ressources/images/logos/discord-logo.png" loading="lazy" alt=""></a></li>
             </ul>
         </div>
     </section>
+
+    {% include 'partials/quizstack.twig.html' %}
+
     <main class="archive z-index-2 offset-next-element">
         <div class="wrapper">
             <h2 class="section-title">Derniers articles</h2>
@@ -48,13 +51,29 @@
         <svg class="vector-shape fill-white vector-shape-top" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 400" width="1440" height="400" preserveAspectRatio="none" >
             <use href="/ressources/images/vectors/vector-top-right-3.svg#swoop-2-bottom-left-white"/>
         </svg>
-
+        
+        {% set startYear = 2020 %}
+        {% set endYear = "now"|date("Y") %}
+        {% set diff = endYear - startYear %}
+        {% set yearLabels = {
+            1: "un",
+            2: "deux",
+            3: "trois",
+            4: "quatre",
+            5: "cinq",
+            6: "six",
+            7: "sept",
+            8: "huit",
+            9: "neuf",
+            10: "dix"
+        } %}
+        
         <div class="wrapper">
             <div class="presentation">
                 <img class="profile-picture" src="/ressources/images/florian.jpg" alt="">
                 <h2>Bienvenue sur mon portfolio&nbsp!</h2>
-                <p>Reconverti du milieu des <b>industries graphiques</b> vers le <b>développement web</b> depuis maintenant deux ans, mon parcours singulier m'a permis de développer des compétences en <b>design</b>, <b>marketing</b>, <b>communication</b>, <b>référencement</b>, <b>rédaction</b>...</p>
-                <p>Malgré mon appétence naturelle pour le <b>développement frontend</b> ainsi que l'<b>UX</b> et l'<b>UI</b> des interface numériques, je suis aujourd'hui déterminé à apprendre et consolider mes connaissances dans tout ce qui touche à la partie <b>backend</b> des <b>sites internet</b>, dans l'optique de devenir un jour, je l'espère, <b>développeur full-stack</b>&nbsp!</p>
+                <p>Reconverti du milieu des <b>industries graphiques</b> vers le <b>développement web</b> depuis maintenant {{ yearLabels[diff] ?? diff }} ans, mon parcours singulier m'a permis de développer des compétences en <b>design</b>, <b>marketing</b>, <b>communication</b>, <b>référencement</b>, <b>rédaction</b>...</p>
+                <p>Malgré mon appétence naturelle pour le <b>développement frontend</b> ainsi que l'<b>UX</b> et l'<b>UI</b> des interface numériques, je suis aujourd'hui déterminé à apprendre et consolider mes connaissances dans tout ce qui touche à la partie <b>backend</b> des <b>sites internet</b>, dans l'optique de devenir un jour, je l'espère, <b>développeur fullstack</b>&nbsp!</p>
             </div>
         </div>
 
@@ -79,14 +98,25 @@
                     </div>
                 </li>
                 <li class="fade-in-up">
-                    <img loading="lazy" src="/ressources/images/thumbnails/chalets-et-caviar.jpg" alt="">
-                    <a href="https://openclassrooms.com/fr/" target="_blank" class="reference">OpenClassrooms</a>
-                    <span class="reference annotations">WordPress</span>
+                    <img loading="lazy" src="/ressources/images/thumbnails/quizstack.jpg" alt="">
+                    <span class="reference annotations">Symfony • React</span>
                     <div class="description">
-                        <h3>Chalets & Caviar</h3>
+                        <h3>Quizstack</h3>
                         <div class="links">
-                            <a target="_blank" class="button-secondary button-white button-small" href="http://chaletsetcaviar.florianjourde.com/"><i class="fas fa-globe"></i>Site</a>
-                            <a target="_blank" class="button-secondary button-white button-small" href="https://github.com/FlorianJourde/OpenClassrooms-2-Wordpress-theme-integration-for-a-client"><i class="fab fa-github"></i>Dépot</a>
+                            <a target="_blank" class="button-secondary button-white button-small" href="https://quizstack.io/"><i class="fas fa-globe"></i>Site</a>
+                            <a target="_blank" class="button-secondary button-white button-small" href="https://github.com/FlorianJourde/Quizstack"><i class="fab fa-github"></i>Dépot</a>
+                        </div>
+                    </div>
+                </li>
+                <li class="fade-in-up">
+                    <img loading="lazy" src="/ressources/images/thumbnails/todo-and-co.jpg" alt="">
+                    <a href="https://openclassrooms.com/fr/" target="_blank" class="reference">OpenClassrooms</a>
+                    <span class="reference annotations">Symfony</span>
+                    <div class="description">
+                        <h3>ToDo & Co</h3>
+                        <div class="links">
+                            <a target="_blank" class="button-secondary button-white button-small" href="https://todoandco.florianjourde.com/"><i class="fas fa-globe"></i>Site</a>
+                            <a target="_blank" class="button-secondary button-white button-small" href="https://github.com/FlorianJourde/OpenClassrooms-8-Enhance-an-existing-ToDo-and-Co-app"><i class="fab fa-github"></i>Dépot</a>
                         </div>
                     </div>
                 </li>
@@ -115,14 +145,14 @@
                     </div>
                 </li>
                 <li class="fade-in-up">
-                    <img loading="lazy" src="/ressources/images/thumbnails/todo-and-co.jpg" alt="">
-                    <a href="https://openclassrooms.com/fr/" target="_blank" class="reference">OpenClassrooms</a>
-                    <span class="reference annotations">Symfony</span>
+                    <img loading="lazy" src="/ressources/images/thumbnails/webask.jpg" alt="">
+                    <a href="https://www.frontendmentor.io/solutions/interactive-comments-section-with-nodejs-and-nextjs-O-np7dUKEl" target="_blank" class="reference">Frontend Mentor</a>
+                    <span class="reference annotations">Node.js • Next.js • TS</span>
                     <div class="description">
-                        <h3>ToDo & Co</h3>
+                        <h3>Webask</h3>
                         <div class="links">
-                            <a target="_blank" class="button-secondary button-white button-small" href="https://todoandco.florianjourde.com/"><i class="fas fa-globe"></i>Site</a>
-                            <a target="_blank" class="button-secondary button-white button-small" href="https://github.com/FlorianJourde/OpenClassrooms-8-Enhance-an-existing-ToDo-and-Co-app"><i class="fab fa-github"></i>Dépot</a>
+                            <a target="_blank" class="button-secondary button-white button-small" href="https://webask.onrender.com/"><i class="fas fa-globe"></i>Site</a>
+                            <a target="_blank" class="button-secondary button-white button-small" href="https://github.com/FlorianJourde/Frontend-Mentor-27-Interactive-comments-section"><i class="fab fa-github"></i>Dépot</a>
                         </div>
                     </div>
                 </li>
@@ -139,14 +169,14 @@
                     </div>
                 </li>
                 <li class="fade-in-up">
-                    <img loading="lazy" src="/ressources/images/thumbnails/webask.jpg" alt="">
-                    <a href="https://www.frontendmentor.io/solutions/interactive-comments-section-with-nodejs-and-nextjs-O-np7dUKEl" target="_blank" class="reference">Frontend Mentor</a>
-                    <span class="reference annotations">Node.js • Next.js • TS</span>
+                    <img loading="lazy" src="/ressources/images/thumbnails/chalets-et-caviar.jpg" alt="">
+                    <a href="https://openclassrooms.com/fr/" target="_blank" class="reference">OpenClassrooms</a>
+                    <span class="reference annotations">WordPress</span>
                     <div class="description">
-                        <h3>Webask</h3>
+                        <h3>Chalets & Caviar</h3>
                         <div class="links">
-                            <a target="_blank" class="button-secondary button-white button-small" href="https://webask.onrender.com/"><i class="fas fa-globe"></i>Site</a>
-                            <a target="_blank" class="button-secondary button-white button-small" href="https://github.com/FlorianJourde/Frontend-Mentor-27-Interactive-comments-section"><i class="fab fa-github"></i>Dépot</a>
+                            <a target="_blank" class="button-secondary button-white button-small" href="http://chaletsetcaviar.florianjourde.com/"><i class="fas fa-globe"></i>Site</a>
+                            <a target="_blank" class="button-secondary button-white button-small" href="https://github.com/FlorianJourde/OpenClassrooms-2-Wordpress-theme-integration-for-a-client"><i class="fab fa-github"></i>Dépot</a>
                         </div>
                     </div>
                 </li>
@@ -198,7 +228,7 @@
                         </div>
                     </div>
                 </li> #}
-                <li class="fade-in-up">
+                {# <li class="fade-in-up">
                     <img loading="lazy" src="/ressources/images/thumbnails/time-tracker.jpg" alt="">
                     <a href="https://www.frontendmentor.io/solutions/time-tracking-dashboard-solution-with-html-css-js-LCqeEN-Wr" target="_blank" class="reference">Frontend Mentor</a>
                     <span class="reference annotations">HTML • CSS • JS</span>
@@ -207,6 +237,18 @@
                         <div class="links">
                             <a target="_blank" class="button-secondary button-white button-small" href="https://florianjourde.github.io/Frontend-Mentor-14-Time-tracking-dashboard/"><i class="fas fa-globe"></i>Site</a>
                             <a target="_blank" class="button-secondary button-white button-small" href="https://github.com/FlorianJourde/Frontend-Mentor-14-Time-tracking-dashboard"><i class="fab fa-github"></i>Dépot</a>
+                        </div>
+                    </div>
+                </li> #}
+                <li class="fade-in-up">
+                    <img loading="lazy" src="/ressources/images/thumbnails/calculator.jpg" alt="">
+                    <a href="https://www.frontendmentor.io/solutions/calculator-app-with-react-and-tailwind-css-myzrAf2pRF" target="_blank" class="reference">Frontend Mentor</a>
+                    <span class="reference annotations">React • Tailwind • TS</span>
+                    <div class="description">
+                        <h3>Calculator</h3>
+                        <div class="links">
+                            <a target="_blank" class="button-secondary button-white button-small" href="https://florianjourde.github.io/Frontend-Mentor-21-Calculator-app/"><i class="fas fa-globe"></i>Site</a>
+                            <a target="_blank" class="button-secondary button-white button-small" href="https://github.com/FlorianJourde/Frontend-Mentor-21-Calculator-app"><i class="fab fa-github"></i>Dépot</a>
                         </div>
                     </div>
                 </li>
@@ -246,18 +288,6 @@
                         </div>
                     </div>
                 </li> #}
-                <li class="fade-in-up">
-                    <img loading="lazy" src="/ressources/images/thumbnails/calculator.jpg" alt="">
-                    <a href="https://www.frontendmentor.io/solutions/calculator-app-with-react-and-tailwind-css-myzrAf2pRF" target="_blank" class="reference">Frontend Mentor</a>
-                    <span class="reference annotations">React • Tailwind • TS</span>
-                    <div class="description">
-                        <h3>Calculator</h3>
-                        <div class="links">
-                            <a target="_blank" class="button-secondary button-white button-small" href="https://florianjourde.github.io/Frontend-Mentor-21-Calculator-app/"><i class="fas fa-globe"></i>Site</a>
-                            <a target="_blank" class="button-secondary button-white button-small" href="https://github.com/FlorianJourde/Frontend-Mentor-21-Calculator-app"><i class="fab fa-github"></i>Dépot</a>
-                        </div>
-                    </div>
-                </li>
             </ul>
         </div>
     </section>
@@ -284,11 +314,13 @@
                 <li class="fade-in-up"><img loading="lazy" src="/ressources/images/logos/wordpress-logo.png" alt=""><h3 style="color: var(--clr-text-black);">WordPress</h3></li>
                 <li class="fade-in-up"><img loading="lazy" src="/ressources/images/logos/git-logo.png" alt=""><h3 style="color: var(--clr-text-orange);">Git</h3></li>
                 <li class="fade-in-up"><img loading="lazy" src="/ressources/images/logos/node-js-logo.png" alt=""><h3 style="color: var(--clr-text-green);">Node.js</h3></li>
+                 <li class="fade-in-up"><img loading="lazy" src="/ressources/images/logos/kotlin-logo.png" alt=""><h3 style="color: var(--clr-text-dark-grey);">Kotlin</h3></li> 
                 <li class="fade-in-up"><img loading="lazy" src="/ressources/images/logos/photoshop-logo.png" alt=""><h3 style="color: var(--clr-text-dark-blue);">Photoshop</h3></li>
-                <li class="fade-in-up"><img loading="lazy" src="/ressources/images/logos/indesign-logo.png" alt=""><h3 style="color: var(--clr-text-pink);">InDesign</h3></li>
+                {#<li class="fade-in-up"><img loading="lazy" src="/ressources/images/logos/indesign-logo.png" alt=""><h3 style="color: var(--clr-text-pink);">InDesign</h3></li>#}
                 <li class="fade-in-up"><img loading="lazy" src="/ressources/images/logos/tailwindcss-logo.png" alt=""><h3 style="color: var(--clr-text-black);">tailwindcss</h3></li>
                 <li class="fade-in-up"><img loading="lazy" src="/ressources/images/logos/next-js-logo.png" alt=""><h3 style="color: var(--clr-text-black);">Next.js</h3></li>
-                <li class="fade-in-up"><img loading="lazy" src="/ressources/images/logos/vite-logo.png" alt=""><h3 style="color: var(--clr-text-pink);">Vite</h3></li>
+                {#<li class="fade-in-up"><img loading="lazy" src="/ressources/images/logos/vite-logo.png" alt=""><h3 style="color: var(--clr-text-pink);">Vite</h3></li>#}
+                <li class="fade-in-up"><img loading="lazy" src="/ressources/images/logos/java-logo.png" alt=""><h3 style="color: var(--clr-text-orange);">Java</h3></li>
                 {# <li class="fade-in-up"><img loading="lazy" src="/ressources/images/logos/python-logo.png" alt=""><h3 style="color: var(--clr-text-grey);">Python</h3></li> #}
                 {#<li class="fade-in-up"><img loading="lazy" src="/ressources/images/logos/framer-motion-logo.png" alt=""><h3 style="color: var(--clr-text-blue);">Framer Motion</h3></li>#}
                 <li class="fade-in-up"><img loading="lazy" src="/ressources/images/logos/motion-logo.png" alt=""><h3 style="color: var(--clr-text-yellow);">Motion</h3></li>

@@ -16,6 +16,7 @@
 
 .button-primary, .button-secondary {
   border-radius: 10px;
+  /*border-radius: 20px;*/
   padding: 8px 16px;
   border: 3px solid var(--clr-background-very-dark-grey);
   color: var(--clr-text-white);

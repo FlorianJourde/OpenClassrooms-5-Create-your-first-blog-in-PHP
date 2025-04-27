@@ -21,6 +21,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Onest:wght@100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"/>
     <script src="https://kit.fontawesome.com/3297382b62.js" crossorigin="anonymous"></script>
     <title>{% block title %}Portfolio{% endblock %} | Florian Jourde</title>
@@ -64,7 +66,8 @@
         {% endif %}
     </div>
     
-    <img class="noise-texture" src="/ressources/images/background/noise-texture.jpg" alt="">
+    {#<img class="noise-texture" src="/ressources/images/background/noise-texture.jpg" alt="">#}
+    <div class="noise-texture"></div>
 
     <script type="module">
       import Swiper from 'https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.mjs'
@@ -73,7 +76,7 @@
         direction: 'horizontal',
         loop: true,
         slidesPerView:'auto',
-        speed: 1000,
+        // speed: 1000,
         centeredSlides: true,
         autoplay: {
           enabled: true,
@@ -88,7 +91,7 @@
       
       const swiperTestimonials = new Swiper('.swiper-testimonials', {
         loop: true,
-        speed: 1000,
+        // speed: 1000,
         centeredSlides: true,
         slidesPerView: 1,
         spaceBetween: 20,
@@ -103,9 +106,9 @@
           disableOnInteraction: false,
           pauseOnMouseEnter: true,
         },
-        // navigation: {
-        //   nextEl: '.swiper-button-next.testimonials-navigation',
-        // },
+        navigation: {
+          nextEl: '.swiper-button-next.testimonials-navigation',
+        },
       });
       
     </script>

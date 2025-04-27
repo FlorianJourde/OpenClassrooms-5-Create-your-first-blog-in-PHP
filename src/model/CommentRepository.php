@@ -16,6 +16,7 @@ class CommentRepository
         $comment->postId = $row['post_id'];
         $comment->comment = $row['content'];
         $comment->creationDate = $row['creation_date'];
+        $comment->creationTime = $row['creation_time'];
         $comment->status = $row['status'];
 
         return $comment;
@@ -24,7 +25,7 @@ class CommentRepository
     public function getComments(string $post): array
     {
         $statement = $this->connection->getConnection()->prepare(
-            "SELECT id, user_id, content, status, DATE_FORMAT(creation_date, '%d/%m/%Y à %H:%i') AS creation_date, post_id FROM comments WHERE post_id = ? ORDER BY creation_date DESC"
+            "SELECT id, user_id, content, status, DATE_FORMAT(creation_date, '%d/%m/%Y') AS creation_date, DATE_FORMAT(creation_date, '%H:%i') AS creation_time, post_id FROM comments WHERE post_id = ? ORDER BY creation_date DESC"
         );
 
         $statement->execute([$post]);
@@ -41,7 +42,7 @@ class CommentRepository
     public function getHiddenComments(): array
     {
         $statement = $this->connection->getConnection()->prepare(
-            "SELECT id, user_id, post_id, content, status, DATE_FORMAT(creation_date, '%d/%m/%Y à %H:%i') AS creation_date FROM comments WHERE status = 0 ORDER BY creation_date DESC"
+            "SELECT id, user_id, post_id, content, status, DATE_FORMAT(creation_date, '%d/%m/%Y') AS creation_date, DATE_FORMAT(creation_date, '%H:%i') AS creation_time FROM comments WHERE status = 0 ORDER BY creation_date DESC"
         );
 
         $statement->execute();
@@ -58,7 +59,7 @@ class CommentRepository
     public function getHiddenCommentsFromId(int $identifier): array
     {
         $statement = $this->connection->getConnection()->prepare(
-            "SELECT id, user_id, post_id, content, status, DATE_FORMAT(creation_date, '%d/%m/%Y à %H:%i') AS creation_date FROM comments WHERE status = 0 AND post_id = ? ORDER BY creation_date DESC"
+            "SELECT id, user_id, post_id, content, status, DATE_FORMAT(creation_date, '%d/%m/%Y') AS creation_date, DATE_FORMAT(creation_date, '%H:%i') AS creation_time FROM comments WHERE status = 0 AND post_id = ? ORDER BY creation_date DESC"
         );
 
         $statement->execute([$identifier]);
@@ -77,7 +78,7 @@ class CommentRepository
         if (!is_int($identifier)) { return null; }
 
         $statement = $this->connection->getConnection()->prepare(
-            "SELECT id, user_id, content, status, DATE_FORMAT(creation_date, '%d/%m/%Y à %H:%i') AS creation_date, post_id FROM comments WHERE id = ?"
+            "SELECT id, user_id, content, status, DATE_FORMAT(creation_date, '%d/%m/%Y') AS creation_date, DATE_FORMAT(creation_date, '%H:%i') AS creation_time, post_id FROM comments WHERE id = ?"
         );
 
         $statement->execute([$identifier]);

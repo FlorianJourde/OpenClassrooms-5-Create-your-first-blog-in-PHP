@@ -9,6 +9,7 @@ class Post
     public string $title;
     public string $content;
     public string $creationDate;
+    public string $creationTime;
     public string $updateDate;
     public string $username;
     public ?string $image;

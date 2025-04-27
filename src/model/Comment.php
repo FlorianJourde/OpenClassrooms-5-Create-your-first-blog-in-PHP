@@ -10,4 +10,5 @@ class Comment
     public string $comment;
     public bool $status;
     public string $creationDate;
+    public string $creationTime;
 }

@@ -1,0 +1,8 @@
+User-agent: *
+Disallow: /chalets_et_caviar/
+Disallow: /les_films_de_plein_air/
+Disallow: /snowtricks/
+
+#Sitemap
+
+Sitemap: https://florianjourde.com/sitemap.xml

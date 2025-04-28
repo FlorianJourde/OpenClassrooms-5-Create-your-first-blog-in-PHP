@@ -55,4 +55,4 @@ jobs:
             find public/ressources/images/posts -type f -exec chmod 664 {} \;
             find . -type d -exec chmod 755 {} \;
             find . -type f -exec chmod 644 {} \;
-            chmod -R 775 tmp var public/ressources/images/posts
+            chmod -R 775 tmp cache public/ressources/images/posts

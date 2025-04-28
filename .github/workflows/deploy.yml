@@ -51,4 +51,4 @@ jobs:
             cd ${{ secrets.REMOTE_TARGET }}
             mkdir -p tmp/cache
             chmod -R 775 tmp
-            find ${{ secrets.REMOTE_TARGET }}/public/ressources/images/uploads -type d -exec chmod 775 {} \;
+            find ${{ secrets.REMOTE_TARGET }}/public/ressources/images/posts -type d -exec chmod 775 {} \;

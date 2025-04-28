@@ -38,7 +38,7 @@ jobs:
           REMOTE_USER: ${{ secrets.REMOTE_USER }}
           REMOTE_PORT: ${{ secrets.REMOTE_PORT }}
           TARGET: ${{ secrets.REMOTE_TARGET }}
-          EXCLUDE: "/.git/, /.github/, /tests/, public/ressources/images/posts, .env.local"
+          EXCLUDE: "/.git/, /.github/, /tests/, public/ressources/images/posts, snowtricks, todo_and_co, chalets_et_caviar, .env.local"
 
       - name: Post-deploy setup
         uses: appleboy/ssh-action@master

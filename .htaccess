@@ -1,0 +1,32 @@
+# Activer le moteur de réécriture
+RewriteEngine On
+RewriteBase /
+
+# Ne pas appliquer les règles aux fichiers et répertoires existants
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+# URLs spécifiques - AVANT la règle de redirection vers /public/
+RewriteRule ^contact$ /public/index.php?action=Contact [L,QSA]
+RewriteRule ^erreur$ /public/index.php?action=Error [L,QSA]
+RewriteRule ^articles$ /public/index.php?action=Archive [L,QSA]
+RewriteRule ^ajout-article$ /public/index.php?action=AddPost [L,QSA]
+RewriteRule ^inscription$ /public/index.php?action=Register [L,QSA]
+RewriteRule ^connexion$ /public/index.php?action=Login [L,QSA]
+RewriteRule ^deconnexion$ /public/index.php?action=Logout [L,QSA]
+RewriteRule ^gestion-commentaires$ /public/index.php?action=ManageComments [L,QSA]
+RewriteRule ^article/([0-9]+)$ /public/index.php?action=Post&id=$1 [L,QSA]
+RewriteRule ^article/modification/([0-9]+)$ /public/index.php?action=UpdatePost&id=$1 [L,QSA]
+RewriteRule ^article/suppression/([0-9]+)$ /public/index.php?action=DeletePost&id=$1 [L,QSA]
+RewriteRule ^article/ajout-commentaire/([0-9]+)$ /public/index.php?action=AddComment&id=$1 [L,QSA]
+RewriteRule ^commentaire/suppression/([0-9]+)$ /public/index.php?action=DeleteComment&id=$1 [L,QSA]
+RewriteRule ^commentaire/modification/([0-9]+)$ /public/index.php?action=UpdateComment&id=$1 [L,QSA]
+RewriteRule ^commentaire/validation/([0-9]+)$ /public/index.php?action=ShowComment&id=$1 [L,QSA]
+RewriteRule ^commentaire/annulation/([0-9]+)$ /public/index.php?action=HideComment&id=$1 [L,QSA]
+
+# Redirection par défaut à public/index.php en dernier recours
+RewriteRule ^$ /public/index.php [L]
+
+# Redirection des autres requêtes vers /public/ 
+RewriteCond %{REQUEST_URI} !^/public/
+RewriteRule ^(.*)$ /public/$1 [L]

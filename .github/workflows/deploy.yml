@@ -51,5 +51,8 @@ jobs:
             cd ${{ secrets.REMOTE_TARGET }}
             mkdir -p tmp/cache
             chmod -R 775 tmp
-            echo "UPLOADS : ${{ secrets.REMOTE_TARGET }}public/ressources/images/posts"
             find public/ressources/images/posts -type d -exec chmod 775 {} \;
+            find public/ressources/images/posts -type f -exec chmod 664 {} \;
+            find . -type d -exec chmod 755 {} \;
+            find . -type f -exec chmod 644 {} \;
+            chmod -R 775 tmp var public/ressources/images/posts

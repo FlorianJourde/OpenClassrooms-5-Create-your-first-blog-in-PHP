@@ -4,6 +4,7 @@ namespace Application\Controllers;
 
 require_once '../src/lib/CheckUserRole.php';
 require_once '../src/lib/DatabaseConnection.php';
+require_once '../src/lib/DotEnv.php';
 require_once '../src/lib/ManageSession.php';
 require_once '../src/lib/Vue.php';
 require_once '../src/model/Post.php';

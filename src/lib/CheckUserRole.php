@@ -6,7 +6,6 @@ use Application\Model\UserRepository;
 
 class CheckUserRole
 {
-    // Return user's administration right
     public function isAdmin($user_role): bool
     {
         if ($user_role === 'Admin') {
@@ -16,7 +15,6 @@ class CheckUserRole
         }
     }
 
-    // Check current user informations
     public function isCurrentUser(int $userId, int $current_user_id): bool
     {
         if ($userId === $current_user_id) {
@@ -26,7 +24,6 @@ class CheckUserRole
         }
     }
 
-    // Check if user is authenticated with token method
     public function isAuthenticated(string $token): bool
     {
         $userRepository = new UserRepository();

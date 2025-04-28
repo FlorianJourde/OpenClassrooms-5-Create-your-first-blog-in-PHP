@@ -52,4 +52,4 @@ jobs:
             mkdir -p tmp/cache
             chmod -R 775 tmp
             echo "UPLOADS : ${{ secrets.REMOTE_TARGET }}public/ressources/images/posts"
-            find ${{ secrets.REMOTE_TARGET }}public/ressources/images/posts -type d -exec chmod 775 {} \;
+            find public/ressources/images/posts -type d -exec chmod 775 {} \;

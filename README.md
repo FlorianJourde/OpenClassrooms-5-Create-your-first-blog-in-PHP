@@ -7,7 +7,7 @@
 
 ![OpenClassrooms banneer](public/ressources/images/readme-header.jpg)
 
-[![Codacy Badge](https://img.shields.io/badge/Codacy-D-yellow?style=flat-square&logo=codacy&logoColor=white/)](https://app.codacy.com/gh/FlorianJourde/OpenClassrooms-5-Create-your-first-blog-in-PHP/dashboard) [![PHP Badge](https://img.shields.io/badge/PHP-7.4-7a86b8?style=flat-square&logo=php&logoColor=white/)](https://www.php.net/) [![Twig Badge](https://img.shields.io/badge/Twig-2.0-bacf29?style=flat-square&logo=symfony&logoColor=white/)](https://twig.symfony.com/) [![Composer Badge](https://img.shields.io/badge/Composer-2.4.1-6c3e22?style=flat-square&logo=composer&logoColor=white/)](https://getcomposer.org/)
+[![Codacy Badge](https://img.shields.io/badge/Codacy-D-yellow?style=flat-square&logo=codacy&logoColor=white/)](https://app.codacy.com/gh/FlorianJourde/OpenClassrooms-5-Create-your-first-blog-in-PHP/dashboard) [![PHP Badge](https://img.shields.io/badge/PHP-8.2-7a86b8?style=flat-square&logo=php&logoColor=white/)](https://www.php.net/) [![Twig Badge](https://img.shields.io/badge/Twig-2.0-bacf29?style=flat-square&logo=symfony&logoColor=white/)](https://twig.symfony.com/) [![Composer Badge](https://img.shields.io/badge/Composer-2.8.9-6c3e22?style=flat-square&logo=composer&logoColor=white/)](https://getcomposer.org/)
 
 ### À propos
 
